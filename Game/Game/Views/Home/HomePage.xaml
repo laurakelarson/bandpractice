@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.HomePage">
+
+    <ContentPage.Content>
+        <ScrollView
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand">
+            
+            <StackLayout
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+
+                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                    <Image
+                         Source="knight.png"
+                         Style="{StaticResource ImageLargeStyle}"/>
+
+                    <Image
+                         Source="troll.png"
+                         Style="{StaticResource ImageLargeStyle}"/>
+                
+                </StackLayout>
+                
+                <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
+               
+                    <Label 
+                        Text="In a far away land there was a tribe of warrior elves."
+                        Style="{StaticResource CenterMessageStyle}"
+                        FontSize="Micro"
+                        LineBreakMode="WordWrap"
+                        />
+
+                    <Label 
+                        Text="The elves entered the woods to eraticate the monsters that threatened their villages."
+                        Style="{StaticResource CenterMessageStyle}"
+                        FontSize="Micro"
+                        LineBreakMode="WordWrap"
+                        />
+                </StackLayout>
+
+                <Button
+                    Text="Enter"
+                    Clicked="GameButton_Clicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
