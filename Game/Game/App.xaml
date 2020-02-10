@@ -14,28 +14,30 @@
 
             <!--
                 Light
-                    #BF895A
-                    #D9C6B0
-                    #733612
-                    #8C3D20
-                    #400D01
+                    #F7FFE1 lightest green
+                    #CBE56B light green
+                    #EEC256 light orange
+                    #0F084B blue
+                    #0F0228 dark blue
+                    #09011B darkest blue
                 Dark
                 -->
 
-            <Color x:Key="PageBackgroundColor">#D9C6B0</Color>
-            <Color x:Key="ViewBackgroundColor">#BF895A</Color>
-            <Color x:Key="NavigationBarColor">#D9C6B0</Color>
+            <Color x:Key="PageBackgroundColor">#09011B</Color>
+            <Color x:Key="ViewBackgroundColor">#0F0228</Color>
+            <Color x:Key="NavigationBarColor">#0F084B</Color>
 
-            <Color x:Key="PrimaryBackgroundColor">#D9C6B0</Color>
-            <Color x:Key="SecondaryBackgroundColor">#BF895A</Color>
-            <Color x:Key="TriciaryBackgroundColor">#733612</Color>
-            <Color x:Key="LightBackgroundColor">Bisque</Color>
+            <Color x:Key="PrimaryBackgroundColor">#09011B</Color>
+            <Color x:Key="SecondaryBackgroundColor">#0F0228</Color>
+            <Color x:Key="TriciaryBackgroundColor">#0F084B</Color>
+            <Color x:Key="LightBackgroundColor">#F7FFE1</Color>
 
-            <Color x:Key="PrimaryTextColor">#400D01</Color>
-            <Color x:Key="SecondaryTextColor">#8C3D20</Color>
-            <Color x:Key="TriciaryTextColor">#733612</Color>
+            <Color x:Key="PrimaryTextColor">#F7FFE1</Color>
+            <Color x:Key="SecondaryTextColor">#CBE56B</Color>
+            <Color x:Key="TriciaryTextColor">#EEC256</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
+
 
             <!-- Pages -->
             <Style TargetType="NavigationPage">
