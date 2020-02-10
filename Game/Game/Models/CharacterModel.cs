@@ -62,6 +62,56 @@ namespace Game.Models
         // (only one finger on the left hand may equip an item)
         public ItemModel LeftFingerItem { get; set; }
 
+        /// <summary>
+        ///  Default constructor for the character
+        /// </summary>
+        public CharacterModel()
+        {
+            //TODO add default image
 
+        }
+
+        /// <summary>
+        /// Copy constructor - creates a new character model based on the input
+        /// </summary>
+        /// <param name="data">character to copy</param>
+        public CharacterModel(CharacterModel data)
+        {
+            Update(data);
+        }
+
+        /// <summary>
+        /// Update the Record
+        /// </summary>
+        /// <param name="newData">The new data</param>
+        public void Update(CharacterModel newData)
+        {
+            if (newData == null)
+            {
+                return;
+            }
+
+            // Update all the fields in the Data, except for the Id and guid
+            Name = newData.Name;
+            Description = newData.Description;
+            ImageURI = newData.ImageURI;
+            Type = newData.Type;
+            Unlocked = newData.Unlocked;
+            Alive = newData.Alive;
+            Level = newData.Level;
+            TotalExperience = newData.TotalExperience;
+            Speed = newData.Speed;
+            Defense = newData.Defense;
+            Attack = newData.Attack;
+            CurrentHealth = newData.CurrentHealth;
+            MaxHealth = newData.MaxHealth;
+            HeadItem = newData.HeadItem;
+            BodyItem = newData.BodyItem;
+            FeetItem = newData.FeetItem;
+            PrimaryHandItem = newData.PrimaryHandItem;
+            OffHandItem = newData.OffHandItem;
+            RightFingerItem = newData.RightFingerItem;
+            LeftFingerItem = newData.LeftFingerItem;
+        }
     }
 }
