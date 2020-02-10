@@ -118,14 +118,14 @@ namespace Game.ViewModels
             return myList;
         }
 
-        ///// <summary>
-        ///// Load the Default Data
-        ///// </summary>
-        ///// <returns></returns>
-        //public override List<CharacterModel> GetDefaultData()
-        //{
-        //    return DefaultData.LoadData(new CharacterModel());
-        //}
+        /// <summary>
+        /// Load the Default Data
+        /// </summary>
+        /// <returns></returns>
+        public override List<CharacterModel> GetDefaultData()
+        {
+            return DefaultData.LoadData(new CharacterModel());
+        }
 
         #endregion DataOperations_CRUDi
 
