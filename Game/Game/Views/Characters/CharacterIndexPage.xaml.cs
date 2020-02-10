@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Game.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,38 +12,24 @@ namespace Game.Views.Characters
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterIndexPage : ContentPage
     {
-        //public ObservableCollection<string> Items { get; set; }
+        // The view model, used for data binding
+        readonly CharacterIndexViewModel ViewModel;
 
+        /// <summary>
+        /// Constructor for Index Page
+        /// 
+        /// Get the CharacterIndexView Model
+        /// </summary>
         public CharacterIndexPage()
         {
             InitializeComponent();
 
-            //Items = new ObservableCollection<string>
-            //{
-            //    "Item 1",
-            //    "Item 2",
-            //    "Item 3",
-            //    "Item 4",
-            //    "Item 5"
-            //};
-
-            //MyListView.ItemsSource = Items;
+            BindingContext = ViewModel = CharacterIndexViewModel.Instance;
         }
-
-        //async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        //{
-        //    if (e.Item == null)
-        //        return;
-
-        //    await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-        //    //Deselect Item
-        //    ((ListView)sender).SelectedItem = null;
-        //}
 
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
-
+            //TODO hook up Create
         }
     }
 }
