@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Game.Models;
 using Game.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,9 +28,35 @@ namespace Game.Views.Characters
             BindingContext = ViewModel = CharacterIndexViewModel.Instance;
         }
 
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            CharacterModel data = args.SelectedItem as CharacterModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Open the Read Page
+            //await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
+
+            // Manually deselect item.
+            ItemsListView.SelectedItem = null;
+        }
+
+        /// <summary>
+        /// Call to Add a new record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
-            //TODO hook up Create
+            // await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
+
         }
 
         /// <summary>
