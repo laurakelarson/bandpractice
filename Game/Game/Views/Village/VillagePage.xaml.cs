@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Views.Characters;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -35,7 +36,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void CharactersButton_Clicked(object sender, EventArgs e)
 		{
-			await DisplayAlert("SU", "Go RedHawks", "OK");
+			await Navigation.PushAsync(new CharacterIndexPage());
 		}
 
 		/// <summary>
