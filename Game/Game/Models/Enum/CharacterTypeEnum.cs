@@ -5,6 +5,11 @@
     /// </summary>
     public enum CharacterTypeEnum
     {
-        
+        TambourinePlayer,
+        Bassist,
+        Keyboardist,
+        Drummer,
+        Guitarist,
+        LeadVocalist
     }
 }
