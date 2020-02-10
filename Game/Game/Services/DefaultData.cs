@@ -64,5 +64,80 @@ namespace Game.Services
 
             return datalist;
         }
+
+        /// <summary>
+        /// Load the default Character data
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static List<CharacterModel> LoadData(CharacterModel temp)
+        {
+            var datalist = new List<CharacterModel>()
+            {
+                new CharacterModel
+                {
+                    Name = "Tambourine Player",
+                    Type = CharacterTypeEnum.TambourinePlayer,
+                    Level = 1,
+                    TotalExperience = 0,
+                    Attack = 1,
+                    Defense = 1,
+                    Speed = 1
+                },
+                new CharacterModel
+                {
+                    Name = "Bassist",
+                    Type = CharacterTypeEnum.Bassist,
+                    Level = 2,
+                    TotalExperience = 300,
+                    Attack = 1,
+                    Defense = 1,
+                    Speed = 1
+                },
+                new CharacterModel
+                {
+                    Name = "Keyboardist",
+                    Type = CharacterTypeEnum.Keyboardist,
+                    Level = 5,
+                    TotalExperience = 6500,
+                    Attack = 2,
+                    Defense = 4,
+                    Speed = 2
+                },
+                new CharacterModel
+                {
+                    Name = "Drummer",
+                    Type = CharacterTypeEnum.Drummer,
+                    Level = 8,
+                    TotalExperience = 34000,
+                    Attack = 3,
+                    Defense = 5,
+                    Speed = 2
+                },
+                new CharacterModel
+                {
+                    Name = "Guitarist",
+                    Type = CharacterTypeEnum.Guitarist,
+                    Level = 12,
+                    TotalExperience = 100000,
+                    Attack = 4,
+                    Defense = 6,
+                    Speed = 3
+                },
+                new CharacterModel
+                {
+                    Name = "Lead Vocalist",
+                    Type = CharacterTypeEnum.LeadVocalist,
+                    Level = 16,
+                    TotalExperience = 195000,
+                    Attack = 5,
+                    Defense = 8,
+                    Speed = 4
+                }
+            };
+
+            return datalist;
+
+        }
     }
 }
