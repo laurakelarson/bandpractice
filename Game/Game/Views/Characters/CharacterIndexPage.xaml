@@ -4,8 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Characters.CharacterIndexPage">
-  <ListView x:Name="MyListView"
+             x:Class="Game.Views.Characters.CharacterIndexPage"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="icon_add.png"/>
+    </ContentPage.ToolbarItems>    
+    
+  <!--<ListView x:Name="MyListView"
             ItemsSource="{Binding Items}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
@@ -18,14 +24,14 @@
             <x:String>Item 5</x:String>
         </x:Array>
     </d:ListView.ItemsSource>
-    <!--Built in Cells-->
+    --><!--Built in Cells--><!--
     <ListView.ItemTemplate>
         <DataTemplate>
             <TextCell Text="{Binding .}" d:Text="{Binding .}" />
         </DataTemplate>
     </ListView.ItemTemplate>
     
-    <!--Custom View Cells-->
+    --><!--Custom View Cells-->
     <!--
     <ListView.ItemTemplate>
       <DataTemplate>
@@ -41,6 +47,6 @@
         </ViewCell>
       </DataTemplate>
     </ListView.ItemTemplate>
-    -->
-  </ListView>
+    --><!--
+  </ListView>-->
 </ContentPage>
