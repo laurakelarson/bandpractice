@@ -113,5 +113,36 @@ namespace Game.Models
             RightFingerItem = newData.RightFingerItem;
             LeftFingerItem = newData.LeftFingerItem;
         }
+
+        /// <summary>
+        /// Helper to combine the attributes into a single line, to make it easier to display the character as a string
+        /// </summary>
+        /// <returns>string representing the character</returns>
+        public string FormatOutput()
+        {
+            var myReturn = Name + " , " +
+                            Description + ", " +
+                            "Type: " + Type + ", " +
+                            "Unlocked: " + Unlocked + ", " +
+                            "Alive: " + Alive + ", " +
+                            "Level: " + Level + ", " +
+                            "Experience: " + TotalExperience + ", " +
+                            "Speed: " + Speed + ", " +
+                            "Defense: " + Defense + ", " +
+                            "Attack: " + Attack + ", " +
+                            "Current Health: " + CurrentHealth + ", " +
+                            "Max Health: " + MaxHealth + ", " +
+
+                            // equipped items
+                            "Head: " + HeadItem + ", " +
+                            "Body: " + BodyItem + ", " +
+                            "Feet: " + FeetItem + ", " +
+                            "Primary Hand: " + PrimaryHandItem + ", " +
+                            "Off Hand: " + OffHandItem + ", " +
+                            "Right Finger: " + RightFingerItem + ", " +
+                            "Left Finger: " + LeftFingerItem;
+
+            return myReturn.Trim();
+        }
     }
 }
