@@ -7,7 +7,7 @@ namespace Game.Models
     /// <summary>
     /// Character for the Game
     /// </summary>
-    class CharacterModel : BaseModel<ItemModel>
+    class CharacterModel : BaseModel<CharacterModel>
     {
         // The type of the character
         public CharacterTypeEnum Type { get; set; }
@@ -84,7 +84,7 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public void Update(CharacterModel newData)
+        public override void Update(CharacterModel newData)
         {
             if (newData == null)
             {
