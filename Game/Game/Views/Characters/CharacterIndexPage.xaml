@@ -54,10 +54,12 @@
 
                                     <Label 
                                        Text="Type:" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro" />
 
                                     <Label Text="{Binding Type}" 
-                                        Style="{StaticResource ListStyle}"/>
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro" />
 
                                 </StackLayout>
 
@@ -66,10 +68,12 @@
 
                                     <Label 
                                        Text="Level:" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro" />
 
                                     <Label Text="{Binding Level}" 
-                                        Style="{StaticResource ListStyle}"/>
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro" />
 
                                 </StackLayout>
 
