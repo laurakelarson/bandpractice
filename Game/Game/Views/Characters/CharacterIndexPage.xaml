@@ -28,30 +28,52 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout
-                            Orientation="Horizontal" >
-                                <Image Source="{Binding ImageURI}" 
-                                   Style="{StaticResource ImageSmallStyle}"
-                                   VerticalOptions="CenterAndExpand"
-                                   />
 
-                                <StackLayout
-                                Orientation="Vertical">
+                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding Name}" />
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Style="{StaticResource ImageSmallStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Type: " />
-                                        <Label Text="{Binding Type}" />
-                                    </StackLayout>
+                                <Label Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Level: " />
-                                        <Label Text="{Binding Level}" />
-                                    </StackLayout>
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                    Orientation="Horizontal">
+
+                                    <Label 
+                                       Text="Type:" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                    <Label Text="{Binding Type}" 
+                                        Style="{StaticResource ListStyle}"/>
 
                                 </StackLayout>
-                            </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="2"
+                                    Orientation="Horizontal">
+
+                                    <Label 
+                                       Text="Level:" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                    <Label Text="{Binding Level}" 
+                                        Style="{StaticResource ListStyle}"/>
+
+                                </StackLayout>
+
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
