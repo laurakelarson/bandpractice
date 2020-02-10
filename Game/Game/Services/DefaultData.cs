@@ -78,6 +78,7 @@ namespace Game.Services
                 {
                     Name = "Tambourine Player",
                     Type = CharacterTypeEnum.TambourinePlayer,
+                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Level = 1,
                     TotalExperience = 0,
                     Attack = 1,
@@ -88,6 +89,7 @@ namespace Game.Services
                 {
                     Name = "Bassist",
                     Type = CharacterTypeEnum.Bassist,
+                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Level = 2,
                     TotalExperience = 300,
                     Attack = 1,
@@ -98,6 +100,7 @@ namespace Game.Services
                 {
                     Name = "Keyboardist",
                     Type = CharacterTypeEnum.Keyboardist,
+                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Level = 5,
                     TotalExperience = 6500,
                     Attack = 2,
@@ -108,6 +111,7 @@ namespace Game.Services
                 {
                     Name = "Drummer",
                     Type = CharacterTypeEnum.Drummer,
+                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Level = 8,
                     TotalExperience = 34000,
                     Attack = 3,
@@ -118,6 +122,7 @@ namespace Game.Services
                 {
                     Name = "Guitarist",
                     Type = CharacterTypeEnum.Guitarist,
+                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Level = 12,
                     TotalExperience = 100000,
                     Attack = 4,
@@ -128,6 +133,7 @@ namespace Game.Services
                 {
                     Name = "Lead Vocalist",
                     Type = CharacterTypeEnum.LeadVocalist,
+                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
                     Level = 16,
                     TotalExperience = 195000,
                     Attack = 5,
