@@ -89,6 +89,12 @@ namespace Game.Models
         {
             switch (type)
             {
+                case CharacterTypeEnum.Bassist:
+                    DefaultBassist();
+                    break;
+                case CharacterTypeEnum.Keyboardist:
+                    DefaultKeyboardist();
+                    break;
                 default:
                     DefaultTambourine();
                     break;
@@ -175,6 +181,40 @@ namespace Game.Models
             Defense = 1;
             Speed = 1;
             MaxHealth = CurrentHealth = 20;
+        }
+
+        /// <summary>
+        /// Default base stats for Bassist
+        /// </summary>
+        private void DefaultBassist()
+        {
+            Name = "Bassist";
+            Type = CharacterTypeEnum.Bassist;
+            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+            Level = 2;
+            Alive = true;
+            TotalExperience = 300;
+            Attack = 1;
+            Defense = 1;
+            Speed = 1;
+            MaxHealth = CurrentHealth = 30;
+        }
+
+        /// <summary>
+        /// Default base stats for Keyboardist
+        /// </summary>
+        private void DefaultKeyboardist()
+        {
+            Name = "Keyboardist";
+            Type = CharacterTypeEnum.Keyboardist;
+            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+            Level = 5;
+            Alive = true;
+            TotalExperience = 6500;
+            Attack = 2;
+            Defense = 4;
+            Speed = 2;
+            MaxHealth = CurrentHealth = 50;
         }
     }
 }
