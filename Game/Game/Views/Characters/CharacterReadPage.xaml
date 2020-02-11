@@ -76,6 +76,11 @@
                 <Label Text="{Binding Data.HeadItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Body" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.BodyItem}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
         </StackLayout>
         
     </ContentPage.Content>
