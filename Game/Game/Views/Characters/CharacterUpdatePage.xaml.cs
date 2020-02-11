@@ -12,18 +12,19 @@ using Xamarin.Forms.Xaml;
 namespace Game.Views.Characters
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterDeletePage : ContentPage
+    public partial class CharacterUpdatePage : ContentPage
     {
-        // View Model for Character
-        readonly GenericViewModel<CharacterModel> viewModel;
 
-        public CharacterDeletePage(GenericViewModel<CharacterModel> data)
+        // View Model for Character
+        readonly GenericViewModel<CharacterModel> ViewModel;
+
+        public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = data;
+            BindingContext = this.ViewModel = data;
 
-            this.viewModel.Title = "Delete " + data.Title;
+            this.ViewModel.Title = "Update " + data.Title;
         }
 
         /// <summary>
@@ -31,9 +32,9 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Delete_Clicked(object sender, EventArgs e)
+        async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Delete", viewModel.Data);
+            MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
 

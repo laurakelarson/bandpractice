@@ -29,5 +29,22 @@ namespace Game.Views.Characters
 
             BindingContext = this.ViewModel = data;
         }
+
+        /// <summary>
+        /// Save calls to Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Update_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
+        }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
+        }
     }
 }
