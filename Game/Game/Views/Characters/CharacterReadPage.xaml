@@ -101,6 +101,11 @@
                 <Label Text="{Binding Data.LeftFingerItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Feed" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.FeetItem}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
         </StackLayout>
         
     </ContentPage.Content>
