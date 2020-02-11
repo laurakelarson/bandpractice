@@ -29,5 +29,11 @@ namespace Game.Views.Characters
 
             BindingContext = this.ViewModel = data;
         }
+
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
+        }
     }
 }
