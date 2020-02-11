@@ -140,9 +140,9 @@
 
             <!-- Button -->
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
-                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
-                <Setter Property="BorderColor" Value="{StaticResource PrimaryTextColor}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource PrimaryBackgroundColor}" />
+                <Setter Property="TextColor" Value="{StaticResource TriciaryTextColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="FontFamily" Value="Pixelmania"/>
