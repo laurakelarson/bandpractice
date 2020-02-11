@@ -182,7 +182,7 @@ namespace Game.Models
         {
             Name = "Tambourine Player";
             Type = CharacterTypeEnum.TambourinePlayer;
-            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+  //          ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
             Alive = true;
             Level = 1;
             TotalExperience = 0;
@@ -199,7 +199,7 @@ namespace Game.Models
         {
             Name = "Bassist";
             Type = CharacterTypeEnum.Bassist;
-            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+  //          ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
             Level = 2;
             Alive = true;
             TotalExperience = 300;
@@ -216,7 +216,7 @@ namespace Game.Models
         {
             Name = "Keyboardist";
             Type = CharacterTypeEnum.Keyboardist;
-            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+   //         ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
             Level = 5;
             Alive = true;
             TotalExperience = 6500;
@@ -233,7 +233,7 @@ namespace Game.Models
         {
             Name = "Drummer";
             Type = CharacterTypeEnum.Drummer;
-            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+  //          ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
             Level = 8;
             Alive = true;
             TotalExperience = 34000;
@@ -250,7 +250,7 @@ namespace Game.Models
         {
             Name = "Guitarist";
             Type = CharacterTypeEnum.Guitarist;
-            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+   //         ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
             Level = 12;
             Alive = true;
             TotalExperience = 100000;
@@ -267,7 +267,7 @@ namespace Game.Models
         {
             Name = "Lead Vocalist";
             Type = CharacterTypeEnum.LeadVocalist;
-            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+  //          ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
             Level = 16;
             Alive = true;
             TotalExperience = 195000;
