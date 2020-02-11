@@ -140,8 +140,9 @@ namespace Game.ViewModels
         public override List<CharacterModel> SortDataset(List<CharacterModel> dataset)
         {
             return dataset
-                    .OrderBy(a => a.Name)
-                    .ThenBy(a => a.Description)
+                    .OrderBy(a => a.Level)
+                    .ThenBy(a => a.Type)
+                    .ThenBy(a => a.Name)
                     .ToList();
         }
 
