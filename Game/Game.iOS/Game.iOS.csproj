@@ -215,4 +215,169 @@
   <ItemGroup>
     <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bp_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_athletic_socks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_bagpipes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_band_hoodie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_band_shirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_banjo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_bunny_slippers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_coffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_comfy_sneakers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_cool_outfit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_didgeridoo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_doorbell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_earmuffs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_earplugs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_energy_drink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_glockenspiel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_headphones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_keytar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_lucky_socks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_metronome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_microphone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_mood_ring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_ocarina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_recorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_ring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_rock_ock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_temporary_tattoo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_theremin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_triangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_tuning_fork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_vuvuzela.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_whoopee_cushion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rock_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_airhorn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_brakez.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_buzz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_chalkboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_chomper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_driller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_feedback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_fran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_gilbert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_jackhammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_kazoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_lloyd_christmas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_motobeast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_nickelback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_potpan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_recorder_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_rubber_chicken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_screaming_babe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_silence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_static.png" />
+  </ItemGroup>
 </Project>
