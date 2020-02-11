@@ -42,7 +42,7 @@ namespace Game.Views.Characters
             }
 
             // Open the Read Page
-            //await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
+            await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
 
             // Manually deselect item.
             CharactersListView.SelectedItem = null;
