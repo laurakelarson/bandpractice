@@ -12,10 +12,39 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout 
+            Orientation="Vertical" 
+            HorizontalOptions="StartAndExpand"
+            >
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                >
+
+                <Image Source="{Binding Data.ImageURI}"
+                    Style="{StaticResource ImageLargeStyle}"
+                    VerticalOptions="CenterAndExpand"/>
+                <StackLayout 
+                        Orientation="Vertical" 
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"
+                        >
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Type:" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.Type}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.Level}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.TotalExperience}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
