@@ -55,7 +55,7 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         async void AddCharacter_Clicked(object sender, EventArgs e)
         {
-            // await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
 
         }
 
