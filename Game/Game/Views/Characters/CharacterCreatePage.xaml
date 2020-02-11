@@ -4,14 +4,20 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.Characters.CharacterCreatePage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
     </ContentPage.ToolbarItems>
-    
-    
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
@@ -21,6 +27,18 @@
 
                 <Entry Text="{Binding Data.Name}" 
                 Style="{StaticResource EntryStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Type" 
+                Style="{StaticResource LabelStyle}"/>
+
+                <Picker
+                 ItemsSource="{x:Static local_helpers:CharacterTypeEnumHelper.GetListCharacterType}" 
+                 SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                 x:Name="CharacterTypePicker"/>
+
+
             </StackLayout>
             
 
