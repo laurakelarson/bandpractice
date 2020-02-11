@@ -49,7 +49,10 @@
 
             <Label Text="Stats" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
 
-            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.MaxHealth}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
 
         </StackLayout>
         
