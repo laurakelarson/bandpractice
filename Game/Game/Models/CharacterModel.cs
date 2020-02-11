@@ -81,6 +81,20 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Constructor that takes in a CharacterTypeEnum to create the default base version of that type
+        /// </summary>
+        /// <param name="type"></param>
+        public CharacterModel(CharacterTypeEnum type)
+        {
+            switch (type)
+            {
+                default:
+                    DefaultTambourine();
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
@@ -143,6 +157,23 @@ namespace Game.Models
                             "Left Finger: " + LeftFingerItem;
 
             return myReturn.Trim();
+        }
+
+        /// <summary>
+        /// Default base stats for Tambourine Player
+        /// </summary>
+        private void DefaultTambourine()
+        {
+            Name = "Tambourine Player";
+            Type = CharacterTypeEnum.TambourinePlayer;
+            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+            Alive = true;
+            Level = 1;
+            TotalExperience = 0;
+            Attack = 1;
+            Defense = 1;
+            Speed = 1;
+            MaxHealth = CurrentHealth = 20;
         }
     }
 }
