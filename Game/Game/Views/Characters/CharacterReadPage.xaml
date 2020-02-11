@@ -7,7 +7,7 @@
              x:Class="Game.Views.Characters.CharacterReadPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update" IconImageSource="icon_edit.png"/>
+        <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked"  IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
