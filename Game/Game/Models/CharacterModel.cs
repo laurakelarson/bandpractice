@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Services;
 
 namespace Game.Models
 {
@@ -67,7 +68,7 @@ namespace Game.Models
         /// </summary>
         public CharacterModel()
         {
-            //TODO add default image
+            ImageURI = CharacterService.DefaultImageURI;
 
         }
 
