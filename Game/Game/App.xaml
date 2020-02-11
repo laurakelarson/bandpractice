@@ -195,6 +195,7 @@
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
                 <Setter Property="PlaceholderColor" Value="{StaticResource TriciaryTextColor}" />
+                <Setter Property="WidthRequest" Value="200"/>
             </Style>
 
             <!-- Editor-->
