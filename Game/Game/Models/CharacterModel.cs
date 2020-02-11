@@ -10,7 +10,7 @@ namespace Game.Models
     public class CharacterModel : BaseModel<CharacterModel>
     {
         // The type of the character
-        public CharacterTypeEnum Type { get; set; }
+        public CharacterTypeEnum Type { get; set; } = CharacterTypeEnum.Default;
 
         // Indicates whether the character is unlocked for the player to use or not
         public bool Unlocked { get; set; } = false;

@@ -30,7 +30,8 @@ namespace Game.Views.Characters
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
-            
+
+            CharacterTypePicker.SelectedItem = data.Data.Type.ToString();
         }
 
         /// <summary>
