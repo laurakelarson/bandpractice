@@ -26,5 +26,16 @@ namespace Game.Views.Characters
 
             this.ViewModel.Title = "Update " + data.Title;
         }
+
+        /// <summary>
+        /// Save calls to Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "Update", ViewModel.Data);
+            await Navigation.PopModalAsync();
+        }
     }
 }
