@@ -25,5 +25,16 @@ namespace Game.Views.Characters
 
             this.viewModel.Title = "Delete " + data.Title;
         }
+
+        /// <summary>
+        /// Save calls to Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Delete_Clicked(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "Delete", viewModel.Data);
+            await Navigation.PopModalAsync();
+        }
     }
 }
