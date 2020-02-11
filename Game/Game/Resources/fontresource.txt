@@ -1,0 +1,12 @@
+<ResourceDictionary>
+    <OnPlatform x:TypeArguments="x:String" x:Key="PixelSplitter">
+        <On Platform="Android" Value="PixelSplitter-Bold.ttf#Pixelsplitter" />
+        <On Platform="UWP" Value="/Assets/PixelSplitter-Bold.ttf#PixelSplitter" />
+        <On Platform="iOS" Value="PixelSplitter-Bold" />
+    </OnPlatform>
+    <OnPlatform x:TypeArguments="x:String" x:Key="Pixelmania">
+        <On Platform="Android" Value="Pixelmania.ttf#Pixelmania" />
+        <On Platform="UWP" Value="/Assets/Pixelmania.ttf#Pixelmania" />
+        <On Platform="iOS" Value="Pixelmania" />
+    </OnPlatform>
+</ResourceDictionary>

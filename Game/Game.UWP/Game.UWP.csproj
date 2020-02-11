@@ -187,6 +187,12 @@
       <Name>Game</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Pixelmania.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PixelSplitter-Bold.ttf" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

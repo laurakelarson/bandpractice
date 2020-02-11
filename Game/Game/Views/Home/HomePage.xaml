@@ -30,6 +30,7 @@
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
+                        FontFamily="{StaticResource Pixelmania}"
                         />
 
                     <Label 
