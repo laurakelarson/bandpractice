@@ -38,40 +38,40 @@
                  SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                  x:Name="CharacterTypePicker"/>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Level}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.TotalExperience}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <Label Text="Stats" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.MaxHealth}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Defense:" Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Attack:" Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Speed:" Style="{StaticResource LabelStyle}"/>
-                    <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
             </StackLayout>
             
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Level}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.TotalExperience}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <Label Text="Stats" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.MaxHealth}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Defense:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Attack:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Speed:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
 
         </StackLayout>
     </ContentPage.Content>
