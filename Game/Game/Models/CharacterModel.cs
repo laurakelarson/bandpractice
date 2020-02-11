@@ -95,6 +95,12 @@ namespace Game.Models
                 case CharacterTypeEnum.Keyboardist:
                     DefaultKeyboardist();
                     break;
+                case CharacterTypeEnum.Drummer:
+                    DefaultDrummer();
+                    break;
+                case CharacterTypeEnum.Guitarist:
+                    DefaultGuitarist();
+                    break;
                 default:
                     DefaultTambourine();
                     break;
@@ -215,6 +221,40 @@ namespace Game.Models
             Defense = 4;
             Speed = 2;
             MaxHealth = CurrentHealth = 50;
+        }
+
+        /// <summary>
+        /// Default base stats for Drummer
+        /// </summary>
+        private void DefaultDrummer()
+        {
+            Name = "Drummer";
+            Type = CharacterTypeEnum.Drummer;
+            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+            Level = 8;
+            Alive = true;
+            TotalExperience = 34000;
+            Attack = 3;
+            Defense = 5;
+            Speed = 2;
+            MaxHealth = CurrentHealth = 80;
+        }
+
+        /// <summary>
+        /// Default base stats for Guitarist
+        /// </summary>
+        private void DefaultGuitarist()
+        {
+            Name = "Guitarist";
+            Type = CharacterTypeEnum.Guitarist;
+            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+            Level = 12;
+            Alive = true;
+            TotalExperience = 100000;
+            Attack = 4;
+            Defense = 6;
+            Speed = 3;
+            MaxHealth = CurrentHealth = 120;
         }
     }
 }
