@@ -59,6 +59,11 @@
                 <Label Text="{Binding Data.Defense}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Attack:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Attack}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
         </StackLayout>
         
     </ContentPage.Content>
