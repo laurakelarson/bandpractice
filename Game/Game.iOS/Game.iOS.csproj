@@ -380,4 +380,46 @@
   <ItemGroup>
     <BundleResource Include="Resources\monster_static.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vocalist_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bassist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bassist_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\default_character.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\default_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drummer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drummer_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guitarist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\guitarist_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\keyboardist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\keyboardist_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tambourine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tambourine_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vocalist.png" />
+  </ItemGroup>
 </Project>
