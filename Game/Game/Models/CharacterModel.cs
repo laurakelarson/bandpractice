@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Services;
 
 namespace Game.Models
 {
@@ -19,55 +20,55 @@ namespace Game.Models
         public bool Alive { get; set; } = true;
 
         // The level of the character
-        public int Level { get; set; }
+        public int Level { get; set; } = 1;
 
         // Amount of total experience the character has accumulated
-        public int TotalExperience { get; set; }
+        public int TotalExperience { get; set; } = 0;
 
         // The speed of the character
-        public int Speed { get; set; }
+        public int Speed { get; set; } = 0;
 
         // The character's defense level
-        public int Defense { get; set; }
+        public int Defense { get; set; } = 0;
 
         // The character's attack level
-        public int Attack { get; set; }
+        public int Attack { get; set; } = 0;
 
         // The current health level of the character
-        public int CurrentHealth { get; set; }
+        public int CurrentHealth { get; set; } = 1;
 
         // The max health level of the character
-        public int MaxHealth { get; set; }
+        public int MaxHealth { get; set; } = 1;
 
         // The item the character is currently wearing on their head
-        public ItemModel HeadItem { get; set; }
+        public ItemModel HeadItem { get; set; } = new ItemModel();
 
         // The item the character is currently wearing on their body
-        public ItemModel BodyItem { get; set; }
+        public ItemModel BodyItem { get; set; } = new ItemModel();
 
         // The item the character is currently wearing on their feet
-        public ItemModel FeetItem { get; set; }
+        public ItemModel FeetItem { get; set; } = new ItemModel();
 
         // The item the character is currently holding in their primary hand
-        public ItemModel PrimaryHandItem { get; set; }
+        public ItemModel PrimaryHandItem { get; set; } = new ItemModel();
 
         // The item the character is currently holding in their off hand
-        public ItemModel OffHandItem { get; set; }
+        public ItemModel OffHandItem { get; set; } = new ItemModel();
 
         // The item the character is currently wearing on their right finger
         // (only one finger on the right hand may equip an item)
-        public ItemModel RightFingerItem { get; set; }
+        public ItemModel RightFingerItem { get; set; } = new ItemModel();
 
         // The item the character is currently wearing on their left finger
         // (only one finger on the left hand may equip an item)
-        public ItemModel LeftFingerItem { get; set; }
+        public ItemModel LeftFingerItem { get; set; } = new ItemModel();
 
         /// <summary>
         ///  Default constructor for the character
         /// </summary>
         public CharacterModel()
         {
-            //TODO add default image
+            ImageURI = CharacterService.DefaultImageURI;
 
         }
 
