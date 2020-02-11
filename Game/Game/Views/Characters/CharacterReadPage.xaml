@@ -65,44 +65,44 @@
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Speed" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Speed:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <Label Text="Items" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Head" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Head:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.HeadItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Body" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Body:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.BodyItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Primary Hand" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Primary Hand:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.PrimaryHandItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Off-hand" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Off-hand:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.OffHandItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Right Finger" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Right Finger:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.RightFingerItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Left Finger" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Left Finger:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.LeftFingerItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Feed" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Feet:" Style="{StaticResource LabelStyle}"/>
                 <Label Text="{Binding Data.FeetItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
