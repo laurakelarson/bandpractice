@@ -18,7 +18,7 @@ namespace Game.Views.Characters
         // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
 
-        public CharacterUpdatePage()
+        public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
         }
