@@ -101,6 +101,9 @@ namespace Game.Models
                 case CharacterTypeEnum.Guitarist:
                     DefaultGuitarist();
                     break;
+                case CharacterTypeEnum.LeadVocalist:
+                    DefaultLeadVocalist();
+                    break;
                 default:
                     DefaultTambourine();
                     break;
@@ -254,6 +257,23 @@ namespace Game.Models
             Attack = 4;
             Defense = 6;
             Speed = 3;
+            MaxHealth = CurrentHealth = 120;
+        }
+
+        /// <summary>
+        /// Default base stats for Lead Vocalist
+        /// </summary>
+        private void DefaultLeadVocalist()
+        {
+            Name = "Lead Vocalist";
+            Type = CharacterTypeEnum.LeadVocalist;
+            ImageURI = "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png";
+            Level = 16;
+            Alive = true;
+            TotalExperience = 195000;
+            Attack = 5;
+            Defense = 8;
+            Speed = 4;
             MaxHealth = CurrentHealth = 120;
         }
     }
