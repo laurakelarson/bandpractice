@@ -41,7 +41,7 @@
                                 </Grid.RowDefinitions>
 
                                 <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                                        Source="{Binding ImageURI}"
+                                        Source="{Binding IconURI}"
                                         Style="{StaticResource ImageSmallStyle}"
                                         VerticalOptions="CenterAndExpand"/>
 
