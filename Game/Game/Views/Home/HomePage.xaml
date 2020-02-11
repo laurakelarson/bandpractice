@@ -24,7 +24,7 @@
                     Clicked="GameButton_Clicked"/>
                 <Button
                     Text="DEMO TAPE"
-                    FontSize="Large"
+                    FontSize="Medium"
                     />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
