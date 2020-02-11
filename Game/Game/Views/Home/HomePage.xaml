@@ -7,43 +7,37 @@
         <ScrollView
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="CenterAndExpand">
-            
+
             <StackLayout
+                Orientation="Vertical"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
-                <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
-                    <Image
-                         Source="knight.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
+                <Image
+                 Source="bp_logo.png"
+                 />
 
-                    <Image
-                         Source="troll.png"
-                         Style="{StaticResource ImageLargeStyle}"/>
-                
-                </StackLayout>
-                
-                <StackLayout HorizontalOptions="Center" Padding="75,5,75,5"> 
-               
-                    <Label 
-                        Text="In a far away land there was a tribe of warrior elves."
-                        Style="{StaticResource CenterMessageStyle}"
-                        FontSize="Micro"
-                        LineBreakMode="WordWrap"
-                        FontFamily="{StaticResource Pixelmania}"
-                        />
-
-                    <Label 
-                        Text="The elves entered the woods to eraticate the monsters that threatened their villages."
-                        Style="{StaticResource CenterMessageStyle}"
-                        FontSize="Micro"
-                        LineBreakMode="WordWrap"
-                        />
-                </StackLayout>
 
                 <Button
-                    Text="Enter"
+                    Text="ENTER"
+                    FontSize="Large"
                     Clicked="GameButton_Clicked"/>
+                <Button
+                    Text="DEMO TAPE"
+                    FontSize="Large"
+                    />
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand">
+                    <Button
+                    Text="Encylopedia"
+                    FontFamily="PixelSplitter"
+                    />
+                    <Button
+                    Text="High Score"
+                    FontFamily="PixelSplitter"
+                    />
+                </StackLayout>
+
 
             </StackLayout>
         </ScrollView>

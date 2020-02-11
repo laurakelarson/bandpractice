@@ -24,12 +24,12 @@
                 -->
 
             <Color x:Key="PageBackgroundColor">#09011B</Color>
-            <Color x:Key="ViewBackgroundColor">#0F0228</Color>
+            <Color x:Key="ViewBackgroundColor">#09011B</Color>
             <Color x:Key="NavigationBarColor">#0F084B</Color>
 
             <Color x:Key="PrimaryBackgroundColor">#09011B</Color>
-            <Color x:Key="SecondaryBackgroundColor">#0F0228</Color>
-            <Color x:Key="TriciaryBackgroundColor">#0F084B</Color>
+            <Color x:Key="SecondaryBackgroundColor">#0F084B</Color>
+            <Color x:Key="TriciaryBackgroundColor">#CBE56B</Color>
             <Color x:Key="LightBackgroundColor">#F7FFE1</Color>
 
             <Color x:Key="PrimaryTextColor">#F7FFE1</Color>
@@ -145,6 +145,7 @@
                 <Setter Property="BorderColor" Value="{StaticResource PrimaryTextColor}"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontFamily" Value="Pixelmania"/>
             </Style>
 
             <!-- Stack Layouts -->
