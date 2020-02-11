@@ -27,6 +27,8 @@ namespace Game.Views.Characters
         {
             InitializeComponent();
 
+            data.Data = new CharacterModel();
+
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
@@ -60,6 +62,5 @@ namespace Game.Views.Characters
         {
             await Navigation.PopModalAsync();
         }
-
     }
 }
