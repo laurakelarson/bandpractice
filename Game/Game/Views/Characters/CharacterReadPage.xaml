@@ -69,6 +69,8 @@
                 <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
+            <Label Text="Items" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
+
         </StackLayout>
         
     </ContentPage.Content>
