@@ -74,17 +74,17 @@ namespace Game.Services
         {
             var datalist = new List<CharacterModel>()
             {
-                new CharacterModel
-                {
-                    Name = "Tambourine Player",
-                    Type = CharacterTypeEnum.TambourinePlayer,
-                    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
-                    Level = 1,
-                    TotalExperience = 0,
-                    Attack = 1,
-                    Defense = 1,
-                    Speed = 1
-                },
+                new CharacterModel(CharacterTypeEnum.TambourinePlayer),
+                //{
+                //    Name = "Tambourine Player",
+                //    Type = CharacterTypeEnum.TambourinePlayer,
+                //    ImageURI="http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png",
+                //    Level = 1,
+                //    TotalExperience = 0,
+                //    Attack = 1,
+                //    Defense = 1,
+                //    Speed = 1
+                //},
                 new CharacterModel
                 {
                     Name = "Bassist",
