@@ -12,14 +12,15 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-            
-            <Label Text="Name" 
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Name" 
                    Style="{StaticResource LabelStyle}"/>
-            
-            <Entry Text="{Binding Data.Name}" 
+
+                <Entry Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
-            
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
