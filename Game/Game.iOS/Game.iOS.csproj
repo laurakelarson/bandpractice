@@ -314,4 +314,70 @@
   <ItemGroup>
     <BundleResource Include="Resources\rock_on.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_airhorn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_alarm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_brakez.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_buzz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_chalkboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_chomper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_driller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_feedback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_fran.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_gilbert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_jackhammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_kazoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_lloyd_christmas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_motobeast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_nickelback.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_potpan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_recorder_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_rubber_chicken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_screaming_babe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_silence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\monster_static.png" />
+  </ItemGroup>
 </Project>
