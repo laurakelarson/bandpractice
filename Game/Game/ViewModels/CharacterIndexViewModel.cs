@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
+using Game.Views.Characters;
 
 namespace Game.ViewModels
 {
@@ -70,11 +71,11 @@ namespace Game.ViewModels
             //        await UpdateAsync(data as CharacterModel);
             //    });
 
-            //    // Register the Delete Message
-            //    MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
-            //    {
-            //        await DeleteAsync(data as CharacterModel);
-            //    });
+                // Register the Delete Message
+                MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
+                {
+                    await DeleteAsync(data as CharacterModel);
+                });
 
             //    // Register the Set Data Source Message
             //    MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
