@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,10 @@ namespace Game.Views.Characters
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
+
+        // View Model for Character
+        readonly GenericViewModel<CharacterModel> ViewModel;
+
         public CharacterUpdatePage()
         {
             InitializeComponent();
