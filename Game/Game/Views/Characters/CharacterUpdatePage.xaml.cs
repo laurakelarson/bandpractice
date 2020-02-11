@@ -21,6 +21,10 @@ namespace Game.Views.Characters
         public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
+
+            BindingContext = this.ViewModel = data;
+
+            this.ViewModel.Title = "Update " + data.Title;
         }
     }
 }
