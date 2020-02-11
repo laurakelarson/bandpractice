@@ -27,7 +27,7 @@ namespace Game.Views.Characters
         {
             InitializeComponent();
 
-            data.Data = new CharacterModel();
+            data.Data = new CharacterModel(CharacterTypeEnum.TambourinePlayer);
 
             BindingContext = this.ViewModel = data;
 
