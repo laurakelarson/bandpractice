@@ -96,7 +96,10 @@
                 <Label Text="{Binding Data.RightFingerItem}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
-            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Left Finger" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.LeftFingerItem}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
 
         </StackLayout>
         
