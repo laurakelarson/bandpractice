@@ -41,27 +41,27 @@ namespace Game.Models
         public int MaxHealth { get; set; } = 1;
 
         // The item the character is currently wearing on their head
-        public ItemModel HeadItem { get; set; } = new ItemModel();
+        public ItemModel HeadItem { get; set; }
 
         // The item the character is currently wearing on their body
-        public ItemModel BodyItem { get; set; } = new ItemModel();
+        public ItemModel BodyItem { get; set; }
 
         // The item the character is currently wearing on their feet
-        public ItemModel FeetItem { get; set; } = new ItemModel();
+        public ItemModel FeetItem { get; set; }
 
         // The item the character is currently holding in their primary hand
-        public ItemModel PrimaryHandItem { get; set; } = new ItemModel();
+        public ItemModel PrimaryHandItem { get; set; }
 
         // The item the character is currently holding in their off hand
-        public ItemModel OffHandItem { get; set; } = new ItemModel();
+        public ItemModel OffHandItem { get; set; }
 
         // The item the character is currently wearing on their right finger
         // (only one finger on the right hand may equip an item)
-        public ItemModel RightFingerItem { get; set; } = new ItemModel();
+        public ItemModel RightFingerItem { get; set; }
 
         // The item the character is currently wearing on their left finger
         // (only one finger on the left hand may equip an item)
-        public ItemModel LeftFingerItem { get; set; } = new ItemModel();
+        public ItemModel LeftFingerItem { get; set; }
 
         public string IconURI { get; set; } = "default_icon.png";
 
