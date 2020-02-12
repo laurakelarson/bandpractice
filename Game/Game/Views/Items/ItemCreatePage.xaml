@@ -113,16 +113,33 @@
 
                 </StackLayout>
 
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Damage:" 
+                        Style="{StaticResource LabelStyle}"/>
 
-     
+                    <Stepper 
+                            Value="{Binding Data.Damage, Mode=TwoWay}"
+                            ValueChanged="Damage_OnStepperValueChanged"/>
+
+                    <Label 
+                            Text="{Binding Data.Damage}" 
+                            x:Name="DamageValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                </StackLayout>
 
 
 
-                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
-                        <Label 
+                <!--<StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">-->
+
+                        <!--<Label 
                             Text="Range" 
-                            Style="{StaticResource LabelStyle}"/>
+                            Style="{StaticResource LabelStyle}"/>-->
 
                     <!--<StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
@@ -140,9 +157,9 @@
                         
                     </StackLayout>-->
 
-                    <Label 
+                    <!--<Label 
                         Text="Value"
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyle}"/>-->
 
                     <!--<StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
                         
@@ -160,7 +177,7 @@
 
                     </StackLayout>-->
 
-                    <Label 
+                    <!--<Label 
                         Text="Damage" 
                         Style="{StaticResource LabelStyle}"/>
                     
@@ -178,8 +195,8 @@
                             Value="{Binding Data.Damage, Mode=TwoWay}"
                             ValueChanged="Damage_OnStepperValueChanged"/>
                     
-                    </StackLayout>
-                </StackLayout>
+                    </StackLayout>-->
+                <!--</StackLayout>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
