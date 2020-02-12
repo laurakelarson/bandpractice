@@ -27,5 +27,20 @@ namespace Game.Views
         {
 			await Navigation.PushAsync(new GamePage());
 		}
-    }
+
+		/*public async void AutoButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new AutoBattlePage());
+		}*/
+
+		public async void EncyclopediaButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new VillagePage());
+		}
+
+		/*public async void HighScoreButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new GamePage());
+		}*/
+	}
 }
