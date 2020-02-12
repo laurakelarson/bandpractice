@@ -75,7 +75,33 @@
 
                 </Grid>
 
-                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Value:" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Stepper
+                            Value="{Binding Data.Value, Mode=TwoWay}"
+                            ValueChanged="Value_OnStepperValueChanged"/>
+
+                    <Label
+                            Text="{Binding Data.Value}" 
+                            x:Name="ValueValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+
+
+                </StackLayout>
+
+
+     
+
+
+
+                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
                         <Label 
                             Text="Range" 
@@ -101,7 +127,7 @@
                         Text="Value"
                         Style="{StaticResource LabelStyle}"/>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <!--<StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
                         
                         <Label 
                             Text="{Binding Data.Value}" 
@@ -115,7 +141,7 @@
                             Value="{Binding Data.Value, Mode=TwoWay}"
                             ValueChanged="Value_OnStepperValueChanged"/>
 
-                    </StackLayout>
+                    </StackLayout>-->
 
                     <Label 
                         Text="Damage" 
