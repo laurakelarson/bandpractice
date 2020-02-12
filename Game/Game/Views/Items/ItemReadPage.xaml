@@ -44,32 +44,24 @@
                 <Label 
                     Text="{Binding Data.Attribute}" 
                     Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Range : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Range}" 
+                    Text="+" 
                     Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Range : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Range}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Value : " 
-                    Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Value}" 
+                    Style="{StaticResource ValueStyle}"/>
+
+            </StackLayout>
+
+
+
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Range : " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Range}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
