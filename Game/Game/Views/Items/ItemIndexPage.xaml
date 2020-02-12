@@ -54,10 +54,17 @@
                                     
                                     <Label 
                                        Text="{Binding Attribute}" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                                    <Label
+                                        Text="+"
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
 
                                     <Label Text="{Binding Value}" 
-                                        Style="{StaticResource ListStyle}"/>
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
                                 
                                 </StackLayout>
 
