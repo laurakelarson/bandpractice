@@ -127,6 +127,7 @@ namespace Game.Models
             Name = newData.Name;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
+            IconURI = newData.IconURI;
             Type = newData.Type;
             Unlocked = newData.Unlocked;
             Alive = newData.Alive;
