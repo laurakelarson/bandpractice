@@ -40,7 +40,7 @@
                 <Picker
                  ItemsSource="{x:Static local_helpers:CharacterTypeEnumHelper.GetListCharacterType}" 
                  SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                 x:Name="CharacterTypePicker"/>
+                 x:Name="CharacterTypePicker" SelectedIndexChanged="Changed_CharacterTypePicker" />
 
             </StackLayout>
             

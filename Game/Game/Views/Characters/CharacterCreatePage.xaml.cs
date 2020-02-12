@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Models;
 using Game.ViewModels;
+using Game.Helpers;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -61,6 +62,17 @@ namespace Game.Views.Characters
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        void Changed_CharacterTypePicker(object sender, EventArgs e)
+        {
+            var currName = ViewModel.Data.Name;
+
+            var newType = CharacterTypeEnumHelper.ConvertStringToEnum(CharacterTypePicker.SelectedItem.ToString());
+
+            ViewModel.Data.Update(new CharacterModel(newType));
+
+            ViewModel.Data.Name = currName;
         }
     }
 }
