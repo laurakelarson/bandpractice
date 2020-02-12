@@ -26,6 +26,7 @@ namespace Game.Views
         public async void GameButton_Clicked(object sender, EventArgs e)
         {
 			await Navigation.PushAsync(new GamePage());
+			//await Navigation.PushAsync(new MyBandPage()); TODO update when MyBand page implemented
 		}
 
 		/*public async void AutoButton_Clicked(object sender, EventArgs e)
