@@ -92,7 +92,24 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
+                </StackLayout>
 
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        Text="Range:" 
+                        Style="{StaticResource LabelStyle}"/>
+                    
+                    <Stepper 
+                            Value="{Binding Data.Range, Mode=TwoWay}"
+                            ValueChanged="Range_OnStepperValueChanged"/>
+                    
+                    <Label 
+                            Text="{Binding Data.Range}" 
+                            x:Name="RangeValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
 
                 </StackLayout>
 
@@ -107,7 +124,7 @@
                             Text="Range" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
+                    <!--<StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
                         <Label 
                             Text="{Binding Data.Range}" 
@@ -121,7 +138,7 @@
                             Value="{Binding Data.Range, Mode=TwoWay}"
                             ValueChanged="Range_OnStepperValueChanged"/>
                         
-                    </StackLayout>
+                    </StackLayout>-->
 
                     <Label 
                         Text="Value"
