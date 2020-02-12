@@ -64,6 +64,11 @@ namespace Game.Views.Characters
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Event handler for type picker - sets the character stats to the type default
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Changed_CharacterTypePicker(object sender, EventArgs e)
         {
             var currName = ViewModel.Data.Name;
