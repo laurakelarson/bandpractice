@@ -5,7 +5,6 @@
     /// </summary>
     public enum CharacterTypeEnum
     {
-        Default,
         TambourinePlayer,
         Bassist,
         Keyboardist,
