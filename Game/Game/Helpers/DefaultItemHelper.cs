@@ -297,5 +297,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Attack
             };
         }
+
+        /// <summary>
+        /// Returns default LuckySocks ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultLuckySocks()
+        {
+            return new ItemModel
+            {
+                Name = "Lucky Socks",
+                Description = "Socks that feature a funky pattern",
+                ImageURI = "item_lucky_socks.png",
+                Range = 0,
+                Damage = 0,
+                Value = 2,
+                Location = ItemLocationEnum.Feet,
+                Attribute = AttributeEnum.Attack
+            };
+        }
     }
 }
