@@ -69,5 +69,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default Microphone ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultMicrophone()
+        {
+            return new ItemModel
+            {
+                Name = "Microphone",
+                Description = "A battery-powered microphone that amplifies the band’s music",
+                ImageURI = "item_microphone.png",
+                Range = 0,
+                Damage = 0,
+                Value = 2,
+                Location = ItemLocationEnum.OffHand,
+                Attribute = AttributeEnum.Attack
+            };
+        }
     } 
 }
