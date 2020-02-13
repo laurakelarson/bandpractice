@@ -5,6 +5,9 @@ using Game.Models;
 
 namespace Game.Helpers
 {
+    /// <summary>
+    /// DataHelper is a static class that helps create characters with the game's default base stats.
+    /// </summary>
     public static class DataHelper
     {
 
