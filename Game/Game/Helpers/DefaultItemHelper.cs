@@ -259,5 +259,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Attack
             };
         }
+
+        /// <summary>
+        /// Returns default TemporaryTattoo ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultTemporaryTattoo()
+        {
+            return new ItemModel
+            {
+                Name = "Temporary Tattoo",
+                Description = "A temporary tattoo of the band’s lyrics written around the wearer’s finger like a ring",
+                ImageURI = "item_temporary_tattoo.png",
+                Range = 0,
+                Damage = 0,
+                Value = 3,
+                Location = ItemLocationEnum.LeftFinger,
+                Attribute = AttributeEnum.Attack
+            };
+        }
     }
 }
