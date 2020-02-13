@@ -526,6 +526,23 @@ namespace Game.Helpers
             };
         }
 
-
+        /// <summary>
+        /// Returns default GoldenRecorder ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultRockOck()
+        {
+            return new ItemModel
+            {
+                Name = "Rock Ock",
+                Description = "The ultimate 8-necked stringed instrument for defeating the most hardcore baddies",
+                ImageURI = "item_rock_ock.png",
+                Range = 6,
+                Damage = 25,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
