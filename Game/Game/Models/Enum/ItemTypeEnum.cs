@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Game.Models.Enum
 {
-    class ItemTypeEnum
+    public enum ItemTypeEnum
     {
+
     }
 }
