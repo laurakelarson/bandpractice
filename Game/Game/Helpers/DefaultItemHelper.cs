@@ -468,5 +468,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default Banjo ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultBanjo()
+        {
+            return new ItemModel
+            {
+                Name = "Banjo",
+                Description = "An old-fashioned folk instrument",
+                ImageURI = "item_banjo.png",
+                Range = 5,
+                Damage = 12,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
