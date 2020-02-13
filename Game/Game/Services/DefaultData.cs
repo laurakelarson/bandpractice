@@ -74,12 +74,12 @@ namespace Game.Services
         {
             var datalist = new List<CharacterModel>()
             {
-                new CharacterModel(CharacterTypeEnum.TambourinePlayer),
-                new CharacterModel(CharacterTypeEnum.Bassist),
-                new CharacterModel(CharacterTypeEnum.Keyboardist),
-                new CharacterModel(CharacterTypeEnum.Drummer),
-                new CharacterModel(CharacterTypeEnum.Guitarist),
-                new CharacterModel(CharacterTypeEnum.LeadVocalist)
+                //new CharacterModel(CharacterTypeEnum.TambourinePlayer),
+                //new CharacterModel(CharacterTypeEnum.Bassist),
+                //new CharacterModel(CharacterTypeEnum.Keyboardist),
+                //new CharacterModel(CharacterTypeEnum.Drummer),
+                //new CharacterModel(CharacterTypeEnum.Guitarist),
+                //new CharacterModel(CharacterTypeEnum.LeadVocalist)
             };
 
             return datalist;

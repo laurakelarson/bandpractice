@@ -28,7 +28,7 @@ namespace Game.Views.Characters
         {
             InitializeComponent();
 
-            data.Data = new CharacterModel(CharacterTypeEnum.TambourinePlayer);
+            data.Data = DataHelper.DefaultTambourine();
 
             BindingContext = this.ViewModel = data;
 
@@ -75,7 +75,7 @@ namespace Game.Views.Characters
 
             var newType = CharacterTypeEnumHelper.ConvertStringToEnum(CharacterTypePicker.SelectedItem.ToString());
 
-            ViewModel.Data.Update(new CharacterModel(newType));
+            ViewModel.Data.Update(DataHelper.DefaultCharacter(newType));
 
             ViewModel.Data.Name = currName;
         }
