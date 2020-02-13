@@ -231,6 +231,164 @@ namespace Game.Services
                     Value = 2,
                     Location = ItemLocationEnum.Feet,
                     Attribute = AttributeEnum.Speed
+                },
+
+                // Weapons
+
+                new ItemModel
+                {
+                    Name = "Triangle",
+                    Description = "A simple percussive instrument for dealing damage",
+                    ImageURI = "item_triangle.png",
+                    Range = 1,
+                    Damage = 2,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Prank Doorbell",
+                    Description = "A novelty gadget that convincingly sounds like a doorbell",
+                    ImageURI = "item_doorbell.png",
+                    Range = 1,
+                    Damage = 2,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Whoopee Cushion",
+                    Description = "A balloon-like device that creates a distracting noise",
+                    ImageURI = "item_whoopee_cushion.png",
+                    Range = 1,
+                    Damage = 3,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Vuvuzela",
+                    Description = "A plastic horn that produces a high-pitched sound",
+                    ImageURI = "item_vuvuzela.png",
+                    Range = 2,
+                    Damage = 4,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Ocarina",
+                    Description = "An ancient wind instrument",
+                    ImageURI = "item_ocarina.png",
+                    Range = 2,
+                    Damage = 5,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Bagpipe",
+                    Description = "A traditional reed instrument capable of destruction",
+                    ImageURI = "item_bagpipes.png",
+                    Range = 4,
+                    Damage = 8,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Banjo",
+                    Description = "An old-fashioned folk instrument",
+                    ImageURI = "item_banjo.png",
+                    Range = 5,
+                    Damage = 12,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Keytar",
+                    Description = "A stimulating hybrid synthesizer",
+                    ImageURI = "item_keytar.png",
+                    Range = 5,
+                    Damage = 15,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Golden Recorder",
+                    Description = "A beautifully crafted recorder made of pure gold",
+                    ImageURI = "item_recorder.png",
+                    Range = 6,
+                    Damage = 20,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Rock Ock",
+                    Description = "The ultimate 8-necked stringed instrument for defeating the most hardcore baddies",
+                    ImageURI = "item_rock_ock.png",
+                    Range = 6,
+                    Damage = 25,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Glockenspiel",
+                    Description = "A lovely set of tuned keys arranged like a piano",
+                    ImageURI = "item_glockenspiel.png",
+                    Range = 7,
+                    Damage = 30,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Theremin",
+                    Description = "Contact-less electronic instrument for communicating with aliens",
+                    ImageURI = "item_theremin.png",
+                    Range = 8,
+                    Damage = 45,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
+                },
+
+                new ItemModel
+                {
+                    Name = "Didgeridoo of Destruction",
+                    Description = "The ultimate weapon – the oldest wind instrument known to man.",
+                    ImageURI = "item_didgeridoo.png",
+                    Range = 10,
+                    Damage = 70,
+                    Value = 0,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Unknown
                 }
 
             };
