@@ -7,30 +7,30 @@ using Xamarin.Forms;
 namespace Game.Views
 {
     /// <summary>
-    /// Create Item
+    /// Create Monster
     /// </summary>
    // [DesignTimeVisible(false)]
-    public partial class ItemCreatePage : ContentPage
+    public partial class MonsterCreatePage : ContentPage
     {
-        //// The item to create
-        //GenericViewModel<ItemModel> ViewModel { get; set; }
+        // The Monster to create
+        GenericViewModel<MonsterModel> ViewModel { get; set; }
 
         ///// <summary>
         ///// Constructor for Create makes a new model
         ///// </summary>
-        //public ItemCreatePage(GenericViewModel<ItemModel> data)
+        //public MonsterCreatePage(GenericViewModel<MonsterModel> data)
         //{
         //    InitializeComponent();
 
-        //    data.Data = new ItemModel();
+        //    data.Data = new MonsterModel();
 
         //    BindingContext = this.ViewModel = data;
 
         //    this.ViewModel.Title = "Create";
 
-        //    //Need to make the SelectedItem a string, so it can select the correct item.
-        //    LocationPicker.SelectedItem = data.Data.Location.ToString();
-        //    AttributePicker.SelectedItem = data.Data.Attribute.ToString();
+        //    //Need to make the SelectedMonster a string, so it can select the correct Monster.
+        //    LocationPicker.SelectedMonster = data.Data.Location.ToString();
+        //    AttributePicker.SelectedMonster = data.Data.Attribute.ToString();
         //}
 
         ///// <summary>
@@ -43,7 +43,7 @@ namespace Game.Views
         //    // If the image in the data box is empty, use the default one..
         //    if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
         //    {
-        //        ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
+        //        ViewModel.Data.ImageURI = Services.MonsterService.DefaultImageURI;
         //    }
 
         //    MessagingCenter.Send(this, "Create", ViewModel.Data);
