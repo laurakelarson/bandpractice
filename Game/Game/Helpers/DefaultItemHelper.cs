@@ -14,6 +14,81 @@ namespace Game.Helpers
     {
 
         /// <summary>
+        /// Helper that takes in a ItemTypeEnum to return the default base version of that type
+        /// </summary>
+        /// <param name="type"></param>
+        public static ItemModel DefaultItem(ItemTypeEnum type)
+        {
+            switch (type)
+            {
+                case ItemTypeEnum.Earplugs:
+                    return DefaultEarplugs();
+                case ItemTypeEnum.Earmuffs:
+                    return DefaultEarmuffs();
+                case ItemTypeEnum.NoiseCancelingHeadphones:
+                    return DefaultNoiseCancelingHeadphones();
+                case ItemTypeEnum.Microphone:
+                    return DefaultMicrophone();
+                case ItemTypeEnum.Coffee:
+                    return DefaultCoffee();
+                case ItemTypeEnum.EnergyDrink:
+                    return DefaultEnergyDrink();
+                case ItemTypeEnum.Metronome:
+                    return DefaultMetronome();
+                case ItemTypeEnum.TuningFork:
+                    return DefaultTuningFork();
+                case ItemTypeEnum.BandTshirt:
+                    return DefaultBandTShirt();
+                case ItemTypeEnum.BandHoodie:
+                    return DefaultBandHoodie();
+                case ItemTypeEnum.CoolOutfit:
+                    return DefaultCoolOutfit();
+                case ItemTypeEnum.Ring:
+                    return DefaultRing();
+                case ItemTypeEnum.MoodRing:
+                    return DefaultMoodRing();
+                case ItemTypeEnum.TemporaryTattoo:
+                    return DefaultTemporaryTattoo();
+                case ItemTypeEnum.AthleticSocks:
+                    return DefaultAthleticSocks();
+                case ItemTypeEnum.LuckySocks:
+                    return DefaultLuckySocks();
+                case ItemTypeEnum.ComfySneakers:
+                    return DefaultComfySneakers();
+                case ItemTypeEnum.BunnySlippers:
+                    return DefaultBunnySlippers();
+                case ItemTypeEnum.Triangle:
+                    return DefaultTriangle();
+                case ItemTypeEnum.PrankDoorbell:
+                    return DefaultPrankDoorbell();
+                case ItemTypeEnum.WhoopeeCushion:
+                    return DefaultWhoopeeCushion(); 
+               case ItemTypeEnum.Vuvuzela:
+                    return DefaultVuvuzela();
+                case ItemTypeEnum.Ocarina:
+                    return DefaultOcarina();
+                case ItemTypeEnum.Bagpipe:
+                    return DefaultBagpipe();
+                case ItemTypeEnum.Banjo:
+                    return DefaultBanjo();
+                case ItemTypeEnum.Keytar:
+                    return DefaultKeytar();
+                case ItemTypeEnum.GoldenRecorder:
+                    return DefaultGoldenRecorder();
+                case ItemTypeEnum.RockOck:
+                    return DefaultRockOck();
+                case ItemTypeEnum.Glockenspiel:
+                    return DefaultGlockenspiel();
+                case ItemTypeEnum.Theremin:
+                    return DefaultTheremin();
+                case ItemTypeEnum.DidgeridooOfDestruction:
+                    return DefaultDidgeridooOfDestruction();
+                default:
+                    return DefaultEarplugs();
+            }
+        }
+
+        /// <summary>
         /// Returns default Earplugs ItemModel
         /// </summary>
         /// <returns></returns>
@@ -549,7 +624,7 @@ namespace Game.Helpers
         /// Returns default Glockenspiel ItemModel
         /// </summary>
         /// <returns></returns>
-        public static ItemModel Defaultlockenspiel()
+        public static ItemModel DefaultGlockenspiel()
         {
             return new ItemModel
             {
