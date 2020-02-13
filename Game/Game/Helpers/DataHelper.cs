@@ -54,5 +54,28 @@ namespace Game.Helpers
             };
         }
 
+        /// <summary>
+        /// Returns default Keyboardist CharacterModel
+        /// </summary>
+        /// <returns></returns>
+        public CharacterModel DefaultKeyboardist()
+        {
+            return new CharacterModel
+            {
+                Name = "Keyboardist",
+                Type = CharacterTypeEnum.Keyboardist,
+                ImageURI = "keyboardist.png",
+                IconURI = "keyboardist_icon.png",
+                Level = 5,
+                Alive = true,
+                TotalExperience = 6500,
+                Attack = 2,
+                Defense = 4,
+                Speed = 2,
+                MaxHealth = 50,
+                CurrentHealth = 50,
+            };
+        }
+
     }
 }
