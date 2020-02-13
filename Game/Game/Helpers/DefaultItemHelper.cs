@@ -221,5 +221,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default Ring ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultRing()
+        {
+            return new ItemModel
+            {
+                Name = "Ring",
+                Description = "A simple, nondescript ring",
+                ImageURI = "item_ring.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.LeftFinger,
+                Attribute = AttributeEnum.Attack
+            };
+        }
     }
 }
