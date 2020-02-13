@@ -93,18 +93,41 @@ namespace Game.Models
             UniqueDrops = newData.UniqueDrops;
         }
 
-        //// Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
-        //public string FormatOutput()
-        //{
-        //    var myReturn = Name + " , " +
-        //                    Description + " for " +
-        //                    Location.ToString() + " with " +
-        //                    Attribute.ToString() +
-        //                    "+" + Value + " , " +
-        //                    "Damage : " + Damage + " , " +
-        //                    "Range : " + Range;
+        /// <summary>
+        /// Method to inflict damage to Monster object
+        /// </summary>
+        public bool TakeDamage(int damage)
+        {
+            if (damage > 0)
+            {
+                CurrentHealth -= damage;
+                if (CurrentHealth < 0)
+                {
+                    Alive = false;
+                    // drop items
+                }
+                return true;
+            }
+            return false;
+        }
 
-        //    return myReturn.Trim();
-        //}
+        // For each character/monster turn: There is a roll of a 20-sided dice: 
+        // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 
+        // turn entity’s hit is calculated by the following formula: 
+        // (dice roll + Entity Level + Attack Modifiers) > (Target Defense attribute + Target level). 
+        // If true, the hit succeeds; if false, it’s a miss and the turn is over for that entity.
+
+
+        // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
+        public string FormatOutput()
+        {
+            var myReturn = Name + " , " +
+                            "Speed : " + Speed + " , " +
+                            "Defense : " + Defense + " , " +
+                            "Attack : " + Attack + " , " +
+                            "Range : " + Range;
+
+            return myReturn.Trim();
+        }
     }
 }
