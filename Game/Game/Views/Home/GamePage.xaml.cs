@@ -43,7 +43,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void AutobattleButton_Clicked(object sender, EventArgs e)
+		async void DemoTapeButton_Clicked(object sender, EventArgs e)
 		{
 			// Run the Autobattle simulation from here
 

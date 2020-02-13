@@ -41,7 +41,7 @@
                     <ImageButton
                         
                         Style="{StaticResource ImageLargeStyle}"
-                        Clicked="AutobattleButton_Clicked"/>
+                        Clicked="DemoTapeButton_Clicked"/>
 
                     <Label 
                         Text="Demo Tape"
