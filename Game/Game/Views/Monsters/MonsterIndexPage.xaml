@@ -28,7 +28,7 @@
                     ItemSelected="OnMonsterSelected"
                     HasUnevenRows="true"
                     Margin="5,0,5,0"
-                    RowHeight="80"
+                    RowHeight="100"
                     >
 
                 <ListView.ItemTemplate>
