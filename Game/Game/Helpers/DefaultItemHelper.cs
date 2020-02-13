@@ -278,5 +278,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Attack
             };
         }
+
+        /// <summary>
+        /// Returns default AthleticSocks ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultAthleticSocks()
+        {
+            return new ItemModel
+            {
+                Name = "Athletic Socks",
+                Description = "Simple athletic socks",
+                ImageURI = "item_athletic_socks.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.Feet,
+                Attribute = AttributeEnum.Attack
+            };
+        }
     }
 }
