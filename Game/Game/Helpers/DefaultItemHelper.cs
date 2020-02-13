@@ -50,5 +50,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default Noise Cancelling Headphones ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultNoiseCancelingHeadphones()
+        {
+            return new ItemModel
+            {
+                Name = "Noise-Canceling Headphones",
+                Description = "Powerful noise-canceling headphones that block noise",
+                ImageURI = "item_headphones.png",
+                Range = 0,
+                Damage = 0,
+                Value = 3,
+                Location = ItemLocationEnum.Head,
+                Attribute = AttributeEnum.Defense
+            };
+        }
     } 
 }
