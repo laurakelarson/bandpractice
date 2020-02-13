@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Game.Models.Enum
 {
+
+    /// <summary>
+    /// Available Item types
+    /// </summary>
     public enum ItemTypeEnum
     {
         Earplugs,
