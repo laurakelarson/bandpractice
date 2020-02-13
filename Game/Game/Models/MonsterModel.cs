@@ -54,7 +54,7 @@ namespace Game.Models
         /// </summary>
         public MonsterModel()
         {
-            //ImageURI = MonsterService.DefaultImageURI;
+            ImageURI = MonsterService.DefaultImageURI;
         }
 
         /// <summary>
