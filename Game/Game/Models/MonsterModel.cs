@@ -36,11 +36,11 @@ namespace Game.Models
         // The current health level of the monster
         public int CurrentHealth { get; set; } = 0;
 
-        // The max health level of the monster
-        public int MaxHealth { get; set; } = 0;
-
         // The range of the monster to attack. Attacks within range will be successful
         public int Range { get; set; } = 0;
+
+        // Flag indicating whether a Monster is a boss or not
+        public bool Boss { get; set; } = false;
 
         // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items in the array
         public List<ItemModel> ItemsDropped { get; set; } = new List<ItemModel>();
@@ -88,7 +88,6 @@ namespace Game.Models
             Defense = newData.Defense;
             Attack = newData.Attack;
             CurrentHealth = newData.CurrentHealth;
-            MaxHealth = newData.MaxHealth;
             Range = newData.Range;
             ItemsDropped = newData.ItemsDropped;
             UniqueDrops = newData.UniqueDrops;
