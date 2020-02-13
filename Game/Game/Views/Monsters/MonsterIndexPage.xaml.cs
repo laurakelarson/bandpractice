@@ -42,7 +42,7 @@ namespace Game.Views.Monsters
             }
 
             // Open the Read Page
-   //         await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<MonsterModel>(data)));
+            await Navigation.PushAsync(new MonsterReadPage(new GenericViewModel<MonsterModel>(data)));
 
             // Manually deselect item.
             MonstersListView.SelectedItem = null;
