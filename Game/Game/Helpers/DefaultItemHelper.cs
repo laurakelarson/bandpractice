@@ -563,5 +563,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default Theremin ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultTheremin()
+        {
+            return new ItemModel
+            {
+                Name = "Theremin",
+                Description = "Contact-less electronic instrument for communicating with aliens",
+                ImageURI = "item_theremin.png",
+                Range = 8,
+                Damage = 45,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
