@@ -15,50 +15,46 @@ namespace Game.Views
         // The Monster to create
         GenericViewModel<MonsterModel> ViewModel { get; set; }
 
-        ///// <summary>
-        ///// Constructor for Create makes a new model
-        ///// </summary>
-        //public MonsterCreatePage(GenericViewModel<MonsterModel> data)
-        //{
-        //    InitializeComponent();
+        /// <summary>
+        /// Constructor for Create makes a new model
+        /// </summary>
+        public MonsterCreatePage(GenericViewModel<MonsterModel> data)
+        {
+            InitializeComponent();
 
-        //    data.Data = new MonsterModel();
+            data.Data = new MonsterModel();
 
-        //    BindingContext = this.ViewModel = data;
+            BindingContext = this.ViewModel = data;
 
-        //    this.ViewModel.Title = "Create";
+            this.ViewModel.Title = "Create";
+        }
 
-        //    //Need to make the SelectedMonster a string, so it can select the correct Monster.
-        //    LocationPicker.SelectedMonster = data.Data.Location.ToString();
-        //    AttributePicker.SelectedMonster = data.Data.Attribute.ToString();
-        //}
+        /// <summary>
+        /// Save by calling for Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            // If the image in the data box is empty, use the default one..
+            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            {
+                ViewModel.Data.ImageURI = Services.MonsterService.DefaultImageURI;
+            }
 
-        ///// <summary>
-        ///// Save by calling for Create
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //async void Save_Clicked(object sender, EventArgs e)
-        //{
-        //    // If the image in the data box is empty, use the default one..
-        //    if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
-        //    {
-        //        ViewModel.Data.ImageURI = Services.MonsterService.DefaultImageURI;
-        //    }
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
+            await Navigation.PopModalAsync();
+        }
 
-        //    MessagingCenter.Send(this, "Create", ViewModel.Data);
-        //    await Navigation.PopModalAsync();
-        //}
-
-        ///// <summary>
-        ///// Cancel the Create
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //async void Cancel_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PopModalAsync();
-        //}
+        /// <summary>
+        /// Cancel the Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
 
         ///// <summary>
         ///// Catch the change to the Stepper for Range

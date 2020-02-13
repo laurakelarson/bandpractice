@@ -55,7 +55,7 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         async void AddMonster_Clicked(object sender, EventArgs e)
         {
-  //          await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<MonsterModel>())));
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<MonsterModel>())));
 
         }
 
