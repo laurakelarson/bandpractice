@@ -9,7 +9,7 @@
              Title="{Binding Title}">
 
     <Page.Resources>
-        <local_helpers:ListToStringConverter x:Key="ListToStringConverterKey"></local_helpers:ListToStringConverter>
+        <local_helpers:ItemListToStringConverter x:Key="ItemListToStringConverterKey"></local_helpers:ItemListToStringConverter>
     </Page.Resources>
 
 
@@ -92,7 +92,7 @@
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro" />
 
-                                    <Label Text="{Binding UniqueDrops, Converter={StaticResource ListToStringConverterKey}}" 
+                                    <Label Text="{Binding UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" 
                                         Style="{StaticResource ListStyle}"
                                         FontSize="Micro" />
 
