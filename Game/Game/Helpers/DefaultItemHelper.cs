@@ -183,5 +183,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
-    } 
+
+        /// <summary>
+        /// Returns default BandHoodie ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultBandHoodie()
+        {
+            return new ItemModel
+            {
+                Name = "Band Hoodie",
+                Description = "A comfy hoodie featuring the band’s logo",
+                ImageURI = "item_band_hoodie.png",
+                Range = 0,
+                Damage = 0,
+                Value = 2,
+                Location = ItemLocationEnum.Necklass,
+                Attribute = AttributeEnum.Defense
+            };
+        }
+    }
 }
