@@ -31,5 +31,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default Earmuffs ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultEarmuffs()
+        {
+            return new ItemModel
+            {
+                Name = "Earmuffs",
+                Description = "Cute, fluffy earmuffs that block a little noise",
+                ImageURI = "item_earmuffs.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.Head,
+                Attribute = AttributeEnum.Defense
+            };
+        }
     } 
 }
