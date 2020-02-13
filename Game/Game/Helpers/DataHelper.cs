@@ -100,5 +100,29 @@ namespace Game.Helpers
             };
         }
 
+        /// <summary>
+        /// Returns default Guitarist CharacterModel
+        /// </summary>
+        /// <returns></returns>
+        public CharacterModel DefaultGuitarist()
+        {
+            return new CharacterModel
+            {
+                Name = "Guitarist",
+                Type = CharacterTypeEnum.Guitarist,
+                ImageURI = "guitarist.png",
+                IconURI = "guitarist_icon.png",
+                Level = 12,
+                Alive = true,
+                TotalExperience = 100000,
+                Attack = 4,
+                Defense = 6,
+                Speed = 3,
+                MaxHealth = 120,
+                CurrentHealth = 120
+            };
+        }
+
+
     }
 }
