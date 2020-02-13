@@ -411,5 +411,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default Vuvuzela ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultVuvuzela()
+        {
+            return new ItemModel
+            {
+                Name = "Vuvuzela",
+                Description = "A plastic horn that produces a high-pitched sound",
+                ImageURI = "item_vuvuzela.png",
+                Range = 2,
+                Damage = 4,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
