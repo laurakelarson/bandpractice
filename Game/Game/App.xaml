@@ -220,6 +220,13 @@
                 <Setter Property="Maximum" Value="9" />
                 <Setter Property="Increment" Value="1" />
             </Style>
+            
+            <!-- Switch -->
+            <Style TargetType="Switch">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
+                <Setter Property="OnColor" Value="{StaticResource LightBackgroundColor}"/>
+                <Setter Property="ThumbColor" Value="{StaticResource TriciaryBackgroundColor}"/>
+            </Style>
 
             <!-- Picker -->
             <Style TargetType="Picker">
