@@ -45,6 +45,9 @@
     <Compile Update="Views\Battle\BattlePage.xaml.cs">
       <DependentUpon>BattlePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Monsters\MonsterCreatePage.xaml.cs">
+      <DependentUpon>MonsterCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Monsters\MonsterReadPage.xaml.cs">
       <DependentUpon>MonsterReadPage.xaml</DependentUpon>
     </Compile>
