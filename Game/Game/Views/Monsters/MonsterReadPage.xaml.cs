@@ -43,8 +43,8 @@ namespace Game.Views.Monsters
 
         async void Delete_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
-            //await Navigation.PopAsync();
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
+            await Navigation.PopAsync();
         }
     }
 }
