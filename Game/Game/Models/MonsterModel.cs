@@ -1,4 +1,5 @@
-﻿using Game.Services;
+﻿using System.Collections.Generic;
+using Game.Services;
 
 namespace Game.Models
 {
@@ -14,22 +15,38 @@ namespace Game.Models
     /// </summary>
     public class MonsterModel : BaseModel<MonsterModel>
     {
-        //// Range of the Monster, swords are 1, hats/rings are 0, bows are >1
-        //public int Range { get; set; } = 0;
+        //  Status indicating whether the monster is currently alive or not
+        public bool Alive { get; set; } = true;
 
-        //// The Damage the Monster can do if it is used as a weapon in the primary hand
-        //public int Damage { get; set; } = 0;
+        // Integer indicating the monster’s level
+        public int Level { get; set; } = 1;
 
-        //// Enum of the different attributes that the Monster modifies, Monsters can only modify one Monster
-        //public AttributeEnum Attribute { get; set; } = AttributeEnum.Unknown;
+        // Amount of experience the monster will give on defeat
+        public int ExperienceGiven { get; set; } = 0;
 
-        //// Where the Monster goes on the character.  Head, Foot etc.
-        //public MonsterLocationEnum Location { get; set; } = MonsterLocationEnum.Unknown;
+        // The speed of the monster. Higher speeds give the monster higher precedence in turn order during a round
+        public int Speed { get; set; } = 0;
 
-        //// The Value Monster modifies.  So a ring of Health +3, has a Value of 3
-        //public int Value { get; set; } = 0;
+        // The monster’s defense level. Higher defense makes it more difficult for characters to successfully attack
+        public int Defense { get; set; } = 0;
 
-        //// Add Unique attributes for Monster
+        // The monster’s attack attribute. A Higher attack attribute makes a successful attack more likely
+        public int Attack { get; set; } = 0;
+
+        // The current health level of the monster
+        public int CurrentHealth { get; set; } = 0;
+
+        // The max health level of the monster
+        public int MaxHealth { get; set; } = 0;
+
+        // The range of the monster to attack. Attacks within range will be successful
+        public int Range { get; set; } = 0;
+
+        // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items in the array
+        public List<ItemModel> ItemsDropped { get; set; } = new List<ItemModel>();
+
+        // The items that will always be dropped by this monster on defeat
+        public List<ItemModel> UniqueDrops { get; set; } = new List<ItemModel>();
 
         ///// <summary>
         ///// Default MonsterModel
