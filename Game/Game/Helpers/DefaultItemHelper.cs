@@ -335,5 +335,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Speed
             };
         }
+
+        /// <summary>
+        /// Returns default BunnySlippers ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultBunnySlippers()
+        {
+            return new ItemModel
+            {
+                Name = "Bunny Slippers",
+                Description = "Fluffy slippers that look like bunnies",
+                ImageURI = "item_bunny_slippers.png",
+                Range = 0,
+                Damage = 0,
+                Value = 2,
+                Location = ItemLocationEnum.Feet,
+                Attribute = AttributeEnum.Speed
+            };
+        }
     }
 }
