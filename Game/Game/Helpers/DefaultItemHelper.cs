@@ -374,6 +374,23 @@ namespace Game.Helpers
             };
         }
 
-
+        /// <summary>
+        /// Returns default PrankDoorbell ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultPrankDoorbell()
+        {
+            return new ItemModel
+            {
+                Name = "Prank Doorbell",
+                Description = "A novelty gadget that convincingly sounds like a doorbell",
+                ImageURI = "item_doorbell.png",
+                Range = 1,
+                Damage = 2,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
