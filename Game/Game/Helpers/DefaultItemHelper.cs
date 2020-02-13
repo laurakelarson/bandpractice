@@ -202,5 +202,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default CoolOutfit ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultCoolOutfit()
+        {
+            return new ItemModel
+            {
+                Name = "Cool Outfit",
+                Description = "A cool outfit that looks effortlessly hip (like a rock star would wear)",
+                ImageURI = "item_cool_outfit.png",
+                Range = 0,
+                Damage = 0,
+                Value = 3,
+                Location = ItemLocationEnum.Necklass,
+                Attribute = AttributeEnum.Defense
+            };
+        }
     }
 }
