@@ -107,5 +107,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Speed
             };
         }
+
+        /// <summary>
+        /// Returns default EnergyDrink ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultEnergyDrink()
+        {
+            return new ItemModel
+            {
+                Name = "Energy Drink",
+                Description = "A carbonated caffeinated beverage with a weird aftertaste",
+                ImageURI = "item_energy_drink.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.OffHand,
+                Attribute = AttributeEnum.Speed
+            };
+        }  
     } 
 }
