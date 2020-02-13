@@ -392,5 +392,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default WhoopeeCushion ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultWhoopeeCushion()
+        {
+            return new ItemModel
+            {
+                Name = "Whoopee Cushion",
+                Description = "A balloon-like device that creates a distracting noise",
+                ImageURI = "item_whoopee_cushion.png",
+                Range = 1,
+                Damage = 3,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
