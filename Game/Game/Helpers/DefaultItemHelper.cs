@@ -240,5 +240,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Attack
             };
         }
+
+        /// <summary>
+        /// Returns default MoodRing ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultMoodRing()
+        {
+            return new ItemModel
+            {
+                Name = "Mood Ring",
+                Description = "A ring with a stone that changes color depending on the wearer’s mood",
+                ImageURI = "item_mood_ring.png",
+                Range = 0,
+                Damage = 0,
+                Value = 2,
+                Location = ItemLocationEnum.LeftFinger,
+                Attribute = AttributeEnum.Attack
+            };
+        }
     }
 }
