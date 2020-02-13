@@ -9,6 +9,29 @@ namespace Game.Helpers
     {
 
         /// <summary>
+        /// Helper that takes in a CharacterTypeEnum to return the default base version of that type
+        /// </summary>
+        /// <param name="type"></param>
+        public CharacterModel DefaultCharacter(CharacterTypeEnum type)
+        {
+            switch (type)
+            {
+                case CharacterTypeEnum.Bassist:
+                    return DefaultBassist();
+                case CharacterTypeEnum.Keyboardist:
+                    return DefaultKeyboardist();
+                case CharacterTypeEnum.Drummer:
+                    return DefaultDrummer();
+                case CharacterTypeEnum.Guitarist:
+                    return DefaultGuitarist();
+                case CharacterTypeEnum.LeadVocalist:
+                    return DefaultLeadVocalist();
+                default:
+                    return DefaultTambourine();
+            }
+        }
+
+        /// <summary>
         /// Returns default Tambourine Player CharacterModel
         /// </summary>
         /// <returns></returns>
