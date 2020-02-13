@@ -125,6 +125,25 @@ namespace Game.Helpers
                 Location = ItemLocationEnum.OffHand,
                 Attribute = AttributeEnum.Speed
             };
-        }  
+        }
+
+        /// <summary>
+        /// Returns default Metronome ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultMetronome()
+        {
+            return new ItemModel
+            {
+                Name = "Metronome",
+                Description = "A handheld metronome that keeps the band’s beat",
+                ImageURI = "item_metronome.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.OffHand,
+                Attribute = AttributeEnum.Defense
+            };
+        }
     } 
 }
