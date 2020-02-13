@@ -38,9 +38,10 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"
                                         Source="{Binding IconURI}"
                                         Style="{StaticResource ImageSmallStyle}"
                                         VerticalOptions="CenterAndExpand"/>
@@ -53,11 +54,11 @@
                                     Orientation="Horizontal">
 
                                     <Label 
-                                       Text="Type:" 
+                                       Text="Level:" 
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro" />
 
-                                    <Label Text="{Binding Type}" 
+                                    <Label Text="{Binding Level}" 
                                         Style="{StaticResource ListStyle}"
                                         FontSize="Micro" />
 
@@ -67,11 +68,25 @@
                                     Orientation="Horizontal">
 
                                     <Label 
-                                       Text="Level:" 
+                                       Text="Experience:" 
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro" />
 
-                                    <Label Text="{Binding Level}" 
+                                    <Label Text="{Binding ExperienceGiven}" 
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro" />
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="3"
+                                    Orientation="Horizontal">
+
+                                    <Label 
+                                       Text="Guaranteed Drop:" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro" />
+
+                                    <Label Text="{Binding UniqueDrops}" 
                                         Style="{StaticResource ListStyle}"
                                         FontSize="Micro" />
 
