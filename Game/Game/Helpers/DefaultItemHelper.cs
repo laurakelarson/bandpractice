@@ -354,5 +354,26 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Speed
             };
         }
+
+        /// <summary>
+        /// Returns default BunnySlippers ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultTriangle()
+        {
+            return new ItemModel
+            {
+                Name = "Triangle",
+                Description = "A simple percussive instrument for dealing damage",
+                ImageURI = "item_triangle.png",
+                Range = 1,
+                Damage = 2,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
+
+
     }
 }
