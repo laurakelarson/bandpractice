@@ -27,10 +27,6 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Create";
-
-            ////Need to make the SelectedMonster a string, so it can select the correct Monster.
-            //LocationPicker.SelectedMonster = data.Data.Location.ToString();
-            //AttributePicker.SelectedMonster = data.Data.Attribute.ToString();
         }
 
         /// <summary>
