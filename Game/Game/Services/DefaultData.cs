@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using System.Collections.Generic;
 
 namespace Game.Services
@@ -74,12 +75,12 @@ namespace Game.Services
         {
             var datalist = new List<CharacterModel>()
             {
-                //new CharacterModel(CharacterTypeEnum.TambourinePlayer),
-                //new CharacterModel(CharacterTypeEnum.Bassist),
-                //new CharacterModel(CharacterTypeEnum.Keyboardist),
-                //new CharacterModel(CharacterTypeEnum.Drummer),
-                //new CharacterModel(CharacterTypeEnum.Guitarist),
-                //new CharacterModel(CharacterTypeEnum.LeadVocalist)
+                DataHelper.DefaultTambourine(),
+                DataHelper.DefaultBassist(),
+                DataHelper.DefaultKeyboardist(),
+                DataHelper.DefaultDrummer(),
+                DataHelper.DefaultGuitarist(),
+                DataHelper.DefaultLeadVocalist()
             };
 
             return datalist;
