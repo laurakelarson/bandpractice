@@ -31,5 +31,28 @@ namespace Game.Helpers
             };
         }
 
+        /// <summary>
+        /// Returns default Bassist CharacterModel
+        /// </summary>
+        /// <returns></returns>
+        public CharacterModel DefaultBassist()
+        {
+            return new CharacterModel
+            {
+                Name = "Bassist",
+                Type = CharacterTypeEnum.Bassist,
+                ImageURI = "bassist.png",
+                IconURI = "bassist_icon.png",
+                Level = 2,
+                Alive = true,
+                TotalExperience = 300,
+                Attack = 1,
+                Defense = 1,
+                Speed = 1,
+                MaxHealth = 30,
+                CurrentHealth = 30,
+            };
+        }
+
     }
 }
