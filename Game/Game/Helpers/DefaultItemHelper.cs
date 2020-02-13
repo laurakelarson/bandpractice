@@ -88,5 +88,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Attack
             };
         }
+
+        /// <summary>
+        /// Returns default Coffee ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultCoffee()
+        {
+            return new ItemModel
+            {
+                Name = "Coffee",
+                Description = "A slightly bitter caffeinated beverage",
+                ImageURI = "item_coffee.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.OffHand,
+                Attribute = AttributeEnum.Speed
+            };
+        }
     } 
 }
