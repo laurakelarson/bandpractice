@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Game.Helpers
 {
-    class DefaultItemHelper
+    public static class DefaultItemHelper
     {
+
     }
 }
