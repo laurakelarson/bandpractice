@@ -145,5 +145,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default TuningFork ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultTuningFork()
+        {
+            return new ItemModel
+            {
+                Name = "Tuning Fork",
+                Description = "A tuning fork that helps the band keep its pitch",
+                ImageURI = "item_tuning_fork.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.OffHand,
+                Attribute = AttributeEnum.Defense
+            };
+        }
     } 
 }
