@@ -316,5 +316,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Attack
             };
         }
+
+        /// <summary>
+        /// Returns default ComfySneakers ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultComfySneakers()
+        {
+            return new ItemModel
+            {
+                Name = "Comfy Sneakers",
+                Description = "Sneakers that are comfortable to walk and stand in",
+                ImageURI = "item_comfy_sneakers.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.Feet,
+                Attribute = AttributeEnum.Speed
+            };
+        }
     }
 }
