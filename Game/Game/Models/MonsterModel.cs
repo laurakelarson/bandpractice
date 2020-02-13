@@ -89,8 +89,14 @@ namespace Game.Models
             Attack = newData.Attack;
             CurrentHealth = newData.CurrentHealth;
             Range = newData.Range;
-            ItemsDropped = newData.ItemsDropped;
-            UniqueDrops = newData.UniqueDrops;
+            for (int i = 0; i < newData.ItemsDropped.Count; i++)
+            {
+                ItemsDropped.Add(new ItemModel(newData.ItemsDropped[i]));
+            }
+            for (int i = 0; i < newData.UniqueDrops.Count; i++)
+            {
+                UniqueDrops.Add(new ItemModel(newData.UniqueDrops[i]));
+            }
         }
 
         /// <summary>
