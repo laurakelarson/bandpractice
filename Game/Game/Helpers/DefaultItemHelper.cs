@@ -582,5 +582,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default DidgeridooOfDestruction ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultDidgeridooOfDestruction()
+        {
+            return new ItemModel
+            {
+                Name = "Didgeridoo of Destruction",
+                Description = "The ultimate weapon – the oldest wind instrument known to man.",
+                ImageURI = "item_didgeridoo.png",
+                Range = 10,
+                Damage = 70,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
