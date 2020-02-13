@@ -450,6 +450,23 @@ namespace Game.Helpers
             };
         }
 
-
+        /// <summary>
+        /// Returns default Bagpipe ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultBagpipe()
+        {
+            return new ItemModel
+            {
+                Name = "Bagpipe",
+                Description = "A traditional reed instrument capable of destruction",
+                ImageURI = "item_bagpipes.png",
+                Range = 4,
+                Damage = 8,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
