@@ -451,7 +451,29 @@ namespace Game.Services
         {
             var datalist = new List<MonsterModel>()
             {
-                new MonsterModel(), new MonsterModel(), new MonsterModel(), new MonsterModel(), new MonsterModel()
+                DefaultMonsterHelper.DefaultChomper(),
+                DefaultMonsterHelper.DefaultMassiveStatic(),  
+                DefaultMonsterHelper.DefaultMotobeast(),
+                DefaultMonsterHelper.DefaultKazoom(),
+                DefaultMonsterHelper.DefaultPanpot(),
+                DefaultMonsterHelper.DefaultJackhammer(),
+                DefaultMonsterHelper.DefaultBrakez(),
+                DefaultMonsterHelper.DefaultDriller(),
+                DefaultMonsterHelper.DefaultAlarmer(),
+                DefaultMonsterHelper.DefaultShrillBabe(),
+                DefaultMonsterHelper.DefaultBuzzRowdy(),
+                DefaultMonsterHelper.DefaultPiercingFeedback(),
+                DefaultMonsterHelper.DefaultFranDrescher(),
+                DefaultMonsterHelper.DefaultYowlingFeline(),
+                DefaultMonsterHelper.DefaultNickelback(),
+                DefaultMonsterHelper.DefaultLloydChristmas(),
+                DefaultMonsterHelper.DefaultRecorderApprentice(),
+                DefaultMonsterHelper.DefaultAirhornLeviathan(),
+                DefaultMonsterHelper.DefaultEarsplittingChalkboard(),
+                DefaultMonsterHelper.DefaultRubberChickenBlob(),
+                DefaultMonsterHelper.DefaultAgonizingSilence(),
+                DefaultMonsterHelper.DefaultGilbertGottfried()
+
             };
 
             return datalist;
