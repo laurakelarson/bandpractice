@@ -5,14 +5,14 @@ using Game.Models;
 
 namespace Game.Helpers
 {
-    class DataHelper
+    public static class DataHelper
     {
 
         /// <summary>
         /// Helper that takes in a CharacterTypeEnum to return the default base version of that type
         /// </summary>
         /// <param name="type"></param>
-        public CharacterModel DefaultCharacter(CharacterTypeEnum type)
+        public static CharacterModel DefaultCharacter(CharacterTypeEnum type)
         {
             switch (type)
             {
@@ -35,7 +35,7 @@ namespace Game.Helpers
         /// Returns default Tambourine Player CharacterModel
         /// </summary>
         /// <returns></returns>
-        public CharacterModel DefaultTambourine()
+        public static CharacterModel DefaultTambourine()
         {
             return new CharacterModel
             {
@@ -58,7 +58,7 @@ namespace Game.Helpers
         /// Returns default Bassist CharacterModel
         /// </summary>
         /// <returns></returns>
-        public CharacterModel DefaultBassist()
+        public static CharacterModel DefaultBassist()
         {
             return new CharacterModel
             {
@@ -81,7 +81,7 @@ namespace Game.Helpers
         /// Returns default Keyboardist CharacterModel
         /// </summary>
         /// <returns></returns>
-        public CharacterModel DefaultKeyboardist()
+        public static CharacterModel DefaultKeyboardist()
         {
             return new CharacterModel
             {
@@ -104,7 +104,7 @@ namespace Game.Helpers
         /// Returns default Drummer CharacterModel
         /// </summary>
         /// <returns></returns>
-        public CharacterModel DefaultDrummer()
+        public static CharacterModel DefaultDrummer()
         {
             return new CharacterModel
             {
@@ -127,7 +127,7 @@ namespace Game.Helpers
         /// Returns default Guitarist CharacterModel
         /// </summary>
         /// <returns></returns>
-        public CharacterModel DefaultGuitarist()
+        public static CharacterModel DefaultGuitarist()
         {
             return new CharacterModel
             {
@@ -150,7 +150,7 @@ namespace Game.Helpers
         /// Returns default Lead Vocalist CharacterModel
         /// </summary>
         /// <returns></returns>
-        public CharacterModel DefaultLeadVocalist()
+        public static CharacterModel DefaultLeadVocalist()
         {
             return new CharacterModel
             {
