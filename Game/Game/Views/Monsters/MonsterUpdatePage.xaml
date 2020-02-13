@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.Monsters.MonsterUpdatePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Name" 
+                   Style="{StaticResource LabelStyle}"/>
+
+                <Entry Text="{Binding Data.Name}" 
+                        Style="{StaticResource EntryStyle}"/>
+            </StackLayout>
+
+            <Label Text="Level: 1" 
+                   Style="{StaticResource LabelStyle}"/>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
