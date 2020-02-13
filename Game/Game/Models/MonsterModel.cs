@@ -48,22 +48,23 @@ namespace Game.Models
         // The items that will always be dropped by this monster on defeat
         public List<ItemModel> UniqueDrops { get; set; } = new List<ItemModel>();
 
-        ///// <summary>
-        ///// Default MonsterModel
-        ///// Establish the Default Image Path
-        ///// </summary>
-        //public MonsterModel() {
-        //    ImageURI = MonsterService.DefaultImageURI;
-        //}
+        /// <summary>
+        /// Default MonsterModel
+        /// Establish the Default Image Path
+        /// </summary>
+        public MonsterModel()
+        {
+            //ImageURI = MonsterService.DefaultImageURI;
+        }
 
-        ///// <summary>
-        ///// Constructor to create an Monster based on what is passed in
-        ///// </summary>
-        ///// <param name="data"></param>
-        //public MonsterModel(MonsterModel data)
-        //{
-        //    Update(data);
-        //}
+        /// <summary>
+        /// Constructor to create an Monster based on what is passed in
+        /// </summary>
+        /// <param name="data"></param>
+        public MonsterModel(MonsterModel data)
+        {
+            Update(data);
+        }
 
         ///// <summary>
         ///// Update the Record
