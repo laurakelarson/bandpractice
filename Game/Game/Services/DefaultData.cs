@@ -4,10 +4,13 @@ using System.Collections.Generic;
 
 namespace Game.Services
 {
+    /// <summary>
+    /// DefaultData is a static class that contains helper for loading data of various types.
+    /// </summary>
     public static class DefaultData
     {
         /// <summary>
-        /// Load the Default data
+        /// Load the Default ItemModel data
         /// </summary>
         /// <returns></returns>
         public static List<ItemModel> LoadData(ItemModel temp)
@@ -48,6 +51,11 @@ namespace Game.Services
             return datalist;
         }
 
+        /// <summary>
+        /// Loads the default ScoreModel data
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
             var datalist = new List<ScoreModel>()
