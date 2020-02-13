@@ -117,6 +117,10 @@ namespace Game.Models
         // (dice roll + Entity Level + Attack Modifiers) > (Target Defense attribute + Target level). 
         // If true, the hit succeeds; if false, it’s a miss and the turn is over for that entity.
 
+        // Damage is determined by the following formula: dice roll + Weapon Damage + Level Damage.
+        // Level damage is equal to ¼ of the entity’s level rounded up to the nearest whole integer.
+        // Weapon damage is randomly found within the damage range of the weapon held by the entity 
+        // (if a weapon has a damage attribute of 10, the weapon damage will be randomly determined in the range 1-10).
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
         public string FormatOutput()
