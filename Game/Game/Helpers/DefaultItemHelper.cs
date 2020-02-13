@@ -506,5 +506,26 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default GoldenRecorder ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultGoldenRecorder()
+        {
+            return new ItemModel
+            {
+                Name = "Golden Recorder",
+                Description = "A beautifully crafted recorder made of pure gold",
+                ImageURI = "item_recorder.png",
+                Range = 6,
+                Damage = 20,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
+
+
     }
 }
