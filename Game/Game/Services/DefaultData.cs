@@ -441,5 +441,22 @@ namespace Game.Services
             return datalist;
 
         }
+
+        /// <summary>
+        /// Load the default Monster data
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static List<MonsterModel> LoadData(MonsterModel temp)
+        {
+            var datalist = new List<MonsterModel>()
+            {
+                new MonsterModel(), new MonsterModel(), new MonsterModel(), new MonsterModel(), new MonsterModel()
+            };
+
+            return datalist;
+
+        }
+
     }
 }
