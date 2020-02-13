@@ -487,5 +487,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default Keytar ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultKeytar()
+        {
+            return new ItemModel
+            {
+                Name = "Keytar",
+                Description = "A stimulating hybrid synthesizer",
+                ImageURI = "item_keytar.png",
+                Range = 5,
+                Damage = 15,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
