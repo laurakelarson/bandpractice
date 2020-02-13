@@ -164,5 +164,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Defense
             };
         }
+
+        /// <summary>
+        /// Returns default BandTShirt ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultBandTShirt()
+        {
+            return new ItemModel
+            {
+                Name = "Band T-shirt",
+                Description = "A soft t-shirt featuring the band’s logo",
+                ImageURI = "item_band_shirt.png",
+                Range = 0,
+                Damage = 0,
+                Value = 1,
+                Location = ItemLocationEnum.Necklass,
+                Attribute = AttributeEnum.Defense
+            };
+        }
     } 
 }
