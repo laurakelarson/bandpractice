@@ -4,8 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.Monsters.MonsterIndexPage"
              Title="{Binding Title}">
+
+    <Page.Resources>
+        <local_helpers:ListToStringConverter x:Key="ListToStringConverterKey"></local_helpers:ListToStringConverter>
+    </Page.Resources>
+
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Clicked="AddMonster_Clicked"  IconImageSource="icon_add.png"/>
@@ -86,7 +92,7 @@
                                        Style="{StaticResource ListStyle}"
                                        FontSize="Micro" />
 
-                                    <Label Text="{Binding UniqueDrops}" 
+                                    <Label Text="{Binding UniqueDrops, Converter={StaticResource ListToStringConverterKey}}" 
                                         Style="{StaticResource ListStyle}"
                                         FontSize="Micro" />
 
