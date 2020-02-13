@@ -50,7 +50,7 @@ namespace Game.Helpers
                 Defense = 1,
                 Speed = 1,
                 MaxHealth = 30,
-                CurrentHealth = 30,
+                CurrentHealth = 30
             };
         }
 
@@ -73,7 +73,30 @@ namespace Game.Helpers
                 Defense = 4,
                 Speed = 2,
                 MaxHealth = 50,
-                CurrentHealth = 50,
+                CurrentHealth = 50
+            };
+        }
+
+        /// <summary>
+        /// Returns default Drummer CharacterModel
+        /// </summary>
+        /// <returns></returns>
+        public CharacterModel DefaultDrummer()
+        {
+            return new CharacterModel
+            {
+                Name = "Drummer",
+                Type = CharacterTypeEnum.Drummer,
+                ImageURI = "drummer.png",
+                IconURI = "drummer_icon.png",
+                Level = 8,
+                Alive = true,
+                TotalExperience = 34000,
+                Attack = 3,
+                Defense = 5,
+                Speed = 2,
+                MaxHealth = 80,
+                CurrentHealth = 80
             };
         }
 
