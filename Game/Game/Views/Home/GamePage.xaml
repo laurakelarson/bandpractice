@@ -18,7 +18,7 @@
                     <ImageButton
                         
                         Style="{StaticResource ImageLargeStyle}"
-                        Clicked="VillageButton_Clicked"/>
+                        Clicked="EncyclopediaButton_Clicked"/>
 
                     <Label 
                         Text="Encyclopedia"

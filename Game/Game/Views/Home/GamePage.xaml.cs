@@ -33,7 +33,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void VillageButton_Clicked(object sender, EventArgs e)
+		async void EncyclopediaButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new VillagePage());
 		}
