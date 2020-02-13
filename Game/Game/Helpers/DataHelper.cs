@@ -123,6 +123,29 @@ namespace Game.Helpers
             };
         }
 
+        /// <summary>
+        /// Returns default Lead Vocalist CharacterModel
+        /// </summary>
+        /// <returns></returns>
+        public CharacterModel DefaultLeadVocalist()
+        {
+            return new CharacterModel
+            {
+                Name = "Lead Vocalist",
+                Type = CharacterTypeEnum.LeadVocalist,
+                ImageURI = "vocalist.png",
+                IconURI = "vocalist_icon.png",
+                Level = 16,
+                Alive = true,
+                TotalExperience = 195000,
+                Attack = 5,
+                Defense = 8,
+                Speed = 4,
+                MaxHealth = 120,
+                CurrentHealth = 120
+            };
+        }
+
 
     }
 }
