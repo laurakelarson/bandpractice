@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using Game.Models;
 using Xamarin.Forms;
 
 namespace Game.Helpers
@@ -9,8 +11,13 @@ namespace Game.Helpers
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //            return string.Join(",", value);
-            return "item";
+            var items = (List<ItemModel>) value;
+            List<string> names = new List<string>();
+            for (int i = 0; i < items.Count; i++)
+            {
+                names.Add(items[i].Name);
+            }String
+            return string.Join(",", names);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
