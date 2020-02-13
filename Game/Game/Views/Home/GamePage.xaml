@@ -33,7 +33,7 @@
                         Clicked="DungeonButton_Clicked"/>
 
                     <Label 
-                        Text="Dungeon"
+                        Text="Battle"
                         Style="{StaticResource CenterMessageStyle}"/>
                 </StackLayout>
 
