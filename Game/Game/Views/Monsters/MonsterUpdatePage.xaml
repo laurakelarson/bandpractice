@@ -21,6 +21,11 @@
                 <Entry Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
             </StackLayout>
+
+            <Label Text="Level: 1" 
+                   Style="{StaticResource LabelStyle}"/>
+            
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
