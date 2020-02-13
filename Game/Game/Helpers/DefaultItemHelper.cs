@@ -430,5 +430,26 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default Ocarina ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel DefaultOcarina()
+        {
+            return new ItemModel
+            {
+                Name = "Bagpipe",
+                Description = "A traditional reed instrument capable of destruction",
+                ImageURI = "item_bagpipes.png",
+                Range = 4,
+                Damage = 8,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
+
+
     }
 }
