@@ -544,5 +544,24 @@ namespace Game.Helpers
                 Attribute = AttributeEnum.Unknown
             };
         }
+
+        /// <summary>
+        /// Returns default Glockenspiel ItemModel
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel Defaultlockenspiel()
+        {
+            return new ItemModel
+            {
+                Name = "Glockenspiel",
+                Description = "A lovely set of tuned keys arranged like a piano",
+                ImageURI = "item_glockenspiel.png",
+                Range = 7,
+                Damage = 30,
+                Value = 0,
+                Location = ItemLocationEnum.PrimaryHand,
+                Attribute = AttributeEnum.Unknown
+            };
+        }
     }
 }
