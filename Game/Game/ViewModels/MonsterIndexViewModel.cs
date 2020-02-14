@@ -21,6 +21,7 @@ namespace Game.ViewModels
         private static volatile MonsterIndexViewModel instance;
         private static readonly object syncRoot = new Object();
 
+        // Set Instance of MonsterIndexViewModel
         public static MonsterIndexViewModel Instance
         {
             get
