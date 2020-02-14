@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Game.Helpers;
 using Game.Services;
 
 namespace Game.Models
@@ -127,6 +129,13 @@ namespace Game.Models
         // Level damage is equal to ¼ of the entity’s level rounded up to the nearest whole integer.
         // Weapon damage is randomly found within the damage range of the weapon held by the entity 
         // (if a weapon has a damage attribute of 10, the weapon damage will be randomly determined in the range 1-10).
+        public int GetAttackValue()
+        {
+            var roll = DiceHelper.DiceRoller(1, 20);
+            var level_damage = Math.Ceiling((double)Level / 4);
+            return roll + (int)level_damage;
+        }
+
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
         public string FormatOutput()
