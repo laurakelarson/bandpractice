@@ -42,6 +42,7 @@ namespace Game.Views
                 ViewModel.Data.ImageURI = Services.MonsterService.DefaultImageURI;
             }
 
+            // Send "Create" message and pop the page from the stack 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
