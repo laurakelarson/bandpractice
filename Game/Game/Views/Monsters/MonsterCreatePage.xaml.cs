@@ -87,6 +87,15 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Catch the change to the Stepper for Speed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            SpeedValue.Text = String.Format("{0}", e.NewValue);
+        }
+        /// <summary>
         /// Catch the change to the Stepper for Range
         /// </summary>
         /// <param name="sender"></param>

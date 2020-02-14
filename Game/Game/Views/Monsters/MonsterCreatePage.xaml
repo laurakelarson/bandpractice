@@ -126,15 +126,33 @@
                             HorizontalTextAlignment="End"/>
 
                     </StackLayout>
-                    
-                    
-
 
                     <Label Grid.Row="3" Grid.Column="0"
-                        Text="Range:" 
+                        Text="Speed:" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <StackLayout Grid.Row="3" Grid.Column="1"
+                        Orientation="Horizontal">
+
+                        <Stepper 
+                            Value="{Binding Data.Speed, Mode=TwoWay}"
+                            ValueChanged="Speed_OnStepperValueChanged"/>
+
+                        <Label 
+                            Text="{Binding Data.Speed}" 
+                            x:Name="SpeedValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    </StackLayout>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                        Text="Range:" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <StackLayout Grid.Row="4" Grid.Column="1"
                         Orientation="Horizontal">
 
                         <Stepper 
