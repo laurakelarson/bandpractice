@@ -162,8 +162,16 @@ namespace Game.Helpers
                 Defense = 2,
                 Speed = 1,
                 Range = 1,
-                CurrentHealth = 15
-                // TODO add list for items dropped and unique drops after helper created
+                CurrentHealth = 15,
+                ItemsDropped = new List<ItemModel>()
+                {
+                    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
+                    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
+                },
+                UniqueDrops = new List<ItemModel>()
+                {
+                    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
+                }
             };
         }
 
