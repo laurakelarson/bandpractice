@@ -17,6 +17,10 @@ namespace Game.Views.Monsters
         // View Model for Monster
         readonly GenericViewModel<MonsterModel> viewModel;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="data"></param>        
         public MonsterDeletePage(GenericViewModel<MonsterModel> data)
         {
             InitializeComponent();
