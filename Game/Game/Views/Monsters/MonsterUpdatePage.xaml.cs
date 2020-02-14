@@ -95,7 +95,7 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         void Health_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            HealthValue.Text = String.Format("{0}", e.NewValue);
+            Health.Text = String.Format("{0}", e.NewValue);
         }
     }
 }
