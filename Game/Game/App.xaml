@@ -171,9 +171,8 @@
 
             <Style TargetType="StackLayout"
                 x:Key="LightStack">
-                <Setter Property="Orientation" Value="Vertical" />
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}"/>
             </Style>
 
@@ -256,8 +255,7 @@
             
             <!-- Switch -->
             <Style TargetType="Switch">
-                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}"/>
-                <Setter Property="OnColor" Value="{StaticResource LightBackgroundColor}"/>
+                <Setter Property="OnColor" Value="{StaticResource SecondaryBackgroundColor}"/>
                 <Setter Property="ThumbColor" Value="{StaticResource TriciaryBackgroundColor}"/>
             </Style>
 
