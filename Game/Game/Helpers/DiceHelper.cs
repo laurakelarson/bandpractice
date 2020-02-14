@@ -9,13 +9,13 @@ namespace Game.Helpers
     /// Dice helper class. Can simulate dice roll for 
     /// values between "low" and "high"
     /// </summary>
-    class DiceHelper
+    static class DiceHelper
     {
-        Random r = new Random();
-
+        
         // Get random dice roll 
-        public int DiceRoller(int low, int high)
+        public static int DiceRoller(int low, int high)
         {
+            Random r = new Random();
             var roll = r.Next(low, high);
             return roll;
         }
