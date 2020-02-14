@@ -36,17 +36,17 @@
                         HorizontalOptions="CenterAndExpand"
                         >
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Name:" Style="{StaticResource LabelStyle}"/>
-                        <Label Text="{Binding Data.Name}" Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal">
                         <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
                         <Label Text="{Binding Data.Level}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Unique Drops:" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.ExperienceGiven}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Guaranteed Drop:" Style="{StaticResource LabelStyle}"/>
                         <Label Text="{Binding UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                 </StackLayout>
