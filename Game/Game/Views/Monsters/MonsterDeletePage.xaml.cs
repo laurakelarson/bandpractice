@@ -23,7 +23,7 @@ namespace Game.Views.Monsters
 
             BindingContext = this.viewModel = data;
 
-            this.viewModel.Title = "Delete " + data.Title;
+            this.viewModel.Title = data.Title;
         }
 
         /// <summary>
