@@ -39,7 +39,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0"
-                        Text="Health:"
+                        Text="Max Health:"
                         Style="{StaticResource LabelStyle}"/>
 
                 <StackLayout Grid.Row="0" Grid.Column="1"
