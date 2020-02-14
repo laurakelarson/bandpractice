@@ -21,7 +21,7 @@
                 <Button
                     Text="ENTER"
                     FontSize="Large"
-                    Clicked="GameButton_Clicked"/>
+                    Clicked="MyBand_Button_Clicked"/>
                 <Button
                     Text="DEMO TAPE"
                     FontSize="Medium"

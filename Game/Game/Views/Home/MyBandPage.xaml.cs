@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Game.Views.Home
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyBand : ContentPage
+    public partial class MyBandPage : ContentPage
     {
-        public MyBand()
+        public MyBandPage()
         {
             InitializeComponent();
         }

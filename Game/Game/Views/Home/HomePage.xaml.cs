@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Views.Home;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,10 +24,10 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        public async void GameButton_Clicked(object sender, EventArgs e)
+        public async void MyBand_Button_Clicked(object sender, EventArgs e)
         {
-			await Navigation.PushAsync(new GamePage());
-			//await Navigation.PushAsync(new MyBandPage()); TODO update when MyBand page implemented
+			//await Navigation.PushAsync(new GamePage());
+			await Navigation.PushAsync(new MyBandPage()); 
 		}
 
 		/*public async void AutoButton_Clicked(object sender, EventArgs e)
