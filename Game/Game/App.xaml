@@ -50,7 +50,8 @@
                 <Setter Property="Padding" Value="10,10,10,10" />
             </Style>
 
-            <Style TargetType="ContentPage" ApplyToDerivedTypes="True" x:Key="CRUDIPage">
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True" 
+                   x:Key="CRUDIPage">
                 <Setter Property="BackgroundColor" Value="{DynamicResource LightBackgroundColor}" />
                 <Setter Property="Padding" Value="10,10,10,10" />
             </Style>
@@ -166,6 +167,14 @@
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="LightStack">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}"/>
             </Style>
 
             <Style TargetType="StackLayout"
