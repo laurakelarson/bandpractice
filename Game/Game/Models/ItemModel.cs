@@ -62,7 +62,7 @@ namespace Game.Models
                 return;
             }
 
-            // Update all the fields in the Data, except for the Id and guid
+            // Update all the fields in the Data, except for the Id guid
             Name = newData.Name;
             Description = newData.Description;
             Value = newData.Value;
