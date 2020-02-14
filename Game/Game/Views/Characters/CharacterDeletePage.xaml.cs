@@ -17,6 +17,10 @@ namespace Game.Views.Characters
         // View Model for Character
         readonly GenericViewModel<CharacterModel> viewModel;
 
+        /// <summary>
+        /// Constructor for CharacterDeletePage.
+        /// </summary>
+        /// <param name="data"></param>
         public CharacterDeletePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
