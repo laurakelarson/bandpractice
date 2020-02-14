@@ -220,6 +220,25 @@
                 <Setter Property="Maximum" Value="9" />
                 <Setter Property="Increment" Value="1" />
             </Style>
+            <Style TargetType="Stepper" x:Key="MonsterHealthStepper">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+                <Setter Property="Minimum" Value="0" />
+                <Setter Property="Maximum" Value="50" />
+                <Setter Property="Increment" Value="1" />
+            </Style>
+            <Style TargetType="Stepper" x:Key="AtkDefSpdStepper">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+                <Setter Property="Minimum" Value="0" />
+                <Setter Property="Maximum" Value="5" />
+                <Setter Property="Increment" Value="1" />
+            </Style>
+
             
             <!-- Switch -->
             <Style TargetType="Switch">
