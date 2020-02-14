@@ -17,28 +17,29 @@
 
             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
 
-                <Image Source="dice_20.png" Style="{StaticResource ImageMediumStyle}"/>
+                <Image Source="bp_logo.png" Style="{StaticResource ImageLargeStyle}"/>
                 <Label Text="Band Practice BETA" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                 <Label Text="Laura Larson, Alex Peterson and Celeste Broderick" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
                 <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
             </StackLayout>
 
             <!--Database Settings Frame-->
+            <StackLayout Style="{StaticResource LightStack}">
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                
+                    <Label
+                            Text="Database Settings"
+                            Style="{DynamicResource DebugSwitchLabel}"
+                            TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Switch
+                            x:Name="DatabaseSettingsSwitch"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="DatabaseSettingsSwitch_OnToggled"
+                            IsToggled="False"/>
+                </StackLayout>
 
-                <Label
-                        Text="Database Settings"
-                        Style="{DynamicResource DebugSwitchLabel}"/>
-
-                <Switch
-                        x:Name="DatabaseSettingsSwitch"
-                        HorizontalOptions="EndAndExpand"
-                        Toggled="DatabaseSettingsSwitch_OnToggled"
-                        IsToggled="False"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource VerticalStack}"
+                <StackLayout Style="{StaticResource VerticalStack}"
                         x:Name="DatabaseSettingsFrame"
                         IsVisible="False">
 
@@ -46,7 +47,7 @@
                 <StackLayout Style="{StaticResource HorizontalStack}"
                                     Padding="50,0,0,0">
 
-                    <Label Text="SQL Data Source" />
+                    <Label Text="SQL Data Source" TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
                     <Switch
                         HorizontalOptions="Start" 
@@ -61,7 +62,7 @@
                 <StackLayout Style="{StaticResource HorizontalStack}"
                                     Padding="50,0,0,0">
 
-                    <Label Text="Wipe Data List" />
+                    <Label Text="Wipe Data List" TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
                     <Button
                         Text="Wipe"
@@ -72,10 +73,11 @@
             </StackLayout>
 
             <!--Debug Settings Frame-->
-            <StackLayout Style="{StaticResource HorizontalStack}">
+                <StackLayout Style="{StaticResource HorizontalStack}">
 
                 <Label
                     Text="Debug Settings"
+                    TextColor="{StaticResource PrimaryBackgroundColor}"
                     Style="{DynamicResource DebugSwitchLabel}"/>
 
                 <Switch
@@ -85,16 +87,18 @@
                     IsToggled="False"/>
             </StackLayout>
 
-            <StackLayout Style="{StaticResource VerticalStack}"
+                <StackLayout Style="{StaticResource VerticalStack}"
                         x:Name="DebugSettingsFrame"
                         IsVisible="False">
 
                 <StackLayout Style="{StaticResource HorizontalStack}"
                                     Padding="50,0,0,0">
 
-                    <Label Text="More Debug Settings to come..." />
+                    <Label Text="More Debug Settings to come..." 
+                           TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
                 </StackLayout>
+            </StackLayout>
             </StackLayout>
         </StackLayout>
     </ScrollView>
