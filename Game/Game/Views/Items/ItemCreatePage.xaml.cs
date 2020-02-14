@@ -7,7 +7,7 @@ using Xamarin.Forms;
 namespace Game.Views
 {
     /// <summary>
-    /// Create Item
+    /// Create Item Page
     /// </summary>
     [DesignTimeVisible(false)]
     public partial class ItemCreatePage : ContentPage
