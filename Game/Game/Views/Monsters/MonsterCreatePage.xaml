@@ -47,6 +47,10 @@
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
 
+                    <Label Grid.Row="1" Grid.Column="0"
+                        Text="Level 1" 
+                        Style="{StaticResource LabelStyle}"/>
+
 
 
 
