@@ -24,7 +24,7 @@ namespace Game.Views.Monsters
 
             BindingContext = this.ViewModel = data;
 
-            this.ViewModel.Title = "Update " + data.Title;
+            this.ViewModel.Title = "Update";
         }
 
         /// <summary>
