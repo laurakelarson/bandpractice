@@ -8,9 +8,9 @@ namespace Game.Helpers
     {
         Random r = new Random();
 
-        public int diceRoller(int sides)
+        public int diceRoller(int low, int high)
         {
-            var roll = r.Next(1, sides);
+            var roll = r.Next(low, high);
             return roll;
         }
     }
