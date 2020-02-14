@@ -7,7 +7,7 @@ using Game.Models;
 namespace Game.Views
 {
     /// <summary>
-    /// The Read Page
+    /// The Delete Page
     /// </summary>
     [DesignTimeVisible(false)]
     public partial class ItemDeletePage : ContentPage
@@ -52,7 +52,6 @@ namespace Game.Views
         /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
-            // Add your code here...
             return true;
         }
     }
