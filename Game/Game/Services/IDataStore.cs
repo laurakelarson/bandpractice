@@ -9,12 +9,22 @@ namespace Game.Services
     /// <typeparam name="T"></typeparam>
     public interface IDataStore<T>
     {
+        // Create method
         Task<bool> CreateAsync(T Data);
+
+        // Read method
         Task<T> ReadAsync(string id);
+
+        // Update method
         Task<bool> UpdateAsync(T Data);
+        
+        // Delete method
         Task<bool> DeleteAsync(string id);
+        
+        // Index method
         Task<List<T>> IndexAsync();
 
+        // Wipe data list method 
         Task<bool> WipeDataListAsync();
     }
 }
