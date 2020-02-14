@@ -50,13 +50,7 @@
                     <Label Grid.Row="1" Grid.Column="0"
                         Text="Level 1" 
                         Style="{StaticResource LabelStyle}"/>
-
-
-
-
                 </Grid>
-
-
 
                 <Grid
                     RowSpacing="1"
@@ -91,7 +85,7 @@
 
                     </StackLayout>-->
 
-                    <!--<Label Grid.Row="1" Grid.Column="0"
+                    <Label Grid.Row="1" Grid.Column="0"
                         Text="Range:" 
                         Style="{StaticResource LabelStyle}"/>
 
@@ -110,7 +104,7 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    </StackLayout>-->
+                    </StackLayout>
 
                     <!--<Label Grid.Row="2" Grid.Column="0"
                         Text="Damage:" 
