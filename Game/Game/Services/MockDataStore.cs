@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 
 namespace Game.Services
 {
+    /// <summary>
+    /// Mock data store. Used to store data in memory when
+    /// SQL database not being used. 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class MockDataStore<T> : IDataStore<T> where T: new()
     {
         /// <summary>
