@@ -64,26 +64,26 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!--<Label Grid.Row="0" Grid.Column="0"
-                        Text="Value:"
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Text="Max Health:" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <StackLayout Grid.Row="0" Grid.Column="1"
                         Orientation="Horizontal">
 
-                        <Stepper
-                            Value="{Binding Data.Value, Mode=TwoWay}"
-                            ValueChanged="Value_OnStepperValueChanged"/>
+                        <Stepper 
+                            Value="{Binding Data.Range, Mode=TwoWay}"
+                            ValueChanged="Health_OnStepperValueChanged"/>
 
-                        <Label
-                            Text="{Binding Data.Value}" 
-                            x:Name="ValueValue"
+                        <Label 
+                            Text="{Binding Data.CurrentHealth}" 
+                            x:Name="HealthValue"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    </StackLayout>-->
+                    </StackLayout>
 
                     <Label Grid.Row="1" Grid.Column="0"
                         Text="Range:" 
