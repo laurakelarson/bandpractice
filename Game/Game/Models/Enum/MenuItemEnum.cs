@@ -6,7 +6,7 @@
     public enum MenuItemEnum
     {
         Battle,
-        Village,
+        Encyclopedia,
         Score,
         Items,
         Game,

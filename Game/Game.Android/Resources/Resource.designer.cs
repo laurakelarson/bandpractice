@@ -6059,7 +6059,7 @@ namespace Game.Droid
 			public const int troll = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int village = 2131165390;
+			public const int Encyclopedia = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
 			public const int vocalist = 2131165391;

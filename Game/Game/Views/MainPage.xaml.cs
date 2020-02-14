@@ -45,8 +45,8 @@ namespace Game.Views
                         MenuPages.Add(id, new NavigationPage(new ItemIndexPage()));
                         break;
 
-                    case (int)MenuItemEnum.Village:
-                        MenuPages.Add(id, new NavigationPage(new VillagePage()));
+                    case (int)MenuItemEnum.Encyclopedia:
+                        MenuPages.Add(id, new NavigationPage(new EncyclopediaPage()));
                         break;
 
                     case (int)MenuItemEnum.Battle:

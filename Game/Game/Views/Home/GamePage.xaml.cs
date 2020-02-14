@@ -29,13 +29,13 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Village
+		/// Jump to the Encyclopedia
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		async void EncyclopediaButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new VillagePage());
+			await Navigation.PushAsync(new EncyclopediaPage());
 		}
 
 		/// <summary>

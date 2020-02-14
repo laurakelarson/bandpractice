@@ -36,7 +36,7 @@ namespace Game.Views
 
 		public async void EncyclopediaButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new VillagePage());
+			await Navigation.PushAsync(new EncyclopediaPage());
 		}
 
 		/*public async void HighScoreButton_Clicked(object sender, EventArgs e)

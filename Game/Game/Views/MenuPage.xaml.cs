@@ -30,7 +30,7 @@ namespace Game.Views
             {
                 new HomeMenuItemModel {Id = MenuItemEnum.Game, Title="Game" },
                 new HomeMenuItemModel {Id = MenuItemEnum.About, Title="About" },
-                new HomeMenuItemModel {Id = MenuItemEnum.Village, Title="Encyclopedia" },
+                new HomeMenuItemModel {Id = MenuItemEnum.Encyclopedia, Title="Encyclopedia" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Battle, Title="Battle" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Items, Title="Items" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Score, Title="Score" },
