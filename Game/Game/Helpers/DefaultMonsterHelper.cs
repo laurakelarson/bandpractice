@@ -339,8 +339,17 @@ namespace Game.Helpers
                 Speed = 3,
                 Range = 2,
                 CurrentHealth = 100,
-                Boss = true
-                // TODO add list for items dropped and unique drops after helper created
+                Boss = true,
+                ItemsDropped = new List<ItemModel>()
+                {
+                    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
+                    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
+                },
+                UniqueDrops = new List<ItemModel>()
+                {
+                    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
+                    new ItemModel(DefaultItemHelper.DefaultOcarina())
+                }
             };
 
 
