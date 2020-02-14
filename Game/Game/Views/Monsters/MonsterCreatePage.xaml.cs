@@ -77,6 +77,16 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Catch the change to the Stepper for Attack
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            AttackValue.Text = String.Format("{0}", e.NewValue);
+        }
+
+        /// <summary>
         /// Catch the change to the Stepper for Range
         /// </summary>
         /// <param name="sender"></param>

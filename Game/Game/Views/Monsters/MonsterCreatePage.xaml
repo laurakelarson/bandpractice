@@ -107,10 +107,34 @@
                     </StackLayout>
 
                     <Label Grid.Row="2" Grid.Column="0"
-                        Text="Range:" 
+                        Text="Attack:" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <StackLayout Grid.Row="2" Grid.Column="1"
+                        Orientation="Horizontal">
+
+                        <Stepper 
+                            Value="{Binding Data.Attack, Mode=TwoWay}"
+                            ValueChanged="Attack_OnStepperValueChanged"/>
+
+                        <Label 
+                            Text="{Binding Data.Attack}" 
+                            x:Name="AttackValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    </StackLayout>
+                    
+                    
+
+
+                    <Label Grid.Row="3" Grid.Column="0"
+                        Text="Range:" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <StackLayout Grid.Row="3" Grid.Column="1"
                         Orientation="Horizontal">
 
                         <Stepper 
