@@ -71,6 +71,11 @@
                 <Label Text="{Binding Data.Speed}" Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Range:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Range}" Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
             <Label Text="Item Drop" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
