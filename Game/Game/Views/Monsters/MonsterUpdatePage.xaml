@@ -38,7 +38,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0"
-                        Text="Value:"
+                        Text="Health:"
                         Style="{StaticResource LabelStyle}"/>
 
                 <StackLayout Grid.Row="0" Grid.Column="1"
@@ -50,7 +50,7 @@
 
                     <Label
                             Text="{Binding Data.CurrentHealth}" 
-                            x:Name="HealthValue"
+                            x:Name="Health"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="End"
