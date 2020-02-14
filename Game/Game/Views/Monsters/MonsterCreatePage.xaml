@@ -72,7 +72,7 @@
                         Orientation="Horizontal">
 
                         <Stepper 
-                            Value="{Binding Data.Range, Mode=TwoWay}"
+                            Value="{Binding Data.CurrentHealth, Mode=TwoWay}"
                             ValueChanged="Health_OnStepperValueChanged"/>
 
                         <Label 
@@ -93,11 +93,11 @@
                         Orientation="Horizontal">
 
                         <Stepper 
-                            Value="{Binding Data.Range, Mode=TwoWay}"
+                            Value="{Binding Data.Defense, Mode=TwoWay}"
                             ValueChanged="Defense_OnStepperValueChanged"/>
 
                         <Label 
-                            Text="{Binding Data.Range}" 
+                            Text="{Binding Data.Defense}" 
                             x:Name="DefenseValue"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
