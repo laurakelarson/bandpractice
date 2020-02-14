@@ -41,6 +41,11 @@ namespace Game.Views.Characters
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// Calls to delete the object in question
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
