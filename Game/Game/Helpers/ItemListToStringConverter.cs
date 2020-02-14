@@ -29,7 +29,7 @@ namespace Game.Helpers
             {
                 names.Add(items[i].Name);
             }
-            return string.Join(",", names);
+            return string.Join(", ", names);
         }
 
         /// <summary>
