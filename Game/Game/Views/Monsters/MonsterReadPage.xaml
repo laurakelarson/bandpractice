@@ -36,10 +36,6 @@
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
                         >
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Name:" Style="{StaticResource LabelStyle}"/>
-                        <Label Text="{Binding Data.Name}" Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
