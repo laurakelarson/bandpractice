@@ -48,7 +48,7 @@
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Guaranteed Drop:" Style="{StaticResource LabelStyle}"/>
-                        <Label Text="{Binding UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Data.UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
