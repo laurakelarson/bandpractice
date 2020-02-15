@@ -19,7 +19,7 @@
 
                 <Image Source="bp_logo.png" Style="{StaticResource ImageLargeStyle}"/>
                 <Label Text="Band Practice BETA" Style="{StaticResource HeaderStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
-                <Label Text="Laura Larson, Alex Peterson and Celeste Broderick" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
+                <Label Text="Laura Larson, Alex Peterson and Celeste Broderick" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
                 <Label x:Name="CurrentDateTime" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"  HorizontalTextAlignment="Center" />
             </StackLayout>
 
