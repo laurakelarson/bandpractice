@@ -79,9 +79,9 @@
             <Label Text="Item Drop" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Guaranteed Items:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="Guaranteed Items:" Style="{StaticResource LabelStyle}" VerticalOptions="Start"/>
                 <Label Text="{Binding Data.UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}"
-                       Style="{StaticResource LabelStyle}"/>
+                       Style="{StaticResource LabelStyle}" LineBreakMode="WordWrap"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
