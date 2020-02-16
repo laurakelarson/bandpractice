@@ -59,6 +59,22 @@ namespace Game.Services
         }
 
         /// <summary>
+        /// Check NeedsInitialization flag. First time toggled, returns true.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetNeedsInitializationAsync()
+        {
+            if (NeedsInitialization == true)
+            {
+                // Toggle State
+                NeedsInitialization = false;
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(NeedsInitialization);
+        }
+
+        /// <summary>
         /// Wipe Data List
         /// Drop the tables and create new ones
         /// </summary>
