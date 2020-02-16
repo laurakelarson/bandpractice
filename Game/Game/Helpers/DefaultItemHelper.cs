@@ -514,11 +514,11 @@ namespace Game.Helpers
         {
             return new ItemModel
             {
-                Name = "Bagpipe",
-                Description = "A traditional reed instrument capable of destruction",
-                ImageURI = "item_bagpipes.png",
-                Range = 4,
-                Damage = 8,
+                Name = "Ocarina",
+                Description = "An ancient wind instrument",
+                ImageURI = "item_ocarina.png",
+                Range = 2,
+                Damage = 5,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
                 Attribute = AttributeEnum.Unknown
