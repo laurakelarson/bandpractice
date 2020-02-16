@@ -41,6 +41,11 @@ namespace Game.Views.Monsters
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// Delete the monster when delete button is clicked. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(new GenericViewModel<MonsterModel>(ViewModel.Data))));
