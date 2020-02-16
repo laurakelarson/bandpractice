@@ -136,9 +136,13 @@ namespace Game.Services
 
             try
             {
-                data = await Database.Table<T>().Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefaultAsync();
+                var dataList = await IndexAsync();
+
+                data = dataList.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
             }
-            catch (Exception) {
+            catch (Exception e)
+            {
+                Debug.WriteLine("Read Failed " + e.Message);
                 data = default(T);
             }
 
