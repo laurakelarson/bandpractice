@@ -11,6 +11,7 @@ namespace Game.Helpers
     // Converts from a String to the enum value.  Head = 5, would return 5 for the string "Head", and for "Head" will return 5
     public class StringEnumConverter : IValueConverter
     {
+        // Converts data type to visual representation. 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is Enum)
@@ -28,6 +29,14 @@ namespace Game.Helpers
             return 0;
         }
 
+        /// <summary>
+        /// Converts visual representation to target data type.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is int)
