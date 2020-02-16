@@ -29,6 +29,10 @@ namespace Game.Services
         // Track if db has been initialized
         static bool initialized = false;
 
+
+        // Flag to track if db needs to be initialized 
+        public bool NeedsInitialization = true;
+
         /// <summary>
         /// Constructor
         /// All the database to start up
