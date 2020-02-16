@@ -46,12 +46,40 @@ namespace Game.Helpers
             ForceConstantRoll = false; 
         }
 
-        // Get random dice roll 
-        public static int DiceRoller(int low, int high)
+        /// <summary>
+        /// Rolls dice for indicated number of rolls. 
+        /// </summary>
+        /// <param name="rolls"></param>
+        /// <param name="dice"></param>
+        /// <returns></returns>
+        public static int RollDice(int rolls, int dice)
         {
-            Random r = new Random();
-            var roll = r.Next(low, high);
-            return roll;
+            // invalid roll value
+            if (rolls < 0)
+            {
+                return 0; 
+            }
+
+            // invalid dice value
+            if (dice < 0)
+            {
+                return 0; 
+            }
+
+            // ForcedConstantRoll == true
+            if (ForceConstantRoll)
+            {
+                return rolls * ForcedDiceRollValue; 
+            }
+
+            // roll dice 
+            var diceRollTotal = 0; 
+            for (var i = 0; i < rolls; i++)
+            {
+                diceRollTotal += rnd.Next(1, dice + 1);
+            }
+
+            return diceRollTotal;
         }
     }
 }
