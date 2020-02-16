@@ -37,6 +37,15 @@ namespace Game.Helpers
             ForceRollsToNotRandom = true; 
         }
 
+        /// <summary>
+        /// When invoked, ensures that the dice roller will
+        /// roll random values. 
+        /// </summary>
+        public static void EnableRandomValues()
+        {
+            ForceRollsToNotRandom = false; 
+        }
+
         // Get random dice roll 
         public static int DiceRoller(int low, int high)
         {
