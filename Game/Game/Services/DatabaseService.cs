@@ -190,7 +190,16 @@ namespace Game.Services
                 return false;
             }
 
-            var result = await Database.DeleteAsync(data);
+            int result;
+            try
+            {
+                result = await Database.DeleteAsync(data);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Delete Failed " + e.Message);
+                return false;
+            }
 
             return (result == 1);
         }
