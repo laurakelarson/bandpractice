@@ -11,7 +11,17 @@ namespace Game.Helpers
     /// </summary>
     public static class DiceHelper
     {
-        
+
+        // Random object for dice roll generation
+        private static Random rnd = new Random();
+
+        // Indicates whether rolls are random or not
+        public static bool ForceRollsToNotRandom = false;
+
+        // Holds the exact value of a dice roll if
+        // not using random rolls
+        private static int ForcedDiceRollValue = 1;
+
         // Get random dice roll 
         public static int DiceRoller(int low, int high)
         {
