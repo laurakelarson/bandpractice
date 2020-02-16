@@ -12,6 +12,9 @@ namespace Game.Views.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MyBandPage : ContentPage
     {
+        /// <summary>
+        /// Constructor for MyBandPage
+        /// </summary>
         public MyBandPage()
         {
             InitializeComponent();
