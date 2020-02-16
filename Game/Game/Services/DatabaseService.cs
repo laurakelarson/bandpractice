@@ -23,7 +23,10 @@ namespace Game.Services
             return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
         });
 
+        // Lazy connection
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
+
+        // Track if db has been initialized
         static bool initialized = false;
 
         /// <summary>
