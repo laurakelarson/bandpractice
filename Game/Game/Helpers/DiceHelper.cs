@@ -22,6 +22,12 @@ namespace Game.Helpers
         // not using random rolls
         private static int ForcedDiceRollValue = 1;
 
+        // Sets the dice roll to the value passed in 
+        public static void SetForcedDiceRollValue(int value)
+        {
+            ForcedDiceRollValue = value; 
+        }
+
         // Get random dice roll 
         public static int DiceRoller(int low, int high)
         {
