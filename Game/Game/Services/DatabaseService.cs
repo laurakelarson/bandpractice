@@ -85,14 +85,21 @@ namespace Game.Services
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            await semaphoreSlim.WaitAsync();
             try
             {
-                await Database.DropTableAsync<T>().ConfigureAwait(false);
+                NeedsInitialization = true;
+
+                await Database.DropTableAsync<T>();
                 await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error WipeData" + e.Message);
+            }
+            finally
+            {
+                semaphoreSlim.Release();
             }
 
             return await Task.FromResult(true);
