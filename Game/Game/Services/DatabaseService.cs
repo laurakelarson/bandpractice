@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Game.Models;
 using System.Collections.Generic;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Game.Services
 {
@@ -112,8 +113,16 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<bool> CreateAsync(T data)
         {
-            var result = await Database.InsertAsync(data);
-            return (result == 1);
+            try
+            {
+                var result = await Database.InsertAsync(data);
+                return (result == 1);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return false;
+            }
         }
 
         /// <summary>
