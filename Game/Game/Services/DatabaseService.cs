@@ -30,7 +30,7 @@ namespace Game.Services
         static bool initialized = false;
 
 
-        // Flag to track if db needs to be initialized 
+        // rack if db needs to be initialized 
         public bool NeedsInitialization = true;
 
         /// <summary>
