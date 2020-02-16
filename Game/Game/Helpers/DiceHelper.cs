@@ -16,7 +16,7 @@ namespace Game.Helpers
         private static Random rnd = new Random();
 
         // Indicates whether rolls are random or not
-        public static bool ForceRollsToNotRandom = false;
+        public static bool ForceConstantRoll = false;
 
         // Holds the exact value of a dice roll if
         // not using random rolls
@@ -34,7 +34,7 @@ namespace Game.Helpers
         /// </summary>
         public static void DisableRandomValues()
         {
-            ForceRollsToNotRandom = true; 
+            ForceConstantRoll = true; 
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Game.Helpers
         /// </summary>
         public static void EnableRandomValues()
         {
-            ForceRollsToNotRandom = false; 
+            ForceConstantRoll = false; 
         }
 
         // Get random dice roll 
