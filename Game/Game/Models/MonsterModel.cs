@@ -144,7 +144,7 @@ namespace Game.Models
         /// <returns></returns>
         public int GetAttackValue()
         {
-            var roll = DiceHelper.DiceRoller(1, 20);
+            var roll = DiceHelper.RollDice(1, 20);
             var level_damage = Math.Ceiling((double)Level / 4);
             return roll + (int)level_damage;
         }
