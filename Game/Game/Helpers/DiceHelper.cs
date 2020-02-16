@@ -9,7 +9,7 @@ namespace Game.Helpers
     /// Dice helper class. Can simulate dice roll for 
     /// values between "low" and "high"
     /// </summary>
-    static class DiceHelper
+    public static class DiceHelper
     {
         
         // Get random dice roll 
