@@ -184,7 +184,7 @@ namespace Game.Helpers
             return new MonsterModel
             {
                 Name = "Panpot",
-                ImageURI = "monster_panpot.png",
+                ImageURI = "monster_potpan.png",
                 Alive = true,
                 Level = 5,
                 ExperienceGiven = 700,
