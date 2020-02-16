@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Game.Models;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Game.Services
 {
@@ -30,8 +31,12 @@ namespace Game.Services
         static bool initialized = false;
 
 
-        // rack if db needs to be initialized 
+        // Track if db needs to be initialized 
         public bool NeedsInitialization = true;
+
+        // Semaphore to track transactions
+        private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(initialCount: 1);
+
 
         /// <summary>
         /// Constructor
