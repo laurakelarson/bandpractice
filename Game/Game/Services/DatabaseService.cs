@@ -96,7 +96,7 @@ namespace Game.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error WipeData" + e.Message);
+                Debug.WriteLine("Error WipeData" + e.Message);
             }
             finally
             {
