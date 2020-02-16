@@ -28,6 +28,15 @@ namespace Game.Helpers
             ForcedDiceRollValue = value; 
         }
 
+        /// <summary>
+        /// When invoked, ensures that the dice roller will 
+        /// always roll value set in ForcedDiceRollValue.
+        /// </summary>
+        public static void DisableRandomValues()
+        {
+            ForceRollsToNotRandom = true; 
+        }
+
         // Get random dice roll 
         public static int DiceRoller(int low, int high)
         {
