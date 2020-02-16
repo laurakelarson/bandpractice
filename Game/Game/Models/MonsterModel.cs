@@ -91,11 +91,19 @@ namespace Game.Models
             Attack = newData.Attack;
             CurrentHealth = newData.CurrentHealth;
             Range = newData.Range;
-            for (int i = 0; i < newData.ItemsDropped.Count; i++)
+
+            // determine number of items dropped before adding items
+            // to prevent out of memory error 
+            int itemsDroppedCount = newData.ItemsDropped.Count; 
+            for (int i = 0; i < itemsDroppedCount; i++)
             {
                 ItemsDropped.Add(new ItemModel(newData.ItemsDropped[i]));
             }
-            for (int i = 0; i < newData.UniqueDrops.Count; i++)
+
+            // determine number of unique drops before adding items 
+            // to prevent out of memory error 
+            int uniqueItemsDroppedCount = newData.UniqueDrops.Count; 
+            for (int i = 0; i < uniqueItemsDroppedCount; i++)
             {
                 UniqueDrops.Add(new ItemModel(newData.UniqueDrops[i]));
             }
