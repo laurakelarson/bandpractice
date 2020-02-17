@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using Game.Views.Home;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -39,10 +42,10 @@ namespace Game.Views
 			await Navigation.PushAsync(new EncyclopediaPage());
 		}
 
-		/*public async void HighScore_Button_Clicked(object sender, EventArgs e)
+		public async void HighScore_Button_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new GamePage());
-		}*/
+			await Navigation.PushModalAsync(new NavigationPage(new HighScorePage(new GenericViewModel<ScoreModel>())));
+		}
 
 		/*public async void Demotape_Button_Clicked(object sender, EventArgs e)
 		{

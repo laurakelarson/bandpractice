@@ -44,6 +44,7 @@
                     <ImageButton
                     Style="{StaticResource ImageButtonHome}"
                     Source="high_score_button.png"
+                    Clicked="HighScore_Button_Clicked"
                     Padding="3,5,0,5"
                     HorizontalOptions="CenterAndExpand"
                     HeightRequest="40"

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,28 @@ namespace Game.Views.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HighScorePage : ContentPage
     {
-        public HighScorePage()
+        private GenericViewModel<ScoreModel> genericViewModel;
+
+        GenericViewModel<ScoreModel> ViewModel { get; set; }
+
+        public HighScorePage(GenericViewModel<ScoreModel> data)
         {
             InitializeComponent();
+
+
         }
+
+        /// <summary>
+        /// Close the modal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Cool_Clicked(object sender, EventArgs e)
+        {
+            //await Navigation.PopModalAsync();
+        }
+
     }
+
+
 }
