@@ -328,7 +328,7 @@ namespace Game.ViewModels
             }
 
             // Save the change to the Data Store
-            var result = await DataStore.UpdateAsync(record);
+            var result = await DataStore.UpdateAsync(data);
 
             SetNeedsRefresh(true);
 
