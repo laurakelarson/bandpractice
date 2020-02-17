@@ -21,9 +21,6 @@ namespace Game.Models
         // Amount of experience the monster will give on defeat
         public int ExperienceGiven { get; set; } = 0;
 
-        // The speed of the monster. Higher speeds give the monster higher precedence in turn order during a round
-        public int Speed { get; set; } = 0;
-
         // The monster’s defense level. Higher defense makes it more difficult for characters to successfully attack
         public int Defense { get; set; } = 0;
 

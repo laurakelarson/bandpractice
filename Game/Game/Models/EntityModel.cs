@@ -11,5 +11,8 @@ namespace Game.Models
 
         // The level of the character
         public int Level { get; set; } = 1;
+
+        // The speed of the character
+        public int Speed { get; set; } = 0;
     }
 }
