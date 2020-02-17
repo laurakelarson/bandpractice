@@ -26,5 +26,8 @@ namespace Game.Services
 
         // Wipe data list method 
         Task<bool> WipeDataListAsync();
+
+        // Check whether db needs to be initialized
+        Task<bool> GetNeedsInitializationAsync();
     }
 }

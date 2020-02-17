@@ -1,4 +1,5 @@
 ﻿using Game.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,17 +13,65 @@ namespace Game.Services
     /// <typeparam name="T"></typeparam>
     public class MockDataStore<T> : IDataStore<T> where T: new()
     {
+        #region Singleton
+
+        // Make this a singleton so it only exist one time because holds all the data records in memory
+        private static volatile MockDataStore<T> instance;
+        private static readonly object syncRoot = new Object();
+
+        public static MockDataStore<T> Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new MockDataStore<T>();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion Singleton
+
         /// <summary>
         /// The Data List
         /// This is where the items are stored
         /// </summary>
         public List<T> datalist = new List<T>();
 
+        // Set Needs Init to False, so toggles to true 
+        public bool NeedsInitialization = true;
+
+        /// <summary>
+        /// First time toggled, returns true.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetNeedsInitializationAsync()
+        {
+            if (NeedsInitialization == true)
+            {
+                // Toggle State
+                NeedsInitialization = false;
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(NeedsInitialization);
+        }
+
         /// <summary>
         /// Clear the Dataset
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            NeedsInitialization = true;
+
             datalist.Clear();
             return await Task.FromResult(true);
         }

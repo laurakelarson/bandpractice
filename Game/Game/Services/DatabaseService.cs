@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Game.Models;
 using System.Collections.Generic;
+using System.Threading;
+using System.Diagnostics;
 
 namespace Game.Services
 {
@@ -23,8 +25,19 @@ namespace Game.Services
             return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
         });
 
+        // Lazy connection
         static SQLiteAsyncConnection Database => lazyInitializer.Value;
+
+        // Track if db has been initialized
         static bool initialized = false;
+
+
+        // Track if db needs to be initialized 
+        public bool NeedsInitialization = true;
+
+        // Semaphore to track transactions
+        private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(initialCount: 1);
+
 
         /// <summary>
         /// Constructor
@@ -52,19 +65,42 @@ namespace Game.Services
         }
 
         /// <summary>
+        /// Check NeedsInitialization flag. First time toggled, returns true.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> GetNeedsInitializationAsync()
+        {
+            if (NeedsInitialization == true)
+            {
+                // Toggle State
+                NeedsInitialization = false;
+                return await Task.FromResult(true);
+            }
+
+            return await Task.FromResult(NeedsInitialization);
+        }
+
+        /// <summary>
         /// Wipe Data List
         /// Drop the tables and create new ones
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            await semaphoreSlim.WaitAsync();
             try
             {
-                await Database.DropTableAsync<T>().ConfigureAwait(false);
+                NeedsInitialization = true;
+
+                await Database.DropTableAsync<T>();
                 await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error WipeData" + e.Message);
+                Debug.WriteLine("Error WipeData" + e.Message);
+            }
+            finally
+            {
+                semaphoreSlim.Release();
             }
 
             return await Task.FromResult(true);
@@ -77,8 +113,16 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<bool> CreateAsync(T data)
         {
-            var result = await Database.InsertAsync(data);
-            return (result == 1);
+            try
+            {
+                var result = await Database.InsertAsync(data);
+                return (result == 1);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return false;
+            }
         }
 
         /// <summary>
@@ -92,9 +136,13 @@ namespace Game.Services
 
             try
             {
-                data = await Database.Table<T>().Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefaultAsync();
+                var dataList = await IndexAsync();
+
+                data = dataList.Where((T arg) => ((BaseModel<T>)(object)arg).Id.Equals(id)).FirstOrDefault();
             }
-            catch (Exception) {
+            catch (Exception e)
+            {
+                Debug.WriteLine("Read Failed " + e.Message);
                 data = default(T);
             }
 
@@ -114,7 +162,17 @@ namespace Game.Services
                 return false;
             }
 
-            var result = await Database.UpdateAsync(data);
+
+            int result = 0;
+            try
+            {
+                result = await Database.UpdateAsync(data);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Create Failed " + e.Message);
+                return (result == 0);
+            }
 
             return (result == 1);
         }
@@ -132,7 +190,16 @@ namespace Game.Services
                 return false;
             }
 
-            var result = await Database.DeleteAsync(data);
+            int result;
+            try
+            {
+                result = await Database.DeleteAsync(data);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Delete Failed " + e.Message);
+                return false;
+            }
 
             return (result == 1);
         }
@@ -143,7 +210,18 @@ namespace Game.Services
         /// <returns></returns>
         public async Task<List<T>> IndexAsync()
         {
-            return await Database.Table<T>().ToListAsync();
+            List<T> result;
+            try
+            {
+                result = await Database.Table<T>().ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Index Failed " + e.Message);
+                return null;
+            }
+
+            return result;
         }
     }
 }
