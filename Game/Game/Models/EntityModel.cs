@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -41,6 +42,17 @@ namespace Game.Models
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Method to calculate the damage that will be inflicted by the entity
+        /// </summary>
+        /// <returns></returns>
+        public int GetAttackValue()
+        {
+            var roll = DiceHelper.RollDice(1, 20);
+            var level_damage = Math.Ceiling((double)Level / 4);
+            return roll + (int)level_damage;
         }
 
 

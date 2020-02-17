@@ -105,16 +105,7 @@ namespace Game.Models
         // Weapon damage is randomly found within the damage range of the weapon held by the entity 
         // (if a weapon has a damage attribute of 10, the weapon damage will be randomly determined in the range 1-10).
         
-        /// <summary>
-        /// Method to calculate the damage that will be inflicted by the entity
-        /// </summary>
-        /// <returns></returns>
-        public int GetAttackValue()
-        {
-            var roll = DiceHelper.RollDice(1, 20);
-            var level_damage = Math.Ceiling((double)Level / 4);
-            return roll + (int)level_damage;
-        }
+        
 
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
