@@ -140,6 +140,16 @@
                 <Setter Property="WidthRequest" Value="150" />
                 <Setter Property="HeightRequest" Value="150" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="ImageButton"
+                   x:Key="ImageButtonHome">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}"/>
+                <Setter Property="BorderWidth" Value="1"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
