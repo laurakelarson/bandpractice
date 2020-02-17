@@ -20,17 +20,18 @@
 
                 <ImageButton
                     Source="enter_button.png"
-                    Clicked="MyBand_Button_Clicked"/>
-                <Button
-                    Text="DEMO TAPE"
-                    FontSize="Medium"
+                    Clicked="MyBand_Button_Clicked"
+                    HeightRequest="70"/>
+                <ImageButton
+                    Source="demotape_button.png"
+                    HeightRequest="50"
                     />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
                     <Button
                     Text="Encylopedia"
                     FontFamily="PixelSplitter"
-                    Clicked="EncyclopediaButton_Clicked"
+                    Clicked="Encyclopedia_Button_Clicked"
                     />
                     <Button
                     Text="High Score"
