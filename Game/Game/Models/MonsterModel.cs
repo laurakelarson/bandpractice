@@ -17,11 +17,6 @@ namespace Game.Models
     /// </summary>
     public class MonsterModel : EntityModel<MonsterModel>
     {
-        //  Status indicating whether the monster is currently alive or not
-        public bool Alive { get; set; } = true;
-
-        // Integer indicating the monster’s level
-        public int Level { get; set; } = 1;
 
         // Amount of experience the monster will give on defeat
         public int ExperienceGiven { get; set; } = 0;

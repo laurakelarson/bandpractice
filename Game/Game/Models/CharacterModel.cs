@@ -16,12 +16,6 @@ namespace Game.Models
         // Indicates whether the character is unlocked for the player to use or not
         public bool Unlocked { get; set; } = false;
 
-        // Status indicating whether the character is currently alive or not
-        public bool Alive { get; set; } = true;
-
-        // The level of the character
-        public int Level { get; set; } = 1;
-
         // Amount of total experience the character has accumulated
         public int TotalExperience { get; set; } = 0;
 
