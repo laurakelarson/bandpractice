@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game.Helpers;
 using Game.Services;
+using SQLite;
 
 namespace Game.Models
 {
@@ -27,10 +28,14 @@ namespace Game.Models
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
 
+        /* TODO: Store items in DB as JSON (store their id as foreign key?) */
+
         // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items in the array
+        [Ignore]
         public List<ItemModel> ItemsDropped { get; set; } = new List<ItemModel>();
 
         // The items that will always be dropped by this monster on defeat
+        [Ignore]
         public List<ItemModel> UniqueDrops { get; set; } = new List<ItemModel>();
 
         /// <summary>
