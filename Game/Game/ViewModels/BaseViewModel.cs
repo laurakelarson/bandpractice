@@ -20,7 +20,7 @@ namespace Game.ViewModels
         #region Attributes
 
         // The Mock DataStore
-        private IDataStore<T> DataSource_Mock => new MockDataStore<T>();
+        private IDataStore<T> DataSource_Mock => MockDataStore<T>.Instance;
 
         // The SQL DataStore
         private IDataStore<T> DataSource_SQL => new DatabaseService<T>();
