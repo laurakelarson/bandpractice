@@ -102,13 +102,23 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public MonsterModel CheckIfMonsterExists(MonsterModel data)
+        public override MonsterModel CheckIfExists(MonsterModel data)
         {
             // This will walk the Monsters and find if there is one that is the same.
             // If so, it returns the Monster...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.Alive == data.Alive &&
+                                        a.Level == data.Level &&
+                                        a.ExperienceGiven == data.ExperienceGiven &&
+                                        a.Speed == data.Speed &&
+                                        a.Defense == data.Defense &&
+                                        a.Attack == data.Attack &&
+                                        a.CurrentHealth == data.CurrentHealth &&
+                                        a.Range == data.Range &&
+                                        a.Boss == data.Boss
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
