@@ -443,7 +443,4 @@
   <ItemGroup>
     <BundleResource Include="Resources\cool_button.png" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Default.png" />
-  </ItemGroup>
 </Project>
