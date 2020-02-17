@@ -21,10 +21,10 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                   Text="Name : " 
+                   Text="Battle Number : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.Name}" 
+                    Text="{Binding Data.BattleNumber}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -40,30 +40,30 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="AutoBattle:"                      
-                    Style="{StaticResource LabelStyle}"/>
-
-                <Label 
-                    Text="{Binding Data.AutoBattle}"
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
                     Text="Score:" 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.ScoreTotal}"
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
-            
+
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Number of Rounds:"                      
+                    Text="Total Experience Gained:"
                     Style="{StaticResource LabelStyle}"/>
 
                 <Label 
-                    Text="{Binding Data.RoundCount}"
+                    Text="{Binding Data.ExperienceGainedTotal}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
+            
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="AutoBattle:"                      
+                    Style="{StaticResource LabelStyle}"/>
+
+                <Label 
+                    Text="{Binding Data.AutoBattle}"
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
@@ -79,33 +79,31 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Number of Monsters Slain:"
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.MonsterSlainNumber}"
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Total Experience Gained:"
+                    Text="Number of Rounds:"                      
                     Style="{StaticResource LabelStyle}"/>
 
                 <Label 
-                    Text="{Binding Data.ExperienceGainedTotal}" 
+                    Text="{Binding Data.RoundCount}"
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
+
+
 
             <Label 
-                Text="Characters at Death:"
+                Text="Characters Final Stats:"
                 Style="{StaticResource LabelStyle}"/>
             <Label 
                 Text="{Binding Data.CharacterAtDeathList}" 
                 Style="{StaticResource ValueStyle}"/>
 
-            <Label 
-                Text="Monsters Killed:"
-                Style="{StaticResource LabelStyle}"/>
+            <StackLayout Style="{StaticResource HorizontalStack}">
+                <Label 
+                    Text="Monsters Slain:"
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.MonsterSlainNumber}"
+                    Style="{StaticResource ValueStyle}"/>
+            </StackLayout>
             <Label 
                 Text="{Binding Data.MonstersKilledList}" 
                 Style="{StaticResource ValueStyle}"/>
