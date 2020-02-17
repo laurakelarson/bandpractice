@@ -21,10 +21,10 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                   Text="Battle Number : " 
+                   Text="Battle Name : " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
-                    Text="{Binding Data.BattleNumber}" 
+                    Text="{Binding Data.Name}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
