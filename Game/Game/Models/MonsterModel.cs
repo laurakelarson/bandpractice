@@ -92,7 +92,7 @@ namespace Game.Models
             }
         }
 
-
+        /* TODO: Add List<ItemModel> DropItems() */
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
         public override string FormatOutput()
