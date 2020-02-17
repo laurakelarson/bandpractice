@@ -120,6 +120,14 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> LoadDefaultDataAsync()
         {
+            if (await DataStore.GetNeedsInitializationAsync())
+            {
+                Dataset.Clear();
+
+                // Load the Data from the DataStore
+                await ExecuteLoadDataCommand();
+            }
+
             // If data exists, do not run
             if (Dataset.Count>0)
             {
