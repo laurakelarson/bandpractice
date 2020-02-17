@@ -19,11 +19,6 @@ namespace Game.Models
         // Amount of total experience the character has accumulated
         public int TotalExperience { get; set; } = 0;
 
-
-
-        // The current health level of the character
-        public int CurrentHealth { get; set; } = 1;
-
         // The max health level of the character
         public int MaxHealth { get; set; } = 1;
 

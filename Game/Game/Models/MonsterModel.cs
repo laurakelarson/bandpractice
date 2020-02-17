@@ -21,9 +21,6 @@ namespace Game.Models
         // Amount of experience the monster will give on defeat
         public int ExperienceGiven { get; set; } = 0;
 
-        // The current health level of the monster
-        public int CurrentHealth { get; set; } = 0;
-
         // The range of the monster to attack. Attacks within range will be successful
         public int Range { get; set; } = 0;
 
