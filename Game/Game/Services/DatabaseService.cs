@@ -16,6 +16,33 @@ namespace Game.Services
     /// <typeparam name="T"></typeparam>
     public class DatabaseService<T> : IDataStore<T> where T : new()
     {
+        #region Singleton
+
+        // Make this a singleton so it only exist one time because holds all the data records in memory
+        private static volatile DatabaseService<T> instance;
+        private static readonly object syncRoot = new Object();
+
+        public static DatabaseService<T> Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new DatabaseService<T>();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion Singleton
+
         /// <summary>
         /// Set the class to load on demand
         /// Saves app boot time

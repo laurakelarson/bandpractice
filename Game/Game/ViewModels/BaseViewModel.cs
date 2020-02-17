@@ -23,7 +23,7 @@ namespace Game.ViewModels
         private IDataStore<T> DataSource_Mock => MockDataStore<T>.Instance;
 
         // The SQL DataStore
-        private IDataStore<T> DataSource_SQL => new DatabaseService<T>();
+        private IDataStore<T> DataSource_SQL => DatabaseService<T>.Instance;
 
         // Which DataStore to use
         public IDataStore<T> DataStore;
