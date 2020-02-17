@@ -32,7 +32,7 @@ namespace Game.Views.Home
         /// <param name="e"></param>
         async void Cool_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PopModalAsync();
+            await Navigation.PopModalAsync();
         }
 
     }

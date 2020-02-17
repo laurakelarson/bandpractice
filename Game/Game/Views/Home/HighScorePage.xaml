@@ -7,9 +7,12 @@
              x:Class="Game.Views.Home.HighScorePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="High Score will display here!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="COOL"
+                    Clicked="Cool_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
