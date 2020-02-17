@@ -85,7 +85,7 @@ namespace Game.Services
             {
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(T).Name))
                 {
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(T)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(T));
                     initialized = true;
                 }
             }
