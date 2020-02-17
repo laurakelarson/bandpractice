@@ -28,7 +28,7 @@ namespace Game.Views
             // Establish the Menu List
             menuItems = new List<HomeMenuItemModel>
             {
-                new HomeMenuItemModel {Id = MenuItemEnum.Game, Title="Game" },
+                new HomeMenuItemModel {Id = MenuItemEnum.Home, Title="Home" },
                 new HomeMenuItemModel {Id = MenuItemEnum.About, Title="About" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Encyclopedia, Title="Encyclopedia" },
                 new HomeMenuItemModel {Id = MenuItemEnum.Battle, Title="Battle" },

@@ -6,10 +6,10 @@
     public enum MenuItemEnum
     {
         Battle,
+        Home,
         Encyclopedia,
         Score,
         Items,
-        Game,
         About
     }
 }
