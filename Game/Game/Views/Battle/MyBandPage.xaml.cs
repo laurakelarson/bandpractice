@@ -27,8 +27,9 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
-			await Navigation.PopAsync();
+			//Disabled until we implement Battle engine!
+			//await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+			//await Navigation.PopAsync();
 		}
 	}
 }
