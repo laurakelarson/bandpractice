@@ -109,7 +109,9 @@
     <Content Include="battleboard.jpg" />
     <Content Include="bp_logo.png" />
     <Content Include="cauldren.png" />
+    <Content Include="cool_button.png" />
     <Content Include="d12.png" />
+    <Content Include="default.png" />
     <Content Include="default_character.png" />
     <Content Include="default_icon.png" />
     <Content Include="demotape_button.png" />
@@ -224,6 +226,7 @@
     <Content Include="splashscreen.jpg" />
     <Content Include="tambourine.png" />
     <Content Include="tambourine_icon.png" />
+    <Content Include="tape_button.png" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
     <Content Include="village.png" />

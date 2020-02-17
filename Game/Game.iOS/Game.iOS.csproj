@@ -437,4 +437,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\encyclopedia_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tape_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cool_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
 </Project>
