@@ -21,10 +21,10 @@
                 <ImageButton
                     Source="enter_button.png"
                     Clicked="MyBand_Button_Clicked"
-                    HeightRequest="70"/>
+                    HeightRequest="80"/>
                 <ImageButton
                     Source="demotape_button.png"
-                    HeightRequest="60"
+                    HeightRequest="70"
                     />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
@@ -33,9 +33,9 @@
                     Clicked="Encyclopedia_Button_Clicked"
                     HeightRequest="50"
                     />
-                    <Button
-                    Text="High Score"
-                    FontFamily="PixelSplitter"
+                    <ImageButton
+                    Source="high_score_button.png"
+                    HeightRequest="30"
                     />
                 </StackLayout>
 
