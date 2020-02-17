@@ -28,14 +28,9 @@ namespace Game.Views
 		/// <param name="e"></param>
         public async void MyBand_Button_Clicked(object sender, EventArgs e)
         {
-			//await Navigation.PushAsync(new GamePage());
 			await Navigation.PushAsync(new MyBandPage()); 
 		}
 
-		/*public async void AutoButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new AutoBattlePage());
-		}*/
 
 		public async void Encyclopedia_Button_Clicked(object sender, EventArgs e)
 		{
