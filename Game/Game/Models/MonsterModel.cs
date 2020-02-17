@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Game.Helpers;
 using Game.Services;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace Game.Models
@@ -92,6 +93,9 @@ namespace Game.Models
                 ItemsDropped.Add(new ItemModel(newData.ItemsDropped[i]));
             }
 
+            // Convert ItemsDropped to string for SQL
+            ItemsDroppedString = JsonConvert.SerializeObject(ItemsDropped);
+
             // determine number of unique drops before adding items 
             // to prevent out of memory error 
             int uniqueItemsDroppedCount = newData.UniqueDrops.Count; 
@@ -99,6 +103,9 @@ namespace Game.Models
             {
                 UniqueDrops.Add(new ItemModel(newData.UniqueDrops[i]));
             }
+
+            // Convert UniqueDrops to string for SQL
+            UniqueDropsString = JsonConvert.SerializeObject(UniqueDrops);
         }
 
         /* TODO: Add List<ItemModel> DropItems() */
