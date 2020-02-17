@@ -8,7 +8,7 @@ namespace Game.Models
     /// <summary>
     /// Character for the Game
     /// </summary>
-    public class CharacterModel : BaseModel<CharacterModel>
+    public class CharacterModel : EntityModel<CharacterModel>
     {
         // The type of the character
         public CharacterTypeEnum Type { get; set; } 

@@ -15,7 +15,7 @@ namespace Game.Models
     /// When in run mode the Monsters are loaded from the database.
     /// 
     /// </summary>
-    public class MonsterModel : BaseModel<MonsterModel>
+    public class MonsterModel : EntityModel<MonsterModel>
     {
         //  Status indicating whether the monster is currently alive or not
         public bool Alive { get; set; } = true;
