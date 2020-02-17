@@ -19,6 +19,8 @@ namespace Game
             // Add each model here to warm up and load it.
             ScoreIndexViewModel.Instance.GetCurrentDataSource();
             ItemIndexViewModel.Instance.GetCurrentDataSource();
+            MonsterIndexViewModel.Instance.GetCurrentDataSource();
+            CharacterIndexViewModel.Instance.GetCurrentDataSource();
 
             // Call the Main Page to open
             MainPage = new MainPage();
