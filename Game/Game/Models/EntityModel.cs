@@ -58,6 +58,8 @@ namespace Game.Models
             return roll + (int)level_damage;
         }
 
+        /* TODO: Add ScaleLevel(int level) */
+
 
         // For each character/monster turn: There is a roll of a 20-sided dice: 
         // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 
