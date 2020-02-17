@@ -3,16 +3,10 @@
 namespace Game.Models
 {
     /// <summary>
-    /// Item for the Game
-    /// 
-    /// The Items that a character can use, a Monster may drop, or may be randomly available.
-    /// The items are stored in the DB, and during game time a random item is selected.
-    /// The system supports CRUDi operatoins on the items
-    /// When in test mode, a test set of items is loaded
-    /// When in run mode the items from from the database
-    /// When in online mode, the items come from an api call to a webservice
-    /// 
-    /// When characters or monsters die, they drop items into the Items Pool for the Battle
+    /// Score model for the game. Keeps track of all details of the full battle, including
+    /// score, turn count, round count, list of monsters slain, total number of monsters 
+    /// slain, list of characters and their attributes at their death, and list of items
+    /// dropped during gameplay. 
     /// 
     /// </summary>
     public class ScoreModel : BaseModel<ScoreModel>
