@@ -11,8 +11,12 @@
                 HorizontalOptions="CenterAndExpand">
             <Label Text="High Score will display here!" />
 
-            <Button Text="COOL"
-                    Clicked="Cool_Clicked"/>
+            <ImageButton 
+                Style="{StaticResource ImageButtonHome}"
+                Source="cool_button.png"
+                WidthRequest="150"
+                HeightRequest="75"
+                Clicked="Cool_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
