@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Game.Services;
+using SQLite;
 
 namespace Game.Models
 {
@@ -20,26 +21,33 @@ namespace Game.Models
         public int TotalExperience { get; set; } = 0;
 
         // The item the character is currently wearing on their head
+        [Ignore]
         public ItemModel HeadItem { get; set; }
 
         // The item the character is currently wearing on their body
+        [Ignore]
         public ItemModel BodyItem { get; set; }
 
         // The item the character is currently wearing on their feet
+        [Ignore]
         public ItemModel FeetItem { get; set; }
 
         // The item the character is currently holding in their primary hand
+        [Ignore]
         public ItemModel PrimaryHandItem { get; set; }
 
         // The item the character is currently holding in their off hand
+        [Ignore]
         public ItemModel OffHandItem { get; set; }
 
         // The item the character is currently wearing on their right finger
         // (only one finger on the right hand may equip an item)
+        [Ignore]
         public ItemModel RightFingerItem { get; set; }
 
         // The item the character is currently wearing on their left finger
         // (only one finger on the left hand may equip an item)
+        [Ignore]
         public ItemModel LeftFingerItem { get; set; }
 
         public string IconURI { get; set; } = "default_icon.png";
