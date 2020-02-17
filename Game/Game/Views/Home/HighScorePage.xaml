@@ -6,10 +6,10 @@
              mc:Ignorable="d"
              x:Class="Game.Views.Home.HighScorePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="High Score will display here!"
+        <StackLayout
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand">
+            <Label Text="High Score will display here!" />
 
             <Button Text="COOL"
                     Clicked="Cool_Clicked"/>
