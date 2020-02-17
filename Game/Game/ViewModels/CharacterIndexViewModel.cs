@@ -56,38 +56,38 @@ namespace Game.ViewModels
 
             #region Messages
 
-                // Register the Create Message
-                MessagingCenter.Subscribe<CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
-                {
-                    await CreateAsync(data as CharacterModel);
-                });
+            // Register the Create Message
+            MessagingCenter.Subscribe<CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as CharacterModel);
+            });
 
-                // Register the Update Message
-                MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
-                {
+            // Register the Update Message
+            MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
+            {
                     // Have the item update itself
                     data.Update(data);
 
-                    await UpdateAsync(data as CharacterModel);
-                });
+                await UpdateAsync(data as CharacterModel);
+            });
 
-                // Register the Delete Message
-                MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
-                {
-                    await DeleteAsync(data as CharacterModel);
-                });
+            // Register the Delete Message
+            MessagingCenter.Subscribe<CharacterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
+            {
+                await DeleteAsync(data as CharacterModel);
+            });
 
-                // Register the Set Data Source Message
-                MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
-                {
-                    await SetDataSource(data);
-                });
+            // Register the Set Data Source Message
+            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
+            {
+                await SetDataSource(data);
+            });
 
-                // Register the Wipe Data List Message
-                MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
-                {
-                    await WipeDataListAsync();
-                });
+            // Register the Wipe Data List Message
+            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+            {
+                await WipeDataListAsync();
+            });
 
             #endregion Messages
         }
