@@ -19,6 +19,8 @@ namespace Game.Models
         // successfully attack
         public int Defense { get; set; } = 0;
 
+        // The entity's attack level. A higher attack level will be more likely successful.
+        public int Attack { get; set; } = 0;
 
     }
 }
