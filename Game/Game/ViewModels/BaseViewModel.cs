@@ -315,6 +315,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public async Task<bool> UpdateAsync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             // Check that the record exists, if it does not, then exit with false
             var record = await ReadAsync(((BaseModel<T>)(object)data).Id);
             if (record == null)
