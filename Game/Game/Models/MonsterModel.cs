@@ -118,7 +118,7 @@ namespace Game.Models
 
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
-        public string FormatOutput()
+        public override string FormatOutput()
         {
             var myReturn = Name + " , " +
                             "Speed : " + Speed + " , " +
