@@ -97,6 +97,12 @@ namespace Game.Models
             LeftFingerItem = newData.LeftFingerItem;
         }
 
+        /* TODO: Add DropAllItems() */
+        /* TODO: Add ItemModel RemoveItem(ItemLocationEnum location) */
+        /* TODO: Add ItemModel GetItemByLocation(ItemLocationEnum location) */
+        /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
+        /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
+
         /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the character as a string
         /// </summary>
