@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.PickCharactersPage"
+             x:Class="Game.Views.MyBandPage"
              >
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Pick Characters Page..."></Label>
+            <Label Text="MY BAND page content coming soon....."></Label>
 
-            <Button Clicked="BattleButton_Clicked" Text="Begin Battle"></Button>
+            <Button Clicked="BattleButton_Clicked" Text="STAGE"></Button>
         </StackLayout>
         
     </ContentPage.Content>

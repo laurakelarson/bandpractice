@@ -39,14 +39,11 @@
     <Compile Update="Views\Battle\ScorePage.xaml.cs">
       <DependentUpon>ScorePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Battle\PickCharactersPage.xaml.cs">
-      <DependentUpon>PickCharactersPage.xaml</DependentUpon>
+    <Compile Update="Views\Battle\MyBandPage.xaml.cs">
+      <DependentUpon>MyBandPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Battle\BattlePage.xaml.cs">
       <DependentUpon>BattlePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Home\MyBandPage.xaml.cs">
-      <DependentUpon>MyBandPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Monsters\MonsterUpdatePage.xaml.cs">
       <DependentUpon>MonsterUpdatePage.xaml</DependentUpon>
@@ -104,9 +101,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Characters\CharacterUpdatePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Home\MyBandPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

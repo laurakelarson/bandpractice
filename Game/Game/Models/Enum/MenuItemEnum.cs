@@ -5,7 +5,7 @@
     /// </summary>
     public enum MenuItemEnum
     {
-        Battle,
+        MyBand,
         Home,
         Encyclopedia,
         Score,
