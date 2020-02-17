@@ -445,7 +445,7 @@ namespace Game.Helpers
                 Damage = 2,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -464,7 +464,7 @@ namespace Game.Helpers
                 Damage = 2,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -483,7 +483,7 @@ namespace Game.Helpers
                 Damage = 3,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -502,7 +502,7 @@ namespace Game.Helpers
                 Damage = 4,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -521,7 +521,7 @@ namespace Game.Helpers
                 Damage = 5,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -540,7 +540,7 @@ namespace Game.Helpers
                 Damage = 8,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -559,7 +559,7 @@ namespace Game.Helpers
                 Damage = 12,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -578,7 +578,7 @@ namespace Game.Helpers
                 Damage = 15,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -597,7 +597,7 @@ namespace Game.Helpers
                 Damage = 20,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -616,7 +616,7 @@ namespace Game.Helpers
                 Damage = 25,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -635,7 +635,7 @@ namespace Game.Helpers
                 Damage = 30,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -654,7 +654,7 @@ namespace Game.Helpers
                 Damage = 45,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
 
@@ -673,7 +673,7 @@ namespace Game.Helpers
                 Damage = 70,
                 Value = 0,
                 Location = ItemLocationEnum.PrimaryHand,
-                Attribute = AttributeEnum.Unknown
+                Attribute = AttributeEnum.Attack
             };
         }
     }
