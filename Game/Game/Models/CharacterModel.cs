@@ -19,11 +19,6 @@ namespace Game.Models
         // Amount of total experience the character has accumulated
         public int TotalExperience { get; set; } = 0;
 
-
-
-        // The character's defense level
-        public int Defense { get; set; } = 0;
-
         // The character's attack level
         public int Attack { get; set; } = 0;
 

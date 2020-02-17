@@ -21,8 +21,7 @@ namespace Game.Models
         // Amount of experience the monster will give on defeat
         public int ExperienceGiven { get; set; } = 0;
 
-        // The monster’s defense level. Higher defense makes it more difficult for characters to successfully attack
-        public int Defense { get; set; } = 0;
+
 
         // The monster’s attack attribute. A Higher attack attribute makes a successful attack more likely
         public int Attack { get; set; } = 0;
