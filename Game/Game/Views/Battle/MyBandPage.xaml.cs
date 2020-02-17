@@ -8,12 +8,12 @@ namespace Game.Views
 	/// The Main Game Page
 	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PickCharactersPage : ContentPage
+	public partial class MyBandPage : ContentPage
 	{
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public PickCharactersPage()
+		public MyBandPage()
 		{
 			InitializeComponent ();
 		}
