@@ -141,6 +141,7 @@
                 <Setter Property="HeightRequest" Value="150" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}"/>
+                <Setter Property="BorderWidth" Value="2"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
