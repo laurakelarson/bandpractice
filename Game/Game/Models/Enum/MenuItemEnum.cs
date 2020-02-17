@@ -9,7 +9,6 @@
         Encyclopedia,
         Score,
         Items,
-        Game,
         About
     }
 }
