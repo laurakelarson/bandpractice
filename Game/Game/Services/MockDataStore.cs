@@ -70,6 +70,8 @@ namespace Game.Services
         /// </summary>
         public async Task<bool> WipeDataListAsync()
         {
+            NeedsInitialization = true;
+
             datalist.Clear();
             return await Task.FromResult(true);
         }
