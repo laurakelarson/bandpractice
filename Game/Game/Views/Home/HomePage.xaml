@@ -18,9 +18,8 @@
                  />
 
 
-                <Button
-                    Text="ENTER"
-                    FontSize="Large"
+                <ImageButton
+                    Source="enter_button.png"
                     Clicked="MyBand_Button_Clicked"/>
                 <Button
                     Text="DEMO TAPE"
