@@ -431,6 +431,11 @@ namespace Game.ViewModels
         /// <returns></returns>
         public bool Create_Sync(T data)
         {
+            if (data == null)
+            {
+                return false;
+            }
+
             Dataset.Add(data);
             SetNeedsRefresh(true);
             return true;
