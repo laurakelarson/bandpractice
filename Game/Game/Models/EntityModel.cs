@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Models
 {
-    public class EntityModel <T> : BaseModel <T>
+    public abstract class EntityModel <T> : BaseModel <T>
     {
         // Status indicating whether the character is currently alive or not
         public bool Alive { get; set; } = true;
@@ -43,5 +43,7 @@ namespace Game.Models
             return false;
         }
 
+
+        public abstract string FormatOutput();
     }
 }
