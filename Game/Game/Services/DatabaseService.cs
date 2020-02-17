@@ -197,7 +197,7 @@ namespace Game.Services
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Create Failed " + e.Message);
+                Debug.WriteLine("Update Failed " + e.Message);
                 return (result == 0);
             }
 
