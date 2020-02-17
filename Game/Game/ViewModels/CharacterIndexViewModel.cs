@@ -101,13 +101,24 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public CharacterModel CheckIfItemExists(CharacterModel data)
+        public override CharacterModel CheckIfExists(CharacterModel data)
         {
             // This will walk the characters and find if there is one that is the same.
             // If so, it returns the character...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.Type == data.Type &&
+                                        a.Unlocked == data.Unlocked &&
+                                        a.Alive == data.Alive &&
+                                        a.Level == data.Level &&
+                                        a.TotalExperience == data.TotalExperience &&
+                                        a.Speed == data.Speed &&
+                                        a.Defense == data.Defense &&
+                                        a.Attack == data.Attack &&
+                                        a.CurrentHealth == data.CurrentHealth &&
+                                        a.MaxHealth == data.MaxHealth
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
