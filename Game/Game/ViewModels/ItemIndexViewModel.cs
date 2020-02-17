@@ -100,13 +100,20 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ItemModel CheckIfItemExists(ItemModel data)
+        public override ItemModel CheckIfExists(ItemModel data)
         {
             // This will walk the items and find if there is one that is the same.
             // If so, it returns the item...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.Description == data.Description &&
+                                        a.Damage == data.Damage &&
+                                        a.Attribute == data.Attribute &&
+                                        a.Location == data.Location &&
+                                        a.Range == data.Range &&
+                                        a.Value == data.Value
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
