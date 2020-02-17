@@ -39,7 +39,7 @@ namespace Game.Views
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
-                ViewModel.Data.ImageURI = Services.MonsterService.DefaultImageURI;
+                ViewModel.Data.ImageURI = Services.EntityService.DefaultMonsterImageURI;
             }
 
             // Send "Create" message and pop the page from the stack 

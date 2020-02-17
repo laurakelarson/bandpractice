@@ -52,7 +52,7 @@ namespace Game.Models
         /// </summary>
         public CharacterModel()
         {
-            ImageURI = CharacterService.DefaultImageURI;
+            ImageURI = EntityService.DefaultCharacterImageURI;
 
         }
 

@@ -17,7 +17,6 @@
 
                     <ImageButton
                                 Source="default_icon.png"
-                                BackgroundColor="{StaticResource LightBackgroundColor}"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="CharactersButton_Clicked"/>
 
@@ -31,7 +30,6 @@
 
                     <ImageButton
                                 Source="monster_airhorn.png"
-                                BackgroundColor="{StaticResource LightBackgroundColor}"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="MonstersButton_Clicked"/>
 
@@ -46,7 +44,6 @@
 
                     <ImageButton
                                 Source="item_cool_outfit.png"
-                                BackgroundColor="{StaticResource LightBackgroundColor}"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ItemsButton_Clicked"/>
 
@@ -60,7 +57,6 @@
 
                     <ImageButton
                                 Source="score.png"
-                                BackgroundColor="{StaticResource LightBackgroundColor}"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ScoresButton_Clicked"/>
 

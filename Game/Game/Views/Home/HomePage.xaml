@@ -18,24 +18,36 @@
                  />
 
 
-                <Button
-                    Text="ENTER"
-                    FontSize="Large"
-                    Clicked="MyBand_Button_Clicked"/>
-                <Button
-                    Text="DEMO TAPE"
-                    FontSize="Medium"
+                <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
+                    Source="enter_button.png"
+                    Clicked="MyBand_Button_Clicked"
+                    HeightRequest="60"
+                    WidthRequest="150"/>
+                <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
+                    Source="demotape_button.png"
+                    HeightRequest="50"
+                    WidthRequest="130"
                     />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
-                    <Button
-                    Text="Encylopedia"
-                    FontFamily="PixelSplitter"
-                    Clicked="EncyclopediaButton_Clicked"
+                    <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
+                    Source="encyclopedia_button.png"
+                    Clicked="Encyclopedia_Button_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="3,5,0,5"
+                    HeightRequest="40"
+                    WidthRequest="100"
                     />
-                    <Button
-                    Text="High Score"
-                    FontFamily="PixelSplitter"
+                    <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
+                    Source="high_score_button.png"
+                    Padding="3,5,0,5"
+                    HorizontalOptions="CenterAndExpand"
+                    HeightRequest="40"
+                    WidthRequest="80"
                     />
                 </StackLayout>
 

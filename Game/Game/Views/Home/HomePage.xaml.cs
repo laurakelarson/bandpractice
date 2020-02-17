@@ -34,12 +34,17 @@ namespace Game.Views
 			await Navigation.PushAsync(new AutoBattlePage());
 		}*/
 
-		public async void EncyclopediaButton_Clicked(object sender, EventArgs e)
+		public async void Encyclopedia_Button_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new EncyclopediaPage());
 		}
 
-		/*public async void HighScoreButton_Clicked(object sender, EventArgs e)
+		/*public async void HighScore_Button_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new GamePage());
+		}*/
+
+		/*public async void Demotape_Button_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new GamePage());
 		}*/
