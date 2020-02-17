@@ -28,15 +28,19 @@ namespace Game.Models
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
 
-        /* TODO: Store items in DB as JSON (store their id as foreign key?) */
-
         // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items in the array
         [Ignore]
         public List<ItemModel> ItemsDropped { get; set; } = new List<ItemModel>();
 
+        // The items dropped in json format suitable for storing in SQL
+        public string ItemsDroppedString { get; set; } = string.Empty;
+
         // The items that will always be dropped by this monster on defeat
         [Ignore]
         public List<ItemModel> UniqueDrops { get; set; } = new List<ItemModel>();
+
+        // The unique drops in json format suitable for storing in SQL
+        public string UniqueDropsString { get; set; } = string.Empty;
 
         /// <summary>
         /// Default MonsterModel
