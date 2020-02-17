@@ -422,4 +422,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\vocalist.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\enter_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\high_score_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rock_on_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\demotape_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\encyclopedia_button.png" />
+  </ItemGroup>
 </Project>

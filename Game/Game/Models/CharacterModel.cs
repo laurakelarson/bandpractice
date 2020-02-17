@@ -8,7 +8,7 @@ namespace Game.Models
     /// <summary>
     /// Character for the Game
     /// </summary>
-    public class CharacterModel : BaseModel<CharacterModel>
+    public class CharacterModel : EntityModel<CharacterModel>
     {
         // The type of the character
         public CharacterTypeEnum Type { get; set; } 
@@ -16,26 +16,8 @@ namespace Game.Models
         // Indicates whether the character is unlocked for the player to use or not
         public bool Unlocked { get; set; } = false;
 
-        // Status indicating whether the character is currently alive or not
-        public bool Alive { get; set; } = true;
-
-        // The level of the character
-        public int Level { get; set; } = 1;
-
         // Amount of total experience the character has accumulated
         public int TotalExperience { get; set; } = 0;
-
-        // The speed of the character
-        public int Speed { get; set; } = 0;
-
-        // The character's defense level
-        public int Defense { get; set; } = 0;
-
-        // The character's attack level
-        public int Attack { get; set; } = 0;
-
-        // The current health level of the character
-        public int CurrentHealth { get; set; } = 1;
 
         // The max health level of the character
         public int MaxHealth { get; set; } = 1;
@@ -122,7 +104,7 @@ namespace Game.Models
         /// Helper to combine the attributes into a single line, to make it easier to display the character as a string
         /// </summary>
         /// <returns>string representing the character</returns>
-        public string FormatOutput()
+        public override string FormatOutput()
         {
             var myReturn = Name + " , " +
                             Description + ", " +

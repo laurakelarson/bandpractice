@@ -15,28 +15,11 @@ namespace Game.Models
     /// When in run mode the Monsters are loaded from the database.
     /// 
     /// </summary>
-    public class MonsterModel : BaseModel<MonsterModel>
+    public class MonsterModel : EntityModel<MonsterModel>
     {
-        //  Status indicating whether the monster is currently alive or not
-        public bool Alive { get; set; } = true;
-
-        // Integer indicating the monster’s level
-        public int Level { get; set; } = 1;
 
         // Amount of experience the monster will give on defeat
         public int ExperienceGiven { get; set; } = 0;
-
-        // The speed of the monster. Higher speeds give the monster higher precedence in turn order during a round
-        public int Speed { get; set; } = 0;
-
-        // The monster’s defense level. Higher defense makes it more difficult for characters to successfully attack
-        public int Defense { get; set; } = 0;
-
-        // The monster’s attack attribute. A Higher attack attribute makes a successful attack more likely
-        public int Attack { get; set; } = 0;
-
-        // The current health level of the monster
-        public int CurrentHealth { get; set; } = 0;
 
         // The range of the monster to attack. Attacks within range will be successful
         public int Range { get; set; } = 0;
@@ -109,49 +92,10 @@ namespace Game.Models
             }
         }
 
-        /// <summary>
-        /// Method to inflict damage to Monster object
-        /// </summary>
-        public bool TakeDamage(int damage)
-        {
-            if (damage > 0)
-            {
-                CurrentHealth -= damage;
-                if (CurrentHealth < 0)
-                {
-                    Alive = false;
-                    // drop items
-                }
-                return true;
-            }
-            return false;
-        }
-
-        // For each character/monster turn: There is a roll of a 20-sided dice: 
-        // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 
-        // turn entity’s hit is calculated by the following formula: 
-        // (dice roll + Entity Level + Attack Modifiers) > (Target Defense attribute + Target level). 
-        // If true, the hit succeeds; if false, it’s a miss and the turn is over for that entity.
-
-        // Damage is determined by the following formula: dice roll + Weapon Damage + Level Damage.
-        // Level damage is equal to ¼ of the entity’s level rounded up to the nearest whole integer.
-        // Weapon damage is randomly found within the damage range of the weapon held by the entity 
-        // (if a weapon has a damage attribute of 10, the weapon damage will be randomly determined in the range 1-10).
-        
-        /// <summary>
-        /// Method to calculate the damage that will be inflicted by the entity
-        /// </summary>
-        /// <returns></returns>
-        public int GetAttackValue()
-        {
-            var roll = DiceHelper.RollDice(1, 20);
-            var level_damage = Math.Ceiling((double)Level / 4);
-            return roll + (int)level_damage;
-        }
 
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
-        public string FormatOutput()
+        public override string FormatOutput()
         {
             var myReturn = Name + " , " +
                             "Speed : " + Speed + " , " +
