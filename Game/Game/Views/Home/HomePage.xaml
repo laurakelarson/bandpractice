@@ -24,14 +24,14 @@
                     HeightRequest="70"/>
                 <ImageButton
                     Source="demotape_button.png"
-                    HeightRequest="50"
+                    HeightRequest="60"
                     />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
-                    <Button
-                    Text="Encylopedia"
-                    FontFamily="PixelSplitter"
+                    <ImageButton
+                    Source="encyclopedia_button.png"
                     Clicked="Encyclopedia_Button_Clicked"
+                    HeightRequest="50"
                     />
                     <Button
                     Text="High Score"
