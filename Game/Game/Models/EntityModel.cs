@@ -25,5 +25,23 @@ namespace Game.Models
         // The current health level of the entity
         public int CurrentHealth { get; set; } = 1;
 
+        /// <summary>
+        /// Method to inflict damage to Monster object
+        /// </summary>
+        public bool TakeDamage(int damage)
+        {
+            if (damage > 0)
+            {
+                CurrentHealth -= damage;
+                if (CurrentHealth < 0)
+                {
+                    Alive = false;
+                    // drop items
+                }
+                return true;
+            }
+            return false;
+        }
+
     }
 }

@@ -92,23 +92,7 @@ namespace Game.Models
             }
         }
 
-        /// <summary>
-        /// Method to inflict damage to Monster object
-        /// </summary>
-        public bool TakeDamage(int damage)
-        {
-            if (damage > 0)
-            {
-                CurrentHealth -= damage;
-                if (CurrentHealth < 0)
-                {
-                    Alive = false;
-                    // drop items
-                }
-                return true;
-            }
-            return false;
-        }
+        
 
         // For each character/monster turn: There is a roll of a 20-sided dice: 
         // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 
