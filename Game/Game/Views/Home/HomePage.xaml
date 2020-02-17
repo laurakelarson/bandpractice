@@ -19,23 +19,35 @@
 
 
                 <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
                     Source="enter_button.png"
                     Clicked="MyBand_Button_Clicked"
-                    HeightRequest="80"/>
+                    HeightRequest="60"
+                    WidthRequest="150"/>
                 <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
                     Source="demotape_button.png"
-                    HeightRequest="70"
+                    HeightRequest="50"
+                    WidthRequest="130"
                     />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
                     <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
                     Source="encyclopedia_button.png"
                     Clicked="Encyclopedia_Button_Clicked"
-                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="3,5,0,5"
+                    HeightRequest="40"
+                    WidthRequest="100"
                     />
                     <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
                     Source="high_score_button.png"
-                    HeightRequest="30"
+                    Padding="3,5,0,5"
+                    HorizontalOptions="CenterAndExpand"
+                    HeightRequest="40"
+                    WidthRequest="80"
                     />
                 </StackLayout>
 
