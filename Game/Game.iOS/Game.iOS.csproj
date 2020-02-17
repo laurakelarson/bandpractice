@@ -443,4 +443,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\cool_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\score_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\default_sprite.png" />
+  </ItemGroup>
 </Project>

@@ -113,6 +113,7 @@
     <Content Include="d12.png" />
     <Content Include="default_character.png" />
     <Content Include="default_icon.png" />
+    <Content Include="default_sprite.png" />
     <Content Include="demotape_button.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
@@ -222,6 +223,7 @@
     <Content Include="rock_on.png" />
     <Content Include="rock_on_text.png" />
     <Content Include="score.png" />
+    <Content Include="score_button.png" />
     <Content Include="splashscreen.jpg" />
     <Content Include="tambourine.png" />
     <Content Include="tambourine_icon.png" />
