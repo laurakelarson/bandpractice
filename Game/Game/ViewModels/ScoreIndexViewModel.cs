@@ -100,13 +100,21 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public ScoreModel CheckIfScoreExists(ScoreModel data)
+        public override ScoreModel CheckIfExists(ScoreModel data)
         {
             // This will walk the Scores and find if there is one that is the same.
             // If so, it returns the Score...
 
             var myList = Dataset.Where(a =>
-                                        a.Name == data.Name)
+                                        a.Name == data.Name &&
+                                        a.BattleNumber == data.BattleNumber &&
+                                        a.GameDate == data.GameDate &&
+                                        a.AutoBattle == data.AutoBattle &&
+                                        a.TurnCount == data.TurnCount &&
+                                        a.RoundCount == data.RoundCount &&
+                                        a.MonsterSlainNumber == data.MonsterSlainNumber &&
+                                        a.ExperienceGainedTotal == data.ExperienceGainedTotal
+                                        )
                                         .FirstOrDefault();
 
             if (myList == null)
