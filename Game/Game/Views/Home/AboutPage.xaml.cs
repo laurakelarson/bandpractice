@@ -55,16 +55,16 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void DataSource_Toggled(object sender, EventArgs e)
+        async void DataSource_Toggled(object sender, EventArgs e)
         {
             // Flip the settings
             if (DataSourceValue.IsToggled == true)
             {
-                MessagingCenter.Send(this, "SetDataSource", 1);
+                await DataSetsHelper.SetDataSource(1);
             }
             else
             {
-                MessagingCenter.Send(this, "SetDataSource", 0);
+                await DataSetsHelper.SetDataSource(0);
             }
         }
 
