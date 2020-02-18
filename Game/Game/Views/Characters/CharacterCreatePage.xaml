@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
-             x:Class="Game.Views.Characters.CharacterCreatePage"
-             Style="{StaticResource CRUDIPage}">
+             x:Class="Game.Views.Characters.CharacterCreatePage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>

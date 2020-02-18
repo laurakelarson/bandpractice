@@ -4,8 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Characters.CharacterUpdatePage" 
-             Style="{StaticResource CRUDIPage}">
+             x:Class="Game.Views.Characters.CharacterUpdatePage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
@@ -13,9 +12,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" 
-                     HorizontalOptions="StartAndExpand" 
-                     Style="{StaticResource OuterBoxStack}">
+        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                 <Label Text="Name" 

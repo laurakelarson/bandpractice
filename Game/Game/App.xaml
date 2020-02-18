@@ -52,7 +52,8 @@
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True" 
                    x:Key="CRUDIPage">
-                <Setter Property="Padding" Value="20,10,20,10" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource LightBackgroundColor}" />
+                <Setter Property="Padding" Value="10,10,10,10" />
             </Style>
 
             <!--Global Styles for Views-->
