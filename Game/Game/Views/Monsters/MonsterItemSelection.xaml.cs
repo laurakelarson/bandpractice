@@ -16,5 +16,26 @@ namespace Game.Views.Monsters
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Save by calling for Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            // TODO Add code to save selection and attach to monster
+            await Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// Cancel the Item Selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }
