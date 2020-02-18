@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Game.Models;
+using Game.ViewModels;
+using Newtonsoft.Json;
 
 namespace Game.Helpers
 {
@@ -116,6 +118,7 @@ namespace Game.Helpers
                 //{
                 //    new ItemModel(DefaultItemHelper.DefaultCoffee())
                 //}
+                UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" })
             };
         }
 
@@ -742,7 +745,25 @@ namespace Game.Helpers
 
         }
 
-
+        /// <summary>
+        /// Helper method to take a string of item names and return a json formatted string of the id list
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        public static string ConvertItemsList(List<string> items)
+        {
+            List<string> IDs = new List<string>();
+            int count = items.Count;
+            for (int i =0; i < count; i++)
+            {
+                var item = ItemIndexViewModel.Instance.GetItemByName(items[i]);
+                if (item != null)
+                {
+                    IDs.Add(item.Id);
+                }
+            }
+            return JsonConvert.SerializeObject(IDs);
+        }
 
     }
 }
