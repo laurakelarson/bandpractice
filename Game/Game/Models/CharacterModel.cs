@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Helpers;
 using Game.Services;
 using SQLite;
 
@@ -134,5 +135,31 @@ namespace Game.Models
             return myReturn.Trim();
         }
 
+        /// <summary>
+        /// Attempts to level up the character. If the 
+        /// character is level 20, returns false. Returns
+        /// true of character is level 1-19. 
+        /// </summary>
+        /// <returns></returns>
+        public bool LevelUp()
+        {
+            // Can't level up beyond level 20 
+            if (Level == 20)
+            {
+                return false; 
+            }
+
+            // Obtain level attributes of next level 
+            var LevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
+
+            // set Level and attributes
+            Level = LevelAttributes.Level;
+            Attack = LevelAttributes.Attack;
+            Defense = LevelAttributes.Defense;
+            Speed = LevelAttributes.Speed;
+
+            // attributes successfully set 
+            return true; 
+        }
     }
 }
