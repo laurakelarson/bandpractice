@@ -41,5 +41,23 @@ namespace Game.Helpers
 
             return true;
         }
+
+        /// <summary>
+        /// Sends the SetDataSource command to index view models in the correct order to account for data dependencies.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static async Task<bool> SetDataSource(int source)
+        {
+            // load items from new source before monster and character 
+            await ItemIndexViewModel.Instance.WipeDataListAsync();
+
+            await ScoreIndexViewModel.Instance.WipeDataListAsync();
+
+            await CharacterIndexViewModel.Instance.WipeDataListAsync();
+            await MonsterIndexViewModel.Instance.WipeDataListAsync();
+
+            return true;
+        }
     }
 }
