@@ -66,9 +66,7 @@ namespace Game.Views.Monsters
         /// <param name="currentSelectedItems"></param>
         void UpdateSelectionData(IEnumerable<object> previousSelectedItems, IEnumerable<object> currentSelectedItems)
         {
-            var previous = ToList(previousSelectedItems);
             var current = ToList(currentSelectedItems);
-            previousSelectedItemLabel.Text = string.IsNullOrWhiteSpace(previous) ? "[none]" : previous; //display only
             currentSelectedItemLabel.Text = string.IsNullOrWhiteSpace(current) ? "[none]" : current; //display only
         }
 
