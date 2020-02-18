@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using Game.Helpers;
 using Xamarin.Forms;
 
 namespace Game.Views
@@ -78,7 +79,8 @@ namespace Game.Views
 
             if (answer)
             {
-                MessagingCenter.Send(this, "WipeDataList", true);
+                // data helper to pass on command to each index view model
+                await DataSetsHelper.WipeData();
             }
         }
     }
