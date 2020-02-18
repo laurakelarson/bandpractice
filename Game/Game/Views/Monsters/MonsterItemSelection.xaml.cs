@@ -16,6 +16,8 @@ namespace Game.Views.Monsters
     {
         // Use ItemIndexViewModel for data
         readonly ItemIndexViewModel ViewModel;
+        // Keep track of selections
+        List<ItemModel> ItemSelectionList;
 
         /// <summary>
         /// Constructor for Monster Item Selection Page
@@ -25,7 +27,7 @@ namespace Game.Views.Monsters
         public MonsterItemSelection()
         {
             InitializeComponent();
-
+            ItemSelectionList = new List<ItemModel>();
             BindingContext = ViewModel = ItemIndexViewModel.Instance;
         }
 
@@ -50,19 +52,31 @@ namespace Game.Views.Monsters
             await Navigation.PopModalAsync();
         }
 
+
         void Selection_Changed_Handler(object sender, SelectionChangedEventArgs e)
         {
             UpdateSelectionData(e.PreviousSelection, e.CurrentSelection);
+            // TODO add code to save item models to attach to monster
         }
 
+        /// <summary>
+        /// For displaying string of selected items
+        /// </summary>
+        /// <param name="previousSelectedItems"></param>
+        /// <param name="currentSelectedItems"></param>
         void UpdateSelectionData(IEnumerable<object> previousSelectedItems, IEnumerable<object> currentSelectedItems)
         {
             var previous = ToList(previousSelectedItems);
             var current = ToList(currentSelectedItems);
-            previousSelectedItemLabel.Text = string.IsNullOrWhiteSpace(previous) ? "[none]" : previous;
-            currentSelectedItemLabel.Text = string.IsNullOrWhiteSpace(current) ? "[none]" : current;
+            previousSelectedItemLabel.Text = string.IsNullOrWhiteSpace(previous) ? "[none]" : previous; //display only
+            currentSelectedItemLabel.Text = string.IsNullOrWhiteSpace(current) ? "[none]" : current; //display only
         }
 
+        /// <summary>
+        /// Helper method to show string of selected items
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns></returns>
         static string ToList(IEnumerable<object> items)
         {
             if (items == null)
