@@ -34,8 +34,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <StackLayout Orientation="Vertical"
+                                         Padding="0,5,0,5">
 
-                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid ColumnSpacing="5" RowSpacing="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
@@ -49,7 +51,7 @@
 
                                 <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"
                                         Source="{Binding ImageURI}"
-                                        Style="{StaticResource ImageSmallStyle}"
+                                        Style="{StaticResource ImageMediumStyle}"
                                         VerticalOptions="CenterAndExpand"/>
 
                                 <Label Grid.Column="1" Grid.Row="0"
@@ -61,12 +63,10 @@
 
                                     <Label 
                                        Text="Level:" 
-                                       Style="{StaticResource ListStyle}"
-                                       FontSize="Micro" />
+                                       Style="{StaticResource TinyLabel}" />
 
                                     <Label Text="{Binding Level}" 
-                                        Style="{StaticResource ListStyle}"
-                                        FontSize="Micro" />
+                                        Style="{StaticResource TinyLabel}" />
 
                                 </StackLayout>
 
@@ -75,12 +75,10 @@
 
                                     <Label 
                                        Text="Experience:" 
-                                       Style="{StaticResource ListStyle}"
-                                       FontSize="Micro" />
+                                       Style="{StaticResource TinyLabel}" />
 
                                     <Label Text="{Binding ExperienceGiven}" 
-                                        Style="{StaticResource ListStyle}"
-                                        FontSize="Micro" />
+                                        Style="{StaticResource TinyLabel}"/>
 
                                 </StackLayout>
 
@@ -89,16 +87,18 @@
 
                                     <Label 
                                        Text="Guaranteed Drop:" 
-                                       Style="{StaticResource ListStyle}"
-                                       FontSize="Micro" />
+                                       Style="{StaticResource TinyLabel}" />
 
                                     <Label Text="{Binding UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" 
-                                        Style="{StaticResource ListStyle}"
-                                        FontSize="Micro" />
+                                        Style="{StaticResource TinyLabel}"/>
 
                                 </StackLayout>
 
-                            </Grid>
+                                </Grid>
+                                <BoxView
+                                    BackgroundColor="{StaticResource TransparentColor}"
+                                    HeightRequest="20"></BoxView>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
