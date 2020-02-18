@@ -161,5 +161,32 @@ namespace Game.Models
             // attributes successfully set 
             return true; 
         }
+
+        /// <summary>
+        /// Attempts to level the character up to the value 
+        /// indicated. Fails if value is over 20. 
+        /// </summary>
+        /// <param name="levelValue"></param>
+        /// <returns></returns>
+        public bool LevelUpToValue(int levelValue)
+        {
+            // Can't level up beyond level 20 
+            if (levelValue > 20)
+            {
+                return false;
+            }
+
+            // Obtain attributes of level == value
+            var LevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[levelValue];
+
+            // set Level and attributes
+            Level = LevelAttributes.Level;
+            Attack = LevelAttributes.Attack;
+            Defense = LevelAttributes.Defense;
+            Speed = LevelAttributes.Speed;
+
+            // attributes successfully set 
+            return true;
+        }
     }
 }
