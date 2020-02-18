@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.ViewModels;
+using Game.Views.Monsters;
 using System;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -105,5 +106,17 @@ namespace Game.Views
         {
             RangeValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        /// <summary>
+        /// Cancel the Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Edit_Guaranteed_Items_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MonsterItemSelection()));
+
+        }
+
     }
 }
