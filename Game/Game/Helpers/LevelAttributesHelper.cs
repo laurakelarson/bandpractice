@@ -34,6 +34,14 @@ namespace Game.Helpers
         public List<LevelAttributesModel> LevelAttributesList { get; set; }
 
         /// <summary>
+        /// Constructor
+        /// </summary>
+        public LevelAttributesHelper()
+        {
+            ClearAndLoadDataTable(); 
+        }
+        
+        /// <summary>
         /// Clear the data from list and reload it
         /// </summary>
         public void ClearAndLoadDataTable()
