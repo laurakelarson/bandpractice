@@ -20,7 +20,8 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
+                Spacing="10"
+                Padding="10,10,10,10">
 
             <Image x:Name="IconImage"
                    Source="{Binding Data.IconURI}">
@@ -31,7 +32,8 @@
                 Style="{StaticResource LabelStyle}"/>
 
                 <Entry Text="{Binding Data.Name}" 
-                Style="{StaticResource EntryStyle}"/>
+                Style="{StaticResource EntryStyle}"
+                       WidthRequest="250"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
