@@ -131,11 +131,7 @@ namespace Game.Helpers
                 Speed = 0,
                 Range = 1,
                 CurrentHealth = 10,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" })
             };
         }
 
@@ -157,15 +153,8 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 15,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" })
             };
         }
 
