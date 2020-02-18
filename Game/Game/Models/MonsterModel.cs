@@ -80,28 +80,6 @@ namespace Game.Models
             Range = newData.Range;
             ItemsDropped = newData.ItemsDropped;
             UniqueDrops = newData.UniqueDrops;
-
-            //// determine number of items dropped before adding items
-            //// to prevent out of memory error 
-            //int itemsDroppedCount = newData.ItemsDropped.Count; 
-            //for (int i = 0; i < itemsDroppedCount; i++)
-            //{
-            //    ItemsDropped.Add(new ItemModel(newData.ItemsDropped[i]));
-            //}
-
-            //// Convert ItemsDropped to string for SQL
-            //ItemsDroppedString = JsonConvert.SerializeObject(ItemsDropped);
-
-            //// determine number of unique drops before adding items 
-            //// to prevent out of memory error 
-            //int uniqueItemsDroppedCount = newData.UniqueDrops.Count; 
-            //for (int i = 0; i < uniqueItemsDroppedCount; i++)
-            //{
-            //    UniqueDrops.Add(new ItemModel(newData.UniqueDrops[i]));
-            //}
-
-            //// Convert UniqueDrops to string for SQL
-            //UniqueDropsString = JsonConvert.SerializeObject(UniqueDrops);
         }
 
         /* TODO: Add List<ItemModel> DropItems() */
