@@ -79,13 +79,19 @@ namespace Game.ViewModels
             // Register the Set Data Source Message
             MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
             {
-                await SetDataSource(data);
+                bool confirm = await SetDataSource(data);
+
+                // Monsters depend on Items, so they need to be set up after Items
+                await MonsterIndexViewModel.Instance.SetDataSource(data);
             });
 
             // Register the Wipe Data List Message
             MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
             {
-                await WipeDataListAsync();
+                bool confirm = await WipeDataListAsync();
+
+                // Monsters depend on Items, so they need to be set up after Items
+                await MonsterIndexViewModel.Instance.WipeDataListAsync();
             });
 
             #endregion Messages

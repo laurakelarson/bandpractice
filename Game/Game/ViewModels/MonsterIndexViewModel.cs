@@ -78,17 +78,20 @@ namespace Game.ViewModels
                 await DeleteAsync(data as MonsterModel);
             });
 
-            // Register the Set Data Source Message
-            MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
-            {
-                await SetDataSource(data);
-            });
+            //FIXME Experimenting with having ItemIndexViewModel control Monsters updating, since they need to hold items
 
-            // Register the Wipe Data List Message
-            MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
-            {
-                await WipeDataListAsync();
-            });
+            //// Register the Set Data Source Message
+            //MessagingCenter.Subscribe<AboutPage, int>(this, "SetDataSource", async (obj, data) =>
+            //{
+                
+            //    await SetDataSource(data);
+            //});
+
+            //// Register the Wipe Data List Message
+            //MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
+            //{
+            //    await WipeDataListAsync();
+            //});
 
             #endregion Messages
         }
