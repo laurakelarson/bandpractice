@@ -608,10 +608,9 @@ namespace Game.Helpers
         public static string ConvertItemsList(List<string> items)
         {
             List<string> IDs = new List<string>();
-            int count = items.Count;
-            for (int i =0; i < count; i++)
+            foreach (string name in items)
             {
-                var item = ItemIndexViewModel.Instance.GetItemByName(items[i]);
+                var item = ItemIndexViewModel.Instance.GetItemByName(name);
                 if (item != null)
                 {
                     IDs.Add(item.Id);
