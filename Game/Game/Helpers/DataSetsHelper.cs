@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Game.ViewModels;
 
 namespace Game.Helpers
@@ -22,6 +23,23 @@ namespace Game.Helpers
 
             CharacterIndexViewModel.Instance.GetCurrentDataSource();
             MonsterIndexViewModel.Instance.GetCurrentDataSource();
+        }
+
+        /// <summary>
+        /// Sends the WipeData command to index view models in the correct order to account for data dependencies.
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<bool> WipeData()
+        {
+            // wipe and re-load items before monster and character 
+            await ItemIndexViewModel.Instance.WipeDataListAsync();
+
+            await ScoreIndexViewModel.Instance.WipeDataListAsync();
+
+            await CharacterIndexViewModel.Instance.WipeDataListAsync();
+            await MonsterIndexViewModel.Instance.WipeDataListAsync();
+
+            return true;
         }
     }
 }
