@@ -28,6 +28,9 @@ namespace Game.Views.Characters
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            // Display the item names
+            DisplayItemNames();
         }
 
         /// <summary>
@@ -50,6 +53,55 @@ namespace Game.Views.Characters
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterDeletePage(new GenericViewModel<CharacterModel>(ViewModel.Data))));
             await Navigation.PopAsync();
+        }
+
+        /// <summary>
+        /// Displays the names of equipped items by querying the ItemIndexViewModel
+        /// </summary>
+        public void DisplayItemNames()
+        {
+
+            ItemModel getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.HeadItem);
+            if (getItem != null)
+            {
+                HeadLabel.Text = getItem.Name;
+            }
+
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.BodyItem);
+            if (getItem != null)
+            {
+                BodyLabel.Text = getItem.Name;
+            }
+
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.PrimaryHandItem);
+            if (getItem != null)
+            {
+                PrimaryHandLabel.Text = getItem.Name;
+            }
+
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.OffHandItem);
+            if (getItem != null)
+            {
+                OffHandLabel.Text = getItem.Name;
+            }
+
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.RightFingerItem);
+            if (getItem != null)
+            {
+                RightFingerLabel.Text = getItem.Name;
+            }
+
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.LeftFingerItem);
+            if (getItem != null)
+            {
+                LeftFingerLabel.Text = getItem.Name;
+            }
+
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.FeetItem);
+            if (getItem != null)
+            {
+                FeetLabel.Text = getItem.Name;
+            }
         }
     }
 }
