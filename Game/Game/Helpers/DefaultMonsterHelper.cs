@@ -341,16 +341,8 @@ namespace Game.Helpers
                 Speed = 3,
                 Range = 3,
                 CurrentHealth = 180,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                //    new ItemModel(DefaultItemHelper.DefaultBandTShirt())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultMetronome()),
-                //    new ItemModel(DefaultItemHelper.DefaultBagpipe())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" })
             };
 
 
@@ -374,15 +366,8 @@ namespace Game.Helpers
                 Speed = 4,
                 Range = 3,
                 CurrentHealth = 250,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
-                //    new ItemModel(DefaultItemHelper.DefaultMetronome())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultMoodRing())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" })
             };
 
 
@@ -407,12 +392,7 @@ namespace Game.Helpers
                 Range = 3,
                 CurrentHealth = 375,
                 Boss = true,
-                //ItemsDropped = new List<ItemModel>(),
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultNoiseCancelingHeadphones()),
-                //    new ItemModel(DefaultItemHelper.DefaultBanjo())
-                //}
+                UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" })
             };
 
 
@@ -436,16 +416,8 @@ namespace Game.Helpers
                 Speed = 5,
                 Range = 4,
                 CurrentHealth = 500,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
-                //    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
-                //    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" })
             };
 
 
@@ -697,7 +669,8 @@ namespace Game.Helpers
                     IDs.Add(item.Id);
                 }
             }
-            return JsonConvert.SerializeObject(IDs);
+            string output = JsonConvert.SerializeObject(IDs);
+            return output;
         }
 
     }
