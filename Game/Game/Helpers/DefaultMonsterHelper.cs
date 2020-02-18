@@ -243,15 +243,8 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 60,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                //    new ItemModel(DefaultItemHelper.DefaultTuningFork())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultVuvuzela())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" })
             };
         }
 
@@ -273,13 +266,7 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 75,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee()),
-                //    new ItemModel(DefaultItemHelper.DefaultRing()),
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" })
             };
 
 
@@ -305,16 +292,8 @@ namespace Game.Helpers
                 Range = 2,
                 CurrentHealth = 100,
                 Boss = true,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
-                //    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
-                //    new ItemModel(DefaultItemHelper.DefaultOcarina())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" })
             };
 
 
@@ -338,13 +317,7 @@ namespace Game.Helpers
                 Speed = 3,
                 Range = 3,
                 CurrentHealth = 145,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
-                //    new ItemModel(DefaultItemHelper.DefaultOcarina()),
-                //    new ItemModel(DefaultItemHelper.DefaultTuningFork())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" })
             };
 
 
