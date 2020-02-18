@@ -143,23 +143,7 @@ namespace Game.Models
         /// <returns></returns>
         public bool LevelUp()
         {
-            // Can't level up beyond level 20 
-            if (Level == 20)
-            {
-                return false; 
-            }
-
-            // Obtain level attributes of next level 
-            var LevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
-
-            // set Level and attributes
-            Level = LevelAttributes.Level;
-            Attack = LevelAttributes.Attack;
-            Defense = LevelAttributes.Defense;
-            Speed = LevelAttributes.Speed;
-
-            // attributes successfully set 
-            return true; 
+            return LevelUpToValue(Level + 1); 
         }
 
         /// <summary>
