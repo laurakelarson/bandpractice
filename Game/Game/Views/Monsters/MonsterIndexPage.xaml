@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.Monsters.MonsterIndexPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Style="{StaticResource CRUDIPage}">
 
     <Page.Resources>
         <local_helpers:ItemListToStringConverter x:Key="ItemListToStringConverterKey"></local_helpers:ItemListToStringConverter>
