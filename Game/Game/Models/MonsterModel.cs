@@ -95,5 +95,15 @@ namespace Game.Models
 
             return myReturn.Trim();
         }
+
+        /// <summary>
+        /// Determines how much damage the monster will 
+        /// inflict. 
+        /// </summary>
+        /// <returns></returns>
+        public int RollDamageDice()
+        {
+            return (int)Math.Ceiling(0.25 * Level); 
+        }
     }
 }
