@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,5 +30,7 @@ namespace Game.Helpers
 
         #endregion Singleton
 
+        // List of all levels and attributes 
+        public List<LevelAttributesModel> LevelAttributesList { get; set; }
     }
 }
