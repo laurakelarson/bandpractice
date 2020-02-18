@@ -21,34 +21,34 @@ namespace Game.Models
         public int TotalExperience { get; set; } = 0;
 
         // The item the character is currently wearing on their head
-        [Ignore]
-        public ItemModel HeadItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string HeadItem { get; set; } = null;
 
         // The item the character is currently wearing on their body
-        [Ignore]
-        public ItemModel BodyItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string BodyItem { get; set; } = null;
 
         // The item the character is currently wearing on their feet
-        [Ignore]
-        public ItemModel FeetItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string FeetItem { get; set; } = null;
 
         // The item the character is currently holding in their primary hand
-        [Ignore]
-        public ItemModel PrimaryHandItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string PrimaryHandItem { get; set; } = null;
 
         // The item the character is currently holding in their off hand
-        [Ignore]
-        public ItemModel OffHandItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string OffHandItem { get; set; } = null;
 
         // The item the character is currently wearing on their right finger
         // (only one finger on the right hand may equip an item)
-        [Ignore]
-        public ItemModel RightFingerItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string RightFingerItem { get; set; } = null;
 
         // The item the character is currently wearing on their left finger
         // (only one finger on the left hand may equip an item)
-        [Ignore]
-        public ItemModel LeftFingerItem { get; set; }
+        // stored as the item guid/id foreign key
+        public string LeftFingerItem { get; set; } = null;
 
         public string IconURI { get; set; } = "default_icon.png";
 
