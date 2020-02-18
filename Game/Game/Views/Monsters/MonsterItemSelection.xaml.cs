@@ -67,7 +67,7 @@ namespace Game.Views.Monsters
         void UpdateSelectionData(IEnumerable<object> previousSelectedItems, IEnumerable<object> currentSelectedItems)
         {
             var current = ToList(currentSelectedItems);
-            currentSelectedItemLabel.Text = string.IsNullOrWhiteSpace(current) ? "[none]" : current; //display only
+            //currentSelectedItemLabel.Text = string.IsNullOrWhiteSpace(current) ? "[none]" : current; //display only
         }
 
         /// <summary>

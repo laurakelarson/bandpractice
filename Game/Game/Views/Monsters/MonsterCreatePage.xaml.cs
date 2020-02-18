@@ -114,7 +114,8 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Edit_Guaranteed_Items_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new MonsterItemSelection()));
+            // Disable button until we can get CollectionView to work
+            //await Navigation.PushModalAsync(new NavigationPage(new MonsterItemSelection()));
 
         }
 
