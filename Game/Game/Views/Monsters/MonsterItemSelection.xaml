@@ -4,11 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Game.Views.Monsters.MonsterItemSelection">
+             x:Class="Game.Views.Monsters.MonsterItemSelection"
+             Style="{StaticResource CRUDIPage}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Save" 
-                    Clicked="Save_Button_Clicked"/>
+            <Label Text="test"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

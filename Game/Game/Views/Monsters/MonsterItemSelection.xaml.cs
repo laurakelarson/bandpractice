@@ -18,11 +18,22 @@ namespace Game.Views.Monsters
         }
 
         /// <summary>
-        /// Saves selection and closes the modal
+        /// Save by calling for Create
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Button_Clicked(object sender, EventArgs e)
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            // TODO Add code to save selection and attach to monster
+            await Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// Cancel the Item Selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
