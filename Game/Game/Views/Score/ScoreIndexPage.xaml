@@ -14,9 +14,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource OuterBoxStack}">
-
-            <Label Text="Score List Page" Style="{StaticResource HeaderStyle}"/>
+        <StackLayout Style="{StaticResource OuterBoxStack}">f
 
             <ListView x:Name="DataListView" 
                     ItemsSource="{Binding Dataset}"
@@ -32,7 +30,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
                                 <Image Source="score_button.png"
                                       HeightRequest="75"/>
                             
@@ -65,6 +64,11 @@
                                            Style="{StaticResource ListStyle}"/>
 
                                 </Grid>
+                            </StackLayout>
+                                
+                                <BoxView
+                                    BackgroundColor="{StaticResource TransparentColor}"
+                                    HeightRequest="20"></BoxView>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
