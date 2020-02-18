@@ -71,6 +71,7 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         void Changed_CharacterTypePicker(object sender, EventArgs e)
         {
+            // Update default character type
             var currName = ViewModel.Data.Name;
 
             var newType = CharacterTypeEnumHelper.ConvertStringToEnum(CharacterTypePicker.SelectedItem.ToString());
@@ -86,6 +87,9 @@ namespace Game.Views.Characters
             DefenseLabel.Text = ViewModel.Data.Defense.ToString();
             AttackLabel.Text = ViewModel.Data.Attack.ToString();
             SpeedLabel.Text = ViewModel.Data.Speed.ToString();
+
+            // Update displayed character image
+            IconImage.Source = ViewModel.Data.IconURI;
         }
     }
 }
