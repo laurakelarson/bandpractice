@@ -22,7 +22,8 @@
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
 
-            <Image Source="{Binding Data.IconURI}">
+            <Image x:Name="IconImage"
+                   Source="{Binding Data.IconURI}">
             </Image>
             
             <StackLayout Orientation="Horizontal">
