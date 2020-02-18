@@ -5,7 +5,9 @@
              >
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
+        <StackLayout Style="{StaticResource VerticalStack}"
+                     HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand">
             <Label Text="MY BAND page content coming soon....."></Label>
 
             <Button Clicked="BattleButton_Clicked" Text="STAGE"></Button>
