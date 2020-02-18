@@ -29,19 +29,13 @@ namespace Game.Models
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
 
-        // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items in the array
-        [Ignore]
-        public List<ItemModel> ItemsDropped { get; set; } = new List<ItemModel>();
-
-        // The items dropped in json format suitable for storing in SQL
-        public string ItemsDroppedString { get; set; } = string.Empty;
+        // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items
+        // List of item IDs stored in string json format
+        public string ItemsDropped { get; set; } = string.Empty;
 
         // The items that will always be dropped by this monster on defeat
-        [Ignore]
-        public List<ItemModel> UniqueDrops { get; set; } = new List<ItemModel>();
-
-        // The unique drops in json format suitable for storing in SQL
-        public string UniqueDropsString { get; set; } = string.Empty;
+        // List of item IDs stored in string json format
+        public string UniqueDrops { get; set; } = string.Empty;
 
         /// <summary>
         /// Default MonsterModel
@@ -84,28 +78,30 @@ namespace Game.Models
             Attack = newData.Attack;
             CurrentHealth = newData.CurrentHealth;
             Range = newData.Range;
+            ItemsDropped = newData.ItemsDropped;
+            UniqueDrops = newData.UniqueDrops;
 
-            // determine number of items dropped before adding items
-            // to prevent out of memory error 
-            int itemsDroppedCount = newData.ItemsDropped.Count; 
-            for (int i = 0; i < itemsDroppedCount; i++)
-            {
-                ItemsDropped.Add(new ItemModel(newData.ItemsDropped[i]));
-            }
+            //// determine number of items dropped before adding items
+            //// to prevent out of memory error 
+            //int itemsDroppedCount = newData.ItemsDropped.Count; 
+            //for (int i = 0; i < itemsDroppedCount; i++)
+            //{
+            //    ItemsDropped.Add(new ItemModel(newData.ItemsDropped[i]));
+            //}
 
-            // Convert ItemsDropped to string for SQL
-            ItemsDroppedString = JsonConvert.SerializeObject(ItemsDropped);
+            //// Convert ItemsDropped to string for SQL
+            //ItemsDroppedString = JsonConvert.SerializeObject(ItemsDropped);
 
-            // determine number of unique drops before adding items 
-            // to prevent out of memory error 
-            int uniqueItemsDroppedCount = newData.UniqueDrops.Count; 
-            for (int i = 0; i < uniqueItemsDroppedCount; i++)
-            {
-                UniqueDrops.Add(new ItemModel(newData.UniqueDrops[i]));
-            }
+            //// determine number of unique drops before adding items 
+            //// to prevent out of memory error 
+            //int uniqueItemsDroppedCount = newData.UniqueDrops.Count; 
+            //for (int i = 0; i < uniqueItemsDroppedCount; i++)
+            //{
+            //    UniqueDrops.Add(new ItemModel(newData.UniqueDrops[i]));
+            //}
 
-            // Convert UniqueDrops to string for SQL
-            UniqueDropsString = JsonConvert.SerializeObject(UniqueDrops);
+            //// Convert UniqueDrops to string for SQL
+            //UniqueDropsString = JsonConvert.SerializeObject(UniqueDrops);
         }
 
         /* TODO: Add List<ItemModel> DropItems() */

@@ -84,9 +84,9 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 5,
-                ItemsDropped = new List<ItemModel>() {
-                    new ItemModel(DefaultItemHelper.DefaultEarmuffs()) },
-                UniqueDrops = new List<ItemModel>()
+                //ItemsDropped = new List<ItemModel>() {
+                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()) },
+                //UniqueDrops = new List<ItemModel>()
             };
         }
 
@@ -108,14 +108,14 @@ namespace Game.Helpers
                 Speed = 0,
                 Range = 1,
                 CurrentHealth = 7,
-                ItemsDropped = new List<ItemModel>() 
-                {
-                    new ItemModel(DefaultItemHelper.DefaultCoffee()) 
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultCoffee())
-                }
+                //ItemsDropped = new List<ItemModel>() 
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultCoffee()) 
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultCoffee())
+                //}
             };
         }
 
@@ -137,11 +137,11 @@ namespace Game.Helpers
                 Speed = 0,
                 Range = 1,
                 CurrentHealth = 10,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEarplugs())
-                },
-                UniqueDrops = new List<ItemModel>()
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEarplugs())
+                //},
+                //UniqueDrops = new List<ItemModel>()
             };
         }
 
@@ -163,15 +163,15 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 15,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
-                    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
+                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
+                //}
             };
         }
 
@@ -193,12 +193,12 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 25,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
-                },
-                UniqueDrops = new List<ItemModel>()
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
+                //    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
+                //},
+                //UniqueDrops = new List<ItemModel>()
             };
         }
 
@@ -220,15 +220,15 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 2,
                 CurrentHealth = 30,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultCoffee()),
-                    new ItemModel(DefaultItemHelper.DefaultMetronome())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultWhoopeeCushion())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultCoffee()),
+                //    new ItemModel(DefaultItemHelper.DefaultMetronome())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultWhoopeeCushion())
+                //}
             };
         }
 
@@ -250,13 +250,13 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 45,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultBandTShirt()),
-                    new ItemModel(DefaultItemHelper.DefaultWhoopeeCushion()),
-                    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
-                },
-                UniqueDrops = new List<ItemModel>()
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultBandTShirt()),
+                //    new ItemModel(DefaultItemHelper.DefaultWhoopeeCushion()),
+                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
+                //},
+                //UniqueDrops = new List<ItemModel>()
             };
         }
 
@@ -278,15 +278,15 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 60,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                    new ItemModel(DefaultItemHelper.DefaultTuningFork())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultVuvuzela())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
+                //    new ItemModel(DefaultItemHelper.DefaultTuningFork())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultVuvuzela())
+                //}
             };
         }
 
@@ -308,13 +308,13 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 75,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultCoffee()),
-                    new ItemModel(DefaultItemHelper.DefaultRing()),
-                    new ItemModel(DefaultItemHelper.DefaultEarplugs())
-                },
-                UniqueDrops = new List<ItemModel>()
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultCoffee()),
+                //    new ItemModel(DefaultItemHelper.DefaultRing()),
+                //    new ItemModel(DefaultItemHelper.DefaultEarplugs())
+                //},
+                //UniqueDrops = new List<ItemModel>()
             };
 
 
@@ -340,16 +340,16 @@ namespace Game.Helpers
                 Range = 2,
                 CurrentHealth = 100,
                 Boss = true,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
-                    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
-                    new ItemModel(DefaultItemHelper.DefaultOcarina())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
+                //    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
+                //    new ItemModel(DefaultItemHelper.DefaultOcarina())
+                //}
             };
 
 
@@ -373,13 +373,13 @@ namespace Game.Helpers
                 Speed = 3,
                 Range = 3,
                 CurrentHealth = 145,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
-                    new ItemModel(DefaultItemHelper.DefaultOcarina()),
-                    new ItemModel(DefaultItemHelper.DefaultTuningFork())
-                },
-                UniqueDrops = new List<ItemModel>()
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
+                //    new ItemModel(DefaultItemHelper.DefaultOcarina()),
+                //    new ItemModel(DefaultItemHelper.DefaultTuningFork())
+                //},
+                //UniqueDrops = new List<ItemModel>()
             };
 
 
@@ -403,16 +403,16 @@ namespace Game.Helpers
                 Speed = 3,
                 Range = 3,
                 CurrentHealth = 180,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                    new ItemModel(DefaultItemHelper.DefaultBandTShirt())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultMetronome()),
-                    new ItemModel(DefaultItemHelper.DefaultBagpipe())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
+                //    new ItemModel(DefaultItemHelper.DefaultBandTShirt())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultMetronome()),
+                //    new ItemModel(DefaultItemHelper.DefaultBagpipe())
+                //}
             };
 
 
@@ -436,15 +436,15 @@ namespace Game.Helpers
                 Speed = 4,
                 Range = 3,
                 CurrentHealth = 250,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
-                    new ItemModel(DefaultItemHelper.DefaultMetronome())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultMoodRing())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
+                //    new ItemModel(DefaultItemHelper.DefaultMetronome())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultMoodRing())
+                //}
             };
 
 
@@ -469,12 +469,12 @@ namespace Game.Helpers
                 Range = 3,
                 CurrentHealth = 375,
                 Boss = true,
-                ItemsDropped = new List<ItemModel>(),
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultNoiseCancelingHeadphones()),
-                    new ItemModel(DefaultItemHelper.DefaultBanjo())
-                }
+                //ItemsDropped = new List<ItemModel>(),
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultNoiseCancelingHeadphones()),
+                //    new ItemModel(DefaultItemHelper.DefaultBanjo())
+                //}
             };
 
 
@@ -498,16 +498,16 @@ namespace Game.Helpers
                 Speed = 5,
                 Range = 4,
                 CurrentHealth = 500,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
-                    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
-                    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
+                //    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
+                //    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo())
+                //}
             };
 
 
@@ -531,16 +531,16 @@ namespace Game.Helpers
                 Speed = 6,
                 Range = 4,
                 CurrentHealth = 550,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultRing()),
-                    new ItemModel(DefaultItemHelper.DefaultAthleticSocks())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultBunnySlippers()),
-                    new ItemModel(DefaultItemHelper.DefaultKeytar())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultRing()),
+                //    new ItemModel(DefaultItemHelper.DefaultAthleticSocks())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultBunnySlippers()),
+                //    new ItemModel(DefaultItemHelper.DefaultKeytar())
+                //}
             };
 
 
@@ -565,16 +565,16 @@ namespace Game.Helpers
                 Range = 4,
                 CurrentHealth = 600,
                 Boss = true,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultMoodRing()),
-                    new ItemModel(DefaultItemHelper.DefaultComfySneakers())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultGoldenRecorder()),
-                    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultMoodRing()),
+                //    new ItemModel(DefaultItemHelper.DefaultComfySneakers())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultGoldenRecorder()),
+                //    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo())
+                //}
             };
 
 
@@ -598,15 +598,15 @@ namespace Game.Helpers
                 Speed = 7,
                 Range = 4,
                 CurrentHealth = 700,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultLuckySocks())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultNoiseCancelingHeadphones()),
-                    new ItemModel(DefaultItemHelper.DefaultRockOck())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultLuckySocks())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultNoiseCancelingHeadphones()),
+                //    new ItemModel(DefaultItemHelper.DefaultRockOck())
+                //}
             };
 
 
@@ -630,15 +630,15 @@ namespace Game.Helpers
                 Speed = 7,
                 Range = 5,
                 CurrentHealth = 800,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
-                    new ItemModel(DefaultItemHelper.DefaultAthleticSocks())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultBunnySlippers())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
+                //    new ItemModel(DefaultItemHelper.DefaultAthleticSocks())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultBunnySlippers())
+                //}
             };
 
 
@@ -663,15 +663,15 @@ namespace Game.Helpers
                 Range = 5,
                 CurrentHealth = 900,
                 Boss = true,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultBunnySlippers()),
-                    new ItemModel(DefaultItemHelper.DefaultMoodRing())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultGlockenspiel())
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultBunnySlippers()),
+                //    new ItemModel(DefaultItemHelper.DefaultMoodRing())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultGlockenspiel())
+                //}
             };
 
 
@@ -695,15 +695,15 @@ namespace Game.Helpers
                 Speed = 9,
                 Range = 5,
                 CurrentHealth = 950,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo()),
-                    new ItemModel(DefaultItemHelper.DefaultComfySneakers())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultTheremin()),
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo()),
+                //    new ItemModel(DefaultItemHelper.DefaultComfySneakers())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultTheremin()),
+                //}
             };
 
 
@@ -727,16 +727,16 @@ namespace Game.Helpers
                 Speed = 10,
                 Range = 8,
                 CurrentHealth = 1000,
-                ItemsDropped = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultRockOck()),
-                    new ItemModel(DefaultItemHelper.DefaultKeytar()),
-                    new ItemModel(DefaultItemHelper.DefaultGlockenspiel())
-                },
-                UniqueDrops = new List<ItemModel>()
-                {
-                    new ItemModel(DefaultItemHelper.DefaultDidgeridooOfDestruction()),
-                }
+                //ItemsDropped = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultRockOck()),
+                //    new ItemModel(DefaultItemHelper.DefaultKeytar()),
+                //    new ItemModel(DefaultItemHelper.DefaultGlockenspiel())
+                //},
+                //UniqueDrops = new List<ItemModel>()
+                //{
+                //    new ItemModel(DefaultItemHelper.DefaultDidgeridooOfDestruction()),
+                //}
             };
 
 

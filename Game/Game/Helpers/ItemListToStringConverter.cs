@@ -23,13 +23,14 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var items = (List<ItemModel>)value;
-            List<string> names = new List<string>();
-            for (int i = 0; i < items.Count; i++)
-            {
-                names.Add(items[i].Name);
-            }
-            return string.Join(", ", names);
+            //var items = (List<ItemModel>)value;
+            //List<string> names = new List<string>();
+            //for (int i = 0; i < items.Count; i++)
+            //{
+            //    names.Add(items[i].Name);
+            //}
+            //return string.Join(", ", names);
+            return string.Empty;
         }
 
         /// <summary>
