@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using Game.Models;
+using Game.ViewModels;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
 namespace Game.Helpers
@@ -23,14 +26,29 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            //var items = (List<ItemModel>)value;
-            //List<string> names = new List<string>();
-            //for (int i = 0; i < items.Count; i++)
-            //{
-            //    names.Add(items[i].Name);
-            //}
-            //return string.Join(", ", names);
-            return value;
+            if (value.GetType() != typeof(string))
+            {
+                return string.Empty;
+            }
+
+            if (string.IsNullOrEmpty((string)value))
+            {
+                return string.Empty;
+            }
+
+            JArray IDs =
+                (JArray)JsonConvert.DeserializeObject((string)value);
+
+            List<string> names = new List<string>();
+            foreach (JToken itemID in IDs)
+            {
+                ItemModel item = ItemIndexViewModel.Instance.GetItem(itemID.ToString());
+                if (item != null)
+                {
+                    names.Add(item.Name);
+                }
+            }
+            return string.Join(", ", names);
         }
 
         /// <summary>
