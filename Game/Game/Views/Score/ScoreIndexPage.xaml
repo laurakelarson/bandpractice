@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Name="BrowseItemsPage"
              x:Class="Game.Views.ScoreIndexPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Style="{StaticResource CRUDIPage}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
