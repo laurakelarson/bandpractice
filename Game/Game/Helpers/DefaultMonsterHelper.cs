@@ -86,9 +86,7 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 5,
-                //ItemsDropped = new List<ItemModel>() {
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()) },
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" })
             };
         }
 
@@ -110,14 +108,7 @@ namespace Game.Helpers
                 Speed = 0,
                 Range = 1,
                 CurrentHealth = 7,
-                //ItemsDropped = new List<ItemModel>() 
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee()) 
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" }),
                 UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" })
             };
         }
