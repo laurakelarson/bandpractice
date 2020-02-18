@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Game.Helpers;
 using Game.Services;
+using Game.ViewModels;
 using SQLite;
 
 namespace Game.Models
@@ -201,6 +202,18 @@ namespace Game.Models
             }
             
             return true; 
+        }
+
+        /// <summary>
+        /// Determines how much damage the character will 
+        /// inflict. 
+        /// </summary>
+        /// <returns></returns>
+        public int RollDamageDice()
+        {
+            // dice roll of weapon damage value + 1/4 level damange rounded up 
+            var weaponDamage = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem).Damage;
+            return (int)Math.Ceiling(0.25 * Level) + DiceHelper.RollDice(1, weaponDamage);
         }
     }
 }
