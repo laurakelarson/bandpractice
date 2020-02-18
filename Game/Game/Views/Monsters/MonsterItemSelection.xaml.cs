@@ -16,5 +16,15 @@ namespace Game.Views.Monsters
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Saves selection and closes the modal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Save_Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }

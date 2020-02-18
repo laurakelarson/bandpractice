@@ -7,9 +7,8 @@
              x:Class="Game.Views.Monsters.MonsterItemSelection">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Save" 
+                    Clicked="Save_Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
