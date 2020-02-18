@@ -129,16 +129,7 @@ namespace Game.Models
                             "Defense: " + Defense + ", " +
                             "Attack: " + Attack + ", " +
                             "Current Health: " + CurrentHealth + ", " +
-                            "Max Health: " + MaxHealth + ", " +
-
-                            // equipped items
-                            "Head: " + HeadItem + ", " +
-                            "Body: " + BodyItem + ", " +
-                            "Feet: " + FeetItem + ", " +
-                            "Primary Hand: " + PrimaryHandItem + ", " +
-                            "Off Hand: " + OffHandItem + ", " +
-                            "Right Finger: " + RightFingerItem + ", " +
-                            "Left Finger: " + LeftFingerItem;
+                            "Max Health: " + MaxHealth + ", ";
 
             return myReturn.Trim();
         }
