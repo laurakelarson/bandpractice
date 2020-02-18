@@ -50,6 +50,7 @@ namespace Game.Models
         // stored as the item guid/id foreign key
         public string LeftFingerItem { get; set; } = null;
 
+        // The character's icon image
         public string IconURI { get; set; } = "default_icon.png";
 
         /// <summary>
