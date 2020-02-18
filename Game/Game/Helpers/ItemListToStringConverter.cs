@@ -26,6 +26,11 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null)
+            {
+                return string.Empty;
+            }
+
             if (value.GetType() != typeof(string))
             {
                 return string.Empty;

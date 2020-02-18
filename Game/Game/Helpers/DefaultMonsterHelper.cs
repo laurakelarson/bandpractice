@@ -86,9 +86,7 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 5,
-                //ItemsDropped = new List<ItemModel>() {
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()) },
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" })
             };
         }
 
@@ -110,14 +108,7 @@ namespace Game.Helpers
                 Speed = 0,
                 Range = 1,
                 CurrentHealth = 7,
-                //ItemsDropped = new List<ItemModel>() 
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee()) 
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" }),
                 UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" })
             };
         }
@@ -140,11 +131,7 @@ namespace Game.Helpers
                 Speed = 0,
                 Range = 1,
                 CurrentHealth = 10,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" })
             };
         }
 
@@ -166,15 +153,8 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 15,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs()),
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" })
             };
         }
 
@@ -196,12 +176,7 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 1,
                 CurrentHealth = 25,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                //    new ItemModel(DefaultItemHelper.DefaultPrankDoorbell())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" })
             };
         }
 
@@ -223,15 +198,8 @@ namespace Game.Helpers
                 Speed = 1,
                 Range = 2,
                 CurrentHealth = 30,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee()),
-                //    new ItemModel(DefaultItemHelper.DefaultMetronome())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultWhoopeeCushion())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" })
             };
         }
 
@@ -253,13 +221,7 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 45,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultBandTShirt()),
-                //    new ItemModel(DefaultItemHelper.DefaultWhoopeeCushion()),
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" })
             };
         }
 
@@ -281,15 +243,8 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 60,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEnergyDrink()),
-                //    new ItemModel(DefaultItemHelper.DefaultTuningFork())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultVuvuzela())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" })
             };
         }
 
@@ -311,13 +266,7 @@ namespace Game.Helpers
                 Speed = 2,
                 Range = 2,
                 CurrentHealth = 75,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoffee()),
-                //    new ItemModel(DefaultItemHelper.DefaultRing()),
-                //    new ItemModel(DefaultItemHelper.DefaultEarplugs())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" })
             };
 
 
@@ -343,16 +292,8 @@ namespace Game.Helpers
                 Range = 2,
                 CurrentHealth = 100,
                 Boss = true,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultEarmuffs()),
-                //    new ItemModel(DefaultItemHelper.DefaultBandHoodie())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultCoolOutfit()),
-                //    new ItemModel(DefaultItemHelper.DefaultOcarina())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" })
             };
 
 
@@ -376,13 +317,7 @@ namespace Game.Helpers
                 Speed = 3,
                 Range = 3,
                 CurrentHealth = 145,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultLuckySocks()),
-                //    new ItemModel(DefaultItemHelper.DefaultOcarina()),
-                //    new ItemModel(DefaultItemHelper.DefaultTuningFork())
-                //},
-                //UniqueDrops = new List<ItemModel>()
+                ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" })
             };
 
 

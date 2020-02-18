@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Helpers;
 using Game.Services;
 using SQLite;
 
@@ -134,5 +135,72 @@ namespace Game.Models
             return myReturn.Trim();
         }
 
+        /// <summary>
+        /// Attempts to level up the character. If the 
+        /// character is level 20, returns false. Returns
+        /// true of character is level 1-19. 
+        /// </summary>
+        /// <returns></returns>
+        public bool LevelUp()
+        {
+            return LevelUpToValue(Level + 1); 
+        }
+
+        /// <summary>
+        /// Attempts to level the character up to the value 
+        /// indicated. Fails if value is over 20. 
+        /// </summary>
+        /// <param name="levelValue"></param>
+        /// <returns></returns>
+        public bool LevelUpToValue(int levelValue)
+        {
+            // Can't level up beyond level 20 
+            if (levelValue > 20)
+            {
+                return false;
+            }
+
+            // Obtain attributes of level == value
+            var LevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[levelValue];
+
+            // set Level and attributes
+            Level = LevelAttributes.Level;
+            Attack = LevelAttributes.Attack;
+            Defense = LevelAttributes.Defense;
+            Speed = LevelAttributes.Speed;
+
+            // attributes successfully set 
+            return true;
+        }
+
+        /// <summary>
+        /// Add experience to character. Levels up character 
+        /// if experience crosses threshold for next level. 
+        /// </summary>
+        /// <param name="experience"></param>
+        /// <returns></returns>
+        public bool AddExperience(int experience)
+        {
+            // add to total experience 
+            TotalExperience += experience;
+
+            // can't level up beyond 20 so exit method 
+            if (Level > 20)
+            {
+                return true;
+            }
+
+            // obtain experience threshold for next level 
+            var NextLevelDetails = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
+            var nextLevelExperience = NextLevelDetails.Experience; 
+
+            // level up character if experience meets threshold
+            if (TotalExperience >= nextLevelExperience)
+            {
+                LevelUp(); 
+            }
+            
+            return true; 
+        }
     }
 }
