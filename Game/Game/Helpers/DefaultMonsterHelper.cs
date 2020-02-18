@@ -543,15 +543,8 @@ namespace Game.Helpers
                 Range = 5,
                 CurrentHealth = 900,
                 Boss = true,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultBunnySlippers()),
-                //    new ItemModel(DefaultItemHelper.DefaultMoodRing())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultGlockenspiel())
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" })
             };
 
 
@@ -575,15 +568,8 @@ namespace Game.Helpers
                 Speed = 9,
                 Range = 5,
                 CurrentHealth = 950,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultTemporaryTattoo()),
-                //    new ItemModel(DefaultItemHelper.DefaultComfySneakers())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultTheremin()),
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Theremin" })
             };
 
 
@@ -607,16 +593,8 @@ namespace Game.Helpers
                 Speed = 10,
                 Range = 8,
                 CurrentHealth = 1000,
-                //ItemsDropped = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultRockOck()),
-                //    new ItemModel(DefaultItemHelper.DefaultKeytar()),
-                //    new ItemModel(DefaultItemHelper.DefaultGlockenspiel())
-                //},
-                //UniqueDrops = new List<ItemModel>()
-                //{
-                //    new ItemModel(DefaultItemHelper.DefaultDidgeridooOfDestruction()),
-                //}
+                ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" }),
+                UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" })
             };
 
 
