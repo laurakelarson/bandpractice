@@ -79,6 +79,12 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="TinyLabel"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="FontSize" Value="Micro" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="HeaderStyle"
                 BasedOn="{StaticResource Xamarin.Forms.Label}">
                 <Setter Property="BackgroundColor" Value="Transparent" />
