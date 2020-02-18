@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.Characters.CharacterIndexPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Style="{StaticResource CRUDIPage}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Clicked="AddCharacter_Clicked"  IconImageSource="icon_add.png"/>
