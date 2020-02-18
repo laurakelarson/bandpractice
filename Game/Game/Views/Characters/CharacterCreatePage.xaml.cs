@@ -78,6 +78,14 @@ namespace Game.Views.Characters
             ViewModel.Data.Update(DataHelper.DefaultCharacter(newType));
 
             ViewModel.Data.Name = currName;
+
+            // Update the labels to display character type default stats
+            LevelLabel.Text = ViewModel.Data.Level.ToString();
+            ExperienceLabel.Text = ViewModel.Data.TotalExperience.ToString();
+            MaxHealthLabel.Text = ViewModel.Data.MaxHealth.ToString();
+            DefenseLabel.Text = ViewModel.Data.Defense.ToString();
+            AttackLabel.Text = ViewModel.Data.Attack.ToString();
+            SpeedLabel.Text = ViewModel.Data.Speed.ToString();
         }
     }
 }
