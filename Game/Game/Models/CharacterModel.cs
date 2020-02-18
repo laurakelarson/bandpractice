@@ -172,5 +172,35 @@ namespace Game.Models
             // attributes successfully set 
             return true;
         }
+
+        /// <summary>
+        /// Add experience to character. Levels up character 
+        /// if experience crosses threshold for next level. 
+        /// </summary>
+        /// <param name="experience"></param>
+        /// <returns></returns>
+        public bool AddExperience(int experience)
+        {
+            // add to total experience 
+            TotalExperience += experience;
+
+            // can't level up beyond 20 so exit method 
+            if (Level > 20)
+            {
+                return true;
+            }
+
+            // obtain experience threshold for next level 
+            var NextLevelDetails = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
+            var nextLevelExperience = NextLevelDetails.Experience; 
+
+            // level up character if experience meets threshold
+            if (TotalExperience >= nextLevelExperience)
+            {
+                LevelUp(); 
+            }
+            
+            return true; 
+        }
     }
 }
