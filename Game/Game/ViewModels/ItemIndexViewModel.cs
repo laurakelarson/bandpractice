@@ -92,7 +92,7 @@ namespace Game.ViewModels
         }
 
         #endregion Constructor
-        
+
         #region DataOperations_CRUDi
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<ItemModel> GetDefaultData() 
+        public override List<ItemModel> GetDefaultData()
         {
             return DefaultData.LoadData(new ItemModel());
         }
@@ -153,6 +153,8 @@ namespace Game.ViewModels
 
         #endregion SortDataSet
 
+        #region QueryDataSet
+
         /// <summary>
         /// Takes an item string ID and looks it up and returns the item
         /// This is because the Items on a character are stores as strings of the GUID.  That way it can be saved to the DB.
@@ -175,5 +177,29 @@ namespace Game.ViewModels
 
             return myData;
         }
+
+        /// <summary>
+        /// Takes an item name and returns the respective item if found.
+        /// Note this query is case sensitive.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public ItemModel GetItemByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return null;
+            }
+
+            ItemModel myData = Dataset.Where(a => a.Name.Equals(name)).FirstOrDefault();
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData;
+        }
+
+        #endregion QueryDataSet
     }
 }
