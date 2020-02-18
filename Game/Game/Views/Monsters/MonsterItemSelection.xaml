@@ -13,8 +13,87 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="test"/>
+
+        <StackLayout Style="{StaticResource OuterBoxStack}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Previous selected item:" />
+                <Label x:Name="previousSelectedItemLabel"
+                           Grid.Column="1" />
+                <Label Grid.Row="1"
+                           Text="Current selected item:" />
+                <Label x:Name="currentSelectedItemLabel"
+                           Grid.Row="1"
+                           Grid.Column="1" />
+            </Grid>
+            
+            <CollectionView 
+            SelectionMode="Multiple"
+            ItemsSource="{Binding Dataset}"
+            SelectionChanged="Selection_Changed_Handler">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnSpacing="5" RowSpacing="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        Source="{Binding ImageURI}"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
+
+                            <Label Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                            <StackLayout Grid.Column="1" Grid.Row="1"
+                                    Orientation="Horizontal">
+
+                                <Label 
+                                       Text="{Binding Attribute}" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                                <Label
+                                        Text="+"
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
+
+                                <Label Text="{Binding Value}" 
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro"/>
+
+                            </StackLayout>
+
+                            <Label Grid.Column="1" Grid.Row="2"
+                                       Text="{Binding Description}" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro"/>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+            
+            
+            
+        </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
