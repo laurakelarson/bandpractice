@@ -34,6 +34,15 @@ namespace Game.Helpers
         public List<LevelAttributesModel> LevelAttributesList { get; set; }
 
         /// <summary>
+        /// Clear the data from list and reload it
+        /// </summary>
+        public void ClearAndLoadDataTable()
+        {
+            LevelAttributesList = new List<LevelAttributesModel>();
+            LoadLevelAttributesData();
+        }
+
+        /// <summary>
         /// Fill the LevelAttributesList with the levels
         /// </summary>
         public void LoadLevelAttributesData()
