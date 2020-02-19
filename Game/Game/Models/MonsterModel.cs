@@ -91,26 +91,27 @@ namespace Game.Models
         /* TODO: Add List<ItemModel> DropItems() */
 
 
-        public bool ScaleToLevel(int newLevel)
+        public bool ScaleToLevel(int oldLevel, int newLevel)
         {
-            double scale = this.Level;
+            double scale = (double)oldLevel;
+            double factor = (double)newLevel * .5;
 
             if (newLevel > scale)
             {
-                scale = 1 + newLevel * .1;
+                scale += factor;
             } else
             {
-                scale = 1 - newLevel * .1;
+                scale -= factor;
             }
 
             if (this.Alive)
             {
-                this.ExperienceGiven = (int)Math.Ceiling(Math.Pow(this.ExperienceGiven, scale));
-                this.Speed = (int)Math.Ceiling(Math.Pow(this.Speed, scale));
-                this.Attack = (int)Math.Ceiling(Math.Pow(this.Attack, scale));
-                this.Defense = (int)Math.Ceiling(Math.Pow(this.Defense, scale));
-                this.Range = (int)Math.Ceiling(Math.Pow(this.Range, scale));
-                this.CurrentHealth = (int)Math.Ceiling(Math.Pow(this.CurrentHealth, scale));
+                this.ExperienceGiven = (int)Math.Ceiling(this.ExperienceGiven * scale);
+                this.Speed = (int)Math.Ceiling(this.Speed * scale);
+                this.Attack = (int)Math.Ceiling(this.Attack * scale);
+                this.Defense = (int)Math.Ceiling(this.Defense * scale);
+                this.Range = (int)Math.Ceiling(this.Range * scale);
+                this.CurrentHealth = (int)Math.Ceiling(this.CurrentHealth * scale);
                 return true;
             }
 
