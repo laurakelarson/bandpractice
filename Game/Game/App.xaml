@@ -266,6 +266,15 @@
                 <Setter Property="Maximum" Value="5" />
                 <Setter Property="Increment" Value="1" />
             </Style>
+                <Style TargetType="Stepper" x:Key="LevelStepper">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
+                <Setter Property="Minimum" Value="1" />
+                <Setter Property="Maximum" Value="20" />
+                <Setter Property="Increment" Value="1" />
+            </Style>
 
             
             <!-- Switch -->
