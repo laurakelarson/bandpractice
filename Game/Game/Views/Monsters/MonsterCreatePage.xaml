@@ -102,11 +102,7 @@
                        Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Guaranteed Item Drop:"/>
-                    <Button Text="Edit"
-                                Clicked="Edit_Guaranteed_Items_Clicked"/>
-                </StackLayout>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
