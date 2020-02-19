@@ -91,16 +91,17 @@ namespace Game.Models
         /* TODO: Add List<ItemModel> DropItems() */
 
 
-        public bool ScaleToLevel(int newLevel)
+        public bool ScaleToLevel(int oldLevel, int newLevel)
         {
-            double scale = this.Level;
+            double scale = (double)oldLevel;
+            double factor = (double)newLevel * .2;
 
             if (newLevel > scale)
             {
-                scale = 1 + newLevel * .1;
+                scale += factor;
             } else
             {
-                scale = 1 - newLevel * .1;
+                scale -= factor;
             }
 
             if (this.Alive)
