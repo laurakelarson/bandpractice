@@ -45,11 +45,13 @@ namespace Game.Models
         public MonsterModel()
         {
             ImageURI = EntityService.DefaultMonsterImageURI;
+            Level = 1;
             Speed = 1;
             Range = 1;
             Defense = 3;
             Attack = 2;
-            MaxHealth = CurrentHealth = 7;
+            MaxHealth = 7;
+            CurrentHealth = 7;
         }
 
         /// <summary>
@@ -83,6 +85,7 @@ namespace Game.Models
             Defense = newData.Defense;
             Attack = newData.Attack;
             CurrentHealth = newData.CurrentHealth;
+            MaxHealth = newData.MaxHealth;
             Range = newData.Range;
             ItemsDropped = newData.ItemsDropped;
             UniqueDrops = newData.UniqueDrops;
@@ -96,7 +99,7 @@ namespace Game.Models
         /// <param name="oldLevel"></param>
         /// <param name="newLevel"></param>
         /// <returns></returns>
-        public bool ScaleToLevel(int oldLevel, int newLevel)
+        public MonsterModel ScaleToLevel(int oldLevel, int newLevel)
         {
             double scale = 1.5;
             double factor = (double)newLevel - oldLevel;
@@ -116,11 +119,11 @@ namespace Game.Models
                 this.Attack = (int)Math.Ceiling(this.Attack * scale);
                 this.Defense = (int)Math.Ceiling(this.Defense * scale);
                 this.Range = (int)Math.Ceiling(this.Range * scale);
-                this.CurrentHealth = (int)Math.Ceiling(this.CurrentHealth * scale);
-                return true;
+                this.MaxHealth = (int)Math.Ceiling(this.MaxHealth * scale);
+                this.Level = newLevel;
             }
 
-            return false;
+            return this;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string

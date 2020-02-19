@@ -16,7 +16,7 @@ namespace Game.Views
     {
         // The Monster to create
         GenericViewModel<MonsterModel> ViewModel { get; set; }
-        int originalLevel = 1;
+        int OriginalLevel = 1;
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -29,7 +29,8 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
             MonsterLevelPicker.SelectedItem = data.Data.Level.ToString();
-            originalLevel = ViewModel.Data.Level;
+            OriginalLevel = ViewModel.Data.Level;
+            LevelLabel.Text = OriginalLevel.ToString();
             this.ViewModel.Title = "Create";
         }
 
@@ -73,7 +74,7 @@ namespace Game.Views
             int newLevel = int.Parse((string)MonsterLevelPicker.SelectedItem);
 
             ViewModel.Data.Update(new MonsterModel());
-            ViewModel.Data.ScaleToLevel(originalLevel, newLevel);
+            ViewModel.Data.ScaleToLevel(OriginalLevel, newLevel);
 
             ViewModel.Data.Name = currName;
             ViewModel.Data.Level = newLevel;
@@ -86,6 +87,18 @@ namespace Game.Views
             AttackLabel.Text = ViewModel.Data.Attack.ToString();
             SpeedLabel.Text = ViewModel.Data.Speed.ToString();
             RangeLabel.Text = ViewModel.Data.Range.ToString();
+
+        }
+
+        /// <summary>
+        /// Cancel the Create
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Edit_Guaranteed_Items_Clicked(object sender, EventArgs e)
+        {
+            // Disable button until we can get CollectionView to work
+            //await Navigation.PushModalAsync(new NavigationPage(new MonsterItemSelection()));
 
         }
 
@@ -139,17 +152,7 @@ namespace Game.Views
         //    RangeValue.Text = String.Format("{0}", e.NewValue);
         //}
 
-        /// <summary>
-        /// Cancel the Create
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        async void Edit_Guaranteed_Items_Clicked(object sender, EventArgs e)
-        {
-            // Disable button until we can get CollectionView to work
-            //await Navigation.PushModalAsync(new NavigationPage(new MonsterItemSelection()));
 
-        }
 
     }
 }
