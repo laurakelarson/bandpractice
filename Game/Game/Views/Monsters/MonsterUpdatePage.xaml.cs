@@ -19,6 +19,7 @@ namespace Game.Views.Monsters
         readonly GenericViewModel<MonsterModel> ViewModel;
         int OriginalLevel = 1;
         string Img;
+        MonsterModel ProposedMonster;
 
         /// <summary>
         /// Constructor for Monster Update Page. 
@@ -33,6 +34,7 @@ namespace Game.Views.Monsters
             OriginalLevel = ViewModel.Data.Level;
             Img = ViewModel.Data.ImageURI;
             LevelLabel.Text = OriginalLevel.ToString();
+            ProposedMonster = new MonsterModel();
             this.ViewModel.Title = "Update";
         }
 
@@ -43,7 +45,7 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Update", ViewModel.Data);
+            MessagingCenter.Send(this, "Update", ProposedMonster);
             await Navigation.PopModalAsync();
         }
 
@@ -68,21 +70,21 @@ namespace Game.Views.Monsters
             var currName = ViewModel.Data.Name;
             int newLevel = int.Parse((string)MonsterLevelPicker.SelectedItem);
 
-            ViewModel.Data.Update(new MonsterModel());
-            ViewModel.Data.ScaleToLevel(OriginalLevel, newLevel);
+            ProposedMonster.Update(new MonsterModel());
+            ProposedMonster.ScaleToLevel(OriginalLevel, newLevel);
 
-            ViewModel.Data.Name = currName;
-            ViewModel.Data.Level = newLevel;
-            ViewModel.Data.ImageURI = Img;
+            ProposedMonster.Name = currName;
+            ProposedMonster.Level = newLevel;
+            ProposedMonster.ImageURI = Img;
 
             // Update the labels to display monster type default stats
-            LevelLabel.Text = ViewModel.Data.Level.ToString();
-            ExperienceLabel.Text = ViewModel.Data.ExperienceGiven.ToString();
-            MaxHealthLabel.Text = ViewModel.Data.MaxHealth.ToString();
-            DefenseLabel.Text = ViewModel.Data.Defense.ToString();
-            AttackLabel.Text = ViewModel.Data.Attack.ToString();
-            SpeedLabel.Text = ViewModel.Data.Speed.ToString();
-            RangeLabel.Text = ViewModel.Data.Range.ToString();
+            LevelLabel.Text = ProposedMonster.Level.ToString();
+            ExperienceLabel.Text = ProposedMonster.ExperienceGiven.ToString();
+            MaxHealthLabel.Text = ProposedMonster.MaxHealth.ToString();
+            DefenseLabel.Text = ProposedMonster.Defense.ToString();
+            AttackLabel.Text = ProposedMonster.Attack.ToString();
+            SpeedLabel.Text = ProposedMonster.Speed.ToString();
+            RangeLabel.Text = ProposedMonster.Range.ToString();
 
         }
 
