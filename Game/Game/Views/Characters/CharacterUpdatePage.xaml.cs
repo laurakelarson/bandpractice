@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -66,7 +67,9 @@ namespace Game.Views.Characters
             LevelLabel.Text = String.Format("{0}", e.NewValue);
 
             // Scale character to new level
-            ViewModel.Data.LevelUpToValue((int)e.NewValue);
+            int level = (int)e.NewValue;
+            ViewModel.Data.LevelUpToValue(level);
+            ViewModel.Data.TotalExperience = LevelAttributesHelper.Instance.LevelAttributesList[level].Experience;
 
             // Update the labels to display updated stats
             ExperienceLabel.Text = ViewModel.Data.TotalExperience.ToString();
