@@ -14,7 +14,7 @@ namespace Game.Models
     public class CharacterModel : EntityModel<CharacterModel>
     {
         // The type of the character
-        public CharacterTypeEnum Type { get; set; } 
+        public CharacterTypeEnum Type { get; set; }
 
         // Indicates whether the character is unlocked for the player to use or not
         public bool Unlocked { get; set; } = false;
@@ -138,7 +138,7 @@ namespace Game.Models
         /// <returns></returns>
         public bool LevelUp()
         {
-            return LevelUpToValue(Level + 1); 
+            return LevelUpToValue(Level + 1);
         }
 
         /// <summary>
@@ -187,15 +187,15 @@ namespace Game.Models
 
             // obtain experience threshold for next level 
             var NextLevelDetails = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
-            var nextLevelExperience = NextLevelDetails.Experience; 
+            var nextLevelExperience = NextLevelDetails.Experience;
 
             // level up character if experience meets threshold
             if (TotalExperience >= nextLevelExperience)
             {
-                LevelUp(); 
+                LevelUp();
             }
-            
-            return true; 
+
+            return true;
         }
 
         /// <summary>
@@ -330,9 +330,45 @@ namespace Game.Models
                 default:
                     return null;
             }
+        }
+
+        /// <summary>
+        /// Adds an item to the specified location (item ID saved as foreign key).
+        /// If there is already an item in that location, overwrites the old one.
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="item"></param>
+        public void AddItem(ItemLocationEnum location, ItemModel item)
+        {
+            switch (location)
+            {
+                case ItemLocationEnum.Head:
+                    HeadItem = item.Id;
+                    return;
+                case ItemLocationEnum.Necklass:
+                    BodyItem = item.Id;
+                    return;
+                case ItemLocationEnum.Feet:
+                    FeetItem = item.Id;
+                    return;
+                case ItemLocationEnum.PrimaryHand:
+                    PrimaryHandItem = item.Id;
+                    return;
+                case ItemLocationEnum.OffHand:
+                    OffHandItem = item.Id;
+                    return;
+                case ItemLocationEnum.RightFinger:
+                    RightFingerItem = item.Id;
+                    return;
+                case ItemLocationEnum.LeftFinger:
+                    LeftFingerItem = item.Id;
+                    return;
+                default:
+                    return;
+            }
+        }
 
 
-        /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
         /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
 
         #endregion Equipped Items
