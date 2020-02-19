@@ -164,6 +164,13 @@ namespace Game.Models
             Defense = LevelAttributes.Defense;
             Speed = LevelAttributes.Speed;
 
+            // if current experience below new level threshold, 
+            // update experience level to that threshold 
+            if (TotalExperience < LevelAttributes.Experience)
+            {
+                TotalExperience = LevelAttributes.Experience; 
+            }
+
             // calculate new max health 
             var maxHealth = DiceHelper.RollDice(10, 10);
 
