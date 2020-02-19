@@ -77,10 +77,6 @@
                     <StackLayout Grid.Row="0" Grid.Column="1"
                         Orientation="Horizontal">
 
-                        <Stepper 
-                            Value="{Binding Data.CurrentHealth, Mode=TwoWay}"
-                            ValueChanged="Health_OnStepperValueChanged"/>
-
                         <Label 
                             Text="{Binding Data.CurrentHealth}" 
                             x:Name="HealthValue"
@@ -97,10 +93,6 @@
 
                     <StackLayout Grid.Row="1" Grid.Column="1"
                         Orientation="Horizontal">
-
-                        <Stepper 
-                            Value="{Binding Data.Defense, Mode=TwoWay}"
-                            ValueChanged="Defense_OnStepperValueChanged"/>
 
                         <Label 
                             Text="{Binding Data.Defense}" 
@@ -119,10 +111,6 @@
                     <StackLayout Grid.Row="2" Grid.Column="1"
                         Orientation="Horizontal">
 
-                        <Stepper 
-                            Value="{Binding Data.Attack, Mode=TwoWay}"
-                            ValueChanged="Attack_OnStepperValueChanged"/>
-
                         <Label 
                             Text="{Binding Data.Attack}" 
                             x:Name="AttackValue"
@@ -140,10 +128,6 @@
                     <StackLayout Grid.Row="3" Grid.Column="1"
                         Orientation="Horizontal">
 
-                        <Stepper 
-                            Value="{Binding Data.Speed, Mode=TwoWay}"
-                            ValueChanged="Speed_OnStepperValueChanged"/>
-
                         <Label 
                             Text="{Binding Data.Speed}" 
                             x:Name="SpeedValue"
@@ -160,10 +144,6 @@
 
                     <StackLayout Grid.Row="4" Grid.Column="1"
                         Orientation="Horizontal">
-
-                        <Stepper 
-                            Value="{Binding Data.Range, Mode=TwoWay}"
-                            ValueChanged="Range_OnStepperValueChanged"/>
 
                         <Label 
                             Text="{Binding Data.Range}" 
