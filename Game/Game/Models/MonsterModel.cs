@@ -139,22 +139,39 @@ namespace Game.Models
             return (int)Math.Ceiling(0.25 * Level); 
         }
 
+        /// <summary>
+        /// Returns a list of items dropped by the monster
+        /// when monster dies. 
+        /// </summary>
+        /// <returns></returns>
         public List<ItemModel> DropItems()
         {
             var DropList = new List<ItemModel>();
 
+            // get regular item drops 
             var ItemDropIDs = JsonHelper.GetJsonList<string>((JObject)ItemsDropped, "ItemsDropped"); 
 
+            // add each id in list to drop list
             foreach (var id in ItemDropIDs)
             {
-                DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                // do not add item to list if item does not exist 
+                if (ItemIndexViewModel.Instance.GetItem(id) != null)
+                {
+                    DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                }
             }
 
+            // get unique item drops 
             var UniqueDropIDs = JsonHelper.GetJsonList<string>((JObject)UniqueDrops, "UniqueDrops");
 
+            // add each id in list to drop list 
             foreach (var id in UniqueDropIDs)
             {
-                DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                // do not add item to list if item does not exist 
+                if (ItemIndexViewModel.Instance.GetItem(id) != null)
+                {
+                    DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                }
             }
 
             return DropList; 
