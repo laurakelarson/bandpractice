@@ -65,7 +65,8 @@ namespace Game.Views.Characters
         {
             LevelLabel.Text = String.Format("{0}", e.NewValue);
 
-            //FIXME scale character to new level
+            // Scale character to new level
+            ViewModel.Data.LevelUpToValue((int)e.NewValue);
 
             // Update the labels to display updated stats
             ExperienceLabel.Text = ViewModel.Data.TotalExperience.ToString();
