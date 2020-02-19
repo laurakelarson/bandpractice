@@ -91,8 +91,6 @@ namespace Game.Models
             UniqueDrops = newData.UniqueDrops;
         }
 
-        /* TODO: Add List<ItemModel> DropItems() */
-
         /// <summary>
         /// Method to Scale Monster to given level
         /// </summary>
