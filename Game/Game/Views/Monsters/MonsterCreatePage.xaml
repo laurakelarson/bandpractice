@@ -18,7 +18,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+            <local_helpers:IntStringConverter x:Key="IntString"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -44,12 +44,12 @@
                         <Label Text="Level" 
                             Style="{StaticResource LabelStyle}"/>
 
-                        <Picker
-                            ItemsSource="{Binding LevelValues}" 
-                            SelectedItem="{Binding Data.Level, Mode=TwoWay}" 
-                            x:Name="MonsterLevelPicker" SelectedIndexChanged="Changed_MonsterLevelPicker" />
+                    <Picker
+                         ItemsSource="{x:Static local_helpers:MonsterLevelHelper.GetLevelList}" 
+                         SelectedItem="{Binding Data.Level, Converter={StaticResource IntString}, Mode=TwoWay}" 
+                         x:Name="MonsterLevelPicker" SelectedIndexChanged="Changed_MonsterLevelPicker" /> 
 
-                    </StackLayout>
+                </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
