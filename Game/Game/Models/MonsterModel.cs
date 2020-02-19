@@ -19,12 +19,11 @@ namespace Game.Models
     /// </summary>
     public class MonsterModel : EntityModel<MonsterModel>
     {
-
         // Amount of experience the monster will give on defeat
-        public int ExperienceGiven { get; set; } = 0;
+        public int ExperienceGiven { get; set; } = 75;
 
         // The range of the monster to attack. Attacks within range will be successful
-        public int Range { get; set; } = 0;
+        public int Range { get; set; } = 1;
 
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
@@ -44,6 +43,11 @@ namespace Game.Models
         public MonsterModel()
         {
             ImageURI = EntityService.DefaultMonsterImageURI;
+            Speed = 1;
+            Range = 1;
+            Defense = 3;
+            Attack = 2;
+            MaxHealth = CurrentHealth = 7;
         }
 
         /// <summary>
