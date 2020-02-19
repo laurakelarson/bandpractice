@@ -93,15 +93,15 @@ namespace Game.Models
 
         public bool ScaleToLevel(int oldLevel, int newLevel)
         {
-            double scale = (double)oldLevel;
-            double factor = (double)newLevel * .5;
+            double scale = 1.5;
+            double factor = (double)newLevel - oldLevel;
 
-            if (newLevel > scale)
+            if (newLevel > oldLevel)
             {
-                scale += factor;
+                scale *= factor;
             } else
             {
-                scale -= factor;
+                scale /= factor;
             }
 
             if (this.Alive)
