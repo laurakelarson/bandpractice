@@ -275,35 +275,28 @@ namespace Game.Models
         /// <returns></returns>
         public ItemModel RemoveItem(ItemLocationEnum location)
         {
-            ItemModel item;
+            ItemModel item = GetItemByLocation(location);
             switch (location)
             {
                 case ItemLocationEnum.Head:
-                    item = ItemIndexViewModel.Instance.GetItem(HeadItem);
                     HeadItem = string.Empty;
                     return item;
                 case ItemLocationEnum.Necklass:
-                    item = ItemIndexViewModel.Instance.GetItem(BodyItem);
                     BodyItem = string.Empty;
                     return item;
                 case ItemLocationEnum.Feet:
-                    item = ItemIndexViewModel.Instance.GetItem(FeetItem);
                     FeetItem = string.Empty;
                     return item;
                 case ItemLocationEnum.PrimaryHand:
-                    item = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
                     PrimaryHandItem = string.Empty;
                     return item;
                 case ItemLocationEnum.OffHand:
-                    item = ItemIndexViewModel.Instance.GetItem(OffHandItem);
                     OffHandItem = string.Empty;
                     return item;
                 case ItemLocationEnum.RightFinger:
-                    item = ItemIndexViewModel.Instance.GetItem(RightFingerItem);
                     RightFingerItem = string.Empty;
                     return item;
                 case ItemLocationEnum.LeftFinger:
-                    item = ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
                     LeftFingerItem = string.Empty;
                     return item;
                 default:
@@ -338,7 +331,7 @@ namespace Game.Models
                     return null;
             }
 
-        /* TODO: Add ItemModel GetItemByLocation(ItemLocationEnum location) */
+
         /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
         /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
 
