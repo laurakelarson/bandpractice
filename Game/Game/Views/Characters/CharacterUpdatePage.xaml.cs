@@ -29,6 +29,8 @@ namespace Game.Views.Characters
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Update";
+
+            CharacterTypePicker.SelectedItem = data.Data.Type.ToString();
         }
 
         /// <summary>
@@ -53,13 +55,24 @@ namespace Game.Views.Characters
         }
 
         /// <summary>
-        /// Catch the change to the Stepper for Level
+        /// Catch the change to the Stepper for Level.
+        /// Character is scaled up/down to match the new Level,
+        /// and displayed stats update to show the new values.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelLabel.Text = String.Format("{0}", e.NewValue);
+
+            //FIXME scale character to new level
+
+            // Update the labels to display updated stats
+            ExperienceLabel.Text = ViewModel.Data.TotalExperience.ToString();
+            MaxHealthLabel.Text = ViewModel.Data.MaxHealth.ToString();
+            DefenseLabel.Text = ViewModel.Data.Defense.ToString();
+            AttackLabel.Text = ViewModel.Data.Attack.ToString();
+            SpeedLabel.Text = ViewModel.Data.Speed.ToString();
         }
 
     }
