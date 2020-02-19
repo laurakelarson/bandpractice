@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.Characters.CharacterUpdatePage"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              Title="{Binding Title}"
              Style="{StaticResource CRUDIPage}">
 
@@ -13,18 +14,102 @@
         <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" 
                      HorizontalOptions="StartAndExpand" 
                      Style="{StaticResource OuterBoxStack}">
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Name" 
-                   Style="{StaticResource LabelStyle}"/>
+            <Grid
+                    RowSpacing="1"
+                    ColumnSpacing="2"
+                    VerticalOptions="Center">
 
-                <Entry Text="{Binding Data.Name}" 
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label  Grid.Row="0" Grid.Column="0"
+                        Text="Name" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Entry Grid.Row="0" Grid.Column="1"
+                        Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
+
+                <Label Grid.Row="1" Grid.Column="0"
+                        Text="Type" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Picker Grid.Row="1" Grid.Column="1"
+                        ItemsSource="{x:Static local_helpers:CharacterTypeEnumHelper.GetListCharacterType}" 
+                        SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="CharacterTypePicker" />
+
+                <Label Grid.Row="2" Grid.Column="0"
+                       Text="Level:"
+                       Style="{StaticResource LabelStyle}"/>
+
+                <StackLayout Grid.Row="2" Grid.Column="1"
+                       Orientation="Horizontal">
+
+                    <Stepper Value="{Binding Data.Level, Mode=TwoWay}"
+                        ValueChanged="Level_OnStepperValueChanged" />
+
+                    <Label x:Name="LevelLabel"
+                       Text="{Binding Data.Level}"
+                       Style="{StaticResource ValueStyle}"/>
+
+                </StackLayout>
+
+            </Grid>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
+                <Label x:Name="ExperienceLabel"
+                       Text="{Binding Data.TotalExperience}"
+                       Style="{StaticResource LabelStyle}"/>
             </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
+                <Label x:Name="MaxHealthLabel"
+                       Text="{Binding Data.MaxHealth}"
+                       Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Defense:" Style="{StaticResource LabelStyle}"/>
+                <Label x:Name="DefenseLabel"
+                       Text="{Binding Data.Defense}"
+                       Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Attack:" Style="{StaticResource LabelStyle}"/>
+                <Label x:Name="AttackLabel"
+                       Text="{Binding Data.Attack}"
+                       Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                <Label Text="Speed:" Style="{StaticResource LabelStyle}"/>
+                <Label x:Name="SpeedLabel"
+                       Text="{Binding Data.Speed}"
+                       Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
