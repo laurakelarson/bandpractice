@@ -108,7 +108,60 @@ namespace Game.Models
             LeftFingerItem = newData.LeftFingerItem;
         }
 
-        /* TODO: Add DropAllItems() */
+        /// <summary>
+        /// Removes all the character's equipped items and returns them in a List.
+        /// If an item has been deleted from the database, it is not included in the returned List.
+        /// </summary>
+        /// <returns></returns>
+        public List<ItemModel> DropAllItems()
+        {
+            List<ItemModel> itemDrop = new List<ItemModel>();
+
+            ItemModel item = ItemIndexViewModel.Instance.GetItem(HeadItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(BodyItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(FeetItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(OffHandItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            return itemDrop;
+        }
+
         /* TODO: Add ItemModel RemoveItem(ItemLocationEnum location) */
         /* TODO: Add ItemModel GetItemByLocation(ItemLocationEnum location) */
         /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
