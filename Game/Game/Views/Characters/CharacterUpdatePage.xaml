@@ -62,9 +62,7 @@
                        Orientation="Horizontal">
 
                     <Stepper Value="{Binding Data.Level, Mode=TwoWay}"
-                        ValueChanged="Level_OnStepperValueChanged"
-                        Minimum="1"
-                        Maximum="20" />
+                        ValueChanged="Level_OnStepperValueChanged" />
 
                     <Label x:Name="LevelLabel"
                        Text="{Binding Data.Level}"
