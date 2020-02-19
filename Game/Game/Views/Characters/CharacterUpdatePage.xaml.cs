@@ -29,6 +29,8 @@ namespace Game.Views.Characters
             BindingContext = this.ViewModel = data;
 
             this.ViewModel.Title = "Update";
+
+            CharacterTypePicker.SelectedItem = data.Data.Type.ToString();
         }
 
         /// <summary>
