@@ -86,6 +86,33 @@ namespace Game.Models
 
         /* TODO: Add List<ItemModel> DropItems() */
 
+
+        public bool ScaleToLevel(int newLevel)
+        {
+            double scale = this.Level;
+
+            if (newLevel > scale)
+            {
+                scale = 1 + newLevel * .1;
+            } else
+            {
+                scale = 1 - newLevel * .1;
+            }
+
+            if (this.Alive)
+            {
+                this.ExperienceGiven = (int)Math.Ceiling(Math.Pow(this.ExperienceGiven, scale));
+                this.Speed = (int)Math.Ceiling(Math.Pow(this.Speed, scale));
+                this.Attack = (int)Math.Ceiling(Math.Pow(this.Attack, scale));
+                this.Defense = (int)Math.Ceiling(Math.Pow(this.Defense, scale));
+                this.Range = (int)Math.Ceiling(Math.Pow(this.Range, scale));
+                this.CurrentHealth = (int)Math.Ceiling(Math.Pow(this.CurrentHealth, scale));
+                return true;
+            }
+
+            return false;
+        }
+
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
         public override string FormatOutput()
         {

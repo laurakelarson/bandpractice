@@ -108,12 +108,6 @@ namespace Game.Models
             LeftFingerItem = newData.LeftFingerItem;
         }
 
-        /* TODO: Add DropAllItems() */
-        /* TODO: Add ItemModel RemoveItem(ItemLocationEnum location) */
-        /* TODO: Add ItemModel GetItemByLocation(ItemLocationEnum location) */
-        /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
-        /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
-
         /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the character as a string
         /// </summary>
@@ -215,5 +209,139 @@ namespace Game.Models
             var weaponDamage = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem).Damage;
             return (int)Math.Ceiling(0.25 * Level) + DiceHelper.RollDice(1, weaponDamage);
         }
+
+        #region Equipped Items
+
+        /// <summary>
+        /// Removes all the character's equipped items and returns them in a List.
+        /// If an item has been deleted from the database, it is not included in the returned List.
+        /// </summary>
+        /// <returns></returns>
+        public List<ItemModel> DropAllItems()
+        {
+            List<ItemModel> itemDrop = new List<ItemModel>();
+
+            ItemModel item = ItemIndexViewModel.Instance.GetItem(HeadItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(BodyItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(FeetItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(OffHandItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            item = ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+            if (item != null)
+            {
+                itemDrop.Add(item);
+            }
+
+            return itemDrop;
+        }
+
+        /// <summary>
+        /// Removes and returns the item from the specified location.
+        /// Returns null if there is no item in that location, or if the item has been deleted
+        /// from the database.
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public ItemModel RemoveItem(ItemLocationEnum location)
+        {
+            ItemModel item;
+            switch (location)
+            {
+                case ItemLocationEnum.Head:
+                    item = ItemIndexViewModel.Instance.GetItem(HeadItem);
+                    HeadItem = string.Empty;
+                    return item;
+                case ItemLocationEnum.Necklass:
+                    item = ItemIndexViewModel.Instance.GetItem(BodyItem);
+                    BodyItem = string.Empty;
+                    return item;
+                case ItemLocationEnum.Feet:
+                    item = ItemIndexViewModel.Instance.GetItem(FeetItem);
+                    FeetItem = string.Empty;
+                    return item;
+                case ItemLocationEnum.PrimaryHand:
+                    item = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+                    PrimaryHandItem = string.Empty;
+                    return item;
+                case ItemLocationEnum.OffHand:
+                    item = ItemIndexViewModel.Instance.GetItem(OffHandItem);
+                    OffHandItem = string.Empty;
+                    return item;
+                case ItemLocationEnum.RightFinger:
+                    item = ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+                    RightFingerItem = string.Empty;
+                    return item;
+                case ItemLocationEnum.LeftFinger:
+                    item = ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+                    LeftFingerItem = string.Empty;
+                    return item;
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Returns the item from the specified location.
+        /// Returns null if there is no item in that location, or if the item has been deleted
+        /// from the database.
+        /// </summary>
+        public ItemModel GetItemByLocation(ItemLocationEnum location)
+        {
+            switch (location)
+            {
+                case ItemLocationEnum.Head:
+                    return ItemIndexViewModel.Instance.GetItem(HeadItem);
+                case ItemLocationEnum.Necklass:
+                    return ItemIndexViewModel.Instance.GetItem(BodyItem);
+                case ItemLocationEnum.Feet:
+                    return ItemIndexViewModel.Instance.GetItem(FeetItem);
+                case ItemLocationEnum.PrimaryHand:
+                    return ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+                case ItemLocationEnum.OffHand:
+                    return ItemIndexViewModel.Instance.GetItem(OffHandItem);
+                case ItemLocationEnum.RightFinger:
+                    return ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+                case ItemLocationEnum.LeftFinger:
+                    return ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+                default:
+                    return null;
+            }
+
+        /* TODO: Add ItemModel GetItemByLocation(ItemLocationEnum location) */
+        /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
+        /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
+
+        #endregion Equipped Items
     }
 }
