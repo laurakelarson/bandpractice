@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using Game.Helpers;
 using Game.Services;
+using Game.ViewModels;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SQLite;
 
 namespace Game.Models
@@ -135,6 +137,28 @@ namespace Game.Models
         public int RollDamageDice()
         {
             return (int)Math.Ceiling(0.25 * Level); 
+        }
+
+        public List<ItemModel> DropItems()
+        {
+            var DropList = new List<ItemModel>();
+
+            var ItemDropIDs = JsonHelper.GetJsonList<string>((JObject)ItemsDropped, "ItemsDropped"); 
+
+            foreach (var id in ItemDropIDs)
+            {
+                DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+            }
+
+            var UniqueDropIDs = JsonHelper.GetJsonList<string>((JObject)UniqueDrops, "UniqueDrops");
+
+            foreach (var id in UniqueDropIDs)
+            {
+                DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+            }
+
+            return DropList; 
+
         }
     }
 }
