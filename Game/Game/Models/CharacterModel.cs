@@ -311,6 +311,33 @@ namespace Game.Models
             }
         }
 
+        /// <summary>
+        /// Returns the item from the specified location.
+        /// Returns null if there is no item in that location, or if the item has been deleted
+        /// from the database.
+        /// </summary>
+        public ItemModel GetItemByLocation(ItemLocationEnum location)
+        {
+            switch (location)
+            {
+                case ItemLocationEnum.Head:
+                    return ItemIndexViewModel.Instance.GetItem(HeadItem);
+                case ItemLocationEnum.Necklass:
+                    return ItemIndexViewModel.Instance.GetItem(BodyItem);
+                case ItemLocationEnum.Feet:
+                    return ItemIndexViewModel.Instance.GetItem(FeetItem);
+                case ItemLocationEnum.PrimaryHand:
+                    return ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+                case ItemLocationEnum.OffHand:
+                    return ItemIndexViewModel.Instance.GetItem(OffHandItem);
+                case ItemLocationEnum.RightFinger:
+                    return ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+                case ItemLocationEnum.LeftFinger:
+                    return ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+                default:
+                    return null;
+            }
+
         /* TODO: Add ItemModel GetItemByLocation(ItemLocationEnum location) */
         /* TODO: Add void AddItem(ItemLocationEnum location, ItemModel item) */
         /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
