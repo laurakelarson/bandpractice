@@ -164,6 +164,18 @@ namespace Game.Models
             Defense = LevelAttributes.Defense;
             Speed = LevelAttributes.Speed;
 
+            // calculate new max health 
+            var maxHealth = DiceHelper.RollDice(10, 10);
+
+            // if new max health less than current, 
+            // set to current
+            if (maxHealth < MaxHealth)
+            {
+                maxHealth = MaxHealth; 
+            }
+
+            CurrentHealth += (maxHealth - MaxHealth); 
+
             // attributes successfully set 
             return true;
         }
