@@ -171,22 +171,37 @@ namespace Game.Models
         /// <returns></returns>
         public ItemModel RemoveItem(ItemLocationEnum location)
         {
+            ItemModel item;
             switch (location)
             {
                 case ItemLocationEnum.Head:
-                    return ItemIndexViewModel.Instance.GetItem(HeadItem);
+                    item = ItemIndexViewModel.Instance.GetItem(HeadItem);
+                    HeadItem = string.Empty;
+                    return item;
                 case ItemLocationEnum.Necklass:
-                    return ItemIndexViewModel.Instance.GetItem(BodyItem);
+                    item = ItemIndexViewModel.Instance.GetItem(BodyItem);
+                    BodyItem = string.Empty;
+                    return item;
                 case ItemLocationEnum.Feet:
-                    return ItemIndexViewModel.Instance.GetItem(FeetItem);
+                    item = ItemIndexViewModel.Instance.GetItem(FeetItem);
+                    FeetItem = string.Empty;
+                    return item;
                 case ItemLocationEnum.PrimaryHand:
-                    return ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+                    item = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+                    PrimaryHandItem = string.Empty;
+                    return item;
                 case ItemLocationEnum.OffHand:
-                    return ItemIndexViewModel.Instance.GetItem(OffHandItem);
+                    item = ItemIndexViewModel.Instance.GetItem(OffHandItem);
+                    OffHandItem = string.Empty;
+                    return item;
                 case ItemLocationEnum.RightFinger:
-                    return ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+                    item = ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+                    RightFingerItem = string.Empty;
+                    return item;
                 case ItemLocationEnum.LeftFinger:
-                    return ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+                    item = ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+                    LeftFingerItem = string.Empty;
+                    return item;
                 default:
                     return null;
             }
