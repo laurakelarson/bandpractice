@@ -66,7 +66,7 @@
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                 <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
                 <Label x:Name="MaxHealthLabel"
-                       Text="{Binding Data.MaxHealth}"
+                       Text="{Binding Data.CurrentHealth}"
                        Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 

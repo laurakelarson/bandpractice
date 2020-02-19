@@ -29,8 +29,7 @@ namespace Game.Views.Monsters
         {
             InitializeComponent();
 
-            BindingContext = this.ViewModel = data;
-            LevelLabel.Text = ViewModel.Data.Level.ToString();
+            BindingContext = ViewModel = data;
             OriginalLevel = ViewModel.Data.Level;
             Img = ViewModel.Data.ImageURI;
             ProposedMonster = new MonsterModel();
