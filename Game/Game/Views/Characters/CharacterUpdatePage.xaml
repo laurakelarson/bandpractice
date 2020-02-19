@@ -79,8 +79,6 @@
                        Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
-            <Label Text="Stats" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
-
             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                 <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
                 <Label x:Name="MaxHealthLabel"
