@@ -135,7 +135,7 @@ namespace Game.Models
             return (int)Math.Ceiling(0.25 * Level); 
         }
 
-        public List<ItemModel> DropAllItems()
+        public List<ItemModel> DropItems()
         {
             var DropList = new List<ItemModel>();
 
