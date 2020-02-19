@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.ViewModels;
 using Game.Views.Monsters;
 using System;
@@ -15,6 +16,7 @@ namespace Game.Views
     {
         // The Monster to create
         GenericViewModel<MonsterModel> ViewModel { get; set; }
+        int[] LevelValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -26,7 +28,7 @@ namespace Game.Views
             data.Data = new MonsterModel();
 
             BindingContext = this.ViewModel = data;
-
+            MonsterLevelPicker.SelectedItem = data.Data.Level.ToString();
             this.ViewModel.Title = "Create";
         }
 
@@ -59,53 +61,80 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Catch the change to the Stepper for Health
+        /// Event handler for type picker - sets the character stats to the type default
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Health_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        void Changed_MonsterLevelPicker(object sender, EventArgs e)
         {
-            HealthValue.Text = String.Format("{0}", e.NewValue);
+            // Update default character type
+            var currName = ViewModel.Data.Name;
+
+            int newLevel = (int)MonsterLevelPicker.SelectedItem;
+
+            ViewModel.Data.ScaleToLevel(newLevel);
+
+            ViewModel.Data.Name = currName;
+
+            // Update the labels to display character type default stats
+            LevelLabel.Text = ViewModel.Data.Level.ToString();
+            ExperienceLabel.Text = ViewModel.Data.ExperienceGiven.ToString();
+            MaxHealthLabel.Text = ViewModel.Data.MaxHealth.ToString();
+            DefenseLabel.Text = ViewModel.Data.Defense.ToString();
+            AttackLabel.Text = ViewModel.Data.Attack.ToString();
+            SpeedLabel.Text = ViewModel.Data.Speed.ToString();
+
         }
 
-        /// <summary>
-        /// Catch the change to the Stepper for Defense
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            DefenseValue.Text = String.Format("{0}", e.NewValue);
-        }
 
-        /// <summary>
-        /// Catch the change to the Stepper for Attack
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            AttackValue.Text = String.Format("{0}", e.NewValue);
-        }
+        ///// <summary>
+        ///// Catch the change to the Stepper for Health
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void Health_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        //{
+        //    HealthValue.Text = String.Format("{0}", e.NewValue);
+        //}
 
-        /// <summary>
-        /// Catch the change to the Stepper for Speed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            SpeedValue.Text = String.Format("{0}", e.NewValue);
-        }
-        /// <summary>
-        /// Catch the change to the Stepper for Range
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            RangeValue.Text = String.Format("{0}", e.NewValue);
-        }
+        ///// <summary>
+        ///// Catch the change to the Stepper for Defense
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        //{
+        //    DefenseValue.Text = String.Format("{0}", e.NewValue);
+        //}
+
+        ///// <summary>
+        ///// Catch the change to the Stepper for Attack
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        //{
+        //    AttackValue.Text = String.Format("{0}", e.NewValue);
+        //}
+
+        ///// <summary>
+        ///// Catch the change to the Stepper for Speed
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        //{
+        //    SpeedValue.Text = String.Format("{0}", e.NewValue);
+        //}
+        ///// <summary>
+        ///// Catch the change to the Stepper for Range
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        //{
+        //    RangeValue.Text = String.Format("{0}", e.NewValue);
+        //}
 
         /// <summary>
         /// Cancel the Create
