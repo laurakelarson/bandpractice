@@ -90,7 +90,12 @@ namespace Game.Models
 
         /* TODO: Add List<ItemModel> DropItems() */
 
-
+        /// <summary>
+        /// Method to Scale Monster to given level
+        /// </summary>
+        /// <param name="oldLevel"></param>
+        /// <param name="newLevel"></param>
+        /// <returns></returns>
         public bool ScaleToLevel(int oldLevel, int newLevel)
         {
             double scale = 1.5;
