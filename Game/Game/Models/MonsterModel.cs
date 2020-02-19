@@ -120,6 +120,7 @@ namespace Game.Models
                 this.Defense = (int)Math.Ceiling(this.Defense * scale);
                 this.Range = (int)Math.Ceiling(this.Range * scale);
                 this.MaxHealth = (int)Math.Ceiling(this.MaxHealth * scale);
+                this.CurrentHealth = this.MaxHealth;
                 this.Level = newLevel;
             }
 

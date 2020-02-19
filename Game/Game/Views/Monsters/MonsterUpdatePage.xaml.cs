@@ -30,10 +30,9 @@ namespace Game.Views.Monsters
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            MonsterLevelPicker.SelectedItem = data.Data.Level.ToString();
+            LevelLabel.Text = ViewModel.Data.Level.ToString();
             OriginalLevel = ViewModel.Data.Level;
             Img = ViewModel.Data.ImageURI;
-            LevelLabel.Text = OriginalLevel.ToString();
             ProposedMonster = new MonsterModel();
             this.ViewModel.Title = "Update";
         }
