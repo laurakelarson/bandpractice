@@ -102,57 +102,5 @@ namespace Game.Views
 
         }
 
-
-        ///// <summary>
-        ///// Catch the change to the Stepper for Health
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //void Health_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        //{
-        //    HealthValue.Text = String.Format("{0}", e.NewValue);
-        //}
-
-        ///// <summary>
-        ///// Catch the change to the Stepper for Defense
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        //{
-        //    DefenseValue.Text = String.Format("{0}", e.NewValue);
-        //}
-
-        ///// <summary>
-        ///// Catch the change to the Stepper for Attack
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        //{
-        //    AttackValue.Text = String.Format("{0}", e.NewValue);
-        //}
-
-        ///// <summary>
-        ///// Catch the change to the Stepper for Speed
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        //{
-        //    SpeedValue.Text = String.Format("{0}", e.NewValue);
-        //}
-        ///// <summary>
-        ///// Catch the change to the Stepper for Range
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        //{
-        //    RangeValue.Text = String.Format("{0}", e.NewValue);
-        //}
-
-
-
     }
 }
