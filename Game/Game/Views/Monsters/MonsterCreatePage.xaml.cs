@@ -16,7 +16,8 @@ namespace Game.Views
     {
         // The Monster to create
         GenericViewModel<MonsterModel> ViewModel { get; set; }
-        int[] LevelValues = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+        int originalLevel = 1;
+        
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -29,6 +30,7 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
             MonsterLevelPicker.SelectedItem = data.Data.Level.ToString();
+            originalLevel = ViewModel.Data.Level;
             this.ViewModel.Title = "Create";
         }
 
@@ -69,14 +71,15 @@ namespace Game.Views
         {
             // Update default character type
             var currName = ViewModel.Data.Name;
+            int newLevel = int.Parse((string)MonsterLevelPicker.SelectedItem);
 
-            int newLevel = (int)MonsterLevelPicker.SelectedItem;
-
-            ViewModel.Data.ScaleToLevel(newLevel);
+            ViewModel.Data.Update(new MonsterModel());
+            ViewModel.Data.ScaleToLevel(originalLevel, newLevel);
 
             ViewModel.Data.Name = currName;
+            ViewModel.Data.Level = newLevel;
 
-            // Update the labels to display character type default stats
+            // Update the labels to display monster type default stats
             LevelLabel.Text = ViewModel.Data.Level.ToString();
             ExperienceLabel.Text = ViewModel.Data.ExperienceGiven.ToString();
             MaxHealthLabel.Text = ViewModel.Data.MaxHealth.ToString();
