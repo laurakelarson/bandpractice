@@ -369,7 +369,23 @@ namespace Game.Models
         }
 
 
-        /* TODO: Add Attribute GetItemBonus(ItemLocationEnum location) */
+        /// <summary>
+        /// Returns the item bonus for the item in the specified location.
+        /// If there is no item equipped in that location or if the item has been
+        /// deleted from the database, returns 0.
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public int GetItemBonus(ItemLocationEnum location)
+        {
+            ItemModel item = GetItemByLocation(location);
+            if (item == null)
+            {
+                return 0;
+            }
+
+            return (int)item.Attribute;
+        }
 
         #endregion Equipped Items
     }
