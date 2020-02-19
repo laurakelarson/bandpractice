@@ -95,6 +95,13 @@
                        Style="{StaticResource LabelStyle}"/>
                 </StackLayout>
 
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Range:" Style="{StaticResource LabelStyle}"/>
+                    <Label x:Name="RangeLabel"
+                       Text="{Binding Data.Range}"
+                       Style="{StaticResource LabelStyle}"/>
+                </StackLayout>
+
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Guaranteed Item Drop:"/>
                     <Button Text="Edit"

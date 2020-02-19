@@ -85,6 +85,7 @@ namespace Game.Views
             DefenseLabel.Text = ViewModel.Data.Defense.ToString();
             AttackLabel.Text = ViewModel.Data.Attack.ToString();
             SpeedLabel.Text = ViewModel.Data.Speed.ToString();
+            RangeLabel.Text = ViewModel.Data.Range.ToString();
 
         }
 
