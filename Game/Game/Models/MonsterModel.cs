@@ -148,16 +148,28 @@ namespace Game.Models
         {
             var DropList = new List<ItemModel>();
 
-            // get regular item drops 
-            var ItemDropIDs = JsonHelper.GetJsonList<string>((JObject)ItemsDropped, "ItemsDropped"); 
+            // get possible regular item drops 
+            var ItemDropIDs = JsonHelper.GetJsonList<string>((JObject)ItemsDropped, "ItemsDropped");
 
-            // add each id in list to drop list
-            foreach (var id in ItemDropIDs)
+            Random rand = new Random();
+
+            // determine how many items will be dropped by monster 
+            // (between 0 and number of items in list)
+            var numberItemsDropped = rand.Next(0, ItemDropIDs.Count + 1); 
+
+            // add random items to droplist 
+            for (var i = 0; i < numberItemsDropped; i++)
             {
-                // do not add item to list if item does not exist 
-                if (ItemIndexViewModel.Instance.GetItem(id) != null)
+                // select random index of item to add
+                var randomIndex = rand.Next(0, ItemDropIDs.Count + 1);
+                
+                // if item exists, add it to drop list 
+                if (ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]) != null)
                 {
-                    DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                    DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]));
+
+                    // remove so duplicate item not added to DropList
+                    ItemDropIDs.RemoveAt(randomIndex); 
                 }
             }
 
@@ -175,7 +187,6 @@ namespace Game.Models
             }
 
             return DropList; 
-
         }
     }
 }
