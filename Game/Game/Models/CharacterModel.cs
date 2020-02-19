@@ -174,7 +174,8 @@ namespace Game.Models
                 maxHealth = MaxHealth; 
             }
 
-            CurrentHealth += (maxHealth - MaxHealth); 
+            CurrentHealth += (maxHealth - MaxHealth);
+            MaxHealth = maxHealth; 
 
             // attributes successfully set 
             return true;
