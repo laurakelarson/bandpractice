@@ -33,7 +33,6 @@
                         Style="{StaticResource EntryStyle}"/>
             </StackLayout>
 
-
             <StackLayout Orientation="Horizontal">
                 <Label Text="Type" 
                 Style="{StaticResource LabelStyle}"/>
@@ -44,13 +43,17 @@
                     x:Name="CharacterTypePicker" />
 
             </StackLayout>
-
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
+
+                <Stepper
+                      Value="{Binding Data.Level, Mode=TwoWay}"
+                       />
+
                 <Label x:Name="LevelLabel"
                        Text="{Binding Data.Level}"
-                       Style="{StaticResource LabelStyle}"/>
+                       Style="{StaticResource ValueStyle}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
