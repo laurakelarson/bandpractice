@@ -15,6 +15,10 @@ namespace Game.Views
         // View Model for Item
         readonly GenericViewModel<ItemModel> ViewModel;
 
+        // ItemModel to hold starting state of Character
+        // Use to restore ItemModel in the event user cancels the update
+        ItemModel startingState;
+
         /// <summary>
         /// Constructor that takes and existing data item
         /// </summary>
@@ -23,6 +27,8 @@ namespace Game.Views
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            startingState = new ItemModel(data.Data);
 
             this.ViewModel.Title = "Update";
 
@@ -56,6 +62,9 @@ namespace Game.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+
+            // Revert Item attributes back to starting state
+            ViewModel.Data.Update(startingState);
         }
 
         /// <summary>
