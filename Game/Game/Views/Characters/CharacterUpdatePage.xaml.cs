@@ -19,6 +19,10 @@ namespace Game.Views.Characters
         // View Model for Character
         readonly GenericViewModel<CharacterModel> ViewModel;
 
+        // CharacterModel to hold starting state of Character
+        // Use to restore CharacterModel in the event user cancels the update
+        CharacterModel startingState;
+
         /// <summary>
         /// Constructor for CharacterUpdatePage
         /// </summary>
@@ -28,6 +32,8 @@ namespace Game.Views.Characters
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
+
+            startingState = new CharacterModel(data.Data);
 
             this.ViewModel.Title = "Update";
 
@@ -53,6 +59,9 @@ namespace Game.Views.Characters
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+
+            // Revert Character attributes back to starting state
+            ViewModel.Data.Update(startingState);
         }
 
         /// <summary>
