@@ -391,21 +391,80 @@ namespace Game.Models
 
 
         /// <summary>
-        /// Returns the item bonus for the item in the specified location.
-        /// If there is no item equipped in that location or if the item has been
-        /// deleted from the database, returns 0.
+        /// Returns the bonus value of the specified attribute based on the held items.
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public int GetItemBonus(ItemLocationEnum location)
+        public int GetItemBonus(AttributeEnum attribute)
         {
-            ItemModel item = GetItemByLocation(location);
-            if (item == null)
+            int bonus = 0;
+            ItemModel item;
+
+            item = GetItemByLocation(ItemLocationEnum.Head);
+            if (item != null)
             {
-                return 0;
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
             }
 
-            return (int)item.Attribute;
+            item = GetItemByLocation(ItemLocationEnum.Necklass);
+            if (item != null)
+            {
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
+            }
+
+
+            item = GetItemByLocation(ItemLocationEnum.Feet);
+            if (item != null)
+            {
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
+            }
+
+            item = GetItemByLocation(ItemLocationEnum.PrimaryHand);
+            if (item != null)
+            {
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
+            }
+
+            item = GetItemByLocation(ItemLocationEnum.OffHand);
+            if (item != null)
+            {
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
+            }
+
+            item = GetItemByLocation(ItemLocationEnum.RightFinger);
+            if (item != null)
+            {
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
+            }
+
+            item = GetItemByLocation(ItemLocationEnum.LeftFinger);
+            if (item != null)
+            {
+                if (item.Attribute == attribute)
+                {
+                    bonus += item.Value;
+                }
+            }
+
+            return bonus;
         }
 
         #endregion Equipped Items
