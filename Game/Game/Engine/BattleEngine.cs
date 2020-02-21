@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Models;
 
 namespace Game.Engine
 {
@@ -13,5 +14,17 @@ namespace Game.Engine
     {
         // Track whether battle is running
         public bool BattleRunning = false;
+
+        /// <summary>
+        /// Adds a Character/"band member" to the battle
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool AddBandMember(CharacterModel member)
+        {
+            CharacterList.Add(new CharacterModel(member));
+
+            return true;
+        }
     }
 }
