@@ -9,7 +9,7 @@ using Game.Models.Enum;
 /// </summary>
 namespace Game.Engine
 {
-    class BaseEngine
+    public class BaseEngine
     {
         // The score of the battle
         public ScoreModel Score = new ScoreModel();

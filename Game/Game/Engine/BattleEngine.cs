@@ -10,7 +10,7 @@ namespace Game.Engine
     /// Container for battle rounds (inheritance from RoundEngine) and
     /// battle turns (RoundEngine inherits from TurnEngine)
     /// </summary>
-    class BattleEngine : RoundEngine
+    public class BattleEngine : RoundEngine
     {
         // Track whether battle is running
         public bool BattleRunning = false;

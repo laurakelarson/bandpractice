@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Engine
 {
-    class RoundEngine : TurnEngine
+    public class RoundEngine : TurnEngine
     {
 
         /// <summary>
