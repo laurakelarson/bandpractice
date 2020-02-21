@@ -6,13 +6,18 @@ namespace Game.Models
     /// </summary>
     public class BattleEntityModel : EntityModel<BattleEntityModel>
     {
-        public BattleEntityModel()
-        {
-        }
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public BattleEntityModel() {}
 
+        /// <summary>
+        /// Returns the name of the battle entity.
+        /// </summary>
+        /// <returns></returns>
         public override string FormatOutput()
         {
-            throw new NotImplementedException();
+            return this.Name;
         }
     }
 }
