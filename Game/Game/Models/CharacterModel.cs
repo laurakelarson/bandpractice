@@ -241,43 +241,43 @@ namespace Game.Models
         {
             List<ItemModel> itemDrop = new List<ItemModel>();
 
-            ItemModel item = ItemIndexViewModel.Instance.GetItem(HeadItem);
+            ItemModel item = RemoveItem(ItemLocationEnum.Head);
             if (item != null)
             {
                 itemDrop.Add(item);
             }
 
-            item = ItemIndexViewModel.Instance.GetItem(BodyItem);
+            item = RemoveItem(ItemLocationEnum.Necklass);
             if (item != null)
             {
                 itemDrop.Add(item);
             }
 
-            item = ItemIndexViewModel.Instance.GetItem(FeetItem);
+            item = RemoveItem(ItemLocationEnum.Feet);
             if (item != null)
             {
                 itemDrop.Add(item);
             }
 
-            item = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+            item = RemoveItem(ItemLocationEnum.PrimaryHand);
             if (item != null)
             {
                 itemDrop.Add(item);
             }
 
-            item = ItemIndexViewModel.Instance.GetItem(OffHandItem);
+            item = RemoveItem(ItemLocationEnum.OffHand);
             if (item != null)
             {
                 itemDrop.Add(item);
             }
 
-            item = ItemIndexViewModel.Instance.GetItem(RightFingerItem);
+            item = RemoveItem(ItemLocationEnum.RightFinger);
             if (item != null)
             {
                 itemDrop.Add(item);
             }
 
-            item = ItemIndexViewModel.Instance.GetItem(LeftFingerItem);
+            item = RemoveItem(ItemLocationEnum.LeftFinger);
             if (item != null)
             {
                 itemDrop.Add(item);
