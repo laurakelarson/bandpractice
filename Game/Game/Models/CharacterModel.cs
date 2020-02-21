@@ -172,7 +172,7 @@ namespace Game.Models
             }
 
             // calculate new max health 
-            var maxHealth = DiceHelper.RollDice(10, 10);
+            var maxHealth = DiceHelper.RollDice(Level, 10);
 
             // if new max health less than current, 
             // set to current
