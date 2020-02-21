@@ -8,14 +8,15 @@ namespace Game.Helpers
     class CharacterTypeEnumHelper
     {
         /// <summary>
-        ///  Gets the list of locations a character can use
-        ///  Removes Finger for example, and allows for left and right finger
+        ///  Gets the list of character types.
+        ///  Removes "Unknown" from the list, so it's suitable for user facing pages.
         /// </summary>
         public static List<string> GetListCharacterType
         {
             get
             {
                 var myList = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
+                myList.Remove(CharacterTypeEnum.Unknown.ToString());
                 var myReturn = myList.OrderBy(a => a).ToList();
 
                 return myReturn;
