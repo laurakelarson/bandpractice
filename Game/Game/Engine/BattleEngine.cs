@@ -26,5 +26,25 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// Starts the battle
+        /// </summary>
+        /// <param name="isAutoBattle"></param>
+        /// <returns></returns>
+        public bool StartBattle(bool isAutoBattle)
+        {
+            Score = new ScoreModel  // refresh score
+            {
+                AutoBattle = isAutoBattle
+            };
+
+            BattleRunning = true;
+
+            //TODO NewRound();
+
+            return true;
+        }
+
     }
 }
