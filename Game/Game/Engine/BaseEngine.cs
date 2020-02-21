@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Game.Models;
+using Game.Models.Enum;
 
 /// <summary>
 /// Holds the data structures for the battle engine.
@@ -27,5 +28,8 @@ namespace Game.Engine
 
         // Max number of Monsters
         public int MaxNumberMonsters = 6;
+
+        // Current Round state
+        public RoundEnum RoundState = RoundEnum.Unknown;
     }
 }
