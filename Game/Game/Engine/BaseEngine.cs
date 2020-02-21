@@ -21,5 +21,11 @@ namespace Game.Engine
 
         // Characters in the battle
         public List<CharacterModel> CharacterList = new List<CharacterModel>();
+
+        // Max number of Characters
+        public int MaxNumberCharacters = 6;
+
+        // Max number of Monsters
+        public int MaxNumberMonsters = 6;
     }
 }
