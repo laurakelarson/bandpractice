@@ -6,11 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Game.Models;
+using Game.Engine;
+
 namespace UnitTests.Engine
 {
     [TestFixture]
     public class BattleEngineTests
     {
+        BattleEngine Engine;
+
+        [SetUp]
+        public void SetUp()
+        {
+            Engine = new BattleEngine();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+        }
+
         [Test]
         public void TestMethod()
         {
