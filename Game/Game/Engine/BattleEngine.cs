@@ -41,7 +41,7 @@ namespace Game.Engine
 
             BattleRunning = true;
 
-            //TODO NewRound();
+            NewRound();
 
             return true;
         }
