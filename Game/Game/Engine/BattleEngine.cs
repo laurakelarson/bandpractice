@@ -46,5 +46,16 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Ends the battle
+        /// </summary>
+        /// <returns></returns>
+        public bool EndBattle()
+        {
+            BattleRunning = false;
+
+            return true;
+        }
+
     }
 }
