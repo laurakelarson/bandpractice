@@ -31,5 +31,17 @@ namespace Game.Engine
 
         // Current Round state
         public RoundEnum RoundState = RoundEnum.Unknown;
+
+        // List of current characters and monsters in battle
+        public List<BattleEntityModel> EntityList = new List<BattleEntityModel>();
+
+        // Current attacking entity
+        public BattleEntityModel CurrentAttacker;
+
+        // Current defending entity
+        public BattleEntityModel CurrentDefender;
+
+        // Entity currently engaged
+        public BattleEntityModel CurrentEntity;
     }
 }
