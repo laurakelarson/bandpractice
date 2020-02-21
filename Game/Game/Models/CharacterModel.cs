@@ -299,25 +299,25 @@ namespace Game.Models
             switch (location)
             {
                 case ItemLocationEnum.Head:
-                    HeadItem = string.Empty;
+                    HeadItem = null;
                     return item;
                 case ItemLocationEnum.Necklass:
-                    BodyItem = string.Empty;
+                    BodyItem = null;
                     return item;
                 case ItemLocationEnum.Feet:
-                    FeetItem = string.Empty;
+                    FeetItem = null;
                     return item;
                 case ItemLocationEnum.PrimaryHand:
-                    PrimaryHandItem = string.Empty;
+                    PrimaryHandItem = null;
                     return item;
                 case ItemLocationEnum.OffHand:
-                    OffHandItem = string.Empty;
+                    OffHandItem = null;
                     return item;
                 case ItemLocationEnum.RightFinger:
-                    RightFingerItem = string.Empty;
+                    RightFingerItem = null;
                     return item;
                 case ItemLocationEnum.LeftFinger:
-                    LeftFingerItem = string.Empty;
+                    LeftFingerItem = null;
                     return item;
                 default:
                     return null;
