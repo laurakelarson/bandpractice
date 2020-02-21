@@ -15,8 +15,8 @@ namespace Game.Helpers
         {
             get
             {
-                var myList = Enum.GetNames(typeof(CharacterTypeEnum)).ToList();
-                myList.Remove(CharacterTypeEnum.Unknown.ToString());
+                var myList = Enum.GetNames(typeof(CharacterTypeEnum)).ToList().
+                    Where(m => m.ToString().Equals(CharacterTypeEnum.Unknown.ToString()) == false).ToList();
                 var myReturn = myList.OrderBy(a => a).ToList();
 
                 return myReturn;
