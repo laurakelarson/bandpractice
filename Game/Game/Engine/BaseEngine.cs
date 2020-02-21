@@ -14,6 +14,9 @@ namespace Game.Engine
         // The score of the battle
         public ScoreModel Score = new ScoreModel();
 
+        // Manages the battle messages for the UI
+        public BattleMessagesModel BattleMessages = new BattleMessagesModel();
+
         // The pool of items dropped and collected throughout the battle round
         public List<ItemModel> ItemPool = new List<ItemModel>();
 
