@@ -358,33 +358,34 @@ namespace Game.Models
         /// </summary>
         /// <param name="location"></param>
         /// <param name="item"></param>
-        public void AddItem(ItemLocationEnum location, ItemModel item)
+        public ItemModel AddItem(ItemLocationEnum location, ItemModel item)
         {
+            ItemModel swap = RemoveItem(location);
             switch (location)
             {
                 case ItemLocationEnum.Head:
                     HeadItem = item.Id;
-                    return;
+                    return swap;
                 case ItemLocationEnum.Necklass:
                     BodyItem = item.Id;
-                    return;
+                    return swap;
                 case ItemLocationEnum.Feet:
                     FeetItem = item.Id;
-                    return;
+                    return swap;
                 case ItemLocationEnum.PrimaryHand:
                     PrimaryHandItem = item.Id;
-                    return;
+                    return swap;
                 case ItemLocationEnum.OffHand:
                     OffHandItem = item.Id;
-                    return;
+                    return swap;
                 case ItemLocationEnum.RightFinger:
                     RightFingerItem = item.Id;
-                    return;
+                    return swap;
                 case ItemLocationEnum.LeftFinger:
                     LeftFingerItem = item.Id;
-                    return;
+                    return swap;
                 default:
-                    return;
+                    return swap;
             }
         }
 
