@@ -232,6 +232,15 @@ namespace Game.Models
             return (int)Math.Ceiling(0.25 * Level) + DiceHelper.RollDice(1, weaponDamage);
         }
 
+        /// <summary>
+        /// Determines the attack value for the character. 
+        /// </summary>
+        /// <returns></returns>
+        public override int GetAttackValue()
+        {
+            return DiceHelper.RollDice(1, 20) + Level + GetItemBonus(AttributeEnum.Attack);
+        }
+
         #region Equipped Items
 
         /// <summary>
