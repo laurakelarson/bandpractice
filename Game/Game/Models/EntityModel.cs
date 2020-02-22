@@ -47,17 +47,14 @@ namespace Game.Models
             return false;
         }
 
+        
         /// <summary>
-        /// Method to calculate the damage that will be inflicted by the entity
+        /// Method to determine the attack value of 
+        /// an entity. Higher attack value means higher
+        /// chance of successfully attacking opponent. 
         /// </summary>
         /// <returns></returns>
-        public int GetAttackValue()
-        {
-            var roll = DiceHelper.RollDice(1, 20);
-            var level_damage = Math.Ceiling((double)Level / 4);
-            return roll + (int)level_damage;
-        }
-
+        public abstract int GetAttackValue(); 
 
         // For each character/monster turn: There is a roll of a 20-sided dice: 
         // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 
