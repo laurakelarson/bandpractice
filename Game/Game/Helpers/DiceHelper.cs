@@ -55,13 +55,13 @@ namespace Game.Helpers
         public static int RollDice(int rolls, int dice)
         {
             // invalid roll value
-            if (rolls < 0)
+            if (rolls < 1)
             {
                 return 0; 
             }
 
             // invalid dice value
-            if (dice < 0)
+            if (dice < 1)
             {
                 return 0; 
             }
