@@ -209,10 +209,12 @@ namespace Game.Models
             var NextLevelDetails = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
             var nextLevelExperience = NextLevelDetails.Experience;
 
-            // level up character if experience meets threshold
-            if (TotalExperience >= nextLevelExperience)
+            // level up until correct level reached for TotalExperience 
+            while (TotalExperience >= nextLevelExperience)
             {
-                LevelUp();
+                LevelUp(); 
+                NextLevelDetails = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
+                nextLevelExperience = NextLevelDetails.Experience;
             }
 
             return true;
