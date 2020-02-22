@@ -148,6 +148,16 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns attack value of monster for when 
+        /// monster attempts to attack character. 
+        /// </summary>
+        /// <returns></returns>
+        public override int GetAttackValue()
+        {
+            return DiceHelper.RollDice(1, 20) + Level; 
+        }
+
+        /// <summary>
         /// Returns a list of items dropped by the monster
         /// when monster dies. 
         /// </summary>
