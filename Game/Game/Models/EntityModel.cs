@@ -48,13 +48,7 @@ namespace Game.Models
         }
 
         
-        /// <summary>
-        /// Method to determine the attack value of 
-        /// an entity. Higher attack value means higher
-        /// chance of successfully attacking opponent. 
-        /// </summary>
-        /// <returns></returns>
-        public abstract int GetAttackValue(); 
+        
 
         // For each character/monster turn: There is a roll of a 20-sided dice: 
         // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 

@@ -152,7 +152,7 @@ namespace Game.Models
         /// monster attempts to attack character. 
         /// </summary>
         /// <returns></returns>
-        public override int GetAttackValue()
+        public int GetAttackValue()
         {
             return DiceHelper.RollDice(1, 20) + Level; 
         }

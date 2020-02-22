@@ -236,7 +236,7 @@ namespace Game.Models
         /// Determines the attack value for the character. 
         /// </summary>
         /// <returns></returns>
-        public override int GetAttackValue()
+        public int GetAttackValue()
         {
             return DiceHelper.RollDice(1, 20) + Level + GetItemBonus(AttributeEnum.Attack);
         }
