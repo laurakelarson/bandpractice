@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Game.Models;
 using Game.ViewModels;
@@ -66,6 +67,32 @@ namespace Game.Helpers
                 default:
                     return DefaultChomper();
             }
+        }
+
+        /// <summary>
+        ///  Gets the list of Monster types.
+        ///  Removes "Unknown" from the list, so it's suitable for user facing pages.
+        /// </summary>
+        public static List<string> GetListMonsterType
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(MonsterTypeEnum)).ToList().
+                    Where(m => m.ToString().Equals(MonsterTypeEnum.Unknown.ToString()) == false).ToList();
+                var myReturn = myList.OrderBy(a => a).ToList();
+
+                return myReturn;
+            }
+        }
+
+        /// <summary>
+        /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static MonsterTypeEnum ConvertStringToEnum(string value)
+        {
+            return (MonsterTypeEnum)Enum.Parse(typeof(MonsterTypeEnum), value);
         }
 
         /// <summary>
