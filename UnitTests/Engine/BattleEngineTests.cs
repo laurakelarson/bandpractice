@@ -69,5 +69,20 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void BattleEngine_AddBandMember_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+
+            // Act
+            var result = Engine.AddBandMember(character);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
