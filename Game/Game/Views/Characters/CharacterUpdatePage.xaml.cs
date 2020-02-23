@@ -77,7 +77,7 @@ namespace Game.Views.Characters
 
             // Scale character to new level
             int level = (int)e.NewValue;
-            ViewModel.Data.LevelUpToValue(level);
+            ViewModel.Data.ChangeLevel(level);
             ViewModel.Data.TotalExperience = LevelAttributesHelper.Instance.LevelAttributesList[level].Experience;
 
             // Update the labels to display updated stats

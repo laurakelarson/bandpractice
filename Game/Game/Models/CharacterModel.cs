@@ -199,54 +199,6 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Attempts to level the character up to the value 
-        /// indicated. Fails if value is over 20. 
-        /// </summary>
-        /// <param name="levelValue"></param>
-        /// <returns></returns>
-        /// 
-        public bool LevelUpToValue(int levelValue)
-        {
-            // Can't level up beyond level 20 
-            if (levelValue > 20)
-            {
-                return false;
-            }
-
-            // Obtain attributes of level == value
-            var LevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[levelValue];
-
-            // set Level and attributes
-            Level = LevelAttributes.Level;
-            Attack = LevelAttributes.Attack;
-            Defense = LevelAttributes.Defense;
-            Speed = LevelAttributes.Speed;
-
-            // if current experience below new level threshold, 
-            // update experience level to that threshold 
-            if (TotalExperience < LevelAttributes.Experience)
-            {
-                TotalExperience = LevelAttributes.Experience; 
-            }
-
-            // calculate new max health 
-            var maxHealth = DiceHelper.RollDice(Level, 10);
-
-            // if new max health less than current, 
-            // set to current
-            if (maxHealth < MaxHealth)
-            {
-                maxHealth = MaxHealth; 
-            }
-
-            CurrentHealth += (maxHealth - MaxHealth);
-            MaxHealth = maxHealth; 
-
-            // attributes successfully set 
-            return true;
-        }
-
-        /// <summary>
         /// Add experience to character. Levels up character 
         /// if experience crosses threshold for next level. 
         /// </summary>
