@@ -21,6 +21,7 @@ namespace Game.Views.Monsters
         // Variable to hold starting state of Monster in case 
         // user hits cancel during update
         MonsterModel startingState;
+        int startingLevel;
 
         /// <summary>
         /// Constructor for Monster Update Page. 
@@ -28,9 +29,11 @@ namespace Game.Views.Monsters
         /// <param name="data"></param>
         public MonsterUpdatePage(GenericViewModel<MonsterModel> data)
         {
+            startingLevel = data.Data.Level;
             InitializeComponent();
 
             BindingContext = ViewModel = data;
+            LevelLabel.Text = startingLevel.ToString();
 
             // Load values into level picker
             for (var i = 1; i <= 20; i++)
@@ -39,6 +42,7 @@ namespace Game.Views.Monsters
             }
 
             startingState = new MonsterModel(data.Data);
+            startingState.Level = startingLevel;
 
             this.ViewModel.Title = "Update";
 
@@ -90,7 +94,6 @@ namespace Game.Views.Monsters
             AttackLabel.Text = ViewModel.Data.Attack.ToString();
             SpeedLabel.Text = ViewModel.Data.Speed.ToString();
             RangeLabel.Text = ViewModel.Data.Range.ToString();
-
         }
 
         /// <summary>
