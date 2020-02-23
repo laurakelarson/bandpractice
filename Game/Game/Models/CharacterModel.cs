@@ -138,7 +138,7 @@ namespace Game.Models
         /// <returns></returns>
         public bool LevelUp()
         {
-            return LevelUpToValue(Level + 1);
+            return ChangeLevel(Level + 1);
         }
 
         /// <summary>
