@@ -74,20 +74,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultChomper()
         {
-            return new MonsterModel
-            {
-                Name = "Chomper",
-                ImageURI = "monster_chomper.png",
-                Alive = true,
-                Level = 1,
-                ExperienceGiven = 50,
-                Attack = 2,
-                Defense = 0,
-                Speed = 1,
-                Range = 1,
-                CurrentHealth = 5,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(1);
+            result.Name = "Chomper";
+            result.ImageURI = "monster_chomper.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            return result;
+            
         }
 
         /// <summary>
@@ -96,21 +89,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultMassiveStatic()
         {
-            return new MonsterModel
-            {
-                Name = "Massive Static",
-                ImageURI = "monster_static.png",
-                Alive = true,
-                Level = 2,
-                ExperienceGiven = 100,
-                Attack = 2,
-                Defense = 1,
-                Speed = 0,
-                Range = 1,
-                CurrentHealth = 7,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(2);
+            result.Name = "Massive Static";
+            result.ImageURI = "monster_static.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" });
+            return result;
         }
 
         /// <summary>
@@ -119,20 +104,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultMotobeast()
         {
-            return new MonsterModel
-            {
-                Name = "Motobeast",
-                ImageURI = "monster_motobeast.png",
-                Alive = true,
-                Level = 3,
-                ExperienceGiven = 200,
-                Attack = 3,
-                Defense = 1,
-                Speed = 0,
-                Range = 1,
-                CurrentHealth = 10,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(3);
+            result.Name = "Motobeast";
+            result.ImageURI = "monster_motobeast.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            return result;
         }
 
         /// <summary>
@@ -141,21 +118,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultKazoom()
         {
-            return new MonsterModel
-            {
-                Name = "Kazoom",
-                ImageURI = "monster_kazoom.png",
-                Alive = true,
-                Level = 4,
-                ExperienceGiven = 450,
-                Attack = 3,
-                Defense = 2,
-                Speed = 1,
-                Range = 1,
-                CurrentHealth = 15,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(4);
+            result.Name = "Kazoom";
+            result.ImageURI = "monster_kazoom.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" });
+            return result;
         }
 
         /// <summary>
@@ -164,20 +133,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultPanpot()
         {
-            return new MonsterModel
-            {
-                Name = "Panpot",
-                ImageURI = "monster_potpan.png",
-                Alive = true,
-                Level = 5,
-                ExperienceGiven = 700,
-                Attack = 4,
-                Defense = 2,
-                Speed = 1,
-                Range = 1,
-                CurrentHealth = 25,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(5);
+            result.Name = "Panpot";
+            result.ImageURI = "monster_potpan.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" });
+            return result;
         }
 
         /// <summary>
@@ -186,21 +147,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultJackhammer()
         {
-            return new MonsterModel
-            {
-                Name = "Jackhammer",
-                ImageURI = "monster_jackhammer.png",
-                Alive = true,
-                Level = 6,
-                ExperienceGiven = 1000,
-                Attack = 4,
-                Defense = 2,
-                Speed = 1,
-                Range = 2,
-                CurrentHealth = 30,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(6);
+            result.Name = "Jackhammer";
+            result.ImageURI = "monster_jackhammer.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" });
+            return result;
         }
 
         /// <summary>
@@ -209,20 +162,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultBrakez()
         {
-            return new MonsterModel
-            {
-                Name = "Brakez",
-                ImageURI = "monster_brakez.png",
-                Alive = true,
-                Level = 7,
-                ExperienceGiven = 1200,
-                Attack = 5,
-                Defense = 3,
-                Speed = 2,
-                Range = 2,
-                CurrentHealth = 45,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(7);
+            result.Name = "Brakez";
+            result.ImageURI = "monster_brakez.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" });
+            return result;
         }
 
         /// <summary>
@@ -231,21 +176,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultDriller()
         {
-            return new MonsterModel
-            {
-                Name = "Driller",
-                ImageURI = "monster_driller.png",
-                Alive = true,
-                Level = 8,
-                ExperienceGiven = 1750,
-                Attack = 7,
-                Defense = 4,
-                Speed = 2,
-                Range = 2,
-                CurrentHealth = 60,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" })
-            };
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(8);
+            result.Name = "Driller";
+            result.ImageURI = "monster_driller.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" });
+            return result;
         }
 
         /// <summary>
@@ -254,22 +191,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultAlarmer()
         {
-            return new MonsterModel
-            {
-                Name = "Alarmer",
-                ImageURI = "monster_alarm.png",
-                Alive = true,
-                Level = 9,
-                ExperienceGiven = 2000,
-                Attack = 7,
-                Defense = 4,
-                Speed = 2,
-                Range = 2,
-                CurrentHealth = 75,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(8);
+            result.Name = "Alarmer";
+            result.ImageURI = "monster_alarm.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" });
+            return result;
         }
 
         /// <summary>
@@ -277,26 +204,14 @@ namespace Game.Helpers
         /// </summary>
         /// <returns></returns>
         public static MonsterModel DefaultShrillBabe()
-
         {
-            return new MonsterModel
-            {
-                Name = "Shrill Babe",
-                ImageURI = "monster_screaming_babe.png",
-                Alive = true,
-                Level = 10,
-                ExperienceGiven = 5500,
-                Attack = 8,
-                Defense = 4,
-                Speed = 3,
-                Range = 2,
-                CurrentHealth = 100,
-                Boss = true,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(10);
+            result.Name = "Shrill Babe";
+            result.ImageURI = "monster_screaming_babe.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" });
+            return result;
         }
 
         /// <summary>
@@ -305,22 +220,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultBuzzRowdy()
         {
-            return new MonsterModel
-            {
-                Name = "Buzz Rowdy",
-                ImageURI = "monster_buzz.png",
-                Alive = true,
-                Level = 11,
-                ExperienceGiven = 3750,
-                Attack = 8,
-                Defense = 5,
-                Speed = 3,
-                Range = 3,
-                CurrentHealth = 145,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(11);
+            result.Name = "Buzz Rowdy";
+            result.ImageURI = "monster_buzz.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" });
+            return result;
         }
 
         /// <summary>
@@ -329,23 +234,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultPiercingFeedback()
         {
-            return new MonsterModel
-            {
-                Name = "PiercingFeedback",
-                ImageURI = "monster_feedback.png",
-                Alive = true,
-                Level = 12,
-                ExperienceGiven = 4300,
-                Attack = 8,
-                Defense = 5,
-                Speed = 3,
-                Range = 3,
-                CurrentHealth = 180,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(12);
+            result.Name = "Piercing Feedback";
+            result.ImageURI = "monster_feedback.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" });
+            return result;
         }
 
         /// <summary>
@@ -354,23 +249,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultFranDrescher()
         {
-            return new MonsterModel
-            {
-                Name = "Fran Drescher",
-                ImageURI = "monster_fran.png",
-                Alive = true,
-                Level = 13,
-                ExperienceGiven = 5000,
-                Attack = 12,
-                Defense = 5,
-                Speed = 4,
-                Range = 3,
-                CurrentHealth = 250,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(13);
+            result.Name = "Fran Drescher";
+            result.ImageURI = "monster_fran.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" });
+            return result;
         }
 
         /// <summary>
@@ -379,23 +264,12 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultYowlingFeline()
         {
-            return new MonsterModel
-            {
-                Name = "Yowling Feline Monster",
-                ImageURI = "monster_cat.png",
-                Alive = true,
-                Level = 14,
-                ExperienceGiven = 9500,
-                Attack = 10,
-                Defense = 6,
-                Speed = 4,
-                Range = 3,
-                CurrentHealth = 375,
-                Boss = true,
-                UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(14);
+            result.Name = "Yowling Feline Monster";
+            result.ImageURI = "monster_cat.png";
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" });
+            return result;          
         }
 
         /// <summary>
@@ -404,23 +278,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultNickelback()
         {
-            return new MonsterModel
-            {
-                Name = "Nickelback",
-                ImageURI = "monster_nickelback.png",
-                Alive = true,
-                Level = 15,
-                ExperienceGiven = 8000,
-                Attack = 15,
-                Defense = 6,
-                Speed = 5,
-                Range = 4,
-                CurrentHealth = 500,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(15);
+            result.Name = "Nickelback";
+            result.ImageURI = "monster_nickelback.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" });
+            return result;
         }
 
         /// <summary>
@@ -429,23 +293,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultLloydChristmas()
         {
-            return new MonsterModel
-            {
-                Name = "Lloyd Christmas",
-                ImageURI = "monster_lloyd_christmas.png",
-                Alive = true,
-                Level = 15,
-                ExperienceGiven = 9000,
-                Attack = 12,
-                Defense = 7,
-                Speed = 6,
-                Range = 4,
-                CurrentHealth = 550,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Ring", "Athletic Socks" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers", "Keytar" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(15);
+            result.Name = "Lloyd Christmas";
+            result.ImageURI = "monster_lloyd_christmas.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Ring", "Athletic Socks" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers", "Keytar" });
+            return result;
         }
 
         /// <summary>
@@ -454,24 +308,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultRecorderApprentice()
         {
-            return new MonsterModel
-            {
-                Name = "RecorderApprentice",
-                ImageURI = "monster_recorder_student.png",
-                Alive = true,
-                Level = 16,
-                ExperienceGiven = 12000,
-                Attack = 15,
-                Defense = 7,
-                Speed = 6,
-                Range = 4,
-                CurrentHealth = 600,
-                Boss = true,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Mood Ring", "Comfy Sneakers" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Golden Recorder", "Temporary Tattoo" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(16);
+            result.Name = "Recorder Apprentice";
+            result.ImageURI = "monster_recorder_student.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Mood Ring", "Comfy Sneakers" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Golden Recorder", "Temporary Tattoo" });
+            return result;
         }
       
         /// <summary>
@@ -480,23 +323,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultAirhornLeviathan()
         {
-            return new MonsterModel
-            {
-                Name = "Airhorn Leviathan",
-                ImageURI = "monster_airhorn.png",
-                Alive = true,
-                Level = 17,
-                ExperienceGiven = 11000,
-                Attack = 17,
-                Defense = 8,
-                Speed = 7,
-                Range = 4,
-                CurrentHealth = 700,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(17);
+            result.Name = "Airhorn Leviathan";
+            result.ImageURI = "monster_airhorn.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" });
+            return result;
         }
 
         /// <summary>
@@ -505,23 +338,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultEarsplittingChalkboard()
         {
-            return new MonsterModel
-            {
-                Name = "Earsplitting Nails on Chalkboard",
-                ImageURI = "monster_chalkboard.png",
-                Alive = true,
-                Level = 18,
-                ExperienceGiven = 12000,
-                Attack = 18,
-                Defense = 8,
-                Speed = 7,
-                Range = 5,
-                CurrentHealth = 800,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Athletic Socks" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(18);
+            result.Name = "Earsplitting Nails on Chalkboard";
+            result.ImageURI = "monster_chalkboard.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Athletic Socks" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers" });
+            return result;
         }
 
         /// <summary>
@@ -530,24 +353,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultRubberChickenBlob()
         {
-            return new MonsterModel
-            {
-                Name = "RubberChickenBlob",
-                ImageURI = "monster_rubber_chicken.png",
-                Alive = true,
-                Level = 19,
-                ExperienceGiven = 25000,
-                Attack = 19,
-                Defense = 9,
-                Speed = 8,
-                Range = 5,
-                CurrentHealth = 900,
-                Boss = true,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(19);
+            result.Name = "Rubber Chicken Blob";
+            result.ImageURI = "monster_rubber_chicken.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" });
+            return result;
         }
 
         /// <summary>
@@ -556,23 +368,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultAgonizingSilence()
         {
-            return new MonsterModel
-            {
-                Name = "Agonizing Silence",
-                ImageURI = "monster_silence.png",
-                Alive = true,
-                Level = 19,
-                ExperienceGiven = 13000,
-                Attack = 19,
-                Defense = 9,
-                Speed = 9,
-                Range = 5,
-                CurrentHealth = 950,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Theremin" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(19);
+            result.Name = "Agonizing Silence";
+            result.ImageURI = "monster_silence.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Theremin" });
+            return result;
         }
 
         /// <summary>
@@ -581,23 +383,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public static MonsterModel DefaultGilbertGottfried()
         {
-            return new MonsterModel
-            {
-                Name = "Gilbert Gottfried",
-                ImageURI = "monster_gilbert.png",
-                Alive = true,
-                Level = 20,
-                ExperienceGiven = 30000,
-                Attack = 20,
-                Defense = 10,
-                Speed = 10,
-                Range = 8,
-                CurrentHealth = 1000,
-                ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" }),
-                UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" })
-            };
-
-
+            MonsterModel result = new MonsterModel();
+            result.ChangeLevel(20);
+            result.Name = "Gilbert Gottfried";
+            result.ImageURI = "monster_gilbert.png";
+            result.ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" });
+            result.UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" });
+            return result;
         }
 
         /// <summary>
