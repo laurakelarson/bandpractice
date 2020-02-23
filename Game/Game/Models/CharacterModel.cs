@@ -142,11 +142,69 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Attempts to change the level of the character to the 
+        /// level provided.
+        /// </summary>
+        /// <param name="Level"></param>
+        /// <returns></returns>
+        public bool ChangeLevel(int levelValue)
+        {
+            // level cannot be less than 1
+            if (levelValue < 1)
+            {
+                return false; 
+            }
+
+            // level cannot be greater than 20
+            if (levelValue > 20)
+            {
+                return false; 
+            }
+
+            // obtain attributes of level == value
+            var NewLevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[levelValue];
+
+            // grab old Level value before updating
+            var oldLevel = Level;
+
+            // set Level and attributes
+            Level = NewLevelAttributes.Level;
+            Attack = NewLevelAttributes.Attack;
+            Defense = NewLevelAttributes.Defense;
+            Speed = NewLevelAttributes.Speed;
+
+            // if leveling down, level down experience to whatever the 
+            // level says to level down to 
+            if (Level > oldLevel)
+            {
+                TotalExperience = NewLevelAttributes.Experience;
+            }
+
+            // if leveling up and current experience does not meet 
+            // threshold, set current experience to threshold
+            if (TotalExperience < NewLevelAttributes.Experience)
+            {
+                TotalExperience = NewLevelAttributes.Experience; 
+            }
+
+            // calculate new max health
+            var maxHealth = DiceHelper.RollDice(levelValue, 10);
+
+            // set current and max health
+            CurrentHealth += (maxHealth - MaxHealth);
+            MaxHealth = maxHealth; 
+
+            // attributes successfully set 
+            return true; 
+        }
+
+        /// <summary>
         /// Attempts to level the character up to the value 
         /// indicated. Fails if value is over 20. 
         /// </summary>
         /// <param name="levelValue"></param>
         /// <returns></returns>
+        /// 
         public bool LevelUpToValue(int levelValue)
         {
             // Can't level up beyond level 20 
