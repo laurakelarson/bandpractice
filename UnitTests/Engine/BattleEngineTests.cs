@@ -40,5 +40,20 @@ namespace UnitTests.Engine
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BattleEngine_StartBattle_AutoMode_True_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = Engine.StartBattle(true);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, Engine.Score.AutoBattle);
+        }
     }
 }
