@@ -31,6 +31,7 @@ namespace Game.Views
             {
                 LevelPicker.Items.Add(i.ToString());
             }
+            LevelPicker.SelectedItem = 1.ToString();
 
             this.ViewModel.Title = "Create";
         }
