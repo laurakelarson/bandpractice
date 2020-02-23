@@ -15,7 +15,7 @@ namespace Game.Views
     public partial class MonsterCreatePage : ContentPage
     {
         // The Monster to create
-        GenericViewModel<MonsterModel> ViewModel { get; set; }
+        GenericViewModel<MonsterModel> ViewModel;
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -64,7 +64,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Event handler for type picker - sets the character stats to the type default
+        /// Event handler for level picker - sets the monster stats to the level table values
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -74,8 +74,7 @@ namespace Game.Views
             var currName = ViewModel.Data.Name;
             int newLevel = int.Parse((string)LevelPicker.SelectedItem);
 
-            ViewModel.Data.Update(new MonsterModel());
-            //ViewModel.Data.ScaleToLevel(OriginalLevel, newLevel);
+            ViewModel.Data.ChangeLevel(newLevel);
 
             ViewModel.Data.Name = currName;
             ViewModel.Data.Level = newLevel;
@@ -92,7 +91,27 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Cancel the Create
+        /// Event handler for type picker - sets the character stats to the type default
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Changed_MonsterTypePicker(object sender, EventArgs e)
+        {
+            // Update default monster type
+            var currName = ViewModel.Data.Name;
+
+            var newType = DefaultMonsterHelper.ConvertStringToEnum(MonsterTypePicker.SelectedItem.ToString());
+
+            ViewModel.Data.Update(DefaultMonsterHelper.DefaultMonster(newType));
+
+            ViewModel.Data.Name = currName;
+
+            // Update displayed monster image
+            IconImage.Source = ViewModel.Data.ImageURI;
+        }
+
+        /// <summary>
+        /// Opens item selection modal page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

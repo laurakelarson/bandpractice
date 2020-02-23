@@ -20,6 +20,9 @@
         <ResourceDictionary>
             <local_helpers:IntStringConverter x:Key="IntString"/>
         </ResourceDictionary>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
@@ -41,6 +44,17 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
+                        <Label Text="Type" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                        <Picker
+                         ItemsSource="{x:Static local_helpers:DefaultMonsterHelper.GetListMonsterType}"
+                         SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                         x:Name="MonsterTypePicker" SelectedIndexChanged="Changed_MonsterTypePicker" />
+
+                    </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
                     <Label Text="Level" 
                             Style="{StaticResource LabelStyle}"/>
 
