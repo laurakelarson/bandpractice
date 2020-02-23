@@ -30,7 +30,10 @@ namespace Game.Views.Monsters
             InitializeComponent();
 
             BindingContext = ViewModel = data;
-            OriginalLevel = ViewModel.Data.Level;
+            for (var i = 1; i <= 20; i++)
+            {
+                LevelPicker.Items.Add(i.ToString());
+            }
             Img = ViewModel.Data.ImageURI;
             ProposedMonster = new MonsterModel();
             this.ViewModel.Title = "Update";
@@ -66,10 +69,10 @@ namespace Game.Views.Monsters
         {
             // Update default character type
             var currName = ViewModel.Data.Name;
-            int newLevel = int.Parse((string)MonsterLevelPicker.SelectedItem);
+            int newLevel = int.Parse((string)LevelPicker.SelectedItem);
 
             ProposedMonster.Update(new MonsterModel());
-            ProposedMonster.ScaleToLevel(OriginalLevel, newLevel);
+            //ProposedMonster.ScaleToLevel(OriginalLevel, newLevel);
 
             ProposedMonster.Name = currName;
             ProposedMonster.Level = newLevel;
