@@ -117,7 +117,7 @@ namespace Game.Models
             Defense = NewLevelAttributes.Defense;
             Speed = NewLevelAttributes.Speed;
             ExperienceGiven = NewLevelAttributes.Experience;
-            //TODO - add range attribute
+            Range = NewLevelAttributes.Range;
 
             // calculate new max health
             var maxHealth = DiceHelper.RollDice(levelValue, 10);
