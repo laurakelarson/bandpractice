@@ -44,10 +44,9 @@
                     <Label Text="Level" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Picker
-                         ItemsSource="{x:Static local_helpers:MonsterLevelHelper.GetLevelList}" 
+                    <Picker 
                          SelectedItem="{Binding Data.Level, Converter={StaticResource IntString}, Mode=TwoWay}" 
-                         x:Name="MonsterLevelPicker" SelectedIndexChanged="Changed_MonsterLevelPicker" /> 
+                         x:Name="LevelPicker" SelectedIndexChanged="Changed_MonsterLevelPicker" /> 
 
                 </StackLayout>
 
