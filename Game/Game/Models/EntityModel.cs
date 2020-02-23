@@ -47,7 +47,19 @@ namespace Game.Models
             return false;
         }
 
-        public abstract bool ChangeLevel(int levelValue);
+        
+        
+
+        // For each character/monster turn: There is a roll of a 20-sided dice: 
+        // 1 is auto-miss, 20 is auto-hit. For all other rolls, the success of the 
+        // turn entity’s hit is calculated by the following formula: 
+        // (dice roll + Entity Level + Attack Modifiers) > (Target Defense attribute + Target level). 
+        // If true, the hit succeeds; if false, it’s a miss and the turn is over for that entity.
+
+        // Damage is determined by the following formula: dice roll + Weapon Damage + Level Damage.
+        // Level damage is equal to ¼ of the entity’s level rounded up to the nearest whole integer.
+        // Weapon damage is randomly found within the damage range of the weapon held by the entity 
+        // (if a weapon has a damage attribute of 10, the weapon damage will be randomly determined in the range 1-10).
 
 
         public abstract string FormatOutput();

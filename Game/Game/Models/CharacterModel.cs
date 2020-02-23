@@ -147,7 +147,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="Level"></param>
         /// <returns></returns>
-        public override bool ChangeLevel(int levelValue)
+        public bool ChangeLevel(int levelValue)
         {
             // level cannot be less than 1
             if (levelValue < 1)

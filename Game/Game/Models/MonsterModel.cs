@@ -22,10 +22,10 @@ namespace Game.Models
     public class MonsterModel : EntityModel<MonsterModel>
     {
         // Amount of experience the monster will give on defeat
-        public int ExperienceGiven { get; set; }
+        public int ExperienceGiven { get; set; } = 75;
 
         // The range of the monster to attack. Attacks within range will be successful
-        public int Range { get; set; }
+        public int Range { get; set; } = 1;
 
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
@@ -45,7 +45,13 @@ namespace Game.Models
         public MonsterModel()
         {
             ImageURI = EntityService.DefaultMonsterImageURI;
-            ChangeLevel(1); // default to level 1 on default
+            Level = 1;
+            Speed = 1;
+            Range = 1;
+            Defense = 3;
+            Attack = 2;
+            MaxHealth = 7;
+            CurrentHealth = 7;
         }
 
         /// <summary>
@@ -88,43 +94,35 @@ namespace Game.Models
         /// <summary>
         /// Method to Scale Monster to given level
         /// </summary>
-        /// <param name="levelValue"></param>
+        /// <param name="oldLevel"></param>
+        /// <param name="newLevel"></param>
         /// <returns></returns>
-        public override bool ChangeLevel(int levelValue)
+        public MonsterModel ScaleToLevel(int oldLevel, int newLevel)
         {
-            // level cannot be less than 1
-            if (levelValue < 1)
+            double scale = 1.5;
+            double factor = (double)newLevel - oldLevel;
+
+            if (newLevel > oldLevel)
             {
-                return false;
+                scale *= factor;
+            } else
+            {
+                scale /= factor;
             }
 
-            // level cannot be greater than 20
-            if (levelValue > 20)
+            if (this.Alive)
             {
-                return false;
+                this.ExperienceGiven = (int)Math.Ceiling(this.ExperienceGiven * scale);
+                this.Speed = (int)Math.Ceiling(this.Speed * scale);
+                this.Attack = (int)Math.Ceiling(this.Attack * scale);
+                this.Defense = (int)Math.Ceiling(this.Defense * scale);
+                this.Range = (int)Math.Ceiling(this.Range * scale);
+                this.MaxHealth = (int)Math.Ceiling(this.MaxHealth * scale);
+                this.CurrentHealth = this.MaxHealth;
+                this.Level = newLevel;
             }
 
-            // obtain attributes of level == value
-            var NewLevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[levelValue];
-
-            // grab old Level value before updating
-            var oldLevel = Level;
-
-            // set Level and attributes
-            Level = NewLevelAttributes.Level;
-            Attack = NewLevelAttributes.Attack;
-            Defense = NewLevelAttributes.Defense;
-            Speed = NewLevelAttributes.Speed;
-
-            // calculate new max health
-            var maxHealth = DiceHelper.RollDice(levelValue, 10);
-
-            // set current and max health
-            CurrentHealth += (maxHealth - MaxHealth);
-            MaxHealth = maxHealth;
-
-            // attributes successfully set 
-            return true;
+            return this;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
