@@ -116,6 +116,7 @@ namespace Game.Models
             Attack = NewLevelAttributes.Attack;
             Defense = NewLevelAttributes.Defense;
             Speed = NewLevelAttributes.Speed;
+            ExperienceGiven = NewLevelAttributes.Experience;
             //TODO - add range attribute
 
             // calculate new max health
