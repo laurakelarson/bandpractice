@@ -11,6 +11,11 @@ namespace Game.Models
         /// </summary>
         public BattleEntityModel() {}
 
+        public override bool ChangeLevel(int levelValue)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Returns the name of the battle entity.
         /// </summary>
