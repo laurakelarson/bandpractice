@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Game.Engine
 {
+    /// <summary>
+    /// Round Engine for the game.
+    /// Manages rounds in the battle.
+    /// </summary>
     public class RoundEngine : TurnEngine
     {
 
