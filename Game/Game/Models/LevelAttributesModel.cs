@@ -22,7 +22,10 @@ namespace Game.Models
         public int Defense;
 
         // Speed bonus 
-        public int Speed; 
+        public int Speed;
+
+        // Range attribute
+        public int Range;
 
         /// <summary>
         /// Constructor. Creates level with passed in 
@@ -33,14 +36,16 @@ namespace Game.Models
         /// <param name="attack"></param>
         /// <param name="defense"></param>
         /// <param name="speed"></param>
+        /// <param name="range"></param>
         public LevelAttributesModel(int level, int experience, int attack, 
-            int defense, int speed)
+            int defense, int speed, int range)
         {
             Level = level;
             Experience = experience;
             Attack = attack;
             Defense = defense;
-            Speed = speed; 
+            Speed = speed;
+            Range = range;
         }
     }
 }
