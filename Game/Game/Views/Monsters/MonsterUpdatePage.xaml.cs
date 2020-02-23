@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace Game.Views.Monsters
 
         // View Model for Monster
         readonly GenericViewModel<MonsterModel> ViewModel;
-        int OriginalLevel = 1;
-        string Img;
-        MonsterModel ProposedMonster;
+        // Variable to hold starting state of Monster in case 
+        // user hits cancel during update
+        MonsterModel startingState;
 
         /// <summary>
         /// Constructor for Monster Update Page. 
@@ -30,13 +31,17 @@ namespace Game.Views.Monsters
             InitializeComponent();
 
             BindingContext = ViewModel = data;
+
+            // Load values into level picker
             for (var i = 1; i <= 20; i++)
             {
                 LevelPicker.Items.Add(i.ToString());
             }
-            Img = ViewModel.Data.ImageURI;
-            ProposedMonster = new MonsterModel();
+
+            startingState = new MonsterModel(data.Data);
+
             this.ViewModel.Title = "Update";
+
         }
 
         /// <summary>
@@ -46,7 +51,7 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Update", ProposedMonster);
+            MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
 
@@ -58,6 +63,9 @@ namespace Game.Views.Monsters
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+
+            // Revert Character attributes back to starting state
+            ViewModel.Data.Update(startingState);
         }
 
         /// <summary>
@@ -67,25 +75,21 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         void Changed_MonsterLevelPicker(object sender, EventArgs e)
         {
-            // Update default character type
-            var currName = ViewModel.Data.Name;
-            int newLevel = int.Parse((string)LevelPicker.SelectedItem);
 
-            ProposedMonster.Update(new MonsterModel());
-            //ProposedMonster.ScaleToLevel(OriginalLevel, newLevel);
+            // Scale character to new level
+            int level = int.Parse((string)LevelPicker.SelectedItem);
+            ViewModel.Data.ChangeLevel(level);
+            ViewModel.Data.ExperienceGiven = LevelAttributesHelper.Instance.LevelAttributesList[level].Experience;
 
-            ProposedMonster.Name = currName;
-            ProposedMonster.Level = newLevel;
-            ProposedMonster.ImageURI = Img;
 
             // Update the labels to display monster type default stats
-            LevelLabel.Text = ProposedMonster.Level.ToString();
-            ExperienceLabel.Text = ProposedMonster.ExperienceGiven.ToString();
-            MaxHealthLabel.Text = ProposedMonster.MaxHealth.ToString();
-            DefenseLabel.Text = ProposedMonster.Defense.ToString();
-            AttackLabel.Text = ProposedMonster.Attack.ToString();
-            SpeedLabel.Text = ProposedMonster.Speed.ToString();
-            RangeLabel.Text = ProposedMonster.Range.ToString();
+            LevelLabel.Text = ViewModel.Data.Level.ToString();
+            ExperienceLabel.Text = ViewModel.Data.ExperienceGiven.ToString();
+            MaxHealthLabel.Text = ViewModel.Data.MaxHealth.ToString();
+            DefenseLabel.Text = ViewModel.Data.Defense.ToString();
+            AttackLabel.Text = ViewModel.Data.Attack.ToString();
+            SpeedLabel.Text = ViewModel.Data.Speed.ToString();
+            RangeLabel.Text = ViewModel.Data.Range.ToString();
 
         }
 
