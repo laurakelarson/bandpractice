@@ -119,7 +119,7 @@ namespace UnitTests.Models.Enum
 
         // Confirm LeftFinger set to correct value
         [Test]
-        public void ItemLocationEnumTests_Default_LeftFiner_Should_Pass()
+        public void ItemLocationEnumTests_Default_LeftFinger_Should_Pass()
         {
             // Arrange 
 
