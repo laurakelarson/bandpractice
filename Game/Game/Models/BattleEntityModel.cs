@@ -1,4 +1,6 @@
 ﻿using System;
+using Game.Models.Enum;
+
 namespace Game.Models
 {
     /// <summary>
@@ -6,6 +8,12 @@ namespace Game.Models
     /// </summary>
     public class BattleEntityModel : EntityModel<BattleEntityModel>
     {
+        // Track what type of entity (character or monster)
+        public EntityTypeEnum EntityType = EntityTypeEnum.Unknown;
+
+        // Track the total experience this entity has earned or gives
+        public int ExperiencePoints = 0;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -17,10 +25,10 @@ namespace Game.Models
         /// <param name="character"></param>
         public BattleEntityModel(CharacterModel data)
         {
-            //PlayerType = data.PlayerType;
+            EntityType = EntityTypeEnum.Character;
             Id = data.Id;
             Alive = data.Alive;
-            //ExperiencePoints = data.ExperienceTotal;
+            ExperiencePoints = data.TotalExperience;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
@@ -40,14 +48,13 @@ namespace Game.Models
         /// <param name="monster"></param>
         public BattleEntityModel(MonsterModel data)
         {
-            //PlayerType = data.PlayerType;
+            EntityType = EntityTypeEnum.Monster;
             Id = data.Id;
             Alive = data.Alive;
-            //ExperiencePoints = data.ExperienceTotal;
+            ExperiencePoints = data.ExperienceGiven;
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            //Speed = data.GetSpeed();
             Speed = data.Speed;
             ImageURI = data.ImageURI;
             //CurrentHealth = data.GetCurrentHealthTotal;
