@@ -151,6 +151,23 @@ namespace UnitTests.Models
             Assert.AreEqual("items", dataOriginal.ItemsDroppedList);
         }
 
+        [Test]
+        public void ScoreModel_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var dataOriginal = new ScoreModel();
+            dataOriginal.TurnCount = 2;
+
+            // Act
+            var result = dataOriginal.Update(null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(2, dataOriginal.TurnCount);
+        }
+
 
     }
 }
