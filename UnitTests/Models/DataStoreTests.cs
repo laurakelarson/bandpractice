@@ -36,5 +36,19 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(1, result);
         }
+
+        [Test]
+        public void DataStoreTests_Default_Mock_Should_Pass()
+        {
+            // Arrange 
+
+            // Act 
+            var result = (int)DataStoreEnum.Mock;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
     }
 }
