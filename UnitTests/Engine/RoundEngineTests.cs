@@ -98,7 +98,7 @@ namespace UnitTests.Engine
 
         // test sort order by level in case where Speed is equal
         [Test]
-        public void RoundEngine_OrderPlayerListByTurnOrder_Level_Higher_Should_Pass()
+        public void RoundEngine_OrderEntityListByTurnOrder_Level_Higher_Should_Pass()
         {
             // Arrange
             var Monster = new MonsterModel
@@ -143,7 +143,7 @@ namespace UnitTests.Engine
 
         // test sort order when speed and level are equal
         [Test]
-        public void RoundEngine_OrderPlayerListByTurnOrder_Experience_Higher_Should_Pass()
+        public void RoundEngine_OrderEntityListByTurnOrder_Experience_Higher_Should_Pass()
         {
             // Arrange
             var Monster = new MonsterModel
@@ -188,7 +188,7 @@ namespace UnitTests.Engine
 
         // test case where sort is broken by entity type (character before monster)
         [Test]
-        public void RoundEngine_OrderPlayerListByType_EntityType_Should_Pass()
+        public void RoundEngine_OrderEntityListByType_EntityType_Should_Pass()
         {
             // Arrange
             var Monster = new MonsterModel
@@ -235,7 +235,7 @@ namespace UnitTests.Engine
 
         // test sort order when sort is broken by name
         [Test]
-        public void RoundEngine_OrderPlayerListByTurnOrder_Name_A_Z_Should_Pass()
+        public void RoundEngine_OrderEntityListByTurnOrder_Name_A_Z_Should_Pass()
         {
             // Arrange
             Engine.MonsterList.Clear();
@@ -522,7 +522,7 @@ namespace UnitTests.Engine
             Engine.CharacterList.Clear();
 
             // Don't add character to battle
-            //Engine.CharacterList.Add(new PlayerInfoModel(Character));
+            //Engine.CharacterList.Add(Character);
 
             Engine.MonsterList.Clear();
             Engine.MonsterList.Add(Monster);
@@ -569,7 +569,7 @@ namespace UnitTests.Engine
             Engine.CharacterList.Add(Character);
 
             Engine.MonsterList.Clear();
-            //Engine.MonsterList.Add(new PlayerInfoModel(Character)); // don't add Monster
+            //Engine.MonsterList.Add(Monster); // don't add Monster
 
             // Make the List
             Engine.EntityList = Engine.MakeEntityList();
@@ -633,7 +633,7 @@ namespace UnitTests.Engine
 
         // test getting next player from list
         [Test]
-        public void RoundEngine_GetNextPlayerInList_Mike_Should_Return_Doug()
+        public void RoundEngine_GetNextEntityInList_Mike_Should_Return_Doug()
         {
             // Arrange
             var CharacterPlayerMike = new CharacterModel
@@ -702,7 +702,7 @@ namespace UnitTests.Engine
 
         // case where next player should be monster
         [Test]
-        public void RoundEngine_GetNextPlayerInList_Sue_Should_Return_Monster()
+        public void RoundEngine_GetNextEntityInList_Sue_Should_Return_Monster()
         {
             // Arrange
             var CharacterPlayerMike = new CharacterModel
@@ -771,7 +771,7 @@ namespace UnitTests.Engine
 
         // case where Mike character should be next
         [Test]
-        public void RoundEngine_GetNextPlayerInList_Monster_Should_Return_Mike()
+        public void RoundEngine_GetNextEntityInList_Monster_Should_Return_Mike()
         {
             // Arrange
             var CharacterPlayerMike = new CharacterModel
@@ -840,7 +840,7 @@ namespace UnitTests.Engine
 
         // case where the entity list is null
         [Test]
-        public void RoundEngine_GetNextPlayerInList_EmptyList_Should_Return_Null()
+        public void RoundEngine_GetNextEntityInList_EmptyList_Should_Return_Null()
         {
             // Arrange
             var CharacterPlayerMike = new CharacterModel
