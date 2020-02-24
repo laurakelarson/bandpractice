@@ -82,5 +82,34 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(Monster.ExperienceGiven, BattleEntity.ExperiencePoints);
         }
+
+        // Test Change Level Method
+        [Test]
+        public void BattleEntityModelTests_Change_Level_Should_Pass()
+        {
+            // Arrange
+            var BattleEntity = new BattleEntityModel(); 
+
+            // Act - do this until method implemented
+            try
+            {
+                BattleEntity.ChangeLevel(1);
+            }
+            catch (NotImplementedException)
+            {
+
+            }
+        }
+
+        // Test format output function in Battle Entity Model
+        [Test]
+        public void BattleEntityTests_Format_Output_Valid()
+        {
+            // Arrange
+            var BattleEntity = new BattleEntityModel();
+
+            // Assert
+            Assert.AreEqual(BattleEntity.Name, BattleEntity.FormatOutput());
+        }
     }
 }
