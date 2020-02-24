@@ -26,5 +26,23 @@ namespace UnitTests.Models
             Assert.AreEqual("Name", result.Name);
             Assert.AreEqual("Description", result.Description); 
         }
+
+        // Test BaseModel Set 
+        [Test]
+        public void BaseModel_Set_Default_Should_Pass()
+        {
+            // Arrange
+            var result = new BaseModel<ItemModel>();
+
+            // Act
+            result.Id = "bogus";
+            result.ImageURI = "uri";
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("bogus", result.Id);
+            Assert.AreEqual("uri", result.ImageURI);
+        }
     }
 }
