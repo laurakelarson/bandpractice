@@ -23,6 +23,25 @@ namespace Game.Models
         public BattleEntityModel() {}
 
         /// <summary>
+        /// Copy constructor creates a new BattleEntityModel based on the input
+        /// </summary>
+        /// <param name="data"></param>
+        public BattleEntityModel(BattleEntityModel data)
+        {
+            EntityType = data.EntityType;
+            Id = data.Id;
+            Alive = data.Alive;
+            ExperiencePoints = data.ExperiencePoints;
+            Level = data.Level;
+            Name = data.Name;
+            Description = data.Description;
+            Speed = data.Speed;
+            ImageURI = data.ImageURI;
+            CurrentHealth = data.CurrentHealth;
+            MaxHealth = data.MaxHealth;
+        }
+
+        /// <summary>
         /// Constructs a BattleEntityModel based on the character input
         /// </summary>
         /// <param name="character"></param>
