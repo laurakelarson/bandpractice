@@ -69,7 +69,7 @@ namespace UnitTests.Models.Enum
             // Reset 
 
             // Assert
-            Assert.AreEqual(15, result);
+            Assert.AreEqual(5, result);
         }
 
         // Confirm CriticalHit set to correct value
