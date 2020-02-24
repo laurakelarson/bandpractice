@@ -1,4 +1,6 @@
 ﻿using Game.Engine;
+using Game.Models;
+using Game.Models.Enum;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -44,6 +46,33 @@ namespace UnitTests.Engine
             // Assert
             Assert.IsNotNull(result);
         }
+
+        #region Attack
+
+        // case where there is a character but no monsters
+        [Test]
+        public void TurnEngine_Attack_Valid_Empty_Monster_List_Should_Fail()
+        {
+            // Arranges
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(new CharacterModel());
+            Engine.MonsterList.Clear();
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.Attack(Engine.EntityList
+                .Where(m => m.EntityType == EntityTypeEnum.Character).FirstOrDefault());
+
+            // Reset
+            Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(false, result); // should be false since no monster to attack
+        }
+
+        #endregion Attack
 
     }
 }
