@@ -441,6 +441,29 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        // case where monster dies
+        [Test]
+        public void TurnEngine_TargetDied_Monster_Should_Pass()
+        {
+            // Arrange
+            var Monster = new MonsterModel();
+            Monster.Id = "me";
+            Engine.CharacterList.Clear();
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(Monster);
+            Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.TargetDied(Engine.EntityList
+                .Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+            Engine.StartBattle(false);
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
         #endregion Death
 
     }
