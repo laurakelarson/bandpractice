@@ -583,6 +583,51 @@ namespace UnitTests.Engine
             Assert.AreEqual(RoundEnum.NewRound, result);
         }
 
+        // case where round state should be NextTurn
+        [Test]
+        public void RoundEngine_RoundNextTurn_Characters_Monsters_Should_Return_NewRound()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Character"
+            };
+
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster"
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(Monster);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.RoundNextTurn();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(RoundEnum.NextTurn, result);
+        }
+
+
         #endregion Round management
     }
 }
