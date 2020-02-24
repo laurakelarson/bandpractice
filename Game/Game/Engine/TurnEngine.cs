@@ -81,6 +81,31 @@ namespace Game.Engine
             return new BattleEntityModel(defender);
         }
 
+        /// <summary>
+        /// Pick the Monster to Attack
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel SelectMonsterToAttack()
+        {
+            if (MonsterList == null)
+            {
+                return null;
+            }
+
+            if (MonsterList.Count < 1)
+            {
+                return null;
+            }
+
+            // Select first one to hit in the list for now...
+            // Attack the Weakness (lowest HP) MonsterModel first 
+            var defender = MonsterList
+                .Where(m => m.Alive)
+                .OrderBy(m => m.CurrentHealth).FirstOrDefault();
+
+            return new BattleEntityModel(defender);
+        }
+
 
     }
 }
