@@ -93,13 +93,23 @@
             <Label 
                 Text="Characters Final Stats:"
                 Style="{StaticResource LabelStyle}"/>
-            <ScrollView Orientation="Vertical">
-                <Label 
-                    Text="{Binding Data.CharacterAtDeathList}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="700"/>
+                </Grid.ColumnDefinitions>
+                <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                    <Label 
+                        Text="{Binding Data.CharacterAtDeathList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                </ScrollView>
+            </Grid>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
+        <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Monsters Slain:"
                     Style="{StaticResource LabelStyle}"/>
@@ -107,16 +117,40 @@
                     Text="{Binding Data.MonsterSlainNumber}"
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
-            <Label 
-                Text="{Binding Data.MonstersKilledList}" 
-                Style="{StaticResource ValueStyle}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="700"/>
+                </Grid.ColumnDefinitions>
+                <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                    <Label 
+                        Text="{Binding Data.MonstersKilledList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                </ScrollView>
+            </Grid>
 
             <Label 
                 Text="Items Dropped:"
                 Style="{StaticResource LabelStyle}"/>
-            <Label 
-                Text="{Binding Data.ItemsDroppedList}"
-                Style="{StaticResource ValueStyle}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="700"/>
+                </Grid.ColumnDefinitions>
+                <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                    <Label 
+                        Text="{Binding Data.ItemsDroppedList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                </ScrollView>
+            </Grid>
 
         </StackLayout>
     </ScrollView>

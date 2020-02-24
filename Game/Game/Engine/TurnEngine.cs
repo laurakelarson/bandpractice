@@ -132,63 +132,97 @@ namespace Game.Engine
         /// Process the attack. Use BattleMessagesModel to communicate actions.
         /// </summary>
         /// <param name="attacker"></param>
-        /// <param name="Target"></param>
+        /// <param name="target"></param>
         /// <returns></returns>
-        public bool TurnAsAttack(BattleEntityModel attacker, BattleEntityModel Target)
+        public bool TurnAsAttack(BattleEntityModel attacker, BattleEntityModel target)
         {
             if (attacker == null)
             {
                 return false;
             }
 
-            if (Target == null)
+            if (target == null)
             {
                 return false;
             }
 
-            //BattleMessagesModel.TurnMessage = string.Empty;
-            //BattleMessagesModel.TurnMessageSpecial = string.Empty;
-            //BattleMessagesModel.AttackStatus = string.Empty;
+            BattleMessages.TurnMessage = string.Empty;
+            BattleMessages.TurnMessageSpecial = string.Empty;
+            BattleMessages.AttackStatus = string.Empty;
 
-            //BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+            BattleMessages.PlayerType = EntityTypeEnum.Monster;
 
             //var AttackScore = attacker.Level + attacker.GetAttack();
-            //var DefenseScore = Target.GetDefense() + Target.Level;
+            //var DefenseScore = target.GetDefense() + target.Level;
+            var AttackScore = GetAttack(attacker);
+            var DefenseScore = GetDefense(target);
 
-            //// Choose who to attack
+            // Choose who to attack
 
-            //BattleMessagesModel.TargetName = Target.Name;
-            //BattleMessagesModel.attackerName = attacker.Name;
+            BattleMessages.TargetName = target.Name;
+            BattleMessages.AttackerName = attacker.Name;
 
-            //BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+            BattleMessages.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
 
-            //Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
+            Debug.WriteLine(BattleMessages.GetTurnMessage());
 
-            //// It's a Miss
-            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
-            //{
-            //    return true;
-            //}
+            // It's a Miss
+            if (BattleMessages.HitStatus == HitStatusEnum.Miss)
+            {
+                return true;
+            }
 
-            //// It's a Hit
-            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
-            //{
-            //    //Calculate Damage
-            //    BattleMessagesModel.DamageAmount = attacker.GetDamageRollValue();
+            // It's a Hit
+            if (BattleMessages.HitStatus == HitStatusEnum.Hit)
+            {
+                //Calculate Damage
+                BattleMessages.DamageAmount = GetDamage(attacker);
+                //BattleMessages.DamageAmount = attacker.GetDamageRollValue();
 
-            //    Target.TakeDamage(BattleMessagesModel.DamageAmount);
-            //}
+                target.TakeDamage(BattleMessages.DamageAmount);
+            }
 
-            //BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
-            //BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
+            BattleMessages.CurrentHealth = target.CurrentHealth;
+            BattleMessages.TurnMessageSpecial = BattleMessages.GetCurrentHealthMessage();
 
-            //RemoveIfDead(Target);
+            RemoveIfDead(target);
 
-            //BattleMessagesModel.TurnMessage = attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial;
-            //Debug.WriteLine(BattleMessagesModel.TurnMessage);
+            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
+            Debug.WriteLine(BattleMessages.TurnMessage);
 
             return true;
         }
+
+        /// <summary>
+        /// Gets the attack value (including any stat boosts) of the character or monster
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <returns></returns>
+        public int GetAttack(BattleEntityModel attacker)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Gets the defense value (including any stat boosts) of the character of monster
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public int GetDefense(BattleEntityModel target)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Gets the roll of the damage value (including any stat boosts) of the character or monster
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <returns></returns>
+        public int GetDamage(BattleEntityModel attacker)
+        {
+            return 0;
+        }
+
 
         /// <summary>
         /// If Dead process Targed Died
