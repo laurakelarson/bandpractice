@@ -39,5 +39,22 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreNotEqual("oldID", result.Id);
         }
+
+        [Test]
+        public void MonsterModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new MonsterModel();
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result.Range);
+            Assert.IsNotNull(result.Speed);
+            Assert.IsNotNull(result.Defense);
+            Assert.IsNotNull(result.Level);
+        }
     }
 }
