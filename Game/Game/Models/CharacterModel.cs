@@ -77,11 +77,11 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public override void Update(CharacterModel newData)
+        public override bool Update(CharacterModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
             // Update all the fields in the Data, except for the Id and guid
@@ -106,6 +106,8 @@ namespace Game.Models
             OffHandItem = newData.OffHandItem;
             RightFingerItem = newData.RightFingerItem;
             LeftFingerItem = newData.LeftFingerItem;
+
+            return true;
         }
 
         /// <summary>
