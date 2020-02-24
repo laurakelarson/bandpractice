@@ -116,5 +116,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(" hits ", result);
         }
+
+        // Confirm message for CriticalHit is correct
+        [Test]
+        public void HitStatusEnumExtensionsTests_CriticalHit_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = HitStatusEnum.CriticalHit.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(" hits really hard ", result);
+        }
     }
 }
