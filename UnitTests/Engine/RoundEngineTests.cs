@@ -421,6 +421,40 @@ namespace UnitTests.Engine
             Assert.AreEqual(false, result);
         }
 
+        // test for default PickupItemsFromPool
+        [Test]
+        public async Task RoundEngine_PickupItemsFromPool_Default_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Z",
+                Id = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+
+            var result = Engine.PickupItemsFromPool(Character);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
             #endregion Item swaps
     }
 }
