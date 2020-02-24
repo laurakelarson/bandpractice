@@ -123,5 +123,21 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        // Test for GetHTMLBlankMessage 
+        [Test]
+        public void BattleMessageModel_GetHTMLBlankMessage_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+
+            // Act
+            var result = message.GetHTMLBlankMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
