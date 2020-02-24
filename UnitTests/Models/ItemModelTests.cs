@@ -132,5 +132,22 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual("Name , Description for Unknown with Unknown+0 , Damage : 0 , Range : 0", result);
         }
+
+        [Test]
+        public void ItemModel_ScaleLevel_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
+
+            // Act
+            var result = data.ScaleLevel(1);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(1, result);
+        }
+
+
     }
 }
