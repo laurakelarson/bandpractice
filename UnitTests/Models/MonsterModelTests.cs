@@ -79,5 +79,26 @@ namespace UnitTests.Models
             Assert.AreEqual("items", result.ItemsDropped);
             Assert.AreEqual("unique", result.UniqueDrops);
         }
+
+        [Test]
+        public void MonsterModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var dataOriginal = new MonsterModel();
+            dataOriginal.Range = 1;
+
+            var dataNew = new MonsterModel();
+            dataNew.Range = 2;
+
+            // Act
+            var result = dataOriginal.Update(dataNew);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(2, dataOriginal.Range);
+        }
+
+
     }
 }
