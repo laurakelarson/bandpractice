@@ -186,6 +186,22 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// If Dead process Targed Died
+        /// </summary>
+        /// <param name="Target"></param>
+        public bool RemoveIfDead(BattleEntityModel Target)
+        {
+            // Check for alive
+            if (Target.Alive == false)
+            {
+                //TargedDied(Target);
+                return true;
+            }
+
+            return false;
+        }
+
 
     }
 }
