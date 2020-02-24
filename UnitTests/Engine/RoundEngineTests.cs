@@ -635,8 +635,6 @@ namespace UnitTests.Engine
         [Test]
         public void RoundEngine_GetNextPlayerInList_Mike_Should_Return_Doug()
         {
-            Engine.MonsterList.Clear();
-
             // Arrange
             var CharacterPlayerMike = new CharacterModel
                                         {
@@ -700,6 +698,75 @@ namespace UnitTests.Engine
 
             // Assert
             Assert.AreEqual("Doug", result.Name);
+        }
+
+        // case where next player should be monster
+        [Test]
+        public void RoundEngine_GetNextPlayerInList_Sue_Should_Return_Monster()
+        {
+            // Arrange
+            var CharacterPlayerMike = new CharacterModel
+            {
+                Speed = 200,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Mike"
+            };
+
+            var CharacterPlayerDoug = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Doug"
+            };
+
+            var CharacterPlayerSue = new CharacterModel
+            {
+                Speed = 2,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Sue"
+            };
+
+            var MonsterPlayer = new MonsterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster"
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            Engine.CharacterList.Clear();
+
+            Engine.CharacterList.Add(CharacterPlayerMike);
+            Engine.CharacterList.Add(CharacterPlayerDoug);
+            Engine.CharacterList.Add(CharacterPlayerSue);
+
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(MonsterPlayer);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // List is Mike, Doug, Monster, Sue
+            Engine.CurrentEntity = new BattleEntityModel(CharacterPlayerSue);
+
+            // Act
+            var result = Engine.GetNextPlayerInList();
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual("Monster", result.Name);
         }
 
         #endregion Get next player
