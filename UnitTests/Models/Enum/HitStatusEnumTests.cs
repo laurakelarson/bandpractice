@@ -14,7 +14,7 @@ namespace UnitTests.Models.Enum
     {
         // Confirm Unknown set to correct value
         [Test]
-        public void ItemLocationEnumTests_Default_Unknown_Should_Pass()
+        public void HitStatusEnumTests_Default_Unknown_Should_Pass()
         {
             // Arrange 
 
