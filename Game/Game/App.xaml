@@ -72,6 +72,14 @@
             </Style>
 
             <Style TargetType="Label"
+                   x:Key="ScrollableLabel"
+                   BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            
+            <Style TargetType="Label"
                 x:Key="ListStyle"
                 BasedOn="{StaticResource Xamarin.Forms.Label}">
                 <Setter Property="FontSize" Value="Small" />
