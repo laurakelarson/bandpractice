@@ -331,6 +331,32 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        // case where no items to drop
+        [Test]
+        public void TurnEngine_DropItems_No_Items_Should_Return_0()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Character.Id = "me";
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+            Engine.MakeEntityList();
+
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(0);
+
+            // Act
+            var result = Engine.DropItems(Engine.EntityList
+                .Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+            Engine.StartBattle(false);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
         #endregion Mechanics
 
     }
