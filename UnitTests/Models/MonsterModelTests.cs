@@ -209,5 +209,22 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(2, result);
         }
+
+        //[Test]
+        //public void MonsterModel_Default_DropItems_Should_Pass()
+        //{
+        //    // Arrange
+        //    var data = new MonsterModel();
+        //    // add items to monster
+
+        //    // Act
+        //    // drop items
+
+        //    // Reset
+
+
+        //    // Assert 
+            
+        //}
     }
 }
