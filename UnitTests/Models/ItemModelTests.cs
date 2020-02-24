@@ -41,5 +41,24 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreNotEqual("oldID", result.Id);
         }
+
+        [Test]
+        public void ItemModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new ItemModel();
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result.Value);
+            Assert.IsNotNull(result.Range);
+            Assert.IsNotNull(result.Damage);
+            Assert.IsNotNull(result.Attribute);
+            Assert.IsNotNull(result.Location);
+        }
+
     }
 }
