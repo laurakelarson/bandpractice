@@ -288,6 +288,27 @@ namespace UnitTests.Engine
             Assert.AreEqual(HitStatusEnum.Miss, result);
         }
 
+        // test forced roll of 20
+        [Test]
+        public void TurnEngine_RolltoHitTarget_Forced_20_Should_Hit()
+        {
+            // Arrange
+            var AttackScore = 1;
+            var DefenseScore = 100;
+
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            // Act
+            var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Hit, result);
+        }
+
         #endregion Mechanics
 
     }
