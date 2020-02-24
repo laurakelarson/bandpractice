@@ -200,7 +200,14 @@ namespace Game.Engine
         /// <returns></returns>
         public int GetAttack(BattleEntityModel attacker)
         {
-            return 0;
+            switch(attacker.EntityType)
+            {
+                case (EntityTypeEnum.Character):
+                    return CharacterList.Where(a => a.Id == attacker.Id).FirstOrDefault().GetAttackValue();
+                case (EntityTypeEnum.Monster):
+                default:
+                    return MonsterList.Where(a => a.Id == attacker.Id).FirstOrDefault().GetAttackValue();
+            }
         }
 
         /// <summary>
