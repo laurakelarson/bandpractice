@@ -109,5 +109,21 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(2, dataOriginal.TotalExperience);
         }
+
+        [Test]
+        public void CharacterModel_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var dataOriginal = new CharacterModel();
+            dataOriginal.TotalExperience = 2;
+
+            // Act
+            var result = dataOriginal.Update(null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(2, dataOriginal.TotalExperience);
+        }
     }
 }
