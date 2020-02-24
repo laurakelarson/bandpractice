@@ -117,9 +117,7 @@ namespace Game.Models
         public override string FormatOutput()
         {
             var myReturn = Name + " , " +
-                            Description + ", " +
                             "Type: " + Type + ", " +
-                            "Unlocked: " + Unlocked + ", " +
                             "Alive: " + Alive + ", " +
                             "Level: " + Level + ", " +
                             "Experience: " + TotalExperience + ", " +
