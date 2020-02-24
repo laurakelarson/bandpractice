@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.Models.Enum;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace Game.Engine
 
             // Picks 6 Characters
             // TODO - implement better character picking method when we get Beats figured out
-            var data = new CharacterModel();
+            CharacterModel data = DataHelper.DefaultTambourine();
             for (int i = CharacterList.Count(); i < MaxNumberCharacters; i++)
             {
                 AddBandMember(data);

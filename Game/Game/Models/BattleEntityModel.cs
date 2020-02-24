@@ -44,7 +44,7 @@ namespace Game.Models
         /// <summary>
         /// Constructs a BattleEntityModel based on the character input
         /// </summary>
-        /// <param name="character"></param>
+        /// <param name="data"></param>
         public BattleEntityModel(CharacterModel data)
         {
             EntityType = EntityTypeEnum.Character;
@@ -54,11 +54,8 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            //Speed = data.GetSpeed();
-            Speed = data.Speed;
+            Speed = data.Speed + data.GetItemBonus(AttributeEnum.Speed);
             ImageURI = data.ImageURI;
-            //CurrentHealth = data.GetCurrentHealthTotal;
-            //MaxHealth = data.GetMaxHealthTotal;
             CurrentHealth = data.CurrentHealth;
             MaxHealth = data.MaxHealth;
 
@@ -67,7 +64,7 @@ namespace Game.Models
         /// <summary>
         /// Constructs a BattleEntityModel based on the monster input
         /// </summary>
-        /// <param name="monster"></param>
+        /// <param name="data"></param>
         public BattleEntityModel(MonsterModel data)
         {
             EntityType = EntityTypeEnum.Monster;
@@ -79,8 +76,6 @@ namespace Game.Models
             Description = data.Description;
             Speed = data.Speed;
             ImageURI = data.ImageURI;
-            //CurrentHealth = data.GetCurrentHealthTotal;
-            //MaxHealth = data.GetMaxHealthTotal;
             CurrentHealth = data.CurrentHealth;
             MaxHealth = data.MaxHealth;
         }

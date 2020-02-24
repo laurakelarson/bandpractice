@@ -310,29 +310,44 @@ namespace Game.Engine
         /// <summary>
         /// Have the target drop all their items
         /// </summary>
-        /// <param name="Target"></param>
+        /// <param name="target"></param>
         /// <returns></returns>
-        public int DropItems(BattleEntityModel Target)
+        public int DropItems(BattleEntityModel target)
         {
             // Drop Items to ItemModel Pool
-            //var myItemList = Target.DropAllItems();
+            var myItemList = RemoveItems(target);
 
-            //// I feel generous, even when characters die, random drops happen :-)
-            //// If Random drops are enabled, then add some....
-            //myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
+            // I feel generous, even when characters die, random drops happen :-)
+            // If Random drops are enabled, then add some....
+            myItemList.AddRange(GetRandomMonsterItemDrops(Score.RoundCount));
 
-            //// Add to ScoreModel
-            //foreach (var ItemModel in myItemList)
-            //{
-            //    BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-            //    BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
-            //}
+            // Add to ScoreModel
+            foreach (var ItemModel in myItemList)
+            {
+                Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
+                BattleMessages.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+            }
 
-            //ItemPool.AddRange(myItemList);
+            ItemPool.AddRange(myItemList);
 
-            //return myItemList.Count();
+            return myItemList.Count();
+        }
 
-            return 0;
+        /// <summary>
+        /// Has the character or monster drop all their items and returns the list of item models
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public List<ItemModel> RemoveItems(BattleEntityModel target)
+        {
+            switch (target.EntityType)
+            {
+                case (EntityTypeEnum.Character):
+                    return CharacterList.Where(a => a.Id == target.Id).FirstOrDefault().DropAllItems();
+                case (EntityTypeEnum.Monster):
+                default:
+                    return MonsterList.Where(a => a.Id == target.Id).FirstOrDefault().DropItems();
+            }
         }
 
         /// <summary>
@@ -348,32 +363,30 @@ namespace Game.Engine
             if (d20 == 1)
             {
                 // Force Miss
-                //BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                //return BattleMessagesModel.HitStatus;
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                return BattleMessages.HitStatus;
             }
 
             if (d20 == 20)
             {
                 // Force Hit
-                //BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-                //return BattleMessagesModel.HitStatus;
+                BattleMessages.HitStatus = HitStatusEnum.Hit;
+                return BattleMessages.HitStatus;
             }
 
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                //BattleMessagesModel.AttackStatus = " misses ";
-                //// Miss
-                //BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                //BattleMessagesModel.DamageAmount = 0;
-                //return BattleMessagesModel.HitStatus;
+                BattleMessages.AttackStatus = " misses ";
+                // Miss
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                BattleMessages.DamageAmount = 0;
+                return BattleMessages.HitStatus;
             }
 
             // Hit
-            //BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-            //return BattleMessagesModel.HitStatus;
-
-            return HitStatusEnum.Hit;
+            BattleMessages.HitStatus = HitStatusEnum.Hit;
+            return BattleMessages.HitStatus;
         }
 
         /// <summary>
