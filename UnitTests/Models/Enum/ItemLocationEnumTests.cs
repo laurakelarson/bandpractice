@@ -56,5 +56,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(12, result);
         }
+
+        // Confirm Orimary Hand set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_PrimaryHand_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.PrimaryHand;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(14, result);
+        }
     }
 }
