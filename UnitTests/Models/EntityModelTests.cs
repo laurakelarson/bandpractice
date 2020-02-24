@@ -10,6 +10,10 @@ namespace UnitTests.Models
     [TestFixture]
     class EntityModelTests
     {
-        
+        [TearDown]
+        public async Task TearDown()
+        {
+            await Game.Helpers.DataSetsHelper.WipeData();
+        }
     }
 }
