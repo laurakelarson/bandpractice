@@ -209,5 +209,19 @@ namespace UnitTests.Models
             Assert.AreEqual(false, result);
         }
 
+        [Test]
+        public void ScoreModel_AddToList_InValid_Character_Null_Should_Fail()
+        {
+            // Arrange
+            var dataScore = new ScoreModel();
+            CharacterModel test = null;
+            // Act
+            var result = dataScore.AddToList(test);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
     }
 }
