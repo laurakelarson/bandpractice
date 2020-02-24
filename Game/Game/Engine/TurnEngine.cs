@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Game.Models;
@@ -121,6 +122,68 @@ namespace Game.Engine
                 .OrderBy(m => m.CurrentHealth).FirstOrDefault();
 
             return new BattleEntityModel(defender);
+        }
+
+        /// <summary>
+        /// Process the attack. Use BattleMessagesModel to communicate actions.
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public bool TurnAsAttack(BattleEntityModel attacker, BattleEntityModel Target)
+        {
+            if (attacker == null)
+            {
+                return false;
+            }
+
+            if (Target == null)
+            {
+                return false;
+            }
+
+            //BattleMessagesModel.TurnMessage = string.Empty;
+            //BattleMessagesModel.TurnMessageSpecial = string.Empty;
+            //BattleMessagesModel.AttackStatus = string.Empty;
+
+            //BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+
+            //var AttackScore = attacker.Level + attacker.GetAttack();
+            //var DefenseScore = Target.GetDefense() + Target.Level;
+
+            //// Choose who to attack
+
+            //BattleMessagesModel.TargetName = Target.Name;
+            //BattleMessagesModel.attackerName = attacker.Name;
+
+            //BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+
+            //Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
+
+            //// It's a Miss
+            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
+            //{
+            //    return true;
+            //}
+
+            //// It's a Hit
+            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
+            //{
+            //    //Calculate Damage
+            //    BattleMessagesModel.DamageAmount = attacker.GetDamageRollValue();
+
+            //    Target.TakeDamage(BattleMessagesModel.DamageAmount);
+            //}
+
+            //BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
+            //BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
+
+            //RemoveIfDead(Target);
+
+            //BattleMessagesModel.TurnMessage = attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial;
+            //Debug.WriteLine(BattleMessagesModel.TurnMessage);
+
+            return true;
         }
 
 
