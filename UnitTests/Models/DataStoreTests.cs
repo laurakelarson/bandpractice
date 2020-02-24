@@ -22,5 +22,19 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(0, result);
         }
+
+        [Test]
+        public void DataStoreTests_Default_SQL_Should_Pass()
+        {
+            // Arrange 
+
+            // Act 
+            var result = (int)DataStoreEnum.SQL;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
     }
 }
