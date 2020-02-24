@@ -156,5 +156,20 @@ namespace UnitTests.Models
             Assert.AreEqual(true, result);
             Assert.AreEqual(10, data.Level);
         }
+
+        [Test]
+        public void CharacterModel_ChangeLevel_LevelZero_Should_Fail()
+        {
+            // Arrange
+            var data = new CharacterModel();
+
+            // Act
+            var result = data.ChangeLevel(0);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
     }
 }
