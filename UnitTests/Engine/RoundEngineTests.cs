@@ -376,6 +376,51 @@ namespace UnitTests.Engine
             Assert.AreEqual(item2.Id, Character.HeadItem);    // The 2nd item is better, so did they swap?
         }
 
+        // case when item pool is empty
+        [Test]
+        public async Task RoundEngine_GetItemFromPoolIfBetter_Pool_Empty_Should_Fail()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Z",
+                Id = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Head };
+
+            await ItemIndexViewModel.Instance.CreateAsync(item1);
+            await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            // Don't add items to battle engine pool
+
+            // Put the Item on the Character
+            Character.AddItem(ItemLocationEnum.Head, item2);
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+
+            var result = Engine.GetItemFromPoolIfBetter(Character, ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
             #endregion Item swaps
     }
 }
