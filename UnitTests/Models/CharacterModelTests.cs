@@ -201,5 +201,23 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(1, result);
         }
+
+        [Test]
+        public void CharacterModel_Default_GetAttackValue_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+
+            // Act
+            DiceHelper.ForceConstantRoll = true;
+            DiceHelper.SetForcedDiceRollValue(1);
+            var result = data.GetAttackValue(); // roll + level
+
+            // Reset
+            DiceHelper.ForceConstantRoll = false;
+
+            // Assert 
+            Assert.AreEqual(2, result);
+        }
     }
 }
