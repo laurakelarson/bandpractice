@@ -81,11 +81,11 @@ namespace Game.Models
         /// Update the score based on the passed in values. 
         /// </summary>
         /// <param name="newData"></param>
-        public override void Update(ScoreModel newData)
+        public override bool Update(ScoreModel newData)
         {
             if (newData == null)
             {
-                return;
+                return false;
             }
 
             // Update all the fields in the Data, except for the Id
@@ -103,6 +103,8 @@ namespace Game.Models
             CharacterAtDeathList = newData.CharacterAtDeathList;
             MonstersKilledList = newData.MonstersKilledList;
             ItemsDroppedList = newData.ItemsDroppedList;
+
+            return true;
         }
 
         #region ScoreItems
