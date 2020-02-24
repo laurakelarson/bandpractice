@@ -175,5 +175,20 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void MonsterModel_Default_RollDamageDice_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.RollDamageDice();
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(1, result);
+        }
     }
 }
