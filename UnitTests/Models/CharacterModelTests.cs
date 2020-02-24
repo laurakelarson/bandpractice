@@ -58,5 +58,37 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Type);
             Assert.IsNotNull(result.Level);
         }
+
+        [Test]
+        public void CharacterModel_Set_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new CharacterModel();
+            result.TotalExperience = 600;
+            result.Unlocked = false;
+            result.HeadItem = "head";
+            result.FeetItem = "feet";
+            result.BodyItem = "body";
+            result.PrimaryHandItem = "hand";
+            result.OffHandItem = "offhand";
+            result.RightFingerItem = "right";
+            result.LeftFingerItem = "left";
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(600, result.TotalExperience);
+            Assert.AreEqual(false, result.Unlocked);
+            Assert.AreEqual("head", result.HeadItem);
+            Assert.AreEqual("body", result.BodyItem);
+            Assert.AreEqual("feet", result.FeetItem);
+            Assert.AreEqual("hand", result.PrimaryHandItem);
+            Assert.AreEqual("offhand", result.OffHandItem);
+            Assert.AreEqual("right", result.RightFingerItem);
+            Assert.AreEqual("left", result.LeftFingerItem);
+
+        }
     }
 }
