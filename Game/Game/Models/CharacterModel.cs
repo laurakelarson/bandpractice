@@ -238,7 +238,13 @@ namespace Game.Models
         public int RollDamageDice()
         {
             // dice roll of weapon damage value + 1/4 level damange rounded up 
-            var weaponDamage = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem).Damage;
+            var weapon = ItemIndexViewModel.Instance.GetItem(PrimaryHandItem);
+            var weaponDamage = 0;
+            if (weapon != null)
+            {
+                weaponDamage = weapon.Damage;
+            }
+
             return (int)Math.Ceiling(0.25 * Level) + DiceHelper.RollDice(1, weaponDamage);
         }
 
