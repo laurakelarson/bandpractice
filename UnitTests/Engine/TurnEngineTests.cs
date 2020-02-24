@@ -325,6 +325,7 @@ namespace UnitTests.Engine
                 .Where(a => a.Id == "me").FirstOrDefault());
 
             // Reset
+            Engine.StartBattle(false);
 
             // Assert
             Assert.AreEqual(true, result);
