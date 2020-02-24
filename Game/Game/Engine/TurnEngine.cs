@@ -24,5 +24,36 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Attack as a turn.
+        ///
+        /// Pick who to go after
+        /// 
+        /// Determine Attack Score
+        /// Determine DefenseScore
+        /// 
+        /// Do the Attack
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <returns></returns>
+        public bool Attack(BattleEntityModel attacker)
+        {
+            //// For Attack, Choose Who
+            //var target = AttackChoice(attacker);
+
+            //if (target == null)
+            //{
+            //    return false;
+            //}
+
+            //// Do Attack
+            //TurnAsAttack(attacker, target);
+
+            CurrentAttacker = new BattleEntityModel(attacker);
+            //CurrentDefender = new BattleEntityModel(target);
+
+            return true;
+        }
+
     }
 }
