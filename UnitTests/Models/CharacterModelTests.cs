@@ -90,5 +90,24 @@ namespace UnitTests.Models
             Assert.AreEqual("left", result.LeftFingerItem);
 
         }
+
+        [Test]
+        public void CharacterModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var dataOriginal = new CharacterModel();
+            dataOriginal.TotalExperience = 1;
+
+            var dataNew = new CharacterModel();
+            dataNew.TotalExperience = 2;
+
+            // Act
+            var result = dataOriginal.Update(dataNew);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(2, dataOriginal.TotalExperience);
+        }
     }
 }
