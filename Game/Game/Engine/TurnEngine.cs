@@ -270,36 +270,41 @@ namespace Game.Engine
         public bool TargedDied(BattleEntityModel target)
         {
             // Mark Status in output
-            //BattleMessagesModel.TurnMessageSpecial = " and causes death";
+            BattleMessages.TurnMessageSpecial = " and causes death";
 
-            //// Remove target from list...
+            // Remove target from list...
 
-            //// Using a switch so in the future additional PlayerTypes can be added (Boss...)
-            //switch (Target.PlayerType)
-            //{
-            //    case PlayerTypeEnum.Character:
-            //        CharacterList.Remove(Target);
+            // Using a switch so in the future additional PlayerTypes can be added (Boss...)
+            switch (target.EntityType)
+            {
+                case EntityTypeEnum.Character:
+                    var character = CharacterList.Where(a => a.Id == target.Id).FirstOrDefault();
 
-            //        // Add the MonsterModel to the killed list
-            //        BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
+                    CharacterList.Remove(character);
 
-            //        DropItems(Target);
+                    // Add the MonsterModel to the killed list
+                    Score.CharacterAtDeathList += character.FormatOutput() + "\n";
 
-            //        return true;
+                    DropItems(target);
 
-            //    case PlayerTypeEnum.Monster:
-            //    default:
-            //        MonsterList.Remove(Target);
+                    return true;
 
-            //        // Add one to the monsters killed count...
-            //        BattleScore.MonsterSlainNumber++;
+                case EntityTypeEnum.Monster:
+                default:
+                    var monster = MonsterList.Where(a => a.Id == target.Id).FirstOrDefault();
 
-            //        // Add the MonsterModel to the killed list
-            //        BattleScore.MonstersKilledList += Target.FormatOutput() + "\n";
+                    MonsterList.Remove(monster);
 
-            //        DropItems(Target);
+                    // Add one to the monsters killed count...
+                    Score.MonsterSlainNumber++;
 
-            return true;
+                    // Add the MonsterModel to the killed list
+                    Score.MonstersKilledList += monster.FormatOutput() + "\n";
+
+                    DropItems(target);
+
+                    return true;
+            }
         }
 
         /// <summary>
