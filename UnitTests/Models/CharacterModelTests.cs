@@ -252,5 +252,22 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void CharacterModel_AddExperienceLevelOne_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.Level = 1;
+
+            // Act
+            var result = data.AddExperience(300);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(2, data.Level);
+        }
     }
 }
