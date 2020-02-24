@@ -59,12 +59,48 @@ namespace Game.Services
         /// <returns></returns>
         public static List<ScoreModel> LoadData(ScoreModel temp)
         {
+            ScoreModel scoreTest = new ScoreModel
+            {
+                Name = "First Score",
+                Description = "Test Data",
+                RoundCount = 20,
+                ScoreTotal = 50000,
+                ExperienceGainedTotal = 50000,
+            };
+
+            #region Adding to score for debugging
+
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultChomper());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultAlarmer());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultPiercingFeedback());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultMassiveStatic());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultKazoom());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultJackhammer());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultShrillBabe());
+            scoreTest.AddToList(DefaultMonsterHelper.DefaultYowlingFeline());
+
+            scoreTest.AddToList(DataHelper.DefaultTambourine());
+            scoreTest.AddToList(DataHelper.DefaultBassist());
+            scoreTest.AddToList(DataHelper.DefaultKeyboardist());
+            scoreTest.AddToList(DataHelper.DefaultDrummer());
+            scoreTest.AddToList(DataHelper.DefaultGuitarist());
+            scoreTest.AddToList(DataHelper.DefaultLeadVocalist());
+                
+            scoreTest.AddToList(DefaultItemHelper.DefaultTriangle());
+            scoreTest.AddToList(DefaultItemHelper.DefaultBunnySlippers());
+            scoreTest.AddToList(DefaultItemHelper.DefaultComfySneakers());
+            scoreTest.AddToList(DefaultItemHelper.DefaultLuckySocks());
+            scoreTest.AddToList(DefaultItemHelper.DefaultAthleticSocks());
+            scoreTest.AddToList(DefaultItemHelper.DefaultTemporaryTattoo());
+            scoreTest.AddToList(DefaultItemHelper.DefaultMoodRing());
+            scoreTest.AddToList(DefaultItemHelper.DefaultRing());
+            scoreTest.AddToList(DefaultItemHelper.DefaultCoolOutfit());
+            scoreTest.AddToList(DefaultItemHelper.DefaultBandHoodie());
+            #endregion
+
             var datalist = new List<ScoreModel>()
             {
-                new ScoreModel {
-                    Name = "First Score",
-                    Description = "Test Data",
-                },
+                scoreTest,
 
                 new ScoreModel {
                     Name = "Second Score",
