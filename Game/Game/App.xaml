@@ -99,6 +99,14 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="HeaderCenterStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="LabelStyle"
                 BasedOn="{StaticResource Xamarin.Forms.Label}">
                 <Setter Property="FontSize" Value="Small" />
