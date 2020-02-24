@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Game.Helpers;
 using Game.Models;
+using Game.ViewModels;
 using NUnit.Framework;
 
 namespace UnitTests.Models
@@ -269,5 +270,26 @@ namespace UnitTests.Models
             Assert.AreEqual(true, result);
             Assert.AreEqual(2, data.Level);
         }
+
+        [Test]
+        public void CharacterModel_RemoveHeadItem_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.HeadItem = "head";
+
+            // Act
+            var result = ItemIndexViewModel.Instance.GetItem(data.HeadItem);
+
+            var item = data.RemoveItem(ItemLocationEnum.Head);
+            //var itemString = ItemListToStringConverter.Convert(item);
+
+            // Reset
+
+            // Assert 
+            //Assert.AreEqual("head", result);
+            Assert.IsNull(data.HeadItem);
+        }
+
     }
 }
