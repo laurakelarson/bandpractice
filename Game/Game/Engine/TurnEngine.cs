@@ -200,7 +200,7 @@ namespace Game.Engine
         /// <returns></returns>
         public int GetAttack(BattleEntityModel attacker)
         {
-            switch(attacker.EntityType)
+            switch (attacker.EntityType)
             {
                 case (EntityTypeEnum.Character):
                     return CharacterList.Where(a => a.Id == attacker.Id).FirstOrDefault().GetAttackValue();
@@ -235,7 +235,14 @@ namespace Game.Engine
         /// <returns></returns>
         public int GetDamage(BattleEntityModel attacker)
         {
-            return 0;
+            switch (attacker.EntityType)
+            {
+                case (EntityTypeEnum.Character):
+                    return CharacterList.Where(a => a.Id == attacker.Id).FirstOrDefault().RollDamageDice();
+                case (EntityTypeEnum.Monster):
+                default:
+                    return MonsterList.Where(a => a.Id == attacker.Id).FirstOrDefault().RollDamageDice();
+            }
         }
 
 
