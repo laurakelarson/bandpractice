@@ -115,7 +115,7 @@ namespace Game.Engine
         public BattleEntityModel GetNextPlayerTurn()
         {
             // Recalculate Order
-            OrderPlayerListByTurnOrder();
+            OrderEntityListByTurnOrder();
 
             // Get Next Player
             //var PlayerCurrent = GetNextPlayerInList();
@@ -126,7 +126,7 @@ namespace Game.Engine
         /// <summary>
         /// Order the Players in Turn Sequence
         /// </summary>
-        public List<BattleEntityModel> OrderPlayerListByTurnOrder()
+        public List<BattleEntityModel> OrderEntityListByTurnOrder()
         {
             // Order is based by... 
             // Order by Speed (Desending)
@@ -136,8 +136,8 @@ namespace Game.Engine
             // Then by Alphabetic on Name (Assending)
             // Then by First in list order (Assending
 
-            // Work with the Class variable PlayerList
-            //EntityList = MakePlayerList();
+            // Work with the Class variable EntityList
+            EntityList = MakeEntityList();
 
             //EntityList = EntityList.OrderByDescending(a => a.GetSpeed())
             //    .ThenByDescending(a => a.Level)
@@ -147,9 +147,54 @@ namespace Game.Engine
             //    .ThenBy(a => a.ListOrder)
             //    .ToList();
 
-            EntityList = new List<BattleEntityModel>();
             return EntityList;
         }
+
+        /// <summary>
+        /// Populates the EntityList with the characters and monsters who are alive
+        /// </summary>
+        /// <returns></returns>
+        public List<BattleEntityModel> MakeEntityList()
+        {
+            // Start from a clean list of players
+            EntityList.Clear();
+
+            // Remeber the Insert order, used for Sorting
+            var ListOrder = 0;
+
+            foreach (var data in CharacterList)
+            {
+                if (data.Alive)
+                {
+                    EntityList.Add(
+                        new BattleEntityModel(data)
+                        {
+                            // Remember the order
+                            //ListOrder = ListOrder //TODO ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            foreach (var data in MonsterList)
+            {
+                if (data.Alive)
+                {
+                    EntityList.Add(
+                        new BattleEntityModel(data)
+                        {
+                            // Remember the order
+                            //ListOrder = ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            return EntityList;
+        }
+
 
         /// <summary>
         /// Character picks up dropped items
