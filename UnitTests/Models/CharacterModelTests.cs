@@ -125,5 +125,20 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(2, dataOriginal.TotalExperience);
         }
+
+        [Test]
+        public void CharacterModel_FormatOuput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual("Name , Type: Unknown, Alive: True, Level: 1, Experience: 0, Speed: 0, Defense: 0, Attack: 0, Current Health: 1, Max Health: 1", result);
+        }
     }
 }
