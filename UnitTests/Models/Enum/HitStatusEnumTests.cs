@@ -71,5 +71,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(15, result);
         }
+
+        // Confirm CriticalHit set to correct value
+        [Test]
+        public void HitStatusEnumTests_Default_CriticalHit_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)HitStatusEnum.CriticalHit;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(15, result);
+        }
     }
 }
