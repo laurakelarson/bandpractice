@@ -129,9 +129,9 @@ namespace Game.Engine
             OrderEntityListByTurnOrder();
 
             // Get Next Player
-            //var PlayerCurrent = GetNextPlayerInList();
+            var PlayerCurrent = GetNextPlayerInList();
 
-            return CurrentEntity;
+            return PlayerCurrent;
         }
 
         /// <summary>
