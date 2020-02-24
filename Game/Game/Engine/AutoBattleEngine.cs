@@ -56,6 +56,7 @@ namespace Game.Engine
             // Prepare for Battle
 
             // Picks 6 Characters
+            // TODO - implement better character picking method when we get Beats figured out
             var data = new CharacterModel();
             for (int i = CharacterList.Count(); i < MaxNumberCharacters; i++)
             {
