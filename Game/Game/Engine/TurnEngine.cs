@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Game.Models;
@@ -122,6 +123,125 @@ namespace Game.Engine
 
             return new BattleEntityModel(defender);
         }
+
+        /// <summary>
+        /// Process the attack. Use BattleMessagesModel to communicate actions.
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public bool TurnAsAttack(BattleEntityModel attacker, BattleEntityModel Target)
+        {
+            if (attacker == null)
+            {
+                return false;
+            }
+
+            if (Target == null)
+            {
+                return false;
+            }
+
+            //BattleMessagesModel.TurnMessage = string.Empty;
+            //BattleMessagesModel.TurnMessageSpecial = string.Empty;
+            //BattleMessagesModel.AttackStatus = string.Empty;
+
+            //BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+
+            //var AttackScore = attacker.Level + attacker.GetAttack();
+            //var DefenseScore = Target.GetDefense() + Target.Level;
+
+            //// Choose who to attack
+
+            //BattleMessagesModel.TargetName = Target.Name;
+            //BattleMessagesModel.attackerName = attacker.Name;
+
+            //BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+
+            //Debug.WriteLine(BattleMessagesModel.GetTurnMessage());
+
+            //// It's a Miss
+            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Miss)
+            //{
+            //    return true;
+            //}
+
+            //// It's a Hit
+            //if (BattleMessagesModel.HitStatus == HitStatusEnum.Hit)
+            //{
+            //    //Calculate Damage
+            //    BattleMessagesModel.DamageAmount = attacker.GetDamageRollValue();
+
+            //    Target.TakeDamage(BattleMessagesModel.DamageAmount);
+            //}
+
+            //BattleMessagesModel.CurrentHealth = Target.CurrentHealth;
+            //BattleMessagesModel.TurnMessageSpecial = BattleMessagesModel.GetCurrentHealthMessage();
+
+            //RemoveIfDead(Target);
+
+            //BattleMessagesModel.TurnMessage = attacker.Name + BattleMessagesModel.AttackStatus + Target.Name + BattleMessagesModel.TurnMessageSpecial;
+            //Debug.WriteLine(BattleMessagesModel.TurnMessage);
+
+            return true;
+        }
+
+        /// <summary>
+        /// If Dead process Targed Died
+        /// </summary>
+        /// <param name="Target"></param>
+        public bool RemoveIfDead(BattleEntityModel Target)
+        {
+            // Check for alive
+            if (Target.Alive == false)
+            {
+                //TargedDied(Target);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Process an entity's death.
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public bool TargedDied(BattleEntityModel target)
+        {
+            // Mark Status in output
+            //BattleMessagesModel.TurnMessageSpecial = " and causes death";
+
+            //// Remove target from list...
+
+            //// Using a switch so in the future additional PlayerTypes can be added (Boss...)
+            //switch (Target.PlayerType)
+            //{
+            //    case PlayerTypeEnum.Character:
+            //        CharacterList.Remove(Target);
+
+            //        // Add the MonsterModel to the killed list
+            //        BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
+
+            //        DropItems(Target);
+
+            //        return true;
+
+            //    case PlayerTypeEnum.Monster:
+            //    default:
+            //        MonsterList.Remove(Target);
+
+            //        // Add one to the monsters killed count...
+            //        BattleScore.MonsterSlainNumber++;
+
+            //        // Add the MonsterModel to the killed list
+            //        BattleScore.MonstersKilledList += Target.FormatOutput() + "\n";
+
+            //        DropItems(Target);
+
+            return true;
+        }
+
 
 
     }
