@@ -112,7 +112,7 @@ namespace Game.Engine
             CurrentEntity = GetNextPlayerTurn();
 
             // Do the turn....
-            //TakeTurn(CurrentEntity);
+            TakeTurn(CurrentEntity);
 
             RoundState = RoundEnum.NextTurn;
 
