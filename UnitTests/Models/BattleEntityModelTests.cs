@@ -29,5 +29,43 @@ namespace UnitTests.Models
             Assert.AreEqual(result.ExperiencePoints, 0);
             Assert.AreEqual(result.ListOrder, 0); 
         }
+
+        // Test constructor
+        [Test]
+        public void BattleEntityModelTests_Constructor_New_BattleEntity_Should_Copy()
+        {
+            // Arrange
+            var battleEntity = new BattleEntityModel();
+            battleEntity.EntityType = EntityTypeEnum.Character;
+            battleEntity.ExperiencePoints = 500;
+            //battleEntity.ListOrder = 1;
+
+            // Act
+            var newBattleEntity = new BattleEntityModel(battleEntity);
+
+            // reset
+
+            // Assert
+            Assert.AreEqual(battleEntity.EntityType, newBattleEntity.EntityType);
+            Assert.AreEqual(battleEntity.ExperiencePoints, newBattleEntity.ExperiencePoints);
+            //Assert.AreEqual(battleEntity.ListOrder, newBattleEntity.ListOrder); 
+        }
+
+        // Test constructor that accepts Character Model
+        [Test]
+        public void BattleEntityModelTests_Constructor_New_Character_Should_Copy()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Character.TotalExperience = 500;
+            var battleEntity = new BattleEntityModel(Character);
+
+            // Act
+            
+            // reset
+
+            // Assert
+            Assert.AreEqual(Character.TotalExperience, battleEntity.ExperiencePoints);
+        }
     }
 }
