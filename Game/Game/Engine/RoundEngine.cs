@@ -61,12 +61,26 @@ namespace Game.Engine
             // Have each character pickup items...
             foreach (var character in CharacterList)
             {
-                //PickupItemsFromPool(character);
+                PickupItemsFromPool(character);
             }
 
             // Reset Monster and Item Lists
             ClearLists();
 
+            return true;
+        }
+
+
+
+
+
+        /// <summary>
+        /// Character picks up dropped items
+        /// </summary>
+        /// <param name="character"></param>
+        public bool PickupItemsFromPool(BattleEntityModel character)
+        {
+            //TODO implement
             return true;
         }
 
