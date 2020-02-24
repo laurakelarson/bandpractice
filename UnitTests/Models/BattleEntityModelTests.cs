@@ -67,5 +67,20 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(Character.TotalExperience, battleEntity.ExperiencePoints);
         }
+
+        // Test constructor that accepts Monster Model 
+        [Test]
+        public void BattleEntityModelTests_Constructor_New_Monster_Should_Copy()
+        {
+            // Arrange
+            var Monster = new MonsterModel();
+            Monster.ExperienceGiven = 500;
+
+            // Act
+            var BattleEntity = new BattleEntityModel(Monster);
+
+            // Assert
+            Assert.AreEqual(Monster.ExperienceGiven, BattleEntity.ExperiencePoints);
+        }
     }
 }
