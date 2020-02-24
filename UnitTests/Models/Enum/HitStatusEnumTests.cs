@@ -44,7 +44,7 @@ namespace UnitTests.Models.Enum
 
         // Confirm Critical Miss set to correct value
         [Test]
-        public void CriticalMissEnumTests_Default_Miss_Should_Pass()
+        public void HitStatusEnumTests_Default_CriticalMiss_Should_Pass()
         {
             // Arrange 
 
