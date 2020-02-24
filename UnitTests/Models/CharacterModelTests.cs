@@ -391,6 +391,26 @@ namespace UnitTests.Models
             Assert.IsNull(data.RightFingerItem);
         }
 
+        [Test]
+        public void CharacterModel_RemoveLeftFingerItem_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.LeftFingerItem = "left";
+
+            // Act
+            var result = ItemIndexViewModel.Instance.GetItem(data.LeftFingerItem);
+
+            var item = data.RemoveItem(ItemLocationEnum.LeftFinger);
+            //var itemString = ItemListToStringConverter.Convert(item);
+
+            // Reset
+
+            // Assert 
+            //Assert.AreEqual("left", result);
+            Assert.IsNull(data.LeftFingerItem);
+        }
+
         #endregion
 
     }
