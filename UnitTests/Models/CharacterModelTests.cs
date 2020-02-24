@@ -23,5 +23,23 @@ namespace UnitTests.Models
             // Assert 
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void CharacterModel_Constructor_New_Character_Should_Copy()
+        {
+            // Arrange
+            var dataNew = new CharacterModel();
+            dataNew.TotalExperience = 200;
+            dataNew.Id = "oldID";
+
+            // Act
+            var result = new CharacterModel(dataNew);
+
+            // Reset
+
+            // Assert 
+            Assert.AreNotEqual("oldID", result.Id);
+            Assert.AreEqual(200, result.TotalExperience);
+        }
     }
 }
