@@ -270,7 +270,7 @@ namespace UnitTests.Models
             Assert.AreEqual(true, result);
             Assert.AreEqual(2, data.Level);
         }
-
+        #region RemoveItem tests
         [Test]
         public void CharacterModel_RemoveHeadItem_Should_Pass()
         {
@@ -310,6 +310,28 @@ namespace UnitTests.Models
             //Assert.AreEqual("feet", result);
             Assert.IsNull(data.FeetItem);
         }
+
+        [Test]
+        public void CharacterModel_RemoveNecklassItem_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.NecklassItem = "body";
+
+            // Act
+            var result = ItemIndexViewModel.Instance.GetItem(data.NecklassItem);
+
+            var item = data.RemoveItem(ItemLocationEnum.Necklass);
+            //var itemString = ItemListToStringConverter.Convert(item);
+
+            // Reset
+
+            // Assert 
+            //Assert.AreEqual("body", result);
+            Assert.IsNull(data.NecklassItem);
+        }
+
+        #endregion
 
     }
 }
