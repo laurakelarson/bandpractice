@@ -202,6 +202,47 @@ namespace Game.Engine
             return false;
         }
 
+        /// <summary>
+        /// Process an entity's death.
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public bool TargedDied(BattleEntityModel target)
+        {
+            // Mark Status in output
+            //BattleMessagesModel.TurnMessageSpecial = " and causes death";
+
+            //// Remove target from list...
+
+            //// Using a switch so in the future additional PlayerTypes can be added (Boss...)
+            //switch (Target.PlayerType)
+            //{
+            //    case PlayerTypeEnum.Character:
+            //        CharacterList.Remove(Target);
+
+            //        // Add the MonsterModel to the killed list
+            //        BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
+
+            //        DropItems(Target);
+
+            //        return true;
+
+            //    case PlayerTypeEnum.Monster:
+            //    default:
+            //        MonsterList.Remove(Target);
+
+            //        // Add one to the monsters killed count...
+            //        BattleScore.MonsterSlainNumber++;
+
+            //        // Add the MonsterModel to the killed list
+            //        BattleScore.MonstersKilledList += Target.FormatOutput() + "\n";
+
+            //        DropItems(Target);
+
+            return true;
+        }
+
+
 
     }
 }
