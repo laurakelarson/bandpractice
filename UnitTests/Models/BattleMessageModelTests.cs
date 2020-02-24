@@ -155,5 +155,39 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        // Test for GetHTMLFormattedTurnMessage with Monster entity type
+        [Test]
+        public void BattleMessageModel_GetHTMLFormattedTurnMessage_Monster_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+            message.PlayerType = EntityTypeEnum.Monster;
+
+            // Act
+            var result = message.GetHTMLFormattedTurnMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        // Test for GetHTMLFormattedTurnMessage with Character Entity Type
+        [Test]
+        public void BattleMessageModel_GetHTMLFormattedTurnMessage_Character_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+            message.PlayerType = EntityTypeEnum.Character;
+
+            // Act
+            var result = message.GetHTMLFormattedTurnMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
