@@ -71,5 +71,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(3, result);
         }
+
+        // Confirm Drummer set to correct value
+        [Test]
+        public void CharacterTypeEnumTests_Default_Drummer_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)CharacterTypeEnum.Drummer;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(4, result);
+        }
     }
 }
