@@ -242,7 +242,33 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Have the target drop all their items
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public int DropItems(BattleEntityModel Target)
+        {
+            // Drop Items to ItemModel Pool
+            //var myItemList = Target.DropAllItems();
 
+            //// I feel generous, even when characters die, random drops happen :-)
+            //// If Random drops are enabled, then add some....
+            //myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
+
+            //// Add to ScoreModel
+            //foreach (var ItemModel in myItemList)
+            //{
+            //    BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
+            //    BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+            //}
+
+            //ItemPool.AddRange(myItemList);
+
+            //return myItemList.Count();
+
+            return 0;
+        }
 
     }
 }
