@@ -38,5 +38,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(1, result);
         }
+
+        // Confirm Monster set to correct value 
+        [Test]
+        public void EntityTypeEnumTests_Default_Monster_Should_Pass()
+        {
+            // Arrange 
+
+            // Act 
+            var result = (int)EntityTypeEnum.Monster;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
     }
 }
