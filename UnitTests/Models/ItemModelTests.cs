@@ -83,6 +83,25 @@ namespace UnitTests.Models
             Assert.AreEqual(ItemLocationEnum.Feet, result.Location);
         }
 
+        [Test]
+        public void ItemModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            var dataOriginal = new ItemModel();
+            dataOriginal.Value = 1;
+
+            var dataNew = new ItemModel();
+            dataNew.Value = 2;
+
+            // Act
+            var result = dataOriginal.Update(dataNew);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(2, dataOriginal.Value);
+        }
+
 
     }
 }
