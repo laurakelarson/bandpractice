@@ -5,6 +5,10 @@ using Game.Models;
 
 namespace Game.Engine
 {
+    /// <summary>
+    /// Turn Engine for the game.
+    /// Manages an entity (character or monster) taking a turn.
+    /// </summary>
     public class TurnEngine : BaseEngine
     {
 
