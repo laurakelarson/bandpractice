@@ -41,7 +41,7 @@ namespace Game.Engine
         public bool Attack(BattleEntityModel attacker)
         {
             //// For Attack, Choose Who
-            //var target = AttackChoice(attacker);
+            var target = AttackChoice(attacker);
 
             //if (target == null)
             //{
@@ -52,11 +52,28 @@ namespace Game.Engine
             //TurnAsAttack(attacker, target);
 
             CurrentAttacker = new BattleEntityModel(attacker);
-            //CurrentDefender = new BattleEntityModel(target);
+            CurrentDefender = new BattleEntityModel(target);
 
             return true;
         }
 
+        /// <summary>
+        /// Decide which to attack
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public BattleEntityModel AttackChoice(BattleEntityModel data)
+        {
+            switch (data.EntityType)
+            {
+                case EntityTypeEnum.Monster:
+                    return SelectCharacterToAttack();
+
+                case EntityTypeEnum.Character:
+                default:
+                    return SelectMonsterToAttack();
+            }
+        }
 
         /// <summary>
         /// Pick the Character to Attack
