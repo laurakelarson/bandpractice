@@ -139,13 +139,13 @@ namespace Game.Engine
             // Work with the Class variable EntityList
             EntityList = MakeEntityList();
 
-            //EntityList = EntityList.OrderByDescending(a => a.GetSpeed())
-            //    .ThenByDescending(a => a.Level)
-            //    .ThenByDescending(a => a.ExperiencePoints)
-            //    .ThenByDescending(a => a.PlayerType)
-            //    .ThenBy(a => a.Name)
-            //    .ThenBy(a => a.ListOrder)
-            //    .ToList();
+            EntityList = EntityList.OrderByDescending(a => a.Speed)
+                .ThenByDescending(a => a.Level)
+                .ThenByDescending(a => a.ExperiencePoints)
+                .ThenByDescending(a => a.EntityType)
+                .ThenBy(a => a.Name)
+                //.ThenBy(a => a.ListOrder) //TODO ListOrder
+                .ToList();
 
             return EntityList;
         }
