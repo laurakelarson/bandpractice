@@ -309,6 +309,27 @@ namespace UnitTests.Engine
             Assert.AreEqual(HitStatusEnum.Hit, result);
         }
 
+        // test character taking a turn
+        [Test]
+        public void TurnEngine_TakeTurn_Default_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Character.Id = "me";
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+            Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.TakeTurn(Engine.EntityList
+                .Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
         #endregion Mechanics
 
     }
