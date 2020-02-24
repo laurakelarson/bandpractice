@@ -41,5 +41,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(10, result);
         }
+
+        // Confirm Necklass set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_Necklass_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.Necklass;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(12, result);
+        }
     }
 }
