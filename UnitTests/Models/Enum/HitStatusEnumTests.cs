@@ -26,5 +26,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(0, result);
         }
+
+        // Confirm Miss set to correct value
+        [Test]
+        public void HitStatusEnumTests_Default_Miss_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)HitStatusEnum.Miss;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
     }
 }
