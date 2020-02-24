@@ -26,5 +26,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(0, result);
         }
+
+        // Confirm Head set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_Head_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.Head;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(10, result);
+        }
     }
 }
