@@ -12,9 +12,9 @@ namespace Game.Models
         public string ImageURI { get; set; }
 
         // Update model with new data 
-        public virtual void Update(T newData)
+        public virtual bool Update(T newData)
         {
-
+            return true;
         }
     }
 }
