@@ -6,6 +6,9 @@ using System.Text;
 
 namespace UnitTests.Models.Enum
 {
+    /// <summary>
+    ///  EntityTypeEnum tests. 
+    /// </summary>
     [TestFixture]
     public class EntityTypeEnumTests
     {
