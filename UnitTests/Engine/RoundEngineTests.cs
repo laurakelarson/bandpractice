@@ -47,6 +47,8 @@ namespace UnitTests.Engine
             Assert.IsNotNull(result);
         }
 
+        #region Sort order
+
         // test that EntityList order is correct
         [Test]
         public void RoundEngine_OrderEntityListByTurnOrder_Speed_Higher_Should_Pass()
@@ -274,5 +276,7 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual("me", result[0].Id);
         }
+
+        #endregion Sort order
     }
 }
