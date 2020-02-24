@@ -86,5 +86,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(15, result);
         }
+
+        // Confirm message for Unknown is correct
+        [Test]
+        public void HitStatusEnumExtensionsTests_Unknown_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = HitStatusEnum.Unknown.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Unknown", result);
+        }
     }
 }
