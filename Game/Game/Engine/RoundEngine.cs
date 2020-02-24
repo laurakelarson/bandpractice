@@ -155,7 +155,7 @@ namespace Game.Engine
                 .ThenByDescending(a => a.ExperiencePoints)
                 .ThenByDescending(a => a.EntityType)
                 .ThenBy(a => a.Name)
-                //.ThenBy(a => a.ListOrder) //TODO ListOrder
+                .ThenBy(a => a.ListOrder)
                 .ToList();
 
             return EntityList;
@@ -170,7 +170,7 @@ namespace Game.Engine
             // Start from a clean list of players
             EntityList.Clear();
 
-            // Remeber the Insert order, used for Sorting
+            // Remember the Insert order, used for Sorting
             var ListOrder = 0;
 
             foreach (var data in CharacterList)
@@ -181,7 +181,7 @@ namespace Game.Engine
                         new BattleEntityModel(data)
                         {
                             // Remember the order
-                            //ListOrder = ListOrder //TODO ListOrder
+                            ListOrder = ListOrder
                         });
 
                     ListOrder++;
@@ -196,7 +196,7 @@ namespace Game.Engine
                         new BattleEntityModel(data)
                         {
                             // Remember the order
-                            //ListOrder = ListOrder
+                            ListOrder = ListOrder
                         });
 
                     ListOrder++;
