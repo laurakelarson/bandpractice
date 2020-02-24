@@ -56,5 +56,28 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Defense);
             Assert.IsNotNull(result.Level);
         }
+
+        [Test]
+        public void MonsterModel_Set_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new MonsterModel();
+            result.ExperienceGiven = 600;
+            result.Range = 7;
+            result.Boss = false;
+            result.ItemsDropped = "items";
+            result.UniqueDrops = "unique";
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(600, result.ExperienceGiven);
+            Assert.AreEqual(7, result.Range);
+            Assert.AreEqual(false, result.Boss);
+            Assert.AreEqual("items", result.ItemsDropped);
+            Assert.AreEqual("unique", result.UniqueDrops);
+        }
     }
 }
