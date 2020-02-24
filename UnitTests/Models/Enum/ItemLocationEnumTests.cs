@@ -131,5 +131,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(32, result);
         }
+
+        // Confirm Feet set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_Feet_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.LeftFinger;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(40, result);
+        }
     }
 }
