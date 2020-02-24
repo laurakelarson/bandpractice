@@ -53,5 +53,30 @@ namespace UnitTests.Models
             Assert.AreNotEqual("oldID", result.Id);
         }
 
+        [Test]
+        public void ScoreModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new ScoreModel();
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result.BattleNumber);
+            Assert.IsNotNull(result.ScoreTotal);
+            Assert.IsNotNull(result.GameDate);
+            Assert.IsNotNull(result.AutoBattle);
+            Assert.IsNotNull(result.TurnCount);
+            Assert.IsNotNull(result.RoundCount);
+            Assert.IsNotNull(result.MonsterSlainNumber);
+            Assert.IsNotNull(result.ExperienceGainedTotal);
+
+            Assert.AreEqual(string.Empty, result.CharacterAtDeathList);
+            Assert.AreEqual(string.Empty, result.MonstersKilledList);
+            Assert.AreEqual(string.Empty, result.ItemsDroppedList);
+        }
+
     }
 }
