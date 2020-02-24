@@ -14,6 +14,7 @@ namespace UnitTests.Models
     public class BattleEntityModelTests
     {
         // Test default Constructor
+        [Test]
         public void BattleEntityModel_Constructor_Default_Should_Pass()
         {
             // Arrange
