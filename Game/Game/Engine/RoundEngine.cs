@@ -62,7 +62,7 @@ namespace Game.Engine
             // Have each character pickup items...
             foreach (var character in CharacterList)
             {
-                PickupItemsFromPool(character);
+                //PickupItemsFromPool(character);
             }
 
             // Reset Monster and Item Lists
@@ -115,7 +115,7 @@ namespace Game.Engine
         public BattleEntityModel GetNextPlayerTurn()
         {
             // Recalculate Order
-            OrderPlayerListByTurnOrder();
+            OrderEntityListByTurnOrder();
 
             // Get Next Player
             //var PlayerCurrent = GetNextPlayerInList();
@@ -126,7 +126,7 @@ namespace Game.Engine
         /// <summary>
         /// Order the Players in Turn Sequence
         /// </summary>
-        public List<BattleEntityModel> OrderPlayerListByTurnOrder()
+        public List<BattleEntityModel> OrderEntityListByTurnOrder()
         {
             // Order is based by... 
             // Order by Speed (Desending)
@@ -136,8 +136,8 @@ namespace Game.Engine
             // Then by Alphabetic on Name (Assending)
             // Then by First in list order (Assending
 
-            // Work with the Class variable PlayerList
-            //EntityList = MakePlayerList();
+            // Work with the Class variable EntityList
+            EntityList = MakeEntityList();
 
             //EntityList = EntityList.OrderByDescending(a => a.GetSpeed())
             //    .ThenByDescending(a => a.Level)
@@ -147,8 +147,87 @@ namespace Game.Engine
             //    .ThenBy(a => a.ListOrder)
             //    .ToList();
 
-            EntityList = new List<BattleEntityModel>();
             return EntityList;
+        }
+
+        /// <summary>
+        /// Populates the EntityList with the characters and monsters who are alive
+        /// </summary>
+        /// <returns></returns>
+        public List<BattleEntityModel> MakeEntityList()
+        {
+            // Start from a clean list of players
+            EntityList.Clear();
+
+            // Remeber the Insert order, used for Sorting
+            var ListOrder = 0;
+
+            foreach (var data in CharacterList)
+            {
+                if (data.Alive)
+                {
+                    EntityList.Add(
+                        new BattleEntityModel(data)
+                        {
+                            // Remember the order
+                            //ListOrder = ListOrder //TODO ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            foreach (var data in MonsterList)
+            {
+                if (data.Alive)
+                {
+                    EntityList.Add(
+                        new BattleEntityModel(data)
+                        {
+                            // Remember the order
+                            //ListOrder = ListOrder
+                        });
+
+                    ListOrder++;
+                }
+            }
+
+            return EntityList;
+        }
+
+        /// <summary>
+        /// Get the Information about the Player
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel GetNextPlayerInList()
+        {
+            // Walk the list from top to bottom
+            // If Player is found, then see if next player exist, if so return that.
+            // If not, return first player (looped)
+
+            // If List is empty, return null
+            if (EntityList.Count == 0)
+            {
+                return null;
+            }
+
+            // No current player, so set the first one
+            if (CurrentEntity == null)
+            {
+                return EntityList.FirstOrDefault();
+            }
+
+            // Find current player in the list
+            var index = EntityList.FindIndex(m => m.Id.Equals(CurrentEntity.Id));
+
+            // If at the end of the list, return the first element
+            if (index == EntityList.Count() - 1)
+            {
+                return EntityList.FirstOrDefault();
+            }
+
+            // Return the next element
+            return EntityList[index + 1];
         }
 
         /// <summary>
@@ -158,6 +237,55 @@ namespace Game.Engine
         public bool PickupItemsFromPool(BattleEntityModel character)
         {
             //TODO implement
+            return true;
+        }
+
+        /// <summary>
+        /// Checks what a character has equipped at a certain location.
+        /// If there is no item equipped there or if there is an item with a higher Value in the pool,
+        /// swaps the item.
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="setLocation"></param>
+        /// <returns></returns>
+        public bool GetItemFromPoolIfBetter(CharacterModel character, ItemLocationEnum setLocation)
+        {
+            var myList = ItemPool.Where(a => a.Location == setLocation)
+                .OrderByDescending(a => a.Value)
+                .ToList();
+
+            // If no items in the list, return...
+            if (!myList.Any())
+            {
+                return false;
+            }
+
+            var CharacterItem = character.GetItemByLocation(setLocation);
+            if (CharacterItem == null)
+            {
+                // If no ItemModel in the slot then put on the first in the list
+                character.AddItem(setLocation, myList.FirstOrDefault());
+                return true;
+            }
+
+            foreach (var PoolItem in myList)
+            {
+                if (PoolItem.Value > CharacterItem.Value)
+                {
+                    // Put on the new ItemModel, which drops the one back to the pool
+                    var droppedItem = character.AddItem(setLocation, PoolItem);
+
+                    // Remove the ItemModel just put on from the pool
+                    ItemPool.Remove(PoolItem);
+
+                    if (droppedItem != null)
+                    {
+                        // Add the dropped ItemModel to the pool
+                        ItemPool.Add(droppedItem);
+                    }
+                }
+            }
+
             return true;
         }
 
