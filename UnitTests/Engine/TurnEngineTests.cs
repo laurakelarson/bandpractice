@@ -389,6 +389,32 @@ namespace UnitTests.Engine
             Assert.AreEqual(2, result);
         }
 
+        // test random drop
+        [Test]
+        public void TurnEngine_DropItems_Monster_Items_0_Random_Drop_1_Should_Return_1()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Character.Id = "me";
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+            Engine.MakeEntityList();
+
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
+
+            // Act
+            var result = Engine.DropItems(Engine.EntityList
+                .Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+            Engine.StartBattle(false);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
         #endregion Mechanics
 
     }
