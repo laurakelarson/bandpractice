@@ -210,7 +210,7 @@ namespace Game.Models
             TotalExperience += experience;
 
             // can't level up beyond 20 so exit method 
-            if (Level > 20)
+            if (Level >= 20)
             {
                 return true;
             }
