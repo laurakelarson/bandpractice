@@ -125,7 +125,7 @@ namespace Game.Models
                             "Defense: " + Defense + ", " +
                             "Attack: " + Attack + ", " +
                             "Current Health: " + CurrentHealth + ", " +
-                            "Max Health: " + MaxHealth + ", ";
+                            "Max Health: " + MaxHealth;
 
             return myReturn.Trim();
         }
