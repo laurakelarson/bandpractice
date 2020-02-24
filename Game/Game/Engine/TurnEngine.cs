@@ -277,6 +277,8 @@ namespace Game.Engine
             switch (target.EntityType)
             {
                 case EntityTypeEnum.Character:
+                    DropItems(target);
+
                     var character = CharacterList.Where(a => a.Id == target.Id).FirstOrDefault();
 
                     CharacterList.Remove(character);
@@ -284,12 +286,12 @@ namespace Game.Engine
                     // Add the MonsterModel to the killed list
                     Score.CharacterAtDeathList += character.FormatOutput() + "\n";
 
-                    DropItems(target);
-
                     return true;
 
                 case EntityTypeEnum.Monster:
                 default:
+                    DropItems(target);
+
                     var monster = MonsterList.Where(a => a.Id == target.Id).FirstOrDefault();
 
                     MonsterList.Remove(monster);
@@ -299,8 +301,6 @@ namespace Game.Engine
 
                     // Add the MonsterModel to the killed list
                     Score.MonstersKilledList += monster.FormatOutput() + "\n";
-
-                    DropItems(target);
 
                     return true;
             }
