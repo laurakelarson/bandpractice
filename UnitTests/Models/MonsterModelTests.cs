@@ -114,5 +114,66 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(2, dataOriginal.Range);
         }
+
+        [Test]
+        public void MonsterModel_FormatOuput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual("Name , Speed : 1 , Defense : 1 , Attack : 1 , Range : 1", result);
+        }
+
+        [Test]
+        public void MonsterModel_ChangeLevel_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.ChangeLevel(10);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(10, data.Level);
+        }
+
+        [Test]
+        public void MonsterModel_ChangeLevel_LevelZero_Should_Fail()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.ChangeLevel(0);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void MonsterModel_ChangeLevel_LevelTwentyOne_Should_Fail()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.ChangeLevel(21);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
     }
 }
