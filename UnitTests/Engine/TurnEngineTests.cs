@@ -157,6 +157,24 @@ namespace UnitTests.Engine
             Assert.AreNotEqual(null, result);
         }
 
+        // case where there is no monster to select
+        [Test]
+        public void TurnEngine_SelectMonsterToAttack_InValid_Empty_List_Should_Fail()
+        {
+            // Arrange
+            var MonsterModel = new MonsterModel();
+            Engine.MonsterList = new List<MonsterModel>();
+
+            // Act
+            var result = Engine.SelectMonsterToAttack();
+
+            // Reset
+            Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
         #endregion Attack
 
     }
