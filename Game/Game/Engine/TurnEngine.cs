@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Game.Helpers;
 using Game.Models;
 using Game.Models.Enum;
 
@@ -23,8 +24,11 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TakeTurn(BattleEntityModel attacker)
         {
-            //TODO implement
-            return true;
+            var result = Attack(attacker);
+
+            Score.TurnCount++;
+
+            return result;
         }
 
         /// <summary>
@@ -44,13 +48,13 @@ namespace Game.Engine
             //// For Attack, Choose Who
             var target = AttackChoice(attacker);
 
-            //if (target == null)
-            //{
-            //    return false;
-            //}
+            if (target == null)
+            {
+                return false;
+            }
 
-            //// Do Attack
-            //TurnAsAttack(attacker, target);
+            // Do Attack
+            TurnAsAttack(attacker, target);
 
             CurrentAttacker = new BattleEntityModel(attacker);
             CurrentDefender = new BattleEntityModel(target);
@@ -242,7 +246,94 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Have the target drop all their items
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public int DropItems(BattleEntityModel Target)
+        {
+            // Drop Items to ItemModel Pool
+            //var myItemList = Target.DropAllItems();
 
+            //// I feel generous, even when characters die, random drops happen :-)
+            //// If Random drops are enabled, then add some....
+            //myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
+
+            //// Add to ScoreModel
+            //foreach (var ItemModel in myItemList)
+            //{
+            //    BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
+            //    BattleMessagesModel.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+            //}
+
+            //ItemPool.AddRange(myItemList);
+
+            //return myItemList.Count();
+
+            return 0;
+        }
+
+        /// <summary>
+        /// Roll to hit. Use BattleMessagesModel to convey what is happening.
+        /// </summary>
+        /// <param name="AttackScore"></param>
+        /// <param name="DefenseScore"></param>
+        /// <returns></returns>
+        public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
+        {
+            var d20 = DiceHelper.RollDice(1, 20);
+
+            if (d20 == 1)
+            {
+                // Force Miss
+                //BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                //return BattleMessagesModel.HitStatus;
+            }
+
+            if (d20 == 20)
+            {
+                // Force Hit
+                //BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+                //return BattleMessagesModel.HitStatus;
+            }
+
+            var ToHitScore = d20 + AttackScore;
+            if (ToHitScore < DefenseScore)
+            {
+                //BattleMessagesModel.AttackStatus = " misses ";
+                //// Miss
+                //BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
+                //BattleMessagesModel.DamageAmount = 0;
+                //return BattleMessagesModel.HitStatus;
+            }
+
+            // Hit
+            //BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+            //return BattleMessagesModel.HitStatus;
+
+            return HitStatusEnum.Hit;
+        }
+
+        /// <summary>
+        /// Will drop between 1 and 4 items from the ItemModel set...
+        /// </summary>
+        /// <param name="round"></param>
+        /// <returns></returns>
+        public List<ItemModel> GetRandomMonsterItemDrops(int round)
+        {
+            //TODO You decide how to drop monster items, level, etc.
+
+            var NumberToDrop = DiceHelper.RollDice(1, round);
+
+            var myList = new List<ItemModel>();
+
+            for (var i = 0; i < NumberToDrop; i++)
+            {
+                myList.Add(new ItemModel());
+            }
+            return myList;
+        }
 
     }
 }
