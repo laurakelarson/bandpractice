@@ -113,5 +113,44 @@ namespace UnitTests.Models
             Assert.AreEqual("items", result.ItemsDroppedList);
         }
 
+        [Test]
+        public void ScoreModel_Update_Default_Should_Pass()
+        {
+            // Arrange
+            ScoreModel dataOriginal = new ScoreModel();
+
+            ScoreModel dataNew = new ScoreModel();
+            dataNew.BattleNumber = 100;
+            dataNew.ScoreTotal = 200;
+            dataNew.GameDate = System.DateTime.MinValue;
+            dataNew.AutoBattle = true;
+            dataNew.TurnCount = 300;
+            dataNew.RoundCount = 400;
+            dataNew.MonsterSlainNumber = 500;
+            dataNew.ExperienceGainedTotal = 600;
+            dataNew.CharacterAtDeathList = "characters";
+            dataNew.MonstersKilledList = "monsters";
+            dataNew.ItemsDroppedList = "items";
+
+            // Act
+            var result = dataOriginal.Update(dataNew);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(100, dataOriginal.BattleNumber);
+            Assert.AreEqual(200, dataOriginal.ScoreTotal);
+            Assert.AreEqual(System.DateTime.MinValue, dataOriginal.GameDate);
+            Assert.AreEqual(true, dataOriginal.AutoBattle);
+            Assert.AreEqual(300, dataOriginal.TurnCount);
+            Assert.AreEqual(400, dataOriginal.RoundCount);
+            Assert.AreEqual(500, dataOriginal.MonsterSlainNumber);
+            Assert.AreEqual(600, dataOriginal.ExperienceGainedTotal);
+            Assert.AreEqual("characters", dataOriginal.CharacterAtDeathList);
+            Assert.AreEqual("monsters", dataOriginal.MonstersKilledList);
+            Assert.AreEqual("items", dataOriginal.ItemsDroppedList);
+        }
+
+
     }
 }
