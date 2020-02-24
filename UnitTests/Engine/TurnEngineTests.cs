@@ -113,6 +113,29 @@ namespace UnitTests.Engine
             Assert.AreEqual(null, result);
         }
 
+        // case where character list is null
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_InValid_Null_List_Should_Fail()
+        {
+            // Arrange
+            var CharacterModel = new CharacterModel();
+
+            // Remember the List
+            var saveList = Engine.CharacterList;
+
+            Engine.CharacterList = null;
+
+            // Act
+            var result = Engine.SelectCharacterToAttack();
+
+            // Reset
+            Engine.CharacterList = saveList;
+            Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
         #endregion Attack
 
     }
