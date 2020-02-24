@@ -200,7 +200,14 @@ namespace Game.Engine
         /// <returns></returns>
         public int GetAttack(BattleEntityModel attacker)
         {
-            return 0;
+            switch(attacker.EntityType)
+            {
+                case (EntityTypeEnum.Character):
+                    return CharacterList.Where(a => a.Id == attacker.Id).FirstOrDefault().GetAttackValue();
+                case (EntityTypeEnum.Monster):
+                default:
+                    return MonsterList.Where(a => a.Id == attacker.Id).FirstOrDefault().GetAttackValue();
+            }
         }
 
         /// <summary>
@@ -210,7 +217,15 @@ namespace Game.Engine
         /// <returns></returns>
         public int GetDefense(BattleEntityModel target)
         {
-            return 0;
+            switch (target.EntityType)
+            {
+                case (EntityTypeEnum.Character):
+                    var character = CharacterList.Where(a => a.Id == target.Id).FirstOrDefault();
+                    return character.Defense + character.Level + character.GetItemBonus(AttributeEnum.Defense);
+                case (EntityTypeEnum.Monster):
+                default:
+                    return target.Defense + target.Level;
+            }
         }
 
         /// <summary>
