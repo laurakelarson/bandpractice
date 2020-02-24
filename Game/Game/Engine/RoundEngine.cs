@@ -240,5 +240,54 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Checks what a character has equipped at a certain location.
+        /// If there is no item equipped there or if there is an item with a higher Value in the pool,
+        /// swaps the item.
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="setLocation"></param>
+        /// <returns></returns>
+        public bool GetItemFromPoolIfBetter(CharacterModel character, ItemLocationEnum setLocation)
+        {
+            var myList = ItemPool.Where(a => a.Location == setLocation)
+                .OrderByDescending(a => a.Value)
+                .ToList();
+
+            // If no items in the list, return...
+            if (!myList.Any())
+            {
+                return false;
+            }
+
+            var CharacterItem = character.GetItemByLocation(setLocation);
+            if (CharacterItem == null)
+            {
+                // If no ItemModel in the slot then put on the first in the list
+                character.AddItem(setLocation, myList.FirstOrDefault());
+                return true;
+            }
+
+            foreach (var PoolItem in myList)
+            {
+                if (PoolItem.Value > CharacterItem.Value)
+                {
+                    // Put on the new ItemModel, which drops the one back to the pool
+                    var droppedItem = character.AddItem(setLocation, PoolItem);
+
+                    // Remove the ItemModel just put on from the pool
+                    ItemPool.Remove(PoolItem);
+
+                    if (droppedItem != null)
+                    {
+                        // Add the dropped ItemModel to the pool
+                        ItemPool.Add(droppedItem);
+                    }
+                }
+            }
+
+            return true;
+        }
+
     }
 }
