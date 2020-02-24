@@ -168,6 +168,31 @@ namespace UnitTests.Models
             Assert.AreEqual(2, dataOriginal.TurnCount);
         }
 
+        [Test]
+        public void ScoreModel_AddToList_Default_Should_Pass()
+        {
+            // Arrange
+            var dataScore = new ScoreModel();
+
+            var data = new ItemModel
+            {
+                Name = "Item1",
+                Location = ItemLocationEnum.Feet,
+                Attribute = AttributeEnum.Attack,
+                Value = 1,
+                Range = 2,
+                Damage = 3
+            };
+
+            // Act
+            var result = dataScore.AddToList(data);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+            Assert.AreNotEqual(string.Empty, dataScore.ItemsDroppedList);
+        }
 
     }
 }
