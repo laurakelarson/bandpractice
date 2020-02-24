@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Engine\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Models\Enum\" />
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
