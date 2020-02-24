@@ -58,5 +58,21 @@ namespace UnitTests.Models
             Assert.AreEqual(@"<html><body bgcolor=""#E8D0B6""><p>", result.htmlHead);
             Assert.AreEqual(@"</p></body></html>", result.htmlTail);
         }
+
+        // Test GetSwingResult method
+        [Test]
+        public void BattleMessageModel_GetSwingResult_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+
+            // Act
+            var result = message.GetSwingResult();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
