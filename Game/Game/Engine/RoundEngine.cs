@@ -62,7 +62,7 @@ namespace Game.Engine
             // Have each character pickup items...
             foreach (var character in CharacterList)
             {
-                //PickupItemsFromPool(character);
+                PickupItemsFromPool(character);
             }
 
             // Reset Monster and Item Lists
@@ -234,9 +234,17 @@ namespace Game.Engine
         /// Character picks up dropped items
         /// </summary>
         /// <param name="character"></param>
-        public bool PickupItemsFromPool(BattleEntityModel character)
+        public bool PickupItemsFromPool(CharacterModel character)
         {
-            //TODO implement
+            // Go through each location to potentially swap out item from item pool
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
+            GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+
             return true;
         }
 
