@@ -101,5 +101,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(5, result);
         }
+
+        // Confirm LeadVocalist set to correct value
+        [Test]
+        public void CharacterTypeEnumTests_Default_LeadVocalist_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)CharacterTypeEnum.LeadVocalist;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(6, result);
+        }
     }
 }
