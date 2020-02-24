@@ -28,6 +28,7 @@ namespace Game.Views.Battle
 
 			string BattleMessage = "";
 
+			// CRASH HAPPENS HERE
 			var result = await Engine.RunAutoBattle();
 
 			var Score = Engine.GetScoreObject();
