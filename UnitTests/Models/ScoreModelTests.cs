@@ -223,5 +223,20 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void ScoreModel_AddToList_InValid_Monster_Null_Should_Fail()
+        {
+            // Arrange
+            var dataScore = new ScoreModel();
+            MonsterModel test = null;
+            // Act
+            var result = dataScore.AddToList(test);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
     }
 }
