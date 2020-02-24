@@ -312,5 +312,25 @@ namespace Game.Engine
             return HitStatusEnum.Hit;
         }
 
+        /// <summary>
+        /// Will drop between 1 and 4 items from the ItemModel set...
+        /// </summary>
+        /// <param name="round"></param>
+        /// <returns></returns>
+        public List<ItemModel> GetRandomMonsterItemDrops(int round)
+        {
+            //TODO You decide how to drop monster items, level, etc.
+
+            var NumberToDrop = DiceHelper.RollDice(1, round);
+
+            var myList = new List<ItemModel>();
+
+            for (var i = 0; i < NumberToDrop; i++)
+            {
+                myList.Add(new ItemModel());
+            }
+            return myList;
+        }
+
     }
 }
