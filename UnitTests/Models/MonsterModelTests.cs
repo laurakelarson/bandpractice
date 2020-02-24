@@ -114,5 +114,20 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(2, dataOriginal.Range);
         }
+
+        [Test]
+        public void MonsterModel_FormatOuput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual("Name , Speed : 1 , Defense : 1 , Attack : 1 , Range : 1", result);
+        }
     }
 }
