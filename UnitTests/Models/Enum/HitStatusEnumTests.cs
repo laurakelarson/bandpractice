@@ -146,5 +146,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(" misses ", result);
         }
+
+        // Confirm message for Critical Miss is correct
+        [Test]
+        public void HitStatusEnumExtensionsTests_CriticalMiss_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = HitStatusEnum.CriticalMiss.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(" misses really badly", result);
+        }
     }
 }
