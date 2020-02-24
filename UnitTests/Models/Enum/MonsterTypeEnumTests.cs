@@ -12,6 +12,7 @@ namespace UnitTests.Models.Enum
     [TestFixture]
     public class MonsterTypeEnumTests
     {
+        // Confirm enum values set correctly
         public void MonsterTypeEnumTests_Default_Values_Should_Pass()
         {
             // Arrange 
