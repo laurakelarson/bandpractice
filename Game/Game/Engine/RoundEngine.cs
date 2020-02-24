@@ -98,7 +98,7 @@ namespace Game.Engine
 
             // Decide Who gets next turn
             // Remember who just went...
-            //CurrentEntity = GetNextPlayerTurn();
+            CurrentEntity = GetNextPlayerTurn();
 
             // Do the turn....
             //TakeTurn(CurrentEntity);
@@ -108,7 +108,20 @@ namespace Game.Engine
             return RoundState;
         }
 
+        /// <summary>
+        /// Get the Next Player to have a turn
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel GetNextPlayerTurn()
+        {
+            // Recalculate Order
+            //OrderPlayerListByTurnOrder();
 
+            // Get Next Player
+            //var PlayerCurrent = GetNextPlayerInList();
+
+            return CurrentEntity;
+        }
 
         /// <summary>
         /// Character picks up dropped items
