@@ -182,5 +182,50 @@ namespace UnitTests.Engine
             Assert.AreEqual("me", result[0].Id);
         }
 
+        // test case where sort is broken by entity type (character before monster)
+        [Test]
+        public void RoundEngine_OrderPlayerListByType_EntityType_Should_Pass()
+        {
+            // Arrange
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 100,
+                ExperienceGiven = 1,
+                Name = "Z",
+                Id = "me"
+            };
+
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(Monster);
+
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 2,
+                TotalExperience = 1,
+                Name = "C",
+                Id = "c"
+            };
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Sort the list by Current Health, so it has to be resorted.
+            Engine.EntityList = Engine.EntityList.OrderBy(m => m.CurrentHealth).ToList();
+
+            // Act
+            var result = Engine.OrderEntityListByTurnOrder();
+
+            // Resets
+
+            // Assert
+            Assert.AreEqual("c", result[0].Id);
+        }
     }
 }
