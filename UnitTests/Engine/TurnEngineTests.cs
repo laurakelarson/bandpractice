@@ -95,6 +95,24 @@ namespace UnitTests.Engine
             Assert.AreEqual(false, result); // should be false since there's no one to attack
         }
 
+        // case where trying to select a character from empty character list
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_InValid_Empty_List_Should_Fail()
+        {
+            // Arrange
+            var CharacterModel = new CharacterModel();
+            Engine.CharacterList = new List<CharacterModel>();
+
+            // Act
+            var result = Engine.SelectCharacterToAttack();
+
+            // Reset
+            Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
         #endregion Attack
 
     }
