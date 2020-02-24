@@ -153,7 +153,7 @@ namespace Game.Engine
             EntityList = EntityList.OrderByDescending(a => a.Speed)
                 .ThenByDescending(a => a.Level)
                 .ThenByDescending(a => a.ExperiencePoints)
-                .ThenByDescending(a => a.EntityType)
+                .ThenBy(a => a.EntityType)
                 .ThenBy(a => a.Name)
                 .ThenBy(a => a.ListOrder)
                 .ToList();
