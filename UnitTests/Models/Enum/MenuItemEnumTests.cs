@@ -12,6 +12,7 @@ namespace UnitTests.Models.Enum
     [TestFixture]
     public class MenuItemEnumTests
     {
+        // Confirm MenuItemEnum values set correctly 
         [Test]
         public void MenuItemEnumTests_Default_Values_Should_Pass()
         {
