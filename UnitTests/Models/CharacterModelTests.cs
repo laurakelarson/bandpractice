@@ -186,5 +186,20 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void CharacterModel_Default_RollDamageDice_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+
+            // Act
+            var result = data.RollDamageDice();
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(1, result);
+        }
     }
 }
