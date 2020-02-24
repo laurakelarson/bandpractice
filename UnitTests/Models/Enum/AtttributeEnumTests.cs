@@ -22,5 +22,12 @@ namespace UnitTests.Models.Enum
             var result = (int)AttributeEnum.Speed;
             Assert.AreEqual(10, result);
         }
+
+        [Test]
+        public void AttributeEnumTests_Default_Defense_Should_Pass()
+        {
+            var result = (int)AttributeEnum.Defense;
+            Assert.AreEqual(12, result);
+        }
     }
 }
