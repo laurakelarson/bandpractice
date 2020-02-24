@@ -36,5 +36,12 @@ namespace UnitTests.Models.Enum
             var result = (int)AttributeEnum.Attack;
             Assert.AreEqual(14, result);
         }
+
+        [Test]
+        public void AttributeEnumTests_Default_CurrentHealth_Should_Pass()
+        {
+            var result = (int)AttributeEnum.CurrentHealth;
+            Assert.AreEqual(16, result);
+        }
     }
 }
