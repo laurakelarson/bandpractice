@@ -60,5 +60,29 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Location);
         }
 
+        [Test]
+        public void ItemModel_Set_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new ItemModel();
+            result.Value = 6;
+            result.Range = 7;
+            result.Damage = 8;
+            result.Attribute = AttributeEnum.Attack;
+            result.Location = ItemLocationEnum.Feet;
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(6, result.Value);
+            Assert.AreEqual(7, result.Range);
+            Assert.AreEqual(8, result.Damage);
+            Assert.AreEqual(AttributeEnum.Attack, result.Attribute);
+            Assert.AreEqual(ItemLocationEnum.Feet, result.Location);
+        }
+
+
     }
 }
