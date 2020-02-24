@@ -14,6 +14,9 @@ namespace Game.Models
         // Track the total experience this entity has earned or gives
         public int ExperiencePoints = 0;
 
+        // Number representing the entity's place in the battle list
+        public int ListOrder = 0;
+
         /// <summary>
         /// Constructor.
         /// </summary>
