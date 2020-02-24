@@ -41,5 +41,22 @@ namespace UnitTests.Models
             Assert.AreNotEqual("oldID", result.Id);
             Assert.AreEqual(200, result.TotalExperience);
         }
+
+        [Test]
+        public void CharacterModel_Get_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new CharacterModel();
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result.TotalExperience);
+            Assert.IsNotNull(result.Unlocked);
+            Assert.IsNotNull(result.Type);
+            Assert.IsNotNull(result.Level);
+        }
     }
 }
