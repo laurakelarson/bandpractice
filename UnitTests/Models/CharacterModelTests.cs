@@ -331,6 +331,26 @@ namespace UnitTests.Models
             Assert.IsNull(data.NecklassItem);
         }
 
+        [Test]
+        public void CharacterModel_RemovePrimaryHandItem_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.PrimaryHandItem = "hand";
+
+            // Act
+            var result = ItemIndexViewModel.Instance.GetItem(data.PrimaryHandItem);
+
+            var item = data.RemoveItem(ItemLocationEnum.PrimaryHand);
+            //var itemString = ItemListToStringConverter.Convert(item);
+
+            // Reset
+
+            // Assert 
+            //Assert.AreEqual("hand", result);
+            Assert.IsNull(data.PrimaryHandItem);
+        }
+
         #endregion
 
     }
