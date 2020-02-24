@@ -61,6 +61,7 @@ namespace Game.Models
 
             TurnCount = 0;
             RoundCount = 0;
+            TurnCount = 0;
             ExperienceGainedTotal = 0;
             MonsterSlainNumber = 0;
         }
@@ -123,7 +124,7 @@ namespace Game.Models
             {
                 return false;
             }
-
+            MonsterSlainNumber++;
             MonstersKilledList += data.FormatOutput() + "\n";
             return true;
         }

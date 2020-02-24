@@ -93,9 +93,11 @@
             <Label 
                 Text="Characters Final Stats:"
                 Style="{StaticResource LabelStyle}"/>
-            <Label 
-                Text="{Binding Data.CharacterAtDeathList}" 
-                Style="{StaticResource ValueStyle}"/>
+            <ScrollView Orientation="Vertical">
+                <Label 
+                    Text="{Binding Data.CharacterAtDeathList}" 
+                    Style="{StaticResource ValueStyle}"/>
+            </ScrollView>
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
