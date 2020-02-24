@@ -117,5 +117,20 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual(2, dataOriginal.Value);
         }
+
+        [Test]
+        public void ItemModel_FormatOuput_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
+
+            // Act
+            var result = data.FormatOutput();
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual("Name , Description for Unknown with Unknown+0 , Damage : 0 , Range : 0", result);
+        }
     }
 }
