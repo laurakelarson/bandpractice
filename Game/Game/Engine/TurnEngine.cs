@@ -48,13 +48,13 @@ namespace Game.Engine
             //// For Attack, Choose Who
             var target = AttackChoice(attacker);
 
-            //if (target == null)
-            //{
-            //    return false;
-            //}
+            if (target == null)
+            {
+                return false;
+            }
 
-            //// Do Attack
-            //TurnAsAttack(attacker, target);
+            // Do Attack
+            TurnAsAttack(attacker, target);
 
             CurrentAttacker = new BattleEntityModel(attacker);
             CurrentDefender = new BattleEntityModel(target);
