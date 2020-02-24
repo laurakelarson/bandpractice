@@ -129,5 +129,22 @@ namespace UnitTests.Models
             // Assert 
             Assert.AreEqual("Name , Speed : 1 , Defense : 1 , Attack : 1 , Range : 1", result);
         }
+
+        [Test]
+        public void MonsterModel_ChangeLevel_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.ChangeLevel(10);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(10, data.Level);
+        }
+
     }
 }
