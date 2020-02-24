@@ -99,7 +99,7 @@ namespace UnitTests.Models.Enum
             // Reset 
 
             // Assert
-            Assert.AreEqual(24, result);
+            Assert.AreEqual(30, result);
         }
     }
 }
