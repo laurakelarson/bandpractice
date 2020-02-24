@@ -417,5 +417,31 @@ namespace UnitTests.Engine
 
         #endregion Mechanics
 
+        #region Death
+
+        // case where character dies
+        [Test]
+        public void TurnEngine_TargetDied_Character_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Character.Id = "me";
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+            Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.TargetDied(Engine.EntityList
+                .Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+            Engine.StartBattle(false);
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        #endregion Death
+
     }
 }
