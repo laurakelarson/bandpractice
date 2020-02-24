@@ -1,4 +1,5 @@
 ﻿using Game.Engine;
+using Game.Helpers;
 using Game.Models;
 using Game.Models.Enum;
 using NUnit.Framework;
@@ -221,6 +222,31 @@ namespace UnitTests.Engine
         }
 
         #endregion Attack
+
+        #region Mechanics
+
+        // test roll to hit target results in Hit
+        [Test]
+        public void TurnEngine_RolltoHitTarget_Hit_Should_Pass()
+        {
+            // Arrange
+            var AttackScore = 10;
+            var DefenseScore = 0;
+
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(3); // Always roll a 3.
+
+            // Act
+            var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Hit, result);
+        }
+
+        #endregion Mechanics
 
     }
 }
