@@ -50,7 +50,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual("oldID", result.Id);
+            Assert.AreNotEqual("oldID", result.Id);
         }
 
         [Test]
