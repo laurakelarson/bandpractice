@@ -70,7 +70,7 @@ namespace UnitTests.Models
             result.Unlocked = false;
             result.HeadItem = "head";
             result.FeetItem = "feet";
-            result.BodyItem = "body";
+            result.NecklassItem = "body";
             result.PrimaryHandItem = "hand";
             result.OffHandItem = "offhand";
             result.RightFingerItem = "right";
@@ -82,7 +82,7 @@ namespace UnitTests.Models
             Assert.AreEqual(600, result.TotalExperience);
             Assert.AreEqual(false, result.Unlocked);
             Assert.AreEqual("head", result.HeadItem);
-            Assert.AreEqual("body", result.BodyItem);
+            Assert.AreEqual("body", result.NecklassItem);
             Assert.AreEqual("feet", result.FeetItem);
             Assert.AreEqual("hand", result.PrimaryHandItem);
             Assert.AreEqual("offhand", result.OffHandItem);

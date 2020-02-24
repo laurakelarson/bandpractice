@@ -67,7 +67,7 @@ namespace Game.Views.Characters
                 HeadLabel.Text = getItem.Name;
             }
 
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.BodyItem);
+            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.NecklassItem);
             if (getItem != null)
             {
                 BodyLabel.Text = getItem.Name;

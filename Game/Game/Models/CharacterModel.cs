@@ -28,7 +28,7 @@ namespace Game.Models
 
         // The item the character is currently wearing on their body
         // stored as the item guid/id foreign key
-        public string BodyItem { get; set; } = null;
+        public string NecklassItem { get; set; } = null;
 
         // The item the character is currently wearing on their feet
         // stored as the item guid/id foreign key
@@ -100,7 +100,7 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
             HeadItem = newData.HeadItem;
-            BodyItem = newData.BodyItem;
+            NecklassItem = newData.NecklassItem;
             FeetItem = newData.FeetItem;
             PrimaryHandItem = newData.PrimaryHandItem;
             OffHandItem = newData.OffHandItem;
@@ -329,7 +329,7 @@ namespace Game.Models
                     HeadItem = null;
                     return item;
                 case ItemLocationEnum.Necklass:
-                    BodyItem = null;
+                    NecklassItem = null;
                     return item;
                 case ItemLocationEnum.Feet:
                     FeetItem = null;
@@ -363,7 +363,7 @@ namespace Game.Models
                 case ItemLocationEnum.Head:
                     return ItemIndexViewModel.Instance.GetItem(HeadItem);
                 case ItemLocationEnum.Necklass:
-                    return ItemIndexViewModel.Instance.GetItem(BodyItem);
+                    return ItemIndexViewModel.Instance.GetItem(NecklassItem);
                 case ItemLocationEnum.Feet:
                     return ItemIndexViewModel.Instance.GetItem(FeetItem);
                 case ItemLocationEnum.PrimaryHand:
@@ -394,7 +394,7 @@ namespace Game.Models
                     HeadItem = item.Id;
                     return swap;
                 case ItemLocationEnum.Necklass:
-                    BodyItem = item.Id;
+                    NecklassItem = item.Id;
                     return swap;
                 case ItemLocationEnum.Feet:
                     FeetItem = item.Id;
