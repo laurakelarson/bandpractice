@@ -351,6 +351,26 @@ namespace UnitTests.Models
             Assert.IsNull(data.PrimaryHandItem);
         }
 
+        [Test]
+        public void CharacterModel_RemoveOffHandItem_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.OffHandItem = "offhand";
+
+            // Act
+            var result = ItemIndexViewModel.Instance.GetItem(data.OffHandItem);
+
+            var item = data.RemoveItem(ItemLocationEnum.OffHand);
+            //var itemString = ItemListToStringConverter.Convert(item);
+
+            // Reset
+
+            // Assert 
+            //Assert.AreEqual("offhand", result);
+            Assert.IsNull(data.OffHandItem);
+        }
+
         #endregion
 
     }
