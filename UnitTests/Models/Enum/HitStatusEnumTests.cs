@@ -56,5 +56,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(10, result);
         }
+
+        // Confirm Hit set to correct value
+        [Test]
+        public void HitStatusEnumTests_Default_Hit_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)HitStatusEnum.Hit;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(15, result);
+        }
     }
 }
