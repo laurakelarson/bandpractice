@@ -175,6 +175,30 @@ namespace UnitTests.Engine
             Assert.AreEqual(null, result);
         }
 
+        // case where monster list is null
+        [Test]
+        public void TurnEngine_SelectMonsterToAttack_InValid_Null_List_Should_Fail()
+        {
+            // Arrange
+
+            // Remember the List
+            var saveList = Engine.MonsterList;
+
+            Engine.MonsterList = null;
+
+            // Act
+            var result = Engine.SelectMonsterToAttack();
+
+            // Reset
+
+            // Restore the List
+            Engine.MonsterList = saveList;
+            Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
         #endregion Attack
 
     }
