@@ -282,6 +282,7 @@ namespace UnitTests.Engine
 
         #region Item swaps
 
+        // check that item swap works when location is empty
         [Test]
         public async Task RoundEngine_GetItemFromPoolIfBetter_Location_Empty_Should_Fail()
         {
@@ -328,6 +329,53 @@ namespace UnitTests.Engine
             Assert.AreEqual(item2.Id, Character.FeetItem);    // The 2nd item is better, so did they swap?
         }
 
-        #endregion Item swaps
+        // check item swap when better item is in pool
+        [Test]
+        public async Task RoundEngine_GetItemFromPoolIfBetter_Head_Better_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Z",
+                Id = "me"
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Head };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Head };
+
+            await ItemIndexViewModel.Instance.CreateAsync(item1);
+            await ItemIndexViewModel.Instance.CreateAsync(item2);
+
+            Engine.ItemPool.Add(item1);
+            Engine.ItemPool.Add(item2);
+
+            // Put the Item on the Character
+            Character.AddItem(ItemLocationEnum.Head, item1);
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+
+            var result = Engine.GetItemFromPoolIfBetter(Character, ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(item2.Id, Character.HeadItem);    // The 2nd item is better, so did they swap?
+        }
+
+            #endregion Item swaps
     }
 }
