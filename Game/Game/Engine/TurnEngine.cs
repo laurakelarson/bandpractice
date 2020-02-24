@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Game.Models;
+using Game.Models.Enum;
 
 namespace Game.Engine
 {
@@ -54,6 +56,56 @@ namespace Game.Engine
 
             return true;
         }
+
+
+        /// <summary>
+        /// Pick the Character to Attack
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel SelectCharacterToAttack()
+        {
+            if (CharacterList == null)
+            {
+                return null;
+            }
+
+            if (CharacterList.Count < 1)
+            {
+                return null;
+            }
+
+            // Select first in the list
+            var defender = CharacterList
+                .Where(m => m.Alive).FirstOrDefault();
+
+            return new BattleEntityModel(defender);
+        }
+
+        /// <summary>
+        /// Pick the Monster to Attack
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel SelectMonsterToAttack()
+        {
+            if (MonsterList == null)
+            {
+                return null;
+            }
+
+            if (MonsterList.Count < 1)
+            {
+                return null;
+            }
+
+            // Select first one to hit in the list for now...
+            // Attack the Weakness (lowest HP) MonsterModel first 
+            var defender = MonsterList
+                .Where(m => m.Alive)
+                .OrderBy(m => m.CurrentHealth).FirstOrDefault();
+
+            return new BattleEntityModel(defender);
+        }
+
 
     }
 }
