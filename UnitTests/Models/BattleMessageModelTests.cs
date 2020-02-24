@@ -189,5 +189,22 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        // Test for GetHTMLFormattedTurnMessage with Miss HitStatusEnum type. 
+        [Test]
+        public void BattleMessageModel_GetHTMLFormattedTurnMessage_HitStatus_Miss_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+            message.HitStatus = HitStatusEnum.Miss;
+
+            // Act
+            var result = message.GetHTMLFormattedTurnMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
