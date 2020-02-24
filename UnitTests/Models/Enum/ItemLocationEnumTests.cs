@@ -71,5 +71,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(20, result);
         }
+
+        // Confirm Off Hand set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_OffHand_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.OffHand;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(22, result);
+        }
     }
 }
