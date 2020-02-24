@@ -27,6 +27,7 @@
                 <ImageButton
                     Style="{StaticResource ImageButtonHome}"
                     Source="demotape_button.png"
+                    Clicked="Demotape_Button_Clicked"
                     HeightRequest="50"
                     WidthRequest="130"
                     />

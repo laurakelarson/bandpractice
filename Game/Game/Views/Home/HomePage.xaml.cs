@@ -1,5 +1,6 @@
 ﻿using Game.Models;
 using Game.ViewModels;
+using Game.Views.Battle;
 using Game.Views.Home;
 using System;
 using Xamarin.Forms;
@@ -51,9 +52,9 @@ namespace Game.Views
 			await Navigation.PushModalAsync(new NavigationPage(new HighScorePage(new GenericViewModel<ScoreModel>())));
 		}
 
-		/*public async void Demotape_Button_Clicked(object sender, EventArgs e)
+		public async void Demotape_Button_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new GamePage());
-		}*/
+			await Navigation.PushAsync(new AutoBattlePage());
+		}
 	}
 }
