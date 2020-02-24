@@ -363,32 +363,30 @@ namespace Game.Engine
             if (d20 == 1)
             {
                 // Force Miss
-                //BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                //return BattleMessagesModel.HitStatus;
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                return BattleMessages.HitStatus;
             }
 
             if (d20 == 20)
             {
                 // Force Hit
-                //BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-                //return BattleMessagesModel.HitStatus;
+                BattleMessages.HitStatus = HitStatusEnum.Hit;
+                return BattleMessages.HitStatus;
             }
 
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                //BattleMessagesModel.AttackStatus = " misses ";
-                //// Miss
-                //BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
-                //BattleMessagesModel.DamageAmount = 0;
-                //return BattleMessagesModel.HitStatus;
+                BattleMessages.AttackStatus = " misses ";
+                // Miss
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                BattleMessages.DamageAmount = 0;
+                return BattleMessages.HitStatus;
             }
 
             // Hit
-            //BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-            //return BattleMessagesModel.HitStatus;
-
-            return HitStatusEnum.Hit;
+            BattleMessages.HitStatus = HitStatusEnum.Hit;
+            return BattleMessages.HitStatus;
         }
 
         /// <summary>
