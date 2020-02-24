@@ -86,5 +86,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(4, result);
         }
+
+        // Confirm Guitarist set to correct value
+        [Test]
+        public void CharacterTypeEnumTests_Default_Guitarist_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)CharacterTypeEnum.Guitarist;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
     }
 }
