@@ -30,12 +30,20 @@ namespace UnitTests.Engine
         {
         }
 
+        // test constructor
         [Test]
-        public void TestMethod()
+        public void TurnEngine_Constructor_Default_Should_Pass()
         {
-            // TODO: Add your test code here
-            var answer = 42;
-            Assert.That(answer, Is.EqualTo(42), "Some useful error message");
+            // Arrange
+
+            // Act
+            var result = Engine;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
         }
+
     }
 }
