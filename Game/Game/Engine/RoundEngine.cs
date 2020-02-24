@@ -31,7 +31,18 @@ namespace Game.Engine
         /// <returns></returns>
         public bool NewRound()
         {
-            //TODO implement
+            // End the existing round
+            EndRound();
+
+            // Populate New Monsters...
+            AddMonstersToRound();
+
+            // Make the EntityList: monsters and characters who are alive
+            MakeEntityList();
+
+            // Update Score for the RoundCount
+            Score.RoundCount++;
+
             return true;
         }
 
