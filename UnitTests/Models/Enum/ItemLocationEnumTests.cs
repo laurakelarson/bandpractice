@@ -86,5 +86,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(22, result);
         }
+
+        // Confirm Finger set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_Finger_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.Finger;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(24, result);
+        }
     }
 }
