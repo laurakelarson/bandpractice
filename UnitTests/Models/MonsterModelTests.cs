@@ -146,5 +146,19 @@ namespace UnitTests.Models
             Assert.AreEqual(10, data.Level);
         }
 
+        [Test]
+        public void MonsterModel_ChangeLevel_LevelZero_Should_Fail()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            var result = data.ChangeLevel(0);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
     }
 }
