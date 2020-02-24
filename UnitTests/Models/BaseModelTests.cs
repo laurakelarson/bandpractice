@@ -12,6 +12,7 @@ namespace UnitTests.Models
     [TestFixture]
     public class BaseModelTests
     {
+        // Constructor test 
         [Test]
         public void BaseModel_Constructor_Default_Should_Pass()
         {
