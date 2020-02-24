@@ -136,6 +136,27 @@ namespace UnitTests.Engine
             Assert.AreEqual(null, result);
         }
 
+        // case where there is a character to select
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(new CharacterModel());
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.SelectCharacterToAttack();
+
+            // Reset
+            Engine.StartBattle(false);   // Clear the Engine
+
+            // Assert
+            Assert.AreNotEqual(null, result);
+        }
+
         #endregion Attack
 
     }
