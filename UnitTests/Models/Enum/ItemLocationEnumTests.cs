@@ -101,5 +101,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(30, result);
         }
+
+        // Confirm RightFinger set to correct value
+        [Test]
+        public void ItemLocationEnumTests_Default_RightFiner_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)ItemLocationEnum.RightFinger;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(31, result);
+        }
     }
 }
