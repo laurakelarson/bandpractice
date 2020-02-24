@@ -4,13 +4,120 @@
              x:Class="Game.Views.ScorePage">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            
-            <Label Text="Score Page..."></Label>
+        <ScrollView>
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+            Spacing="10">
 
-            <Button Clicked="CloseButton_Clicked" Text="Close"></Button>
+                <Label Text="GAME OVER" Style="{StaticResource HeaderCenterStyle}"/>
+                <Label Text="Battle History" Style="{StaticResource HeaderStyle}"/>
 
-        </StackLayout>
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                   Text="Battle ID : " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Name}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Manual/Auto:"
+                    Style="{StaticResource LabelStyle}"/>
+
+                    <Label 
+                    Text="{Binding Data.AutoBattle}"
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Rounds Completed:"                      
+                    Style="{StaticResource LabelStyle}"/>
+
+                    <Label 
+                    Text="{Binding Data.RoundCount}"
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+              
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Monsters Slain:"
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.MonsterSlainNumber}"
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                        <Label 
+                        Text="{Binding Data.MonstersKilledList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                    </ScrollView>
+                </Grid>
+
+                <Label 
+                Text="Items Dropped:"
+                Style="{StaticResource LabelStyle}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                        <Label 
+                        Text="{Binding Data.ItemsDroppedList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                    </ScrollView>
+                </Grid>
+
+                <Label 
+                Text="Characters Final Stats:"
+                Style="{StaticResource LabelStyle}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                        <Label 
+                        Text="{Binding Data.CharacterAtDeathList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                    </ScrollView>
+                </Grid>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Score:" 
+                    Style="{StaticResource HeaderStyle}"/>
+                    <Label 
+                    Text="{Binding Data.ScoreTotal}"
+                    Style="{StaticResource HeaderStyle}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Button Clicked="CloseButton_Clicked" Text="Backstage"></Button>
+                    <Button Clicked="HighScoreButton_Clicked" Text="High Score"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+       
         
     </ContentPage.Content>
 </ContentPage>
