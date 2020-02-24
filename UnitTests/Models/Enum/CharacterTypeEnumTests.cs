@@ -41,5 +41,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(1, result);
         }
+
+        // Confirm Bassist set to correct value
+        [Test]
+        public void CharacterTypeEnumTests_Default_Bassist_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)CharacterTypeEnum.Bassist;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
     }
 }
