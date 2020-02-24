@@ -11,11 +11,18 @@ using Game.Engine;
 
 namespace UnitTests.Engine
 {
+    /// <summary>
+    /// Unit tests for BattleEngine class
+    /// </summary>
     [TestFixture]
     public class BattleEngineTests
     {
+        // BattleEngine to use in testing
         BattleEngine Engine;
 
+        /// <summary>
+        /// Create a new BattleEngine
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
@@ -27,6 +34,7 @@ namespace UnitTests.Engine
         {
         }
 
+        // Test constructor
         [Test]
         public void BattleEngine_Constructor_Default_Should_Pass()
         {
@@ -41,6 +49,7 @@ namespace UnitTests.Engine
             Assert.IsNotNull(result);
         }
 
+        // Confirm AutoBattle argument is set
         [Test]
         public void BattleEngine_StartBattle_AutoMode_True_Should_Pass()
         {
@@ -56,6 +65,7 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, Engine.Score.AutoBattle);
         }
 
+        // Test EndBattle
         [Test]
         public void BattleEngine_EndBattle_Default_Should_Pass()
         {
@@ -70,6 +80,7 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        // Add a character (band member)
         [Test]
         public void BattleEngine_AddBandMember_Should_Pass()
         {
