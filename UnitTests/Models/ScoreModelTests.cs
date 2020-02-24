@@ -194,5 +194,20 @@ namespace UnitTests.Models
             Assert.AreNotEqual(string.Empty, dataScore.ItemsDroppedList);
         }
 
+        [Test]
+        public void ScoreModel_AddToList_InValid_Item_Null_Should_Fail()
+        {
+            // Arrange
+            var dataScore = new ScoreModel();
+            ItemModel test = null;
+            // Act
+            var result = dataScore.AddToList(test);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(false, result);
+        }
+
     }
 }
