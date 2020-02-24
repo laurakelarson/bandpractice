@@ -31,7 +31,18 @@ namespace Game.Engine
         /// <returns></returns>
         public bool NewRound()
         {
-            //TODO implement
+            // End the existing round
+            EndRound();
+
+            // Populate New Monsters...
+            AddMonstersToRound();
+
+            // Make the EntityList: monsters and characters who are alive
+            MakeEntityList();
+
+            // Update Score for the RoundCount
+            Score.RoundCount++;
+
             return true;
         }
 
@@ -101,7 +112,7 @@ namespace Game.Engine
             CurrentEntity = GetNextPlayerTurn();
 
             // Do the turn....
-            //TakeTurn(CurrentEntity);
+            TakeTurn(CurrentEntity);
 
             RoundState = RoundEnum.NextTurn;
 
@@ -139,13 +150,13 @@ namespace Game.Engine
             // Work with the Class variable EntityList
             EntityList = MakeEntityList();
 
-            //EntityList = EntityList.OrderByDescending(a => a.GetSpeed())
-            //    .ThenByDescending(a => a.Level)
-            //    .ThenByDescending(a => a.ExperiencePoints)
-            //    .ThenByDescending(a => a.PlayerType)
-            //    .ThenBy(a => a.Name)
-            //    .ThenBy(a => a.ListOrder)
-            //    .ToList();
+            EntityList = EntityList.OrderByDescending(a => a.Speed)
+                .ThenByDescending(a => a.Level)
+                .ThenByDescending(a => a.ExperiencePoints)
+                .ThenByDescending(a => a.EntityType)
+                .ThenBy(a => a.Name)
+                .ThenBy(a => a.ListOrder)
+                .ToList();
 
             return EntityList;
         }
@@ -159,7 +170,7 @@ namespace Game.Engine
             // Start from a clean list of players
             EntityList.Clear();
 
-            // Remeber the Insert order, used for Sorting
+            // Remember the Insert order, used for Sorting
             var ListOrder = 0;
 
             foreach (var data in CharacterList)
@@ -170,7 +181,7 @@ namespace Game.Engine
                         new BattleEntityModel(data)
                         {
                             // Remember the order
-                            //ListOrder = ListOrder //TODO ListOrder
+                            ListOrder = ListOrder
                         });
 
                     ListOrder++;
@@ -185,7 +196,7 @@ namespace Game.Engine
                         new BattleEntityModel(data)
                         {
                             // Remember the order
-                            //ListOrder = ListOrder
+                            ListOrder = ListOrder
                         });
 
                     ListOrder++;

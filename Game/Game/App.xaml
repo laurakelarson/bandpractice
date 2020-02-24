@@ -291,6 +291,7 @@
                 <Setter Property="FontAttributes" Value="None" />
                 <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}" />
             </Style>
+            
             <OnPlatform x:TypeArguments="x:String" x:Key="PixelSplitter">
                 <On Platform="Android" Value="PixelSplitter-Bold.ttf#Pixelsplitter" />
                 <On Platform="UWP" Value="/Assets/PixelSplitter-Bold.ttf#PixelSplitter" />
@@ -301,6 +302,11 @@
                 <On Platform="UWP" Value="/Assets/Pixelmania.ttf#Pixelmania" />
                 <On Platform="iOS" Value="Pixelmania" />
             </OnPlatform>
+            
+            <!-- ListView -->
+            <Style TargetType="ListView">
+                <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
+            </Style>
 
 
         </ResourceDictionary>
