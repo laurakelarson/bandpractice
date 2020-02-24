@@ -154,7 +154,7 @@ namespace UnitTests.Models
             // Arrange
             var data = new ItemModel();
 
-            DiceHelper.EnableRandomValues();
+            DiceHelper.DisableRandomValues();
             DiceHelper.SetForcedDiceRollValue(1);
 
             // Act
