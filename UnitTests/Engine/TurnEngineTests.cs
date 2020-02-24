@@ -2,6 +2,7 @@
 using Game.Helpers;
 using Game.Models;
 using Game.Models.Enum;
+using Game.ViewModels;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -355,6 +356,37 @@ namespace UnitTests.Engine
 
             // Assert
             Assert.AreEqual(0, result);
+        }
+
+        // case where character has two items
+        [Test]
+        public void TurnEngine_DropItems_Character_Items_2_Should_Return_2()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                HeadItem = ItemIndexViewModel.Instance.Dataset.FirstOrDefault().Id,
+                FeetItem = ItemIndexViewModel.Instance.Dataset.FirstOrDefault().Id,
+                Id = "me"
+            };
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+            Engine.MakeEntityList();
+
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(0);
+
+            // Act
+            var result = Engine.DropItems(Engine.EntityList
+                .Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+            Engine.StartBattle(false);
+
+            // Assert
+            Assert.AreEqual(2, result);
         }
 
         #endregion Mechanics
