@@ -291,5 +291,25 @@ namespace UnitTests.Models
             Assert.IsNull(data.HeadItem);
         }
 
+        [Test]
+        public void CharacterModel_RemoveFeetItem_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            data.FeetItem = "feet";
+
+            // Act
+            var result = ItemIndexViewModel.Instance.GetItem(data.FeetItem);
+
+            var item = data.RemoveItem(ItemLocationEnum.Feet);
+            //var itemString = ItemListToStringConverter.Convert(item);
+
+            // Reset
+
+            // Assert 
+            //Assert.AreEqual("feet", result);
+            Assert.IsNull(data.FeetItem);
+        }
+
     }
 }
