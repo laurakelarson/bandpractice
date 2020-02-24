@@ -24,8 +24,11 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TakeTurn(BattleEntityModel attacker)
         {
-            //TODO implement
-            return true;
+            var result = Attack(attacker);
+
+            Score.TurnCount++;
+
+            return result;
         }
 
         /// <summary>
