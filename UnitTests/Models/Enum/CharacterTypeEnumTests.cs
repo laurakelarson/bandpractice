@@ -26,5 +26,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(0, result);
         }
+
+        // Confirm TambourinePlayer set to correct value
+        [Test]
+        public void CharacterTypeEnumTests_Default_TambourinePlayer_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)CharacterTypeEnum.TambourinePlayer;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
     }
 }
