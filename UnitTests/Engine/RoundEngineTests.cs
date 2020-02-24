@@ -1,5 +1,6 @@
 ﻿using Game.Engine;
 using Game.Models;
+using Game.Models.Enum;
 using Game.ViewModels;
 using NUnit.Framework;
 using System;
@@ -491,6 +492,52 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual(true, result);
         }
+
+        // case where game is over because there are no alive characters
+        [Test]
+        public void RoundEngine_RoundNextTurn_No_Characters_Should_Return_GameOver()
+        {
+            // Arrange
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Character"
+            };
+
+            var Monster = new MonsterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster",
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            Engine.CharacterList.Clear();
+
+            // Don't add character to battle
+            //Engine.CharacterList.Add(new PlayerInfoModel(Character));
+
+            Engine.MonsterList.Add(Monster);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.RoundNextTurn();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(RoundEnum.GameOver, result);
+        }
+
 
         #endregion Round management
     }
