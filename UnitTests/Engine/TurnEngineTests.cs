@@ -246,6 +246,27 @@ namespace UnitTests.Engine
             Assert.AreEqual(HitStatusEnum.Hit, result);
         }
 
+        // case where roll results in miss
+        [Test]
+        public void TurnEngine_RolltoHitTarget_Miss_Should_Pass()
+        {
+            // Arrange
+            var AttackScore = 1;
+            var DefenseScore = 100;
+
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(2);
+
+            // Act
+            var result = Engine.RollToHitTarget(AttackScore, DefenseScore);
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+
+            // Assert
+            Assert.AreEqual(HitStatusEnum.Miss, result);
+        }
+
         #endregion Mechanics
 
     }
