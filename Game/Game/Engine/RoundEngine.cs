@@ -52,5 +52,23 @@ namespace Game.Engine
             return MonsterList.Count();
         }
 
+        /// <summary>
+        /// Ends the round by having characters pick up items and clearing the monster and item lists.
+        /// </summary>
+        /// <returns></returns>
+        public bool EndRound()
+        {
+            // Have each character pickup items...
+            foreach (var character in CharacterList)
+            {
+                //PickupItemsFromPool(character);
+            }
+
+            // Reset Monster and Item Lists
+            ClearLists();
+
+            return true;
+        }
+
     }
 }
