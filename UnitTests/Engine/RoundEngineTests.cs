@@ -769,6 +769,75 @@ namespace UnitTests.Engine
             Assert.AreEqual("Monster", result.Name);
         }
 
+        // case where Mike character should be next
+        [Test]
+        public void RoundEngine_GetNextPlayerInList_Monster_Should_Return_Mike()
+        {
+            // Arrange
+            var CharacterPlayerMike = new CharacterModel
+            {
+                Speed = 200,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Mike"
+            };
+
+            var CharacterPlayerDoug = new CharacterModel
+            {
+                Speed = 20,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Doug"
+            };
+
+            var CharacterPlayerSue = new CharacterModel
+            {
+                Speed = 2,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Sue"
+            };
+
+            var MonsterPlayer = new MonsterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster"
+            };
+
+            // Add each model here to warm up and load it.
+            Game.Helpers.DataSetsHelper.WarmUp();
+
+            Engine.CharacterList.Clear();
+
+            Engine.CharacterList.Add(CharacterPlayerMike);
+            Engine.CharacterList.Add(CharacterPlayerDoug);
+            Engine.CharacterList.Add(CharacterPlayerSue);
+
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(MonsterPlayer);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // List is Mike, Doug, Monster, Sue
+            Engine.CurrentEntity = new BattleEntityModel(MonsterPlayer);
+
+            // Act
+            var result = Engine.GetNextPlayerInList();
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual("Mike", result.Name);
+        }
+
         #endregion Get next player
     }
 }
