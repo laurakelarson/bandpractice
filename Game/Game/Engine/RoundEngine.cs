@@ -62,7 +62,7 @@ namespace Game.Engine
             // Have each character pickup items...
             foreach (var character in CharacterList)
             {
-                PickupItemsFromPool(character);
+                //PickupItemsFromPool(character);
             }
 
             // Reset Monster and Item Lists
@@ -195,6 +195,40 @@ namespace Game.Engine
             return EntityList;
         }
 
+        /// <summary>
+        /// Get the Information about the Player
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel GetNextPlayerInList()
+        {
+            // Walk the list from top to bottom
+            // If Player is found, then see if next player exist, if so return that.
+            // If not, return first player (looped)
+
+            // If List is empty, return null
+            if (EntityList.Count == 0)
+            {
+                return null;
+            }
+
+            // No current player, so set the first one
+            if (CurrentEntity == null)
+            {
+                return EntityList.FirstOrDefault();
+            }
+
+            // Find current player in the list
+            var index = EntityList.FindIndex(m => m.Id.Equals(CurrentEntity.Id));
+
+            // If at the end of the list, return the first element
+            if (index == EntityList.Count() - 1)
+            {
+                return EntityList.FirstOrDefault();
+            }
+
+            // Return the next element
+            return EntityList[index + 1];
+        }
 
         /// <summary>
         /// Character picks up dropped items
