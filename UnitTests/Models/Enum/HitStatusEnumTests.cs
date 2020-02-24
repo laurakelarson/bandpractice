@@ -41,5 +41,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(1, result);
         }
+
+        // Confirm Critical Miss set to correct value
+        [Test]
+        public void CriticalMissEnumTests_Default_Miss_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)HitStatusEnum.CriticalMiss;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(10, result);
+        }
     }
 }
