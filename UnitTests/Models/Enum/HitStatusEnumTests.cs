@@ -131,5 +131,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(" hits really hard ", result);
         }
+
+        // Confirm message for Miss is correct
+        [Test]
+        public void HitStatusEnumExtensionsTests_Miss_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = HitStatusEnum.Miss.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(" misses ", result);
+        }
     }
 }
