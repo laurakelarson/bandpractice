@@ -139,7 +139,7 @@ namespace UnitTests.Models.Enum
             // Arrange 
 
             // Act
-            var result = (int)ItemLocationEnum.LeftFinger;
+            var result = (int)ItemLocationEnum.Feet;
 
             // Reset 
 
