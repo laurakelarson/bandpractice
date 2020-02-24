@@ -91,5 +91,21 @@ namespace UnitTests.Models
 
             Assert.AreEqual(" for 0 damage ", result);
         }
+
+        // Test GetTurnMessage method
+        [Test]
+        public void BattleMessageModel_GetTurnMessage_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+
+            // Act
+            var result = message.GetTurnMessage();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
