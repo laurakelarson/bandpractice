@@ -99,6 +99,20 @@ namespace UnitTests.Models
             Assert.AreEqual(2, dataOriginal.Range);
         }
 
+        [Test]
+        public void MonsterModel_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var dataOriginal = new MonsterModel();
+            dataOriginal.Range = 2;
 
+            // Act
+            var result = dataOriginal.Update(null);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(2, dataOriginal.Range);
+        }
     }
 }
