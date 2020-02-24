@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Game.Models;
+using Game.Models.Enum;
 
 namespace Game.Engine
 {
@@ -70,7 +71,42 @@ namespace Game.Engine
             return true;
         }
 
+        /// <summary>
+        /// Manage the next turn in this round.
+        /// If no more players, game over.
+        /// If no more monsters, round is over.
+        /// Otherwise it's the next entity's turn.
+        /// </summary>
+        /// <returns></returns>
+        public RoundEnum RoundNextTurn()
+        {
+            // No characters, game is over...
+            if (CharacterList.Count < 1)
+            {
+                // Game Over
+                RoundState = RoundEnum.GameOver;
+                return RoundState;
+            }
 
+            // Check if round is over
+            if (MonsterList.Count < 1)
+            {
+                // If over, New Round
+                RoundState = RoundEnum.NewRound;
+                return RoundEnum.NewRound;
+            }
+
+            // Decide Who gets next turn
+            // Remember who just went...
+            //CurrentEntity = GetNextPlayerTurn();
+
+            // Do the turn....
+            //TakeTurn(CurrentEntity);
+
+            RoundState = RoundEnum.NextTurn;
+
+            return RoundState;
+        }
 
 
 
