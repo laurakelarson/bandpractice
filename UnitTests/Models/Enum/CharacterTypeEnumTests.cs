@@ -56,5 +56,20 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(2, result);
         }
+
+        // Confirm Keyboardist set to correct value
+        [Test]
+        public void CharacterTypeEnumTests_Default_Keyboardist_Should_Pass()
+        {
+            // Arrange 
+
+            // Act
+            var result = (int)CharacterTypeEnum.Keyboardist;
+
+            // Reset 
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
     }
 }
