@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Game.Helpers;
 using Game.Models;
 using NUnit.Framework;
 
@@ -189,6 +190,24 @@ namespace UnitTests.Models
 
             // Assert 
             Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void MonsterModel_Default_GetAttackValue_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+
+            // Act
+            DiceHelper.ForceConstantRoll = true;
+            DiceHelper.SetForcedDiceRollValue(1);
+            var result = data.GetAttackValue(); // roll + level
+
+            // Reset
+            DiceHelper.ForceConstantRoll = false;
+
+            // Assert 
+            Assert.AreEqual(2, result);
         }
     }
 }
