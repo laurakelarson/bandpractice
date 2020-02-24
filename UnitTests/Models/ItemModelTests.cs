@@ -148,6 +148,23 @@ namespace UnitTests.Models
             Assert.AreEqual(1, result);
         }
 
+        [Test]
+        public void ItemModel_ScaleLevel_ForcedVaue_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
 
+            DiceHelper.EnableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
+
+            // Act
+            var result = data.ScaleLevel(1);
+
+            // Reset
+            DiceHelper.DisableRandomValues();
+
+            // Assert 
+            Assert.AreEqual(1, result);
+        }
     }
 }
