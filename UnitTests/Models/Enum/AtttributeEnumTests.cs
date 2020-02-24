@@ -29,5 +29,12 @@ namespace UnitTests.Models.Enum
             var result = (int)AttributeEnum.Defense;
             Assert.AreEqual(12, result);
         }
+
+        [Test]
+        public void AttributeEnumTests_Default_Attack_Should_Pass()
+        {
+            var result = (int)AttributeEnum.Attack;
+            Assert.AreEqual(14, result);
+        }
     }
 }
