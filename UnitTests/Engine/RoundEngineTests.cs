@@ -227,5 +227,52 @@ namespace UnitTests.Engine
             // Assert
             Assert.AreEqual("c", result[0].Id);
         }
+
+
+        // test sort order when sort is broken by name
+        [Test]
+        public void RoundEngine_OrderPlayerListByTurnOrder_Name_A_Z_Should_Pass()
+        {
+            // Arrange
+            Engine.MonsterList.Clear();
+            var Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 100,
+                TotalExperience = 1,
+                Name = "Z",
+                Id = "me"
+            };
+
+            Engine.CharacterList.Clear();
+            Engine.CharacterList.Add(Character);
+
+            Character = new CharacterModel
+            {
+                Speed = 20,
+                Level = 20,
+                CurrentHealth = 2,
+                TotalExperience = 1,
+                Name = "ZZ",
+                Id = "c"
+            };
+
+            Engine.CharacterList.Add(Character);
+
+            // Make the List
+            Engine.EntityList = Engine.MakeEntityList();
+
+            // Sort the list by Current Health, so it has to be resorted.
+            Engine.EntityList = Engine.EntityList.OrderBy(m => m.CurrentHealth).ToList();
+
+            // Act
+            var result = Engine.OrderEntityListByTurnOrder();
+
+            // Resets
+
+            // Assert
+            Assert.AreEqual("me", result[0].Id);
+        }
     }
 }
