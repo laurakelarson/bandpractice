@@ -247,7 +247,7 @@ namespace Game.Engine
 
 
         /// <summary>
-        /// If Dead process Targed Died
+        /// If Dead process Target Died
         /// </summary>
         /// <param name="Target"></param>
         public bool RemoveIfDead(BattleEntityModel Target)
@@ -255,8 +255,7 @@ namespace Game.Engine
             // Check for alive
             if (Target.Alive == false)
             {
-                //TargedDied(Target);
-                return true;
+                TargetDied(Target);
             }
 
             return false;
@@ -265,9 +264,9 @@ namespace Game.Engine
         /// <summary>
         /// Process an entity's death.
         /// </summary>
-        /// <param name="Target"></param>
+        /// <param name="target"></param>
         /// <returns></returns>
-        public bool TargedDied(BattleEntityModel target)
+        public bool TargetDied(BattleEntityModel target)
         {
             // Mark Status in output
             BattleMessages.TurnMessageSpecial = " and causes death";
