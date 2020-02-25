@@ -60,48 +60,20 @@ namespace Game.Views.Characters
         /// </summary>
         public void DisplayItemNames()
         {
+            // walk through locations and display item name
+            HeadLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.HeadItem);
 
-            ItemModel getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.HeadItem);
-            if (getItem != null)
-            {
-                HeadLabel.Text = getItem.Name;
-            }
+            BodyLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.NecklassItem);
 
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.NecklassItem);
-            if (getItem != null)
-            {
-                BodyLabel.Text = getItem.Name;
-            }
+            PrimaryHandLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.PrimaryHandItem);
 
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.PrimaryHandItem);
-            if (getItem != null)
-            {
-                PrimaryHandLabel.Text = getItem.Name;
-            }
+            OffHandLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.OffHandItem);
 
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.OffHandItem);
-            if (getItem != null)
-            {
-                OffHandLabel.Text = getItem.Name;
-            }
+            RightFingerLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.RightFingerItem);
 
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.RightFingerItem);
-            if (getItem != null)
-            {
-                RightFingerLabel.Text = getItem.Name;
-            }
+            LeftFingerLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.LeftFingerItem);
 
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.LeftFingerItem);
-            if (getItem != null)
-            {
-                LeftFingerLabel.Text = getItem.Name;
-            }
-
-            getItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.FeetItem);
-            if (getItem != null)
-            {
-                FeetLabel.Text = getItem.Name;
-            }
+            FeetLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.FeetItem);
         }
     }
 }
