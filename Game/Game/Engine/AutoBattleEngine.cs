@@ -90,6 +90,9 @@ namespace Game.Engine
             // Wrap up
             EndBattle();
 
+            // Set Score Name
+            Score.Name = "Auto-Battle " + Score.GameDate.ToShortDateString();
+
             return true;
         }
     }
