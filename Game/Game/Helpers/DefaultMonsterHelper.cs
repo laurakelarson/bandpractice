@@ -106,6 +106,9 @@ namespace Game.Helpers
             result.Name = "Chomper";
             result.ImageURI = "monster_chomper.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Coffee");
+            result.ItemPocket3 = ConvertItemsList("Energy Drink");
             return result;
             
         }
