@@ -231,6 +231,7 @@
             <Style TargetType="StackLayout"
                 x:Key="OuterBoxStack"
                 BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
             </Style>
 
             <Style TargetType="StackLayout"
