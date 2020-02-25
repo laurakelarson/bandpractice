@@ -219,6 +219,8 @@ namespace Game.Engine
             character.AddExperience(experience);
             EntityList.Where(a => a.Id == character.Id).FirstOrDefault().Update(character);
 
+            // update score - both Experience and Total Score
+            Score.ScoreTotal += experience;
             Score.ExperienceGainedTotal += experience;
             return true;
         }
