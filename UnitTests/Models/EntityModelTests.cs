@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace UnitTests.Models
 {
+    /// <summary>
+    /// Entity model tests 
+    /// </summary>
     [TestFixture]
     class EntityModelTests
     {
+        // Wipe all data before tests 
         [TearDown]
         public async Task TearDown()
         {
