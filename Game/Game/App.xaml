@@ -72,11 +72,30 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="LabelStyle"
+                BasedOn="{StaticResource Xamarin.Forms.Label}">
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            
+            <Style TargetType="Label"
                    x:Key="ScrollableLabel"
                    BasedOn="{StaticResource Xamarin.Forms.Label}">
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
                 <Setter Property="FontSize" Value="Micro" />
                 <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="ValueStyle"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="PopupItemTextStyle"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
             
             <Style TargetType="Label"
@@ -105,18 +124,18 @@
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
-
+            
             <Style TargetType="Label"
-                x:Key="LabelStyle"
-                BasedOn="{StaticResource Xamarin.Forms.Label}">
-                <Setter Property="FontSize" Value="Small" />
+                x:Key="ValueStyleMicro"
+                BasedOn="{StaticResource ValueStyle}">
+                <Setter Property="FontSize" Value="Micro" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
-            <Style TargetType="Label"
-                x:Key="ValueStyle"
-                BasedOn="{StaticResource LabelStyle}">
-                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
-            </Style>
+            
+
+            
 
             <Style TargetType="Label"
                 x:Key="MessageStyle"
@@ -155,6 +174,8 @@
                 <Setter Property="WidthRequest" Value="30" />
                 <Setter Property="HeightRequest" Value="30" />
             </Style>
+
+            
 
             <!-- ImageButton -->
             <Style TargetType="ImageButton">
@@ -219,6 +240,13 @@
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="HeightRequest" Value="200" />
                 <Setter Property="WidthRequest" Value="200" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="ItemImageBox"
+                BasedOn="{StaticResource CardImageTextBox}">
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="WidthRequest" Value="80" />
             </Style>
 
             <!-- Frame -->
