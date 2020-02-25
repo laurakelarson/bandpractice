@@ -194,7 +194,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public string GetItemName(string id)
+        public string GetItemNameById(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
