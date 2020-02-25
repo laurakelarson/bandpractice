@@ -136,6 +136,9 @@ namespace Game.Helpers
             result.Name = "Motobeast";
             result.ImageURI = "monster_motobeast.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Earplugs");
+            result.ItemPocket3 = ConvertItemsList("Prank Doorbell");
             return result;
         }
 
