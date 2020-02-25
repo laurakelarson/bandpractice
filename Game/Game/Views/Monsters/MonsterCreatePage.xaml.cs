@@ -126,13 +126,13 @@ namespace Game.Views
 
 
 
-
+        #region item slot 1 popup methods
         /// <summary>
         /// Show the Popup for the Item
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopup(ItemModel data)
+        public bool ShowPopup1(ItemModel data)
         {
             PopupItemSelector1.IsVisible = true;
 
@@ -163,7 +163,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public StackLayout GetItemToDisplay()
+        public StackLayout GetItemToDisplay1()
         {
             var data = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.ItemPocket1);
             if (data == null)
@@ -180,7 +180,7 @@ namespace Game.Views
             };
 
             // Add a event to the user can click the item and see more
-            ItemButton.Clicked += (sender, args) => ShowPopup(data);
+            ItemButton.Clicked += (sender, args) => ShowPopup1(data);
 
             // Add the Display Text for the item
             var ItemLabel = new Label
@@ -206,7 +206,6 @@ namespace Game.Views
             return ItemStack;
         }
 
-        #region item slot 1 popup methods
         /// <summary>
         /// The row selected from the list
         /// </summary>
@@ -238,7 +237,7 @@ namespace Game.Views
                 ItemBox1.Children.Remove(data);
             }
 
-            ItemBox1.Children.Add(GetItemToDisplay());
+            ItemBox1.Children.Add(GetItemToDisplay1());
 
         }
 
@@ -266,6 +265,84 @@ namespace Game.Views
         #endregion
 
         #region item slot 2 popup methods
+        /// <summary>
+        /// Show the Popup for the Item
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopup2(ItemModel data)
+        {
+            PopupItemSelector2.IsVisible = true;
+
+            // Make a fake item for None
+            var NoneItem = new ItemModel
+            {
+                Id = null, // will use null to clear the item
+                ImageURI = "icon_cancel.png",
+                Name = "None",
+                Description = "None"
+            };
+
+            List<ItemModel> itemList = new List<ItemModel>
+            {
+                NoneItem
+            };
+
+            // Add the rest of the items to the list
+            itemList.AddRange(ItemIndexViewModel.Instance.Dataset);
+
+            // Populate the list with the items
+            PopupLocationItemListView2.ItemsSource = itemList;
+            return true;
+        }
+
+        /// <summary>
+        /// Look up the Item to Display
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout GetItemToDisplay2()
+        {
+            var data = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.ItemPocket2);
+            if (data == null)
+            {
+                // Show the Default Icon for the Location
+                data = new ItemModel { Location = ItemLocationEnum.Unknown, ImageURI = "icon_cancel.png" };
+            }
+
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ImageMediumStyle"],
+                Source = data.ImageURI
+            };
+
+            // Add a event to the user can click the item and see more
+            ItemButton.Clicked += (sender, args) => ShowPopup2(data);
+
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = "Item Pocket",
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 3,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Children = {
+                    ItemButton,
+                    ItemLabel
+                },
+            };
+
+            return ItemStack;
+        }
         /// <summary>
         /// The row selected from the list
         /// </summary>
@@ -297,7 +374,7 @@ namespace Game.Views
                 ItemBox2.Children.Remove(data);
             }
 
-            ItemBox2.Children.Add(GetItemToDisplay());
+            ItemBox2.Children.Add(GetItemToDisplay2());
 
         }
 
@@ -325,6 +402,84 @@ namespace Game.Views
         #endregion
 
         #region item slot 3 popup methods
+        /// <summary>
+        /// Show the Popup for the Item
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopup3(ItemModel data)
+        {
+            PopupItemSelector3.IsVisible = true;
+
+            // Make a fake item for None
+            var NoneItem = new ItemModel
+            {
+                Id = null, // will use null to clear the item
+                ImageURI = "icon_cancel.png",
+                Name = "None",
+                Description = "None"
+            };
+
+            List<ItemModel> itemList = new List<ItemModel>
+            {
+                NoneItem
+            };
+
+            // Add the rest of the items to the list
+            itemList.AddRange(ItemIndexViewModel.Instance.Dataset);
+
+            // Populate the list with the items
+            PopupLocationItemListView3.ItemsSource = itemList;
+            return true;
+        }
+
+        /// <summary>
+        /// Look up the Item to Display
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout GetItemToDisplay3()
+        {
+            var data = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.ItemPocket3);
+            if (data == null)
+            {
+                // Show the Default Icon for the Location
+                data = new ItemModel { Location = ItemLocationEnum.Unknown, ImageURI = "icon_cancel.png" };
+            }
+
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ImageMediumStyle"],
+                Source = data.ImageURI
+            };
+
+            // Add a event to the user can click the item and see more
+            ItemButton.Clicked += (sender, args) => ShowPopup3(data);
+
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = "Item Pocket",
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 3,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Children = {
+                    ItemButton,
+                    ItemLabel
+                },
+            };
+
+            return ItemStack;
+        }
         /// <summary>
         /// The row selected from the list
         /// </summary>
@@ -356,7 +511,7 @@ namespace Game.Views
                 ItemBox3.Children.Remove(data);
             }
 
-            ItemBox3.Children.Add(GetItemToDisplay());
+            ItemBox3.Children.Add(GetItemToDisplay3());
 
         }
 
