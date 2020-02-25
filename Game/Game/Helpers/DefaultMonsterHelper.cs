@@ -386,6 +386,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_rubber_chicken.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" });
+            result.ItemPocket1 = ConvertItemsList("Bunny Slippers");
+            result.ItemPocket2 = ConvertItemsList("Mood Ring");
+            result.ItemPocket3 = ConvertItemsList("Glockenspiel");
             return result;
         }
 
