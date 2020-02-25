@@ -38,6 +38,15 @@ namespace Game.Models
         // List of item IDs stored in string json format
         public string UniqueDrops { get; set; } = string.Empty;
 
+        // Item slot for one item that Monster is holding
+        public string ItemPocket1 { get; set; } = string.Empty;
+
+        // Item slot for one item that Monster is holding
+        public string ItemPocket2 { get; set; } = string.Empty;
+
+        // Item slot for one item that Monster is holding
+        public string ItemPocket3 { get; set; } = string.Empty;
+
         /// <summary>
         /// Default MonsterModel
         /// Establish the Default Image Path
