@@ -463,7 +463,7 @@ namespace Game.Engine
 
             for (var i = 0; i < NumberToDrop; i++)
             {
-                myList.Add(new ItemModel());
+                myList.Add(DefaultItemHelper.DefaultWhoopeeCushion());
             }
             return myList;
         }
