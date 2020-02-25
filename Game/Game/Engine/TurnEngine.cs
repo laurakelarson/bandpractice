@@ -183,13 +183,44 @@ namespace Game.Engine
             BattleMessages.TurnMessageSpecial = BattleMessages.GetCurrentHealthMessage();
             BattleMessages.AttackStatus = " attacks "; 
 
-            RemoveIfDead(target);
+            bool died = RemoveIfDead(target);
+
+            if (died)
+            {
+                AddExperience(attacker, target.ExperiencePoints);
+            }
 
             BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
             Debug.WriteLine(BattleMessages.TurnMessage);
 
             return true;
         }
+
+        /// <summary>
+        /// Process Experience Points gained from killing a monster.
+        /// Add to battle score and to the attacking character's experience.
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public bool AddExperience(BattleEntityModel entity, int experience)
+        {
+            if (entity == null)
+            {
+                return false;
+            }
+
+            if (entity.EntityType == EntityTypeEnum.Monster)
+            {
+                return false;
+            }
+
+            // character should gain experience
+            var character = CharacterList.Where(a => a.Id == entity.Id).FirstOrDefault();
+
+            Score.ExperienceGainedTotal += experience;
+            return true;
+        }
+
 
         /// <summary>
         /// Have the damage taken be reflected in the Character or Monster List
