@@ -122,6 +122,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_static.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" });
+            result.ItemPocket1 = ConvertItemsList("Coffee");
+            result.ItemPocket2 = ConvertItemsList("Coffee");
+            result.ItemPocket3 = ConvertItemsList("Microphone");
             return result;
         }
 
