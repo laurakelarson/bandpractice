@@ -401,6 +401,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_silence.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Theremin" });
+            result.ItemPocket1 = ConvertItemsList("Theremin");
+            result.ItemPocket2 = ConvertItemsList("Temporary Tattoo");
+            result.ItemPocket3 = ConvertItemsList("Comfy Sneakers");
             return result;
         }
 
@@ -424,18 +427,15 @@ namespace Game.Helpers
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        public static string ConvertItemsList(List<string> items)
+        public static string ConvertItemsList(string itemName)
         {
-            List<string> IDs = new List<string>();
-            foreach (string name in items)
+            if (itemName.Equals(string.Empty))
             {
-                var item = ItemIndexViewModel.Instance.GetItemByName(name);
-                if (item != null)
-                {
-                    IDs.Add(item.Id);
-                }
+                return string.Empty;
             }
-            string output = JsonConvert.SerializeObject(IDs);
+            var item = ItemIndexViewModel.Instance.GetItemByName(itemName);
+
+            string output = item.Id;
             return output;
         }
 
