@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Game.Helpers;
 using Game.Models;
 using Game.Models.Enum;
 
@@ -55,10 +56,12 @@ namespace Game.Engine
         {
             for (var i = 0; i < MaxNumberMonsters; i++)
             {
-                var data = new MonsterModel();
+                // for now, use default Massive Static
+                var data = DefaultMonsterHelper.DefaultMassiveStatic();
+
                 // Help identify which Monster it is
-                data.Name = "Monster" + (MonsterList.Count() + 1);
-                MonsterList.Add(new MonsterModel(data));
+                data.Name += " " + (i + 1);
+                MonsterList.Add(data);
             }
 
             return MonsterList.Count();
