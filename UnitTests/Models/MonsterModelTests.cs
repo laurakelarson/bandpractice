@@ -68,8 +68,9 @@ namespace UnitTests.Models
             result.ExperienceGiven = 600;
             result.Range = 7;
             result.Boss = false;
-            result.ItemsDropped = "items";
-            result.UniqueDrops = "unique";
+            result.ItemPocket1 = "item1";
+            result.ItemPocket2 = "item2";
+            result.ItemPocket3 = "item3";
 
             // Reset
 
@@ -77,8 +78,9 @@ namespace UnitTests.Models
             Assert.AreEqual(600, result.ExperienceGiven);
             Assert.AreEqual(7, result.Range);
             Assert.AreEqual(false, result.Boss);
-            Assert.AreEqual("items", result.ItemsDropped);
-            Assert.AreEqual("unique", result.UniqueDrops);
+            Assert.AreEqual("item1", result.ItemPocket1);
+            Assert.AreEqual("item2", result.ItemPocket2);
+            Assert.AreEqual("item3", result.ItemPocket3);
         }
 
         [Test]
