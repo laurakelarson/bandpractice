@@ -209,6 +209,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_driller.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" });
+            result.ItemPocket1 = ConvertItemsList("Energy Drink");
+            result.ItemPocket2 = ConvertItemsList("Tuning Fork");
+            result.ItemPocket3 = ConvertItemsList("Vuvuzela");
             return result;
         }
 
