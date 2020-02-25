@@ -83,18 +83,6 @@
 
                                 </StackLayout>
 
-                                <StackLayout Grid.Column="1" Grid.Row="3"
-                                    Orientation="Horizontal">
-
-                                    <Label 
-                                       Text="Guaranteed Drop:" 
-                                       Style="{StaticResource TinyLabel}" />
-
-                                    <Label Text="{Binding UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" 
-                                        Style="{StaticResource TinyLabel}"/>
-
-                                </StackLayout>
-
                                 </Grid>
                                 <BoxView
                                     BackgroundColor="{StaticResource TransparentColor}"
