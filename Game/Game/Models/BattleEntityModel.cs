@@ -81,6 +81,33 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Update the BattleEntityModel with new character stats.
+        /// For example, if a character levels up or gets new items that increase speed.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool Update(CharacterModel data)
+        {
+            // should not update a monster entity with a character
+            if (EntityType != EntityTypeEnum.Character)
+            {
+                return false;
+            }
+
+            // reflect updates in character stats
+            Alive = data.Alive;
+            ExperiencePoints = data.TotalExperience;
+            Level = data.Level;
+            Name = data.Name;
+            Description = data.Description;
+            Speed = data.Speed + data.GetItemBonus(AttributeEnum.Speed);
+            ImageURI = data.ImageURI;
+            CurrentHealth = data.CurrentHealth;
+            MaxHealth = data.MaxHealth;
+            return true;
+        }
+
+        /// <summary>
         /// ChangeLevel not currently implemented in this class
         /// </summary>
         /// <param name="levelValue"></param>
