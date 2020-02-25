@@ -341,6 +341,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_recorder_student.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Mood Ring", "Comfy Sneakers" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Golden Recorder", "Temporary Tattoo" });
+            result.ItemPocket1 = ConvertItemsList("Comfy Sneakers");
+            result.ItemPocket2 = ConvertItemsList("Golden Recorder");
+            result.ItemPocket3 = ConvertItemsList("Temporary Tattoo");
             return result;
         }
       
