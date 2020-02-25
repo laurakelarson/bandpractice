@@ -265,8 +265,11 @@ namespace Game.Helpers
             result.ChangeLevel(12);
             result.Name = "Piercing Feedback";
             result.ImageURI = "monster_feedback.png";
-           // result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
+            // result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" });
+            result.ItemPocket1 = ConvertItemsList("Energy Drink");
+            result.ItemPocket2 = ConvertItemsList("Band T-shirt");
+            result.ItemPocket3 = ConvertItemsList("Bagpipe");
             return result;
         }
 
