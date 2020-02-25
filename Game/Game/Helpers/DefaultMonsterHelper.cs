@@ -371,6 +371,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_chalkboard.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Athletic Socks" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Athletic Socks");
+            result.ItemPocket3 = ConvertItemsList("Bunny Slippers");
             return result;
         }
 
