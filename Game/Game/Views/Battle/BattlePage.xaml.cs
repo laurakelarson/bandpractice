@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -60,7 +62,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new ScorePage());
+			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>())));
 		}
 
 		/// <summary>

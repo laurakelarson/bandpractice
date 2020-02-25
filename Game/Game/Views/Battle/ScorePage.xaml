@@ -8,7 +8,7 @@
             <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
 
-                <Image Source="gameover.png" HorizontalOptions="CenterAndExpand"/>
+                <Image Source="gameover.png" HorizontalOptions="Center"/>
 
                 <Label Text="Battle History" Style="{StaticResource HeaderStyle}"/>
 
@@ -115,7 +115,7 @@
                 <StackLayout Orientation="Horizontal">
                     <ImageButton
                     Style="{StaticResource ImageButtonHome}"
-                    Source="backstage.png"
+                    Source="backstage_button.png"
                     Clicked="CloseButton_Clicked"
                     HorizontalOptions="CenterAndExpand"
                     Padding="3,5,0,5"

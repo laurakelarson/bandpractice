@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Game.Models;
+using Game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +44,7 @@ namespace Game.Views.Battle
 
             // save new score to data source
 			MessagingCenter.Send(this, "Create", Score);
-		}
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>())));
+        }
 	}
 }
