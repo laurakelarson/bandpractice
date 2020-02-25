@@ -27,6 +27,11 @@ namespace Game.Views.Monsters
         {
             InitializeComponent();
 
+            Item1Label.Text = "test1";
+            Item2Label.Text = "test2";
+            Item3Label.Text = "test3";
+
+
             BindingContext = this.ViewModel = data;
         }
 

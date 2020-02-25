@@ -79,16 +79,18 @@
 
             <Label Text="Item Drop" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Guaranteed Items:" Style="{StaticResource LabelStyle}" VerticalOptions="Start"/>
-                <Label Text="{Binding Data.UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}"
-                       Style="{StaticResource LabelStyle}" LineBreakMode="WordWrap"/>
-            </StackLayout>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                <Label Text="Possible Items:" Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.ItemsDropped, Converter={StaticResource ItemListToStringConverterKey}}" Style="{StaticResource LabelStyle}"/>
-            </StackLayout>
+            <Label Text="Guaranteed Items:" Style="{StaticResource LabelStyle}" VerticalOptions="Start"/>
+            <Label x:Name="Item1Label"
+                       Text="{Binding Data.Item1}"
+                       Style="{StaticResource LabelStyle}"/>
+            <Label x:Name="Item2Label"
+                       Text="{Binding Data.Item2}"
+                       Style="{StaticResource LabelStyle}"/>
+            <Label x:Name="Item3Label"
+                       Text="{Binding Data.Item3}"
+                       Style="{StaticResource LabelStyle}"/>
+
 
         </StackLayout>
         
