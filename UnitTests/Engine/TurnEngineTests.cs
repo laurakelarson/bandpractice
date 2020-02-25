@@ -612,7 +612,37 @@ namespace UnitTests.Engine
 
             Engine.MakeEntityList();
 
-            // Force a Miss
+            // Force a Hit
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            // Act
+            var result = Engine.TurnAsAttack(
+                Engine.EntityList.First(a => a.Id == Character.Id),
+                Engine.EntityList.First(a => a.Id == Monster.Id));
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        // case where character attacks monster, who dies
+        [Test]
+        public void TurnEngine_TurnAsAttack_Character_Attacks_Monster_Hit_Death_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Engine.CharacterList.Add(Character);
+
+            var Monster = new MonsterModel();
+            Monster.CurrentHealth = 1;
+            Engine.MonsterList.Add(Monster);
+
+            Engine.MakeEntityList();
+            
+            // Force a Hit
             DiceHelper.DisableRandomValues();
             DiceHelper.SetForcedDiceRollValue(20);
 
