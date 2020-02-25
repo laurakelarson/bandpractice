@@ -7,15 +7,14 @@
              x:Class="Game.Views.Battle.AutoBattlePage">
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
+            <Image Source="enterstage_button.png" HorizontalOptions="Center"/>
+            
             <StackLayout Style="{StaticResource CardImageTextBox}" VerticalOptions="CenterAndExpand">
-
-                <Image 
-                    Source="demotape.png" 
-                    HorizontalOptions="CenterAndExpand"/>
                 <ImageButton
-                        Source="enterstage_button.png"
-                        Clicked="AutobattleButton_Clicked"/>
-
+                    HorizontalOptions="CenterAndExpand"
+                    Source="demotape.png"
+                    Clicked="AutobattleButton_Clicked"/>
+                
             </StackLayout>
 
             <StackLayout Style="{StaticResource CardImageTextBox}">
