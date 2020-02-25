@@ -156,7 +156,6 @@ namespace Game.ViewModels
                 return null;
             }
 
-            // Item myData = DataStore.GetAsync_Item(ItemID).GetAwaiter().GetResult();
             ItemModel myData = Dataset.Where(a => a.Id.Equals(id)).FirstOrDefault();
             if (myData == null)
             {
