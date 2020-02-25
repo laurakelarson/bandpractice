@@ -238,6 +238,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_screaming_babe.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Cool Outfit");
+            result.ItemPocket3 = ConvertItemsList("Ocarina");
             return result;
         }
 
