@@ -658,6 +658,37 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        // case where monster attacks character, but misses
+        [Test]
+        public void TurnEngine_TurnAsAttack_Monster_Attacks_Character_Miss_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Engine.CharacterList.Add(Character);
+
+            var Monster = new MonsterModel();
+            Engine.MonsterList.Add(Monster);
+
+            Engine.MakeEntityList();
+
+            // Force a Miss
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
+
+            // Act
+            var result = Engine.TurnAsAttack(
+                Engine.EntityList.First(a => a.Id == Monster.Id),
+                Engine.EntityList.First(a => a.Id == Character.Id));
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+
+
         #endregion TurnAsAttack
 
     }
