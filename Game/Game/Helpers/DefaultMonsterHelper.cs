@@ -419,6 +419,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_gilbert.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" });
+            result.ItemPocket1 = ConvertItemsList("Rock Ock");
+            result.ItemPocket2 = ConvertItemsList("Glockenspiel");
+            result.ItemPocket3 = ConvertItemsList("Didgeridoo of Destruction");
             return result;
         }
 
