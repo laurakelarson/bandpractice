@@ -194,6 +194,9 @@ namespace Game.Helpers
             result.Name = "Brakez";
             result.ImageURI = "monster_brakez.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" });
+            result.ItemPocket1 = ConvertItemsList("Band T-shirt");
+            result.ItemPocket2 = ConvertItemsList("Whoopee Cushion");
+            result.ItemPocket3 = ConvertItemsList("Earmuffs");
             return result;
         }
 
