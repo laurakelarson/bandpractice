@@ -3,19 +3,26 @@ using Game.Models;
 using Game.ViewModels;
 using Game.Views.Monsters;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Game.Views
 {
     /// <summary>
     /// Create Monster
     /// </summary>
-   // [DesignTimeVisible(false)]
+    [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterCreatePage : ContentPage
     {
         // The Monster to create
         GenericViewModel<MonsterModel> ViewModel;
+
+        // Hold the current location selected
+        public ItemLocationEnum PopupLocationEnum = ItemLocationEnum.Unknown;
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -34,6 +41,33 @@ namespace Game.Views
             LevelPicker.SelectedItem = 1.ToString();
 
             this.ViewModel.Title = "Create";
+
+            AddItemsToDisplay();
+
+            //UpdatePageBindingContext();
+        }
+
+        /// <summary>
+        /// Redo the Binding to cause a refresh
+        /// </summary>
+        /// <returns></returns>
+        public bool UpdatePageBindingContext()
+        {
+            // Temp store off the difficulty
+            var level = this.ViewModel.Data.Level;
+
+            // Clear the Binding and reset it
+            BindingContext = null;
+            BindingContext = this.ViewModel;
+
+            ViewModel.Data.Level = level;
+
+            LevelPicker.SelectedItem = level.ToString();
+            //LevelPicker.SelectedIndex = LevelPicker.Items.IndexOf(LevelPicker.SelectedItem.ToString());
+
+            AddItemsToDisplay();
+
+            return true;
         }
 
         /// <summary>
@@ -112,16 +146,140 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Opens item selection modal page
+        /// The row selected from the list
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
-        async void Edit_Guaranteed_Items_Clicked(object sender, EventArgs e)
+        /// <param name="args"></param>
+        public void OnPopupItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            // Disable button until we can get CollectionView to work
-            //await Navigation.PushModalAsync(new NavigationPage(new MonsterItemSelection()));
+            ItemModel data = args.SelectedItem as ItemModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            ViewModel.Data.ItemPocket1 = data.Id;
+
+            AddItemsToDisplay();
+
+            ClosePopup();
+        }
+
+        /// <summary>
+        /// Show the Items the Character has
+        /// </summary>
+        public void AddItemsToDisplay()
+        {
+            var FlexList = ItemBox1.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox1.Children.Remove(data);
+
+            }
+
+            ItemBox1.Children.Add(GetItemToDisplay());
 
         }
 
+        /// <summary>
+        /// Look up the Item to Display
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout GetItemToDisplay()
+        {
+            var data = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.ItemPocket1);
+            if (data == null)
+            {
+                // Show the Default Icon for the Location
+                data = new ItemModel { Location = ItemLocationEnum.Unknown, ImageURI = "icon_cancel.png" };
+            }
+
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ImageMediumStyle"],
+                Source = data.ImageURI
+            };
+
+            // Add a event to the user can click the item and see more
+            ItemButton.Clicked += (sender, args) => ShowPopup(data);
+
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = "Item Pocket",
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 3,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Children = {
+                    ItemButton,
+                    ItemLabel
+                },
+            };
+
+            return ItemStack;
+        }
+
+        /// <summary>
+        /// Show the Popup for the Item
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopup(ItemModel data)
+        {
+            PopupItemSelector.IsVisible = true;
+
+            // Make a fake item for None
+            var NoneItem = new ItemModel
+            {
+                Id = null, // will use null to clear the item
+                ImageURI = "icon_cancel.png",
+                Name = "None",
+                Description = "None"
+            };
+
+            List<ItemModel> itemList = new List<ItemModel>
+            {
+                NoneItem
+            };
+
+            // Add the rest of the items to the list
+            itemList.AddRange(ItemIndexViewModel.Instance.Dataset);
+
+            // Populate the list with the items
+            PopupLocationItemListView.ItemsSource = itemList;
+            return true;
+        }
+
+        /// <summary>
+        /// When the user clicks the close in the Popup
+        /// hide the view
+        /// show the scroll view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopup_Clicked(object sender, EventArgs e)
+        {
+            ClosePopup();
+        }
+
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        public void ClosePopup()
+        {
+            PopupItemSelector.IsVisible = false;
+        }
+
     }
+
 }

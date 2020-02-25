@@ -26,97 +26,190 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
+        <AbsoluteLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
 
-        <ScrollView>
-            <StackLayout Style="{StaticResource OuterBoxStack}"
-                Spacing="10">
+            <StackLayout Style="{StaticResource VerticalStack}"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    AbsoluteLayout.LayoutFlags="All">
+                <ScrollView>
+                    <StackLayout Style="{StaticResource OuterBoxStack}"
+                    Spacing="10">
 
-                <Image x:Name="IconImage"
-                   Source="{Binding Data.ImageURI}">
-                    </Image>
+                        <Image x:Name="IconImage"
+                       Source="{Binding Data.ImageURI}">
+                        </Image>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Name" 
-                        Style="{StaticResource LabelStyle}"/>
-
-                        <Entry Text="{Binding Data.Name}" 
-                        Style="{StaticResource EntryStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Type" 
-                        Style="{StaticResource LabelStyle}"/>
-
-                        <Picker
-                         ItemsSource="{x:Static local_helpers:DefaultMonsterHelper.GetListMonsterType}"
-                         SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                         x:Name="MonsterTypePicker" SelectedIndexChanged="Changed_MonsterTypePicker" />
-
-                    </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Level" 
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Name" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Picker 
-                         SelectedItem="{Binding Data.Level, Converter={StaticResource IntString}, Mode=TwoWay}" 
-                         x:Name="LevelPicker" SelectedIndexChanged="Changed_MonsterLevelPicker" /> 
+                            <Entry Text="{Binding Data.Name}" 
+                            Style="{StaticResource EntryStyle}"/>
+                        </StackLayout>
 
-                </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Type" 
+                            Style="{StaticResource LabelStyle}"/>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="LevelLabel"
-                       Text="{Binding Data.Level}"
-                       Style="{StaticResource LabelStyle}"/>
+                            <Picker
+                             ItemsSource="{x:Static local_helpers:DefaultMonsterHelper.GetListMonsterType}"
+                             SelectedItem="{Binding Data.Type, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                             x:Name="MonsterTypePicker" SelectedIndexChanged="Changed_MonsterTypePicker" />
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Level" 
+                                Style="{StaticResource LabelStyle}"/>
+
+                            <Picker 
+                             SelectedItem="{Binding Data.Level, Converter={StaticResource IntString}, Mode=TwoWay}" 
+                             x:Name="LevelPicker" SelectedIndexChanged="Changed_MonsterLevelPicker" />
+
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Level:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="LevelLabel"
+                           Text="{Binding Data.Level}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="ExperienceLabel"
+                           Text="{Binding Data.ExperienceGiven}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <Label Text="Stats" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="MaxHealthLabel"
+                           Text="{Binding Data.MaxHealth}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="Defense:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="DefenseLabel"
+                           Text="{Binding Data.Defense}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="Attack:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="AttackLabel"
+                           Text="{Binding Data.Attack}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="Speed:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="SpeedLabel"
+                           Text="{Binding Data.Speed}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="Range:" Style="{StaticResource LabelStyle}"/>
+                            <Label x:Name="RangeLabel"
+                           Text="{Binding Data.Range}"
+                           Style="{StaticResource LabelStyle}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <FlexLayout 
+                            Padding="5"
+                            Wrap="Wrap"
+                            JustifyContent="SpaceAround"
+                            AlignContent="SpaceAround"
+                            x:Name="ItemBox1">
+                            </FlexLayout>
+                            
+                        </StackLayout>
+
+
                     </StackLayout>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Experience:" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="ExperienceLabel"
-                       Text="{Binding Data.ExperienceGiven}"
-                       Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <Label Text="Stats" Style="{StaticResource LabelStyle}" FontAttributes="Bold"/>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                        <Label Text="Max Health:" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="MaxHealthLabel"
-                       Text="{Binding Data.MaxHealth}"
-                       Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                        <Label Text="Defense:" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="DefenseLabel"
-                       Text="{Binding Data.Defense}"
-                       Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                        <Label Text="Attack:" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="AttackLabel"
-                       Text="{Binding Data.Attack}"
-                       Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Speed:" Style="{StaticResource LabelStyle}"/>
-                    <Label x:Name="SpeedLabel"
-                       Text="{Binding Data.Speed}"
-                       Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
-                    <Label Text="Range:" Style="{StaticResource LabelStyle}"/>
-                    <Label x:Name="RangeLabel"
-                       Text="{Binding Data.Range}"
-                       Style="{StaticResource LabelStyle}"/>
-                </StackLayout>
-
-
+                </ScrollView>
             </StackLayout>
-        </ScrollView>
+
+            <!--The Item Popup-->
+            <ContentView x:Name="PopupItemSelector" 
+                 BackgroundColor="{StaticResource PageBackgroundColor}" 
+                 IsVisible="false" 
+                 AbsoluteLayout.LayoutBounds=".75, .75,.75,.75" 
+                 AbsoluteLayout.LayoutFlags="All">
+
+                <StackLayout 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="300"
+                    HeightRequest="300"
+                    >
+
+                    <Frame  BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                            <Label x:Name="PopupLocationLabel" Style="{StaticResource PopupItemTextStyle}" />
+                            <Label x:Name="PopupLocationValue" Style="{StaticResource PopupItemTextStyle}" />
+
+                            <ListView x:Name="PopupLocationItemListView" 
+                                CachingStrategy="RecycleElement"
+                                ItemSelected="OnPopupItemSelected"
+                                HasUnevenRows="true"
+                                Margin="5,0,5,0"
+                                RowHeight="80"
+                                >
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid ColumnSpacing="5" RowSpacing="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            Source="{Binding ImageURI}"
+                                            Style="{StaticResource ImageSmallStyle}"
+                                            VerticalOptions="CenterAndExpand"/>
+
+                                                <Label Grid.Column="1" Grid.Row="0"
+                                            Text="{Binding Name}" 
+                                            Style="{StaticResource ListStyle}"/>
+
+                                                <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                                                    <Label Text="{Binding Attribute}" Style="{StaticResource ListStyle}"/>
+                                                    <Label Text="{Binding Value}" Style="{StaticResource ListStyle}"/>
+                                                </StackLayout>
+
+                                                <Label Grid.Column="1" Grid.Row="2"
+                                                Text="{Binding Description}" 
+                                                Style="{StaticResource ListStyle}"
+                                                FontSize="Micro"/>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <Button x:Name="PopupCloseButton" 
+                                Clicked="ClosePopup_Clicked" 
+                                Text="Close"/>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
