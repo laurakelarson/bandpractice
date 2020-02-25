@@ -61,6 +61,7 @@ namespace Game.Engine
             CharacterModel data = DataHelper.DefaultTambourine();
             for (int i = CharacterList.Count(); i < MaxNumberCharacters; i++)
             {
+                data.Name = "TambourinePlayer" + i.ToString();
                 AddBandMember(data);
             }
 
