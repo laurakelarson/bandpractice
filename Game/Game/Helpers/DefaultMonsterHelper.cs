@@ -105,7 +105,7 @@ namespace Game.Helpers
             result.ChangeLevel(1);
             result.Name = "Chomper";
             result.ImageURI = "monster_chomper.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
             return result;
             
         }
@@ -120,8 +120,8 @@ namespace Game.Helpers
             result.ChangeLevel(2);
             result.Name = "Massive Static";
             result.ImageURI = "monster_static.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" });
             return result;
         }
 
@@ -135,7 +135,7 @@ namespace Game.Helpers
             result.ChangeLevel(3);
             result.Name = "Motobeast";
             result.ImageURI = "monster_motobeast.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
             return result;
         }
 
@@ -149,8 +149,8 @@ namespace Game.Helpers
             result.ChangeLevel(4);
             result.Name = "Kazoom";
             result.ImageURI = "monster_kazoom.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" });
             return result;
         }
 
@@ -164,7 +164,7 @@ namespace Game.Helpers
             result.ChangeLevel(5);
             result.Name = "Panpot";
             result.ImageURI = "monster_potpan.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" });
             return result;
         }
 
@@ -178,8 +178,8 @@ namespace Game.Helpers
             result.ChangeLevel(6);
             result.Name = "Jackhammer";
             result.ImageURI = "monster_jackhammer.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" });
             return result;
         }
 
@@ -193,7 +193,7 @@ namespace Game.Helpers
             result.ChangeLevel(7);
             result.Name = "Brakez";
             result.ImageURI = "monster_brakez.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" });
             return result;
         }
 
@@ -207,8 +207,8 @@ namespace Game.Helpers
             result.ChangeLevel(8);
             result.Name = "Driller";
             result.ImageURI = "monster_driller.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" });
             return result;
         }
 
@@ -222,7 +222,7 @@ namespace Game.Helpers
             result.ChangeLevel(8);
             result.Name = "Alarmer";
             result.ImageURI = "monster_alarm.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" });
             return result;
         }
 
@@ -236,8 +236,8 @@ namespace Game.Helpers
             result.ChangeLevel(10);
             result.Name = "Shrill Babe";
             result.ImageURI = "monster_screaming_babe.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" });
             return result;
         }
 
@@ -251,7 +251,7 @@ namespace Game.Helpers
             result.ChangeLevel(11);
             result.Name = "Buzz Rowdy";
             result.ImageURI = "monster_buzz.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" });
             return result;
         }
 
@@ -265,8 +265,8 @@ namespace Game.Helpers
             result.ChangeLevel(12);
             result.Name = "Piercing Feedback";
             result.ImageURI = "monster_feedback.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" });
+           // result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" });
             return result;
         }
 
@@ -280,8 +280,8 @@ namespace Game.Helpers
             result.ChangeLevel(13);
             result.Name = "Fran Drescher";
             result.ImageURI = "monster_fran.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" });
             return result;
         }
 
@@ -295,7 +295,7 @@ namespace Game.Helpers
             result.ChangeLevel(14);
             result.Name = "Yowling Feline Monster";
             result.ImageURI = "monster_cat.png";
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" });
             return result;          
         }
 
@@ -309,8 +309,8 @@ namespace Game.Helpers
             result.ChangeLevel(15);
             result.Name = "Nickelback";
             result.ImageURI = "monster_nickelback.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" });
             return result;
         }
 
@@ -324,8 +324,8 @@ namespace Game.Helpers
             result.ChangeLevel(15);
             result.Name = "Lloyd Christmas";
             result.ImageURI = "monster_lloyd_christmas.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Ring", "Athletic Socks" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers", "Keytar" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Ring", "Athletic Socks" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers", "Keytar" });
             return result;
         }
 
@@ -339,8 +339,8 @@ namespace Game.Helpers
             result.ChangeLevel(16);
             result.Name = "Recorder Apprentice";
             result.ImageURI = "monster_recorder_student.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Mood Ring", "Comfy Sneakers" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Golden Recorder", "Temporary Tattoo" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Mood Ring", "Comfy Sneakers" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Golden Recorder", "Temporary Tattoo" });
             return result;
         }
       
@@ -354,8 +354,8 @@ namespace Game.Helpers
             result.ChangeLevel(17);
             result.Name = "Airhorn Leviathan";
             result.ImageURI = "monster_airhorn.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" });
             return result;
         }
 
@@ -369,8 +369,8 @@ namespace Game.Helpers
             result.ChangeLevel(18);
             result.Name = "Earsplitting Nails on Chalkboard";
             result.ImageURI = "monster_chalkboard.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Athletic Socks" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Athletic Socks" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers" });
             return result;
         }
 
@@ -384,8 +384,8 @@ namespace Game.Helpers
             result.ChangeLevel(19);
             result.Name = "Rubber Chicken Blob";
             result.ImageURI = "monster_rubber_chicken.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" });
             return result;
         }
 
@@ -399,8 +399,8 @@ namespace Game.Helpers
             result.ChangeLevel(19);
             result.Name = "Agonizing Silence";
             result.ImageURI = "monster_silence.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Theremin" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Theremin" });
             return result;
         }
 
@@ -414,8 +414,8 @@ namespace Game.Helpers
             result.ChangeLevel(20);
             result.Name = "Gilbert Gottfried";
             result.ImageURI = "monster_gilbert.png";
-            result.ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" });
-            result.UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" });
+            //result.ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" });
+            //result.UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" });
             return result;
         }
 
