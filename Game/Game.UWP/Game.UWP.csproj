@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="backstage.png" />
     <Content Include="bassist.png" />
     <Content Include="bassist_icon.png" />
     <Content Include="battleboard.jpg" />
@@ -121,6 +122,7 @@
     <Content Include="drummer_icon.png" />
     <Content Include="dungeon_door.png" />
     <Content Include="encyclopedia_button.png" />
+    <Content Include="enterstage.png" />
     <Content Include="enter_button.png" />
     <Content Include="gameover.png" />
     <Content Include="grey_door.png" />
@@ -192,6 +194,7 @@
     <Content Include="monster_screaming_babe.png" />
     <Content Include="monster_silence.png" />
     <Content Include="monster_static.png" />
+    <Content Include="nextround.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -227,6 +230,7 @@
     <Content Include="splashscreen.jpg" />
     <Content Include="tambourine.png" />
     <Content Include="tambourine_icon.png" />
+    <Content Include="tape.png" />
     <Content Include="tape_button.png" />
     <Content Include="troll.png" />
     <Content Include="village.jpg" />
