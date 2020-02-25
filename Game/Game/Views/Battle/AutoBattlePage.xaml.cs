@@ -44,7 +44,7 @@ namespace Game.Views.Battle
 
             // save new score to data source
 			MessagingCenter.Send(this, "Create", Score);
-            await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>())));
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(), Score)));
         }
 	}
 }

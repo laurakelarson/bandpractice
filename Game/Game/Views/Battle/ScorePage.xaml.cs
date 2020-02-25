@@ -13,19 +13,20 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ScorePage: ContentPage
 	{
-		readonly ScoreModel score;
+
 		// View Model for Score
 		readonly GenericViewModel<ScoreModel> ViewModel;
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public ScorePage (GenericViewModel<ScoreModel> data)
+		public ScorePage (GenericViewModel<ScoreModel> data, ScoreModel score)
 		{
 
 			InitializeComponent ();
+			data.Data = score;
 			BindingContext = this.ViewModel = data;
-			//this.score = score;
+			
 		}
 
 		/// <summary>

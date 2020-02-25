@@ -62,7 +62,8 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>())));
+			// need Score object to pass to score page
+			//await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(), )));
 		}
 
 		/// <summary>
