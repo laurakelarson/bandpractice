@@ -449,4 +449,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\default_sprite.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nextround.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backstage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\enterstage.png" />
+  </ItemGroup>
 </Project>
