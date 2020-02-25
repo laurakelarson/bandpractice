@@ -26,16 +26,16 @@ namespace Game.Views.Battle
 
 			var Engine = new Game.Engine.AutoBattleEngine();
 
-			string BattleMessage = "";
-
-			// CRASH HAPPENS HERE
-			var result = await Engine.RunAutoBattle();
+			await Engine.RunAutoBattle();
 
 			var Score = Engine.GetScoreObject();
 
-			BattleMessage = string.Format("Done {0} Rounds", Score.RoundCount);
+			string BattleMessage = string.Format("Done {0} Rounds", Score.RoundCount);
 
 			BattleMessageValue.Text = BattleMessage;
+
+            // save new score to data source
+			MessagingCenter.Send(this, "Create", Score);
 		}
 	}
 }
