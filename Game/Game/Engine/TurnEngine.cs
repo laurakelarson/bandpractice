@@ -255,7 +255,7 @@ namespace Game.Engine
             // Check for alive
             if (Target.Alive == false)
             {
-                TargetDied(Target);
+                return TargetDied(Target);
             }
 
             return false;
