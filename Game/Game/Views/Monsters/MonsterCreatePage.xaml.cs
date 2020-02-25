@@ -42,33 +42,12 @@ namespace Game.Views
 
             this.ViewModel.Title = "Create";
 
-            AddItemsToDisplay();
+            AddItemsToDisplay1();
+            AddItemsToDisplay2();
+            AddItemsToDisplay3();
 
-            //UpdatePageBindingContext();
         }
 
-        /// <summary>
-        /// Redo the Binding to cause a refresh
-        /// </summary>
-        /// <returns></returns>
-        public bool UpdatePageBindingContext()
-        {
-            // Temp store off the difficulty
-            var level = this.ViewModel.Data.Level;
-
-            // Clear the Binding and reset it
-            BindingContext = null;
-            BindingContext = this.ViewModel;
-
-            ViewModel.Data.Level = level;
-
-            LevelPicker.SelectedItem = level.ToString();
-            //LevelPicker.SelectedIndex = LevelPicker.Items.IndexOf(LevelPicker.SelectedItem.ToString());
-
-            AddItemsToDisplay();
-
-            return true;
-        }
 
         /// <summary>
         /// Save by calling for Create
@@ -145,40 +124,38 @@ namespace Game.Views
             IconImage.Source = ViewModel.Data.ImageURI;
         }
 
-        /// <summary>
-        /// The row selected from the list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        public void OnPopupItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            ItemModel data = args.SelectedItem as ItemModel;
-            if (data == null)
-            {
-                return;
-            }
 
-            ViewModel.Data.ItemPocket1 = data.Id;
 
-            AddItemsToDisplay();
-
-            ClosePopup();
-        }
 
         /// <summary>
-        /// Show the Items the Character has
+        /// Show the Popup for the Item
         /// </summary>
-        public void AddItemsToDisplay()
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopup(ItemModel data)
         {
-            var FlexList = ItemBox1.Children.ToList();
-            foreach (var data in FlexList)
+            PopupItemSelector1.IsVisible = true;
+
+            // Make a fake item for None
+            var NoneItem = new ItemModel
             {
-                ItemBox1.Children.Remove(data);
+                Id = null, // will use null to clear the item
+                ImageURI = "icon_cancel.png",
+                Name = "None",
+                Description = "None"
+            };
 
-            }
+            List<ItemModel> itemList = new List<ItemModel>
+            {
+                NoneItem
+            };
 
-            ItemBox1.Children.Add(GetItemToDisplay());
+            // Add the rest of the items to the list
+            itemList.AddRange(ItemIndexViewModel.Instance.Dataset);
 
+            // Populate the list with the items
+            PopupLocationItemListView1.ItemsSource = itemList;
+            return true;
         }
 
         /// <summary>
@@ -229,35 +206,40 @@ namespace Game.Views
             return ItemStack;
         }
 
+        #region item slot 1 popup methods
         /// <summary>
-        /// Show the Popup for the Item
+        /// The row selected from the list
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool ShowPopup(ItemModel data)
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnPopupItemSelected1(object sender, SelectedItemChangedEventArgs args)
         {
-            PopupItemSelector.IsVisible = true;
-
-            // Make a fake item for None
-            var NoneItem = new ItemModel
+            ItemModel data = args.SelectedItem as ItemModel;
+            if (data == null)
             {
-                Id = null, // will use null to clear the item
-                ImageURI = "icon_cancel.png",
-                Name = "None",
-                Description = "None"
-            };
+                return;
+            }
 
-            List<ItemModel> itemList = new List<ItemModel>
+            ViewModel.Data.ItemPocket1 = data.Id;
+
+            AddItemsToDisplay1();
+
+            ClosePopup1();
+        }
+
+        /// <summary>
+        /// Show the Items the Character has
+        /// </summary>
+        public void AddItemsToDisplay1()
+        {
+            var FlexList = ItemBox1.Children.ToList();
+            foreach (var data in FlexList)
             {
-                NoneItem
-            };
+                ItemBox1.Children.Remove(data);
+            }
 
-            // Add the rest of the items to the list
-            itemList.AddRange(ItemIndexViewModel.Instance.Dataset);
+            ItemBox1.Children.Add(GetItemToDisplay());
 
-            // Populate the list with the items
-            PopupLocationItemListView.ItemsSource = itemList;
-            return true;
         }
 
         /// <summary>
@@ -267,18 +249,140 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ClosePopup_Clicked(object sender, EventArgs e)
+        public void ClosePopup_Clicked1(object sender, EventArgs e)
         {
-            ClosePopup();
+            ClosePopup1();
         }
 
         /// <summary>
         /// Close the popup
         /// </summary>
-        public void ClosePopup()
+        public void ClosePopup1()
         {
-            PopupItemSelector.IsVisible = false;
+            PopupItemSelector1.IsVisible = false;
         }
+
+
+        #endregion
+
+        #region item slot 2 popup methods
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnPopupItemSelected2(object sender, SelectedItemChangedEventArgs args)
+        {
+            ItemModel data = args.SelectedItem as ItemModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            ViewModel.Data.ItemPocket2 = data.Id;
+
+            AddItemsToDisplay2();
+
+            ClosePopup2();
+        }
+
+        /// <summary>
+        /// Show the Items the Character has
+        /// </summary>
+        public void AddItemsToDisplay2()
+        {
+            var FlexList = ItemBox2.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox2.Children.Remove(data);
+            }
+
+            ItemBox2.Children.Add(GetItemToDisplay());
+
+        }
+
+        /// <summary>
+        /// When the user clicks the close in the Popup
+        /// hide the view
+        /// show the scroll view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopup_Clicked2(object sender, EventArgs e)
+        {
+            ClosePopup2();
+        }
+
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        public void ClosePopup2()
+        {
+            PopupItemSelector2.IsVisible = false;
+        }
+
+
+        #endregion
+
+        #region item slot 3 popup methods
+        /// <summary>
+        /// The row selected from the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void OnPopupItemSelected3(object sender, SelectedItemChangedEventArgs args)
+        {
+            ItemModel data = args.SelectedItem as ItemModel;
+            if (data == null)
+            {
+                return;
+            }
+
+            ViewModel.Data.ItemPocket3 = data.Id;
+
+            AddItemsToDisplay3();
+
+            ClosePopup3();
+        }
+
+        /// <summary>
+        /// Show the Items the Character has
+        /// </summary>
+        public void AddItemsToDisplay3()
+        {
+            var FlexList = ItemBox3.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox3.Children.Remove(data);
+            }
+
+            ItemBox3.Children.Add(GetItemToDisplay());
+
+        }
+
+        /// <summary>
+        /// When the user clicks the close in the Popup
+        /// hide the view
+        /// show the scroll view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopup_Clicked3(object sender, EventArgs e)
+        {
+            ClosePopup3();
+        }
+
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        public void ClosePopup3()
+        {
+            PopupItemSelector3.IsVisible = false;
+        }
+
+
+        #endregion
+
 
     }
 
