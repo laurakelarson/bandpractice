@@ -356,6 +356,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_airhorn.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Noise-Canceling Headphones");
+            result.ItemPocket3 = ConvertItemsList("Glockenspiel");
             return result;
         }
 
