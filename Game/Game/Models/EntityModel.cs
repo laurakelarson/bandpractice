@@ -37,7 +37,7 @@ namespace Game.Models
             if (damage > 0)
             {
                 CurrentHealth -= damage;
-                if (CurrentHealth < 0)
+                if (CurrentHealth <= 0)
                 {
                     Alive = false;
                     // drop items
