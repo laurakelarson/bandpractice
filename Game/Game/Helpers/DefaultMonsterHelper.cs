@@ -223,6 +223,9 @@ namespace Game.Helpers
             result.Name = "Alarmer";
             result.ImageURI = "monster_alarm.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" });
+            result.ItemPocket1 = ConvertItemsList("Coffee");
+            result.ItemPocket2 = ConvertItemsList("Ring");
+            result.ItemPocket3 = ConvertItemsList("Earplugs");
             return result;
         }
 
