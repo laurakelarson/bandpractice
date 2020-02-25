@@ -106,6 +106,9 @@ namespace Game.Helpers
             result.Name = "Chomper";
             result.ImageURI = "monster_chomper.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Coffee");
+            result.ItemPocket3 = ConvertItemsList("Energy Drink");
             return result;
             
         }
@@ -122,6 +125,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_static.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Coffee" });
+            result.ItemPocket1 = ConvertItemsList("Coffee");
+            result.ItemPocket2 = ConvertItemsList("Coffee");
+            result.ItemPocket3 = ConvertItemsList("Microphone");
             return result;
         }
 
@@ -136,6 +142,9 @@ namespace Game.Helpers
             result.Name = "Motobeast";
             result.ImageURI = "monster_motobeast.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Earplugs");
+            result.ItemPocket3 = ConvertItemsList("Prank Doorbell");
             return result;
         }
 
@@ -151,6 +160,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_kazoom.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Earplugs");
+            result.ItemPocket3 = ConvertItemsList("Prank Doorbell");
             return result;
         }
 
@@ -165,6 +177,9 @@ namespace Game.Helpers
             result.Name = "Panpot";
             result.ImageURI = "monster_potpan.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" });
+            result.ItemPocket1 = ConvertItemsList("Energy Drink");
+            result.ItemPocket2 = ConvertItemsList("Prank Doorbell");
+            result.ItemPocket3 = ConvertItemsList("Tuning Fork");
             return result;
         }
 
@@ -180,6 +195,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_jackhammer.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" });
+            result.ItemPocket1 = ConvertItemsList("Coffee");
+            result.ItemPocket2 = ConvertItemsList("Metronome");
+            result.ItemPocket3 = ConvertItemsList("Whoopee Cushion");
             return result;
         }
 
@@ -194,6 +212,9 @@ namespace Game.Helpers
             result.Name = "Brakez";
             result.ImageURI = "monster_brakez.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" });
+            result.ItemPocket1 = ConvertItemsList("Band T-shirt");
+            result.ItemPocket2 = ConvertItemsList("Whoopee Cushion");
+            result.ItemPocket3 = ConvertItemsList("Earmuffs");
             return result;
         }
 
@@ -209,6 +230,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_driller.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Tuning Fork" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Vuvuzela" });
+            result.ItemPocket1 = ConvertItemsList("Energy Drink");
+            result.ItemPocket2 = ConvertItemsList("Tuning Fork");
+            result.ItemPocket3 = ConvertItemsList("Vuvuzela");
             return result;
         }
 
@@ -223,6 +247,9 @@ namespace Game.Helpers
             result.Name = "Alarmer";
             result.ImageURI = "monster_alarm.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Ring", "Earplugs" });
+            result.ItemPocket1 = ConvertItemsList("Coffee");
+            result.ItemPocket2 = ConvertItemsList("Ring");
+            result.ItemPocket3 = ConvertItemsList("Earplugs");
             return result;
         }
 
@@ -238,6 +265,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_screaming_babe.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Band Hoodie" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Ocarina" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Cool Outfit");
+            result.ItemPocket3 = ConvertItemsList("Ocarina");
             return result;
         }
 
@@ -252,6 +282,9 @@ namespace Game.Helpers
             result.Name = "Buzz Rowdy";
             result.ImageURI = "monster_buzz.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Ocarina");
+            result.ItemPocket3 = ConvertItemsList("Tuning Fork");
             return result;
         }
 
@@ -265,8 +298,11 @@ namespace Game.Helpers
             result.ChangeLevel(12);
             result.Name = "Piercing Feedback";
             result.ImageURI = "monster_feedback.png";
-           // result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
+            // result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Band T-shirt" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Metronome", "Bagpipe" });
+            result.ItemPocket1 = ConvertItemsList("Energy Drink");
+            result.ItemPocket2 = ConvertItemsList("Band T-shirt");
+            result.ItemPocket3 = ConvertItemsList("Bagpipe");
             return result;
         }
 
@@ -282,6 +318,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_fran.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Metronome");
+            result.ItemPocket3 = ConvertItemsList("Mood Ring");
             return result;
         }
 
@@ -296,6 +335,9 @@ namespace Game.Helpers
             result.Name = "Yowling Feline Monster";
             result.ImageURI = "monster_cat.png";
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Noise-Canceling Headphones");
+            result.ItemPocket3 = ConvertItemsList("Banjo");
             return result;          
         }
 
@@ -311,6 +353,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_nickelback.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" });
+            result.ItemPocket1 = ConvertItemsList("Earplugs");
+            result.ItemPocket2 = ConvertItemsList("Band Hoodie");
+            result.ItemPocket3 = ConvertItemsList("Temporary Tattoo");
             return result;
         }
 
@@ -326,6 +371,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_lloyd_christmas.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Ring", "Athletic Socks" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers", "Keytar" });
+            result.ItemPocket1 = ConvertItemsList("Ring");
+            result.ItemPocket2 = ConvertItemsList("Athletic Socks");
+            result.ItemPocket3 = ConvertItemsList("Keytar");
             return result;
         }
 
@@ -341,6 +389,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_recorder_student.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Mood Ring", "Comfy Sneakers" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Golden Recorder", "Temporary Tattoo" });
+            result.ItemPocket1 = ConvertItemsList("Comfy Sneakers");
+            result.ItemPocket2 = ConvertItemsList("Golden Recorder");
+            result.ItemPocket3 = ConvertItemsList("Temporary Tattoo");
             return result;
         }
       
@@ -356,6 +407,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_airhorn.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Noise-Canceling Headphones");
+            result.ItemPocket3 = ConvertItemsList("Glockenspiel");
             return result;
         }
 
@@ -371,6 +425,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_chalkboard.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Athletic Socks" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Athletic Socks");
+            result.ItemPocket3 = ConvertItemsList("Bunny Slippers");
             return result;
         }
 
@@ -386,6 +443,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_rubber_chicken.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Bunny Slippers", "Mood Ring" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Glockenspiel" });
+            result.ItemPocket1 = ConvertItemsList("Bunny Slippers");
+            result.ItemPocket2 = ConvertItemsList("Mood Ring");
+            result.ItemPocket3 = ConvertItemsList("Glockenspiel");
             return result;
         }
 
@@ -419,6 +479,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_gilbert.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Didgeridoo of Destruction" });
+            result.ItemPocket1 = ConvertItemsList("Rock Ock");
+            result.ItemPocket2 = ConvertItemsList("Glockenspiel");
+            result.ItemPocket3 = ConvertItemsList("Didgeridoo of Destruction");
             return result;
         }
 

@@ -152,8 +152,6 @@ namespace Game.Engine
 
             BattleMessages.PlayerType = EntityTypeEnum.Monster;
 
-            //var AttackScore = attacker.Level + attacker.GetAttack();
-            //var DefenseScore = target.GetDefense() + target.Level;
             var AttackScore = GetAttack(attacker);
             var DefenseScore = GetDefense(target);
 
@@ -177,9 +175,7 @@ namespace Game.Engine
             {
                 //Calculate Damage
                 BattleMessages.DamageAmount = GetDamage(attacker);
-                //BattleMessages.DamageAmount = attacker.GetDamageRollValue();
 
-                //target.TakeDamage(BattleMessages.DamageAmount);
                 TakeDamage(target, BattleMessages.DamageAmount);
             }
 

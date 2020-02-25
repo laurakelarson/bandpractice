@@ -20,22 +20,28 @@ namespace Game.Views.Battle
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Event handler for auto-battle button.
+        /// Runs auto-battle, then saves the score in the data source.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		public async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
 			// Call into Auto Battle from here to do the Battle...
 
 			var Engine = new Game.Engine.AutoBattleEngine();
 
-			string BattleMessage = "";
-
-			// CRASH HAPPENS HERE
-			var result = await Engine.RunAutoBattle();
+			await Engine.RunAutoBattle();
 
 			var Score = Engine.GetScoreObject();
 
-			BattleMessage = string.Format("Done {0} Rounds", Score.RoundCount);
+			string BattleMessage = string.Format("Done {0} Rounds", Score.RoundCount);
 
 			BattleMessageValue.Text = BattleMessage;
+
+            // save new score to data source
+			MessagingCenter.Send(this, "Create", Score);
 		}
 	}
 }

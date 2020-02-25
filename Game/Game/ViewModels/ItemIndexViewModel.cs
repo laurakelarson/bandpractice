@@ -156,7 +156,6 @@ namespace Game.ViewModels
                 return null;
             }
 
-            // Item myData = DataStore.GetAsync_Item(ItemID).GetAwaiter().GetResult();
             ItemModel myData = Dataset.Where(a => a.Id.Equals(id)).FirstOrDefault();
             if (myData == null)
             {
@@ -186,6 +185,29 @@ namespace Game.ViewModels
             }
 
             return myData;
+        }
+
+        /// <summary>
+        /// Query for an item's name based on its id.
+        /// Helpful when we just want to display its name.
+        /// Returns null if the item with that id not found.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public string GetItemNameById(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
+
+            ItemModel myData = Dataset.Where(a => a.Id.Equals(id)).FirstOrDefault();
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData.Name;
         }
 
         #endregion QueryDataSet
