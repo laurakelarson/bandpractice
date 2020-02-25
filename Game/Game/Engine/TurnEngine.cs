@@ -179,7 +179,8 @@ namespace Game.Engine
                 BattleMessages.DamageAmount = GetDamage(attacker);
                 //BattleMessages.DamageAmount = attacker.GetDamageRollValue();
 
-                target.TakeDamage(BattleMessages.DamageAmount);
+                //target.TakeDamage(BattleMessages.DamageAmount);
+                TakeDamage(target, BattleMessages.DamageAmount);
             }
 
             BattleMessages.CurrentHealth = target.CurrentHealth;
@@ -191,6 +192,32 @@ namespace Game.Engine
             Debug.WriteLine(BattleMessages.TurnMessage);
 
             return true;
+        }
+
+        /// <summary>
+        /// Have the damage taken be reflected in the Character or Monster List
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <param name="damage"></param>
+        /// <returns></returns>
+        public bool TakeDamage(BattleEntityModel Target, int damage)
+        {
+            if (Target == null)
+                return false;
+
+            Target.TakeDamage(damage);
+
+            switch (Target.EntityType)
+            {
+                case (EntityTypeEnum.Character):
+                    CharacterList.First(a => a.Id == Target.Id).TakeDamage(damage);
+                    return true;
+                case (EntityTypeEnum.Monster):
+                default:
+                    MonsterList.First(a => a.Id == Target.Id).TakeDamage(damage);
+                    return true;
+            }
+
         }
 
         /// <summary>
@@ -345,7 +372,8 @@ namespace Game.Engine
                     return CharacterList.Where(a => a.Id == target.Id).FirstOrDefault().DropAllItems();
                 case (EntityTypeEnum.Monster):
                 default:
-                    return MonsterList.Where(a => a.Id == target.Id).FirstOrDefault().DropItems();
+                    //         return MonsterList.Where(a => a.Id == target.Id).FirstOrDefault().DropItems();
+                    return new List<ItemModel>();   //TODO update to monster method
             }
         }
 
