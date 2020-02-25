@@ -30,13 +30,13 @@ namespace Game.Models
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
 
-        // The items that may be dropped by this monster on defeat. May drop none, some, or all of the items
-        // List of item IDs stored in string json format
-        public string ItemsDropped { get; set; } = string.Empty;
+        //// The items that may be dropped by this monster on defeat. May drop none, some, or all of the items
+        //// List of item IDs stored in string json format
+        //public string ItemsDropped { get; set; } = string.Empty;
 
-        // The items that will always be dropped by this monster on defeat
-        // List of item IDs stored in string json format
-        public string UniqueDrops { get; set; } = string.Empty;
+        //// The items that will always be dropped by this monster on defeat
+        //// List of item IDs stored in string json format
+        //public string UniqueDrops { get; set; } = string.Empty;
 
         // Item slot for one item that Monster is holding
         public string ItemPocket1 { get; set; } = string.Empty;
@@ -90,8 +90,9 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
             Range = newData.Range;
-            ItemsDropped = newData.ItemsDropped;
-            UniqueDrops = newData.UniqueDrops;
+            ItemPocket1 = newData.ItemPocket1;
+            ItemPocket2 = newData.ItemPocket2;
+            ItemPocket3 = newData.ItemPocket3;
                 
             return true;
         }
