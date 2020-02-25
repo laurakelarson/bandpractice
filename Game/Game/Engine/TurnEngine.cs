@@ -185,6 +185,7 @@ namespace Game.Engine
 
             BattleMessages.CurrentHealth = target.CurrentHealth;
             BattleMessages.TurnMessageSpecial = BattleMessages.GetCurrentHealthMessage();
+            BattleMessages.AttackStatus = " attacks "; 
 
             RemoveIfDead(target);
 
