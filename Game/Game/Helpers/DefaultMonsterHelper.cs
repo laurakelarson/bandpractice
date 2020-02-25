@@ -311,6 +311,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_nickelback.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earplugs", "Band Hoodie" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Cool Outfit", "Temporary Tattoo" });
+            result.ItemPocket1 = ConvertItemsList("Earplugs");
+            result.ItemPocket2 = ConvertItemsList("Band Hoodie");
+            result.ItemPocket3 = ConvertItemsList("Temporary Tattoo");
             return result;
         }
 
