@@ -151,6 +151,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_kazoom.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Earmuffs", "Earplugs" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Prank Doorbell" });
+            result.ItemPocket1 = ConvertItemsList("Earmuffs");
+            result.ItemPocket2 = ConvertItemsList("Earplugs");
+            result.ItemPocket3 = ConvertItemsList("Prank Doorbell");
             return result;
         }
 
