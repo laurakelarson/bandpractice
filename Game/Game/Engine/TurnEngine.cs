@@ -404,8 +404,7 @@ namespace Game.Engine
                     return CharacterList.Where(a => a.Id == target.Id).FirstOrDefault().DropAllItems();
                 case (EntityTypeEnum.Monster):
                 default:
-                    //         return MonsterList.Where(a => a.Id == target.Id).FirstOrDefault().DropItems();
-                    return new List<ItemModel>();   //TODO update to monster method
+                    return MonsterList.Where(a => a.Id == target.Id).FirstOrDefault().DropItems();
             }
         }
 
