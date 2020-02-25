@@ -8,7 +8,8 @@
             <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
 
-                <Label Text="GAME OVER" Style="{StaticResource HeaderCenterStyle}"/>
+                <Image Source="gameover.png" HorizontalOptions="CenterAndExpand"/>
+
                 <Label Text="Battle History" Style="{StaticResource HeaderStyle}"/>
 
                 <StackLayout Style="{StaticResource HorizontalStack}">
@@ -112,8 +113,24 @@
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Button Clicked="CloseButton_Clicked" Text="Backstage"></Button>
-                    <Button Clicked="HighScoreButton_Clicked" Text="High Score"></Button>
+                    <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
+                    Source="backstage.png"
+                    Clicked="CloseButton_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Padding="3,5,0,5"
+                    HeightRequest="40"
+                    WidthRequest="80"
+                    />
+                    <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
+                    Source="high_score_button.png"
+                    Clicked="HighScoreButton_Clicked"
+                    Padding="3,5,0,5"
+                    HorizontalOptions="CenterAndExpand"
+                    HeightRequest="40"
+                    WidthRequest="80"
+                    />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
