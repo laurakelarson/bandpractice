@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="backstage.png" />
+    <Content Include="backstage_button.png" />
     <Content Include="bassist.png" />
     <Content Include="bassist_icon.png" />
     <Content Include="battleboard.jpg" />
@@ -115,6 +116,7 @@
     <Content Include="default_character.png" />
     <Content Include="default_icon.png" />
     <Content Include="default_sprite.png" />
+    <Content Include="demotape.png" />
     <Content Include="demotape_button.png" />
     <Content Include="dice_20.png" />
     <Content Include="door.png" />
@@ -123,8 +125,10 @@
     <Content Include="dungeon_door.png" />
     <Content Include="encyclopedia_button.png" />
     <Content Include="enterstage.png" />
+    <Content Include="enterstage_button.png" />
     <Content Include="enter_button.png" />
     <Content Include="gameover.png" />
+    <Content Include="game_over.png" />
     <Content Include="grey_door.png" />
     <Content Include="guitarist.png" />
     <Content Include="guitarist_icon.png" />
@@ -195,6 +199,7 @@
     <Content Include="monster_silence.png" />
     <Content Include="monster_static.png" />
     <Content Include="nextround.png" />
+    <Content Include="nextround_button.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />

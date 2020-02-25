@@ -461,4 +461,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\enterstage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\enterstage_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\game_over.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nextround_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backstage_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\demotape.png" />
+  </ItemGroup>
 </Project>
