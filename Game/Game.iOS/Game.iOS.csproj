@@ -119,9 +119,6 @@
     <BundleResource Include="Resources\tab_feed.png" />
     <BundleResource Include="Resources\tab_feed%402x.png" />
     <BundleResource Include="Resources\tab_feed%403x.png" />
-    <BundleResource Include="Resources\xamarin_logo.png" />
-    <BundleResource Include="Resources\xamarin_logo%402x.png" />
-    <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
@@ -159,31 +156,7 @@
     <BundleResource Include="Resources\gameover.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\knight.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\troll.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\battleboard.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\d12.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\splashscreen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\village.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\dungeon_door.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\cauldren.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\grey_door.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_add.png" />
@@ -204,16 +177,7 @@
     <BundleResource Include="Resources\score.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\items.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\dice_20.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\icon_new.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\bp_logo.png" />
