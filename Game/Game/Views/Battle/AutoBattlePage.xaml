@@ -9,13 +9,12 @@
         <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
             <StackLayout Style="{StaticResource CardImageTextBox}">
 
+                <Image Source="tape.png" HorizontalOptions="CenterAndExpand"/>
                 <ImageButton
+                        Source="enterstage.png"
                         Style="{StaticResource ImageLargeStyle}"
                         Clicked="AutobattleButton_Clicked"/>
 
-                <Label 
-                        Text="Begin Battle"
-                        Style="{StaticResource CenterMessageStyle}"/>
             </StackLayout>
 
             <StackLayout Style="{StaticResource CardImageTextBox}">
