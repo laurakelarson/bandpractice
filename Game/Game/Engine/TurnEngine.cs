@@ -216,7 +216,8 @@ namespace Game.Engine
 
             // character should gain experience
             var character = CharacterList.Where(a => a.Id == entity.Id).FirstOrDefault();
-            character.AddExperience(experience);    //TODO any updates here need to be reflected in the Entity List
+            character.AddExperience(experience);
+            EntityList.Where(a => a.Id == character.Id).FirstOrDefault().Update(character);
 
             Score.ExperienceGainedTotal += experience;
             return true;
