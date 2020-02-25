@@ -57,7 +57,7 @@ namespace Game.Engine
             {
                 var data = new MonsterModel();
                 // Help identify which Monster it is
-                data.Name += " " + MonsterList.Count() + 1;
+                data.Name = "Monster" + MonsterList.Count() + 1;
                 MonsterList.Add(new MonsterModel(data));
             }
 
