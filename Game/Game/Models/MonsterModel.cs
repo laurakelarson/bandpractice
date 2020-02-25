@@ -183,50 +183,55 @@ namespace Game.Models
         {
             var DropList = new List<ItemModel>();
 
-            // get possible regular item drops 
-            var ItemDropIDs = (List<string>)JsonConvert.DeserializeObject(ItemsDropped);
+            // gather three items from item pockets
+            DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemPocket1));
+            DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemPocket2));
+            DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemPocket3));
 
-            // add regular item drops to drop list 
-            if (ItemDropIDs != null) // null if monster had no items to drop 
-            {
-                Random rand = new Random();
+            //// get possible regular item drops 
+            //var ItemDropIDs = (List<string>)JsonConvert.DeserializeObject(ItemsDropped); //uses list
 
-                // determine how many items will be dropped by monster 
-                // (between 0 and number of items in list)
-                var numberItemsDropped = rand.Next(0, ItemDropIDs.Count + 1);
+            //// add regular item drops to drop list 
+            //if (ItemDropIDs != null) // null if monster had no items to drop 
+            //{
+            //    Random rand = new Random();
 
-                // add random items to droplist 
-                for (var i = 0; i < numberItemsDropped; i++)
-                {
-                    // select random index of item to add
-                    var randomIndex = rand.Next(0, ItemDropIDs.Count + 1);
+            //    // determine how many items will be dropped by monster 
+            //    // (between 0 and number of items in list)
+            //    var numberItemsDropped = rand.Next(0, ItemDropIDs.Count + 1);
 
-                    // if item exists, add it to drop list 
-                    if (ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]) != null)
-                    {
-                        DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]));
+            //    // add random items to droplist 
+            //    for (var i = 0; i < numberItemsDropped; i++)
+            //    {
+            //        // select random index of item to add
+            //        var randomIndex = rand.Next(0, ItemDropIDs.Count + 1);
 
-                        // remove so duplicate item not added to DropList
-                        ItemDropIDs.RemoveAt(randomIndex);
-                    }
-                }
-            }
+            //        // if item exists, add it to drop list 
+            //        if (ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]) != null)
+            //        {
+            //            DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]));
 
-            // get unique item drops 
-            var UniqueDropIDs = (List<string>)JsonConvert.DeserializeObject(UniqueDrops); 
+            //            // remove so duplicate item not added to DropList
+            //            ItemDropIDs.RemoveAt(randomIndex);
+            //        }
+            //    }
+            //}
 
-            if (UniqueDropIDs != null) // null if no unique items to drop 
-            {
-                // add each id in list to drop list 
-                foreach (var id in UniqueDropIDs)
-                {
-                    // do not add item to list if item does not exist 
-                    if (ItemIndexViewModel.Instance.GetItem(id) != null)
-                    {
-                        DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
-                    }
-                }
-            }
+            //// get unique item drops 
+            //var UniqueDropIDs = (List<string>)JsonConvert.DeserializeObject(UniqueDrops); 
+
+            //if (UniqueDropIDs != null) // null if no unique items to drop 
+            //{
+            //    // add each id in list to drop list 
+            //    foreach (var id in UniqueDropIDs)
+            //    {
+            //        // do not add item to list if item does not exist 
+            //        if (ItemIndexViewModel.Instance.GetItem(id) != null)
+            //        {
+            //            DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+            //        }
+            //    }
+            //}
             
             return DropList; 
         }
