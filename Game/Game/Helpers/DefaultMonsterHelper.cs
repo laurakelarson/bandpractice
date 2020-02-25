@@ -180,6 +180,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_jackhammer.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Coffee", "Metronome" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Whoopee Cushion" });
+            result.ItemPocket1 = ConvertItemsList("Coffee");
+            result.ItemPocket2 = ConvertItemsList("Metronome");
+            result.ItemPocket3 = ConvertItemsList("Whoopee Cushion");
             return result;
         }
 
