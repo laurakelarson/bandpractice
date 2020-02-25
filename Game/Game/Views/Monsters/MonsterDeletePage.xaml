@@ -47,10 +47,6 @@
                         <Label Text="{Binding Data.ExperienceGiven}" Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Guaranteed Drop:" Style="{StaticResource LabelStyle}"/>
-                        <Label Text="{Binding Data.UniqueDrops, Converter={StaticResource ItemListToStringConverterKey}}" Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
                 </StackLayout>
             </StackLayout>
 
