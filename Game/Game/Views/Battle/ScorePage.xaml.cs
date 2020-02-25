@@ -36,7 +36,12 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void CloseButton_Clicked(object sender, EventArgs e)
 		{
+			// also need to pop the autobattle page
+			// Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count-1]);
+
 			await Navigation.PopModalAsync();
+			
+
 		}
 
 		/// <summary>
