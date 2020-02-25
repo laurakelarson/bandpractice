@@ -687,7 +687,34 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        // case where monster hits character
+        [Test]
+        public void TurnEngine_TurnAsAttack_Monster_Attacks_Character_Hit_Should_Pass()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Engine.CharacterList.Add(Character);
 
+            var Monster = new MonsterModel();
+            Engine.MonsterList.Add(Monster);
+
+            Engine.MakeEntityList();
+
+            // Force a Hit
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            // Act
+            var result = Engine.TurnAsAttack(
+                Engine.EntityList.First(a => a.Id == Monster.Id),
+                Engine.EntityList.First(a => a.Id == Character.Id));
+
+            // Reset
+            DiceHelper.EnableRandomValues();
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
 
         #endregion TurnAsAttack
 
