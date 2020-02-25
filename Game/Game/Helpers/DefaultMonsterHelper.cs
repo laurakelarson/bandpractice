@@ -165,6 +165,9 @@ namespace Game.Helpers
             result.Name = "Panpot";
             result.ImageURI = "monster_potpan.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Energy Drink", "Prank Doorbell" });
+            result.ItemPocket1 = ConvertItemsList("Energy Drink");
+            result.ItemPocket2 = ConvertItemsList("Prank Doorbell");
+            result.ItemPocket3 = ConvertItemsList("Tuning Fork");
             return result;
         }
 
