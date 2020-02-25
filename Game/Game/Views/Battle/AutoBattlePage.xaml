@@ -11,6 +11,7 @@
             
             <StackLayout Style="{StaticResource CardImageTextBox}" VerticalOptions="CenterAndExpand">
                 <ImageButton
+                    Style="{StaticResource ImageButtonHome}"
                     HorizontalOptions="CenterAndExpand"
                     Source="demotape.png"
                     Clicked="AutobattleButton_Clicked"/>
