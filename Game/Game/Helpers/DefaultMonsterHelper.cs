@@ -252,6 +252,9 @@ namespace Game.Helpers
             result.Name = "Buzz Rowdy";
             result.ImageURI = "monster_buzz.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Ocarina");
+            result.ItemPocket3 = ConvertItemsList("Tuning Fork");
             return result;
         }
 
