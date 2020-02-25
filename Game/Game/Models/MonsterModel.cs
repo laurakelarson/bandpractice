@@ -174,43 +174,50 @@ namespace Game.Models
             var DropList = new List<ItemModel>();
 
             // get possible regular item drops 
-            var ItemDropIDs = JsonHelper.GetJsonList<string>((JObject)ItemsDropped, "ItemsDropped");
+            var ItemDropIDs = (List<string>)JsonConvert.DeserializeObject(ItemsDropped);
 
-            Random rand = new Random();
-
-            // determine how many items will be dropped by monster 
-            // (between 0 and number of items in list)
-            var numberItemsDropped = rand.Next(0, ItemDropIDs.Count + 1); 
-
-            // add random items to droplist 
-            for (var i = 0; i < numberItemsDropped; i++)
+            // add regular item drops to drop list 
+            if (ItemDropIDs != null) // null if monster had no items to drop 
             {
-                // select random index of item to add
-                var randomIndex = rand.Next(0, ItemDropIDs.Count + 1);
-                
-                // if item exists, add it to drop list 
-                if (ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]) != null)
-                {
-                    DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]));
+                Random rand = new Random();
 
-                    // remove so duplicate item not added to DropList
-                    ItemDropIDs.RemoveAt(randomIndex); 
+                // determine how many items will be dropped by monster 
+                // (between 0 and number of items in list)
+                var numberItemsDropped = rand.Next(0, ItemDropIDs.Count + 1);
+
+                // add random items to droplist 
+                for (var i = 0; i < numberItemsDropped; i++)
+                {
+                    // select random index of item to add
+                    var randomIndex = rand.Next(0, ItemDropIDs.Count + 1);
+
+                    // if item exists, add it to drop list 
+                    if (ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]) != null)
+                    {
+                        DropList.Add(ItemIndexViewModel.Instance.GetItem(ItemDropIDs[randomIndex]));
+
+                        // remove so duplicate item not added to DropList
+                        ItemDropIDs.RemoveAt(randomIndex);
+                    }
                 }
             }
 
             // get unique item drops 
-            var UniqueDropIDs = JsonHelper.GetJsonList<string>((JObject)UniqueDrops, "UniqueDrops");
+            var UniqueDropIDs = (List<string>)JsonConvert.DeserializeObject(UniqueDrops); 
 
-            // add each id in list to drop list 
-            foreach (var id in UniqueDropIDs)
+            if (UniqueDropIDs != null) // null if no unique items to drop 
             {
-                // do not add item to list if item does not exist 
-                if (ItemIndexViewModel.Instance.GetItem(id) != null)
+                // add each id in list to drop list 
+                foreach (var id in UniqueDropIDs)
                 {
-                    DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                    // do not add item to list if item does not exist 
+                    if (ItemIndexViewModel.Instance.GetItem(id) != null)
+                    {
+                        DropList.Add(ItemIndexViewModel.Instance.GetItem(id));
+                    }
                 }
             }
-
+            
             return DropList; 
         }
     }
