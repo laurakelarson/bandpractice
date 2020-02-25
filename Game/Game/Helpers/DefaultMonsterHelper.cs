@@ -296,6 +296,9 @@ namespace Game.Helpers
             result.Name = "Yowling Feline Monster";
             result.ImageURI = "monster_cat.png";
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Noise-Canceling Headphones", "Banjo" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Noise-Canceling Headphones");
+            result.ItemPocket3 = ConvertItemsList("Banjo");
             return result;          
         }
 
