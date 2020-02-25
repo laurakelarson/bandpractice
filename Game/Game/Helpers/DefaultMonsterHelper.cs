@@ -326,6 +326,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_lloyd_christmas.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Ring", "Athletic Socks" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Bunny Slippers", "Keytar" });
+            result.ItemPocket1 = ConvertItemsList("Ring");
+            result.ItemPocket2 = ConvertItemsList("Athletic Socks");
+            result.ItemPocket3 = ConvertItemsList("Keytar");
             return result;
         }
 
