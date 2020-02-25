@@ -282,6 +282,9 @@ namespace Game.Helpers
             result.ImageURI = "monster_fran.png";
             //result.ItemsDropped = ConvertItemsList(new List<string>() { "Lucky Socks", "Metronome" });
             //result.UniqueDrops = ConvertItemsList(new List<string>() { "Mood Ring" });
+            result.ItemPocket1 = ConvertItemsList("Lucky Socks");
+            result.ItemPocket2 = ConvertItemsList("Metronome");
+            result.ItemPocket3 = ConvertItemsList("Mood Ring");
             return result;
         }
 
