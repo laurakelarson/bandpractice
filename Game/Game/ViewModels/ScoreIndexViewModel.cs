@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
+using Game.Views.Battle;
 
 namespace Game.ViewModels
 {
@@ -57,6 +58,12 @@ namespace Game.ViewModels
 
             // Register the Create Message
             MessagingCenter.Subscribe<ScoreCreatePage, ScoreModel>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as ScoreModel);
+            });
+
+            // Register the Create Message from AutoBattle page
+            MessagingCenter.Subscribe<AutoBattlePage, ScoreModel>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as ScoreModel);
             });
