@@ -27,12 +27,10 @@ namespace Game.Views.Monsters
         {
             InitializeComponent();
 
-            Item1Label.Text = "test1";
-            Item2Label.Text = "test2";
-            Item3Label.Text = "test3";
-
-
             BindingContext = this.ViewModel = data;
+            Item1Label.Text = ItemIndexViewModel.Instance.GetItem(data.Data.ItemPocket1).Name;
+            Item2Label.Text = ItemIndexViewModel.Instance.GetItem(data.Data.ItemPocket2).Name;
+            Item3Label.Text = ItemIndexViewModel.Instance.GetItem(data.Data.ItemPocket3).Name;
         }
 
         /// <summary>
