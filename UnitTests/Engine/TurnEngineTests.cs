@@ -464,6 +464,33 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        // try removing a Monster that is not dead
+        [Test]
+        public void TurnEngine_RemoveIfDead_Alive_True_Should_Return_False()
+        {
+            // Arrange
+            var Monster = new MonsterModel
+            {
+                CurrentHealth = 1,
+                Alive = true,
+                Id = "me"
+            };
+
+            Engine.MonsterList.Clear();
+            Engine.MonsterList.Add(Monster);
+            Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.RemoveIfDead(Engine.EntityList.
+                Where(a => a.Id == "me").FirstOrDefault());
+
+            // Reset
+            Engine.StartBattle(false);
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
         #endregion Death
 
     }
