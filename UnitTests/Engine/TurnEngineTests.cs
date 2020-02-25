@@ -522,5 +522,32 @@ namespace UnitTests.Engine
 
         #endregion Death
 
+        #region TurnAsAttack
+
+        // case where character tries to attack null
+        [Test]
+        public void TurnEngine_TurnAsAttack_Character_Attacks_Null_Should_Fail()
+        {
+            // Arrange
+            var Character = new CharacterModel();
+            Engine.CharacterList.Add(Character);
+
+            var Monster = new MonsterModel();
+            Engine.MonsterList.Add(Monster);
+
+            Engine.MakeEntityList();
+
+            // Act
+            var result = Engine.TurnAsAttack(
+                Engine.EntityList.First(a => a.Id == Character.Id), null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        #endregion TurnAsAttack
+
     }
 }
