@@ -50,12 +50,12 @@ namespace Game.Helpers
         public static async Task<bool> SetDataSource(int source)
         {
             // load items from new source before monster and character 
-            await ItemIndexViewModel.Instance.WipeDataListAsync();
+            await ItemIndexViewModel.Instance.SetDataSource(source);
 
-            await ScoreIndexViewModel.Instance.WipeDataListAsync();
+            await ScoreIndexViewModel.Instance.SetDataSource(source);
 
-            await CharacterIndexViewModel.Instance.WipeDataListAsync();
-            await MonsterIndexViewModel.Instance.WipeDataListAsync();
+            await CharacterIndexViewModel.Instance.SetDataSource(source);
+            await MonsterIndexViewModel.Instance.SetDataSource(source);
 
             return true;
         }
