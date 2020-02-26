@@ -28,9 +28,9 @@ namespace Game.Views.Monsters
             InitializeComponent();
 
             BindingContext = this.ViewModel = data;
-            Item1Label.Text = ItemIndexViewModel.Instance.GetItem(data.Data.ItemPocket1).Name;
-            Item2Label.Text = ItemIndexViewModel.Instance.GetItem(data.Data.ItemPocket2).Name;
-            Item3Label.Text = ItemIndexViewModel.Instance.GetItem(data.Data.ItemPocket3).Name;
+            Item1Label.Text = ItemIndexViewModel.Instance.GetItemNameById(data.Data.ItemPocket1);
+            Item2Label.Text = ItemIndexViewModel.Instance.GetItemNameById(data.Data.ItemPocket2);
+            Item3Label.Text = ItemIndexViewModel.Instance.GetItemNameById(data.Data.ItemPocket3);
         }
 
         /// <summary>
