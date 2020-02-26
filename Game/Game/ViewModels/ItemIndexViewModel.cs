@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using Game.Services;
+using Game.Helpers;
 
 namespace Game.ViewModels
 {
@@ -208,6 +209,23 @@ namespace Game.ViewModels
             }
 
             return myData.Name;
+        }
+
+        /// <summary>
+        /// Gets a random item out of the dataset.
+        /// Returns null if the dataset is empty.
+        /// </summary>
+        /// <returns></returns>
+        public ItemModel GetRandomItem()
+        {
+            int count = Dataset.Count;
+            if (count == 0)
+            {
+                return null;
+            }
+
+            int index = DiceHelper.RollDice(1, count) - 1;
+            return Dataset.ElementAt(index);
         }
 
         #endregion QueryDataSet
