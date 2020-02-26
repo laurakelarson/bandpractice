@@ -6,6 +6,7 @@ using System.Text;
 using Game.Helpers;
 using Game.Models;
 using Game.Models.Enum;
+using Game.ViewModels;
 
 namespace Game.Engine
 {
@@ -454,15 +455,15 @@ namespace Game.Engine
         /// <returns></returns>
         public List<ItemModel> GetRandomMonsterItemDrops(int round)
         {
-            //TODO You decide how to drop monster items, level, etc.
-
+            // number of random drops is a dice roll based on the round #
             var NumberToDrop = DiceHelper.RollDice(1, round);
 
             var myList = new List<ItemModel>();
 
             for (var i = 0; i < NumberToDrop; i++)
             {
-                myList.Add(DefaultItemHelper.DefaultWhoopeeCushion());
+                // add a random item from the data source
+                myList.Add(ItemIndexViewModel.Instance.GetRandomItem());
             }
             return myList;
         }
