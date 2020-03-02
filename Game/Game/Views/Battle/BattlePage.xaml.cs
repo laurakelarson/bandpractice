@@ -46,6 +46,16 @@ namespace Game.Views
 		}
 
 		/// <summary>
+		/// Attack Action
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void SkipButton_Clicked(object sender, EventArgs e)
+		{
+
+		}
+
+		/// <summary>
 		/// Battle Over
 		/// Battle Over button shows when all characters are dead
 		/// </summary>

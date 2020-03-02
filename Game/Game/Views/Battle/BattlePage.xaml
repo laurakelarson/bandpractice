@@ -73,10 +73,14 @@
             <!-- Battle Grid -->
             
             <!-- Buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Clicked="SkipButton_Clicked" Text="Skip"></Button>
+                <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
+            </StackLayout>
             
             <!-- Message Box -->
 
-            <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
+            
 
             <Button Clicked="NewRoundButton_Clicked" Text="New Round"></Button>
 
