@@ -79,8 +79,25 @@
             </StackLayout>
             
             <!-- Message Box -->
+            <Frame
+                BorderColor="{StaticResource SecondaryTextColor}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="700"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollView Grid.Row="0" Grid.Column="0"
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
+                        <Label 
+                        Text="{Binding Data.MessageList}" 
+                        Style="{StaticResource ScrollableLabel}"/>
+                    </ScrollView>
+                </Grid>
+            </Frame>
 
-            
 
             <Button Clicked="NewRoundButton_Clicked" Text="New Round"></Button>
 
