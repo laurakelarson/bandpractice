@@ -30,9 +30,8 @@
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="Beat Required:" FontAttributes="Bold"
-                       x:Name="BeatsRequiredLabel"></Label>
-                <Label Text="" FontAttributes="Bold"></Label>
+                <Label Text="Beat Required:" FontAttributes="Bold" />
+                <Label Text="" FontAttributes="Bold" x:Name="BeatsRequiredLabel" />
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
@@ -54,12 +53,34 @@
                                            Style="{StaticResource ListStyle}"/>
 
                 <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
-                    <Label Text="Level:" Style="{StaticResource ListStyle}" />
-                    <Label Text="" Style="{StaticResource ListStyle}"
-                        x:Name="LevelLabel" />
+                    <Label Text="Level:" />
+                    <Label Text="" x:Name="LevelLabel" />
                 </StackLayout>
 
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+                    <Label Text="Experience:" />
+                    <Label Text="" x:Name="ExperienceLabel" />
+                </StackLayout>
 
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+                    <Label Text="Max Health:" />
+                    <Label Text="" x:Name="HealthLabel" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="4">
+                    <Label Text="Defense:" />
+                    <Label Text="" x:Name="DefenseLabel" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5">
+                    <Label Text="Attack:" />
+                    <Label Text="" x:Name="AttackLabel" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="6">
+                    <Label Text="Speed:" />
+                    <Label Text="" x:Name="SpeedLabel" />
+                </StackLayout>
 
             </Grid>
 
