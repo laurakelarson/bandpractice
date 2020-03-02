@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Models;
 using Game.ViewModels;
 using Game.Views.Battle;
 using Xamarin.Forms;
@@ -57,9 +58,16 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void OnCharacterSelected(object sender, EventArgs e)
+        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
+			CharacterModel data = args.SelectedItem as CharacterModel;
+			if (data == null)
+			{
+				return;
+			}
 
-        }
+			// Open the Read Page
+			await Navigation.PushAsync(new BandMemberPage(new GenericViewModel<CharacterModel>(data)));
+		}
 	}
 }
