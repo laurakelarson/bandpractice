@@ -24,9 +24,8 @@ namespace Game.Views
 			InitializeComponent();
 			Title = "My Band";
 
-            // Start battle engine state with a cleared character list
+            // Bind to battle engine instance
 			BindingContext = EngineViewModel;
-			EngineViewModel.PartyCharacterList.Clear();
 		}
 
 		/// <summary>
