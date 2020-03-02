@@ -50,7 +50,7 @@ namespace Game.Views
             }
 
             // Open the Battle page
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
             await Navigation.PopAsync();
         }
 
