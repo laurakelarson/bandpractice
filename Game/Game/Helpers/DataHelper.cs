@@ -40,9 +40,11 @@ namespace Game.Helpers
         /// <returns></returns>
         public static CharacterModel DefaultTambourine()
         {
+            var name = RandomEntityHelper.GetCharacterName();
+
             return new CharacterModel
             {
-                Name = "Tambourine Player",
+                Name = name,
                 Type = CharacterTypeEnum.TambourinePlayer,
                 ImageURI = "tambourine.png",
                 IconURI = "tambourine_icon.png",
@@ -63,9 +65,10 @@ namespace Game.Helpers
         /// <returns></returns>
         public static CharacterModel DefaultBassist()
         {
+            var name = RandomEntityHelper.GetCharacterName();
             return new CharacterModel
             {
-                Name = "Bassist",
+                Name = name,
                 Type = CharacterTypeEnum.Bassist,
                 ImageURI = "bassist.png",
                 IconURI = "bassist_icon.png",
@@ -86,9 +89,10 @@ namespace Game.Helpers
         /// <returns></returns>
         public static CharacterModel DefaultKeyboardist()
         {
+            var name = RandomEntityHelper.GetCharacterName();
             return new CharacterModel
             {
-                Name = "Keyboardist",
+                Name = name,
                 Type = CharacterTypeEnum.Keyboardist,
                 ImageURI = "keyboardist.png",
                 IconURI = "keyboardist_icon.png",
@@ -109,9 +113,10 @@ namespace Game.Helpers
         /// <returns></returns>
         public static CharacterModel DefaultDrummer()
         {
+            var name = RandomEntityHelper.GetCharacterName();
             return new CharacterModel
             {
-                Name = "Drummer",
+                Name = name,
                 Type = CharacterTypeEnum.Drummer,
                 ImageURI = "drummer.png",
                 IconURI = "drummer_icon.png",
@@ -132,9 +137,10 @@ namespace Game.Helpers
         /// <returns></returns>
         public static CharacterModel DefaultGuitarist()
         {
+            var name = RandomEntityHelper.GetCharacterName();
             return new CharacterModel
             {
-                Name = "Guitarist",
+                Name = name,
                 Type = CharacterTypeEnum.Guitarist,
                 ImageURI = "guitarist.png",
                 IconURI = "guitarist_icon.png",
@@ -155,9 +161,10 @@ namespace Game.Helpers
         /// <returns></returns>
         public static CharacterModel DefaultLeadVocalist()
         {
+            var name = RandomEntityHelper.GetCharacterName();
             return new CharacterModel
             {
-                Name = "Lead Vocalist",
+                Name = name,
                 Type = CharacterTypeEnum.LeadVocalist,
                 ImageURI = "vocalist.png",
                 IconURI = "vocalist_icon.png",
