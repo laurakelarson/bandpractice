@@ -30,7 +30,7 @@ namespace Game.Views.Characters
             BindingContext = this.ViewModel = data;
 
             // Display the item names
-            DisplayItemNames();
+            //DisplayItemNames();
         }
 
         /// <summary>
@@ -55,25 +55,6 @@ namespace Game.Views.Characters
             await Navigation.PopAsync();
         }
 
-        /// <summary>
-        /// Displays the names of equipped items by querying the ItemIndexViewModel
-        /// </summary>
-        public void DisplayItemNames()
-        {
-            // walk through locations and display item name
-            HeadLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.HeadItem);
 
-            BodyLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.NecklassItem);
-
-            PrimaryHandLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.PrimaryHandItem);
-
-            OffHandLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.OffHandItem);
-
-            RightFingerLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.RightFingerItem);
-
-            LeftFingerLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.LeftFingerItem);
-
-            FeetLabel.Text = ItemIndexViewModel.Instance.GetItemNameById(ViewModel.Data.FeetItem);
-        }
     }
 }
