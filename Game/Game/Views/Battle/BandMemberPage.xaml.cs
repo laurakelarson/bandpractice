@@ -47,7 +47,11 @@ namespace Game.Views.Battle
         /// <param name="e"></param>
         async void RemoveConfirmed_Clicked(object sender, EventArgs e)
         {
+            // Refund Beats and remove character from band
+            EngineViewModel.Beats += ViewModel.Data.TotalExperience;
+            EngineViewModel.PartyCharacterList.Remove(ViewModel.Data);
 
+            await Navigation.PopAsync();
         }
 
         /// <summary>
