@@ -66,8 +66,11 @@ namespace Game.Views
 				return;
 			}
 
-			// Open the Read Page
+			// Open the Band Member Page
 			await Navigation.PushAsync(new BandMemberPage(new GenericViewModel<CharacterModel>(data)));
+
+			// Manually deselect item.
+			CharactersListView.SelectedItem = null;
 		}
 	}
 }
