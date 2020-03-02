@@ -5,11 +5,17 @@ using Xamarin.Forms;
 
 namespace Game.Views.Battle
 {
+    /// <summary>
+    /// Recruit Page, where user can recruit a character for their band
+    /// </summary>
     public partial class RecruitPage : ContentPage
     {
         // Index View Model to help manage battle data across pages
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public RecruitPage()
         {
             InitializeComponent();
@@ -19,11 +25,21 @@ namespace Game.Views.Battle
             BindingContext = EngineViewModel;
         }
 
+        /// <summary>
+        /// Toolbar item for Cancel was clicked - pop the modal page and return to MyBandPage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Toolbar item for Recruit was clicked - add this character to the band
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Recruit_Clicked(object sender, EventArgs e)
         {
 
