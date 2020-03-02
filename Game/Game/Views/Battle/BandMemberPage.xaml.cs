@@ -35,9 +35,19 @@ namespace Game.Views.Battle
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Remove_Clicked(object sender, EventArgs e)
+        void Remove_Clicked(object sender, EventArgs e)
         {
-            
+            RemoveConfirmedMessage.IsVisible = true;
+        }
+
+        /// <summary>
+        /// Handle event when user confirms they want to remove this band member
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void RemoveConfirmed_Clicked(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>

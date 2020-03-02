@@ -70,6 +70,25 @@
                     x:Name="CharacterImage" />
 
             </Grid>
+
+            <StackLayout
+                IsVisible="false"
+                x:Name="RemoveConfirmedMessage"
+                HorizontalOptions="Center" 
+                Padding="20">
+
+                <Label Text="Really fire this band member?" Style="{StaticResource MessageStyle}"/>
+
+                <Button 
+                Text="Yes" 
+                Clicked="RemoveConfirmed_Clicked" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                BorderWidth="1" 
+                BorderColor="black">
+                </Button>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
