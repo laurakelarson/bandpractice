@@ -13,7 +13,7 @@ namespace Game.Views.Battle
         public RecruitPage()
         {
             InitializeComponent();
-            Title = "My Band";
+            Title = "Recruit";
 
             // Set up binding to BattleEngineViewModel
             BindingContext = EngineViewModel;
