@@ -11,6 +11,65 @@
         <ToolbarItem Text="OK" Clicked="OK_Clicked" />
     </ContentPage.ToolbarItems>
 
+
     <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}"
+                     HorizontalOptions="StartAndExpand"
+                     VerticalOptions="StartAndExpand">
+
+            <Grid ColumnSpacing="10" RowSpacing="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0"
+                    Text="{Binding Data.Name}" FontAttributes="Bold" />
+
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <Label Text="Type:" />
+                    <Label Text="{Binding Data.Type}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+                    <Label Text="Level:" />
+                    <Label Text="{Binding Data.Level}" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+                    <Label Text="Experience:" />
+                    <Label Text="{Binding Data.TotalExperience}" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="4">
+                    <Label Text="Max Health:" />
+                    <Label Text="{Binding Data.MaxHealth}" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="5">
+                    <Label Text="Defense:" />
+                    <Label Text="{Binding Data.Defense}" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="6">
+                    <Label Text="Attack:" />
+                    <Label Text="{Binding Data.Attack}" />
+                </StackLayout>
+
+               <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="7">
+                    <Label Text="Speed:" />
+                    <Label Text="{Binding Data.Speed}" />
+                </StackLayout>
+
+                <Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="6"
+                    Source="{Binding Data.IconURI}"
+                    Style="{StaticResource ImageLargeStyle}"
+                    VerticalOptions="CenterAndExpand"
+                    x:Name="CharacterImage" />
+
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
