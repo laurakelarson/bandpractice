@@ -10,20 +10,6 @@ namespace Game.Helpers
     {
 
         /// <summary>
-        /// Get Health
-        /// </summary>
-        /// <param name="level"></param>
-        /// <returns></returns>
-        public static int GetHealth(int level)
-        {
-            // Roll the Dice and reset the Health
-            return DiceHelper.RollDice(level, 10);
-        }
-
-        // get monster type
-
-        // get character name
-        /// <summary>
         /// Get Name
         /// 
         /// Return a Random Name for a Character
