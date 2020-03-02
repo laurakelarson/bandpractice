@@ -16,7 +16,10 @@
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="EndAndExpand">
                 <Label Text="Beats:" FontAttributes="Bold"></Label>
-                <Label Text="{Binding Beats}" FontAttributes="Bold"></Label>
+                <Label 
+                    x:Name="BeatsLabel"
+                    Text="{Binding Beats}" 
+                    FontAttributes="Bold"></Label>
             </StackLayout>
 
                 <ListView x:Name="CharactersListView" 
