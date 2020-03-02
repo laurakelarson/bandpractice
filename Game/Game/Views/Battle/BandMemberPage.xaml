@@ -7,7 +7,7 @@
              x:Class="Game.Views.Battle.BandMemberPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Remove" Clicked="Remove_Clicked" />
+        <ToolbarItem Text="Remove" Clicked="Remove_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
 
