@@ -46,6 +46,7 @@
             <StackLayout Orientation="Horizontal" Margin="10">
                 <Picker
                     ItemsSource="{Binding DatabaseCharacterList}"
+                    ItemDisplayBinding="{Binding ., Converter={StaticResource Key=CharacterConvert}}"
                     x:Name="CharacterPicker" SelectedIndexChanged="Changed_CharacterPicker" />
             </StackLayout>
 
