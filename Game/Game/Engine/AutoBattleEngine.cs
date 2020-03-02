@@ -58,10 +58,10 @@ namespace Game.Engine
 
             // Picks 6 Characters
             // TODO - implement better character picking method when we get Beats figured out
-            CharacterModel data = DataHelper.DefaultTambourine();
+            
             for (int i = CharacterList.Count(); i < MaxNumberCharacters; i++)
             {
-                data.Name = "Tambourine Player " + i.ToString();
+                CharacterModel data = DataHelper.DefaultTambourine();
                 AddBandMember(data);
             }
 
