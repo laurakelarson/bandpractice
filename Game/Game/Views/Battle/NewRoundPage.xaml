@@ -7,23 +7,19 @@
         <StackLayout Style="{StaticResource VerticalStack}">
             <Label Text="New Round Page..."></Label>
 
-            <Label Text="Characters..."></Label>
+            <Label Text="YOUR BAND"></Label>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="knight.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            </StackLayout>
+            <FlexLayout x:Name="PartyListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
             
-            <Label Text="Monsters..."></Label>
+            <Label Text="MONSTERS"></Label>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-                <Image Source="troll.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            </StackLayout>
+            <FlexLayout x:Name="MonsterListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
 
             <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
 
