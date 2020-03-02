@@ -37,6 +37,12 @@ namespace Game.Views.Battle
         /// <param name="e"></param>
         void Remove_Clicked(object sender, EventArgs e)
         {
+            // if user has already clicked Remove once, then we can proceed
+            if (RemoveConfirmedMessage.IsVisible == true)
+            {
+                RemoveConfirmed_Clicked(sender, e);
+            }
+
             RemoveConfirmedMessage.IsVisible = true;
         }
 
@@ -51,17 +57,6 @@ namespace Game.Views.Battle
             EngineViewModel.Beats += ViewModel.Data.TotalExperience;
             EngineViewModel.PartyCharacterList.Remove(ViewModel.Data);
 
-            await Navigation.PopAsync();
-        }
-
-        /// <summary>
-        /// Handle event when user clicks OK toolbar item
-        /// Pop the current page to return to My Band Page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        async void OK_Clicked(object sender, EventArgs e)
-        {
             await Navigation.PopAsync();
         }
     }
