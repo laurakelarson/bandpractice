@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.Battle.RecruitPage"
              >
 
@@ -11,6 +12,12 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
         <ToolbarItem Text="Recruit" Clicked="Recruit_Clicked"/>
     </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:CharacterConverter x:Key="CharacterConvert"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}"
@@ -28,8 +35,15 @@
                 <Label Text="" FontAttributes="Bold"></Label>
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal">
+                <Picker
+                    ItemsSource="{Binding DatabaseCharacterList}"
+                    SelectedItem="{Binding DatabaseCharacterList, Converter={StaticResource CharacterConvert}, Mode=TwoWay}"
+                    x:Name="CharacterPicker"  />
 
             </StackLayout>
+
+        </StackLayout>
     </ContentPage.Content>
 
 
