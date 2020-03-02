@@ -24,23 +24,25 @@
                      HorizontalOptions="StartAndExpand"
                      VerticalOptions="StartAndExpand">
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Beats:" FontAttributes="Bold"></Label>
-                <Label Text="{Binding Beats}" FontAttributes="Bold"></Label>
+            <StackLayout Orientation="Vertical" Margin="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Beats:" FontAttributes="Bold"></Label>
+                    <Label Text="{Binding Beats}" FontAttributes="Bold"></Label>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Beat Required:" FontAttributes="Bold" />
+                    <Label Text="" FontAttributes="Bold" x:Name="BeatsRequiredLabel" />
+                </StackLayout>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Beat Required:" FontAttributes="Bold" />
-                <Label Text="" FontAttributes="Bold" x:Name="BeatsRequiredLabel" />
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" Margin="10">
                 <Picker
                     ItemsSource="{Binding DatabaseCharacterList}"
                     x:Name="CharacterPicker" SelectedIndexChanged="Changed_CharacterPicker" />
             </StackLayout>
 
-            <Grid ColumnSpacing="10" RowSpacing="1">
+            <Grid ColumnSpacing="10" RowSpacing="1" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
