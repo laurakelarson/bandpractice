@@ -113,7 +113,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="Level"></param>
         /// <returns></returns>
-        public override bool ChangeLevel(int levelValue)
+        public new bool ChangeLevel(int levelValue)
         {
             // level cannot be less than 1
             if (levelValue < 1)
@@ -153,7 +153,7 @@ namespace Game.Models
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the Monster as a string
-        public override string FormatOutput()
+        public new string FormatOutput()
         {
             var myReturn = Name + " , " +
                             "Speed : " + Speed + " , " +
