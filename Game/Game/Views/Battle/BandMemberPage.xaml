@@ -79,7 +79,7 @@
                 <Label Text="Really fire this band member?" Style="{StaticResource MessageStyle}"/>
 
                 <Label Text="{Binding Path=Data.TotalExperience, StringFormat='You will be refunded {0:G} Beats.'}"
-                       Style="{StaticResource MessageStyle}" />
+                       Style="{StaticResource MessageStyle}" FontSize="Micro" />
 
                 <Button 
                 Text="Yes" 
