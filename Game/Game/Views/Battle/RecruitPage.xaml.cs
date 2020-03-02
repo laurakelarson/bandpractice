@@ -18,5 +18,15 @@ namespace Game.Views.Battle
             // Set up binding to BattleEngineViewModel
             BindingContext = EngineViewModel;
         }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        async void Recruit_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

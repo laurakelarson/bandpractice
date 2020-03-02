@@ -7,4 +7,9 @@
              x:Class="Game.Views.Battle.RecruitPage"
              >
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
+        <ToolbarItem Text="Recruit" Clicked="Recruit_Clicked"/>
+    </ContentPage.ToolbarItems>
+
 </ContentPage>
