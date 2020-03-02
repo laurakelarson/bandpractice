@@ -43,8 +43,13 @@ namespace Game.Views
 				return;
             }
 
+            // Add the characters to the battle engine
+            foreach (CharacterModel member in EngineViewModel.PartyCharacterList)
+            {
+				EngineViewModel.Engine.AddBandMember(member);
+            }
+
             // Open the Battle page
-            //TODO this should open a Show Monsters page (we can start calling methods in EngineViewModel.Engine to trigger battle events)
             await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
             await Navigation.PopAsync();
         }
