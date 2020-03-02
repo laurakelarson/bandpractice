@@ -49,6 +49,12 @@ namespace Game.Views
         /// <param name="e"></param>
         async void RecruitCharacter_Clicked(object sender, EventArgs e)
         {
+            // Disable button if user has recruited max number
+            if (EngineViewModel.PartyCharacterList.Count >= EngineViewModel.Engine.MaxNumberCharacters)
+            {
+				return;
+            }
+
 			await Navigation.PushModalAsync(new NavigationPage(new RecruitPage()));
 		}
 
