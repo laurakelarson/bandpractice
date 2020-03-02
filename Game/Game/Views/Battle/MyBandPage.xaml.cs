@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.ViewModels;
+using Game.Views.Battle;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -48,8 +49,8 @@ namespace Game.Views
         /// <param name="e"></param>
         async void RecruitCharacter_Clicked(object sender, EventArgs e)
         {
-
-        }
+			await Navigation.PushModalAsync(new NavigationPage(new RecruitPage()));
+		}
 
         /// <summary>
         /// Opens up a Band Member detail page, where user has the option to remove the band member.
