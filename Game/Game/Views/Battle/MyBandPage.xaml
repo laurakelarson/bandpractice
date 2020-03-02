@@ -13,6 +13,12 @@
                      HorizontalOptions="CenterAndExpand"
                      VerticalOptions="CenterAndExpand">
 
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="EndAndExpand">
+                <Label Text="Beats:" FontAttributes="Bold"></Label>
+                <Label Text="{Binding Beats}" FontAttributes="Bold"></Label>
+            </StackLayout>
+
                 <ListView x:Name="CharactersListView" 
                     ItemsSource="{Binding PartyCharacterList}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
