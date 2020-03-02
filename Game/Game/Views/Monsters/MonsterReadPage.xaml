@@ -9,6 +9,10 @@
              Title="{Binding Title}"
              Style="{StaticResource CRUDIPage}">
 
+    <Page.Resources>
+        <local_helpers:ItemListToStringConverter x:Key="ItemListToStringConverterKey"></local_helpers:ItemListToStringConverter>
+    </Page.Resources>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked"  IconImageSource="icon_delete.png"/>
