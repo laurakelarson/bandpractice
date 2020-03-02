@@ -42,12 +42,13 @@ namespace Game.Views.Battle
 
         /// <summary>
         /// Handle event when user clicks OK toolbar item
+        /// Pop the current page to return to My Band Page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         async void OK_Clicked(object sender, EventArgs e)
         {
-            
+            await Navigation.PopAsync();
         }
     }
 }
