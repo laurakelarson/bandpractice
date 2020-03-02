@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,5 +44,16 @@ namespace Game.Helpers
             return result;
         }
 
+        /// <summary>
+        /// Get Random Monster type
+        /// </summary>
+        /// <returns></returns>
+        public static MonsterTypeEnum GetMonsterType()
+        {
+ 
+            var result = (MonsterTypeEnum)(DiceHelper.RollDice(1, 22));
+
+            return result;
+        }
     }
 }
