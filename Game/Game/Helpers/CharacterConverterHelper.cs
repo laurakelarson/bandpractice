@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using Game.Models;
+using Game.ViewModels;
 using Xamarin.Forms;
 
 namespace Game.Helpers
@@ -24,7 +26,7 @@ namespace Game.Helpers
             if (value is CharacterModel)
             {
                 var character = (CharacterModel)value;
-                return character.Name + " - " + character.Type.ToString();
+                return character.Name + " " + character.Type.ToString();
             }
 
             return string.Empty;
@@ -40,7 +42,18 @@ namespace Game.Helpers
         /// <returns></returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is string)
+            {
+                string[] words = ((string)value).Split(' ');
+                if (words.Length < 2)
+                {
+                    return null;
+                }
+                return CharacterIndexViewModel.Instance.Dataset.Where(
+                    a => a.Name == words[0] && a.Type.ToString() == words[1]).FirstOrDefault();
+            }
+
+            return null;
         }
     }
 }
