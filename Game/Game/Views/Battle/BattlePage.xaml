@@ -20,6 +20,56 @@
             
             <!-- Character Info Box -->
             
+            <Frame
+                BorderColor="{StaticResource PrimaryTextColor}">
+                <Grid
+                    HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <Image Source="default_icon.png"
+                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
+                        <Label Text="Name"/>
+                        <Label Text="-"/>
+                        <Label Text="HP"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                        <Image Source="default_icon.png"
+                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
+                        <Label Text="Name"/>
+                        <Label Text="-"/>
+                        <Label Text="HP"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+                        <Image Source="default_icon.png"
+                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
+                        <Label Text="Name"/>
+                        <Label Text="-"/>
+                        <Label Text="HP"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                        <Image Source="default_icon.png"
+                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
+                        <Label Text="Name"/>
+                        <Label Text="-"/>
+                        <Label Text="HP"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <Image Source="default_icon.png"
+                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
+                        <Label Text="Name"/>
+                        <Label Text="-"/>
+                        <Label Text="HP"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                        <Image Source="default_icon.png"
+                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
+                        <Label Text="Name"/>
+                        <Label Text="-"/>
+                        <Label Text="HP"/>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+            
+            
             <!-- Battle Grid -->
             
             <!-- Buttons -->
