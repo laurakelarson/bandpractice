@@ -38,8 +38,11 @@
             <StackLayout Orientation="Horizontal">
                 <Picker
                     ItemsSource="{Binding DatabaseCharacterList}"
-                    SelectedItem="{Binding DatabaseCharacterList, Converter={StaticResource CharacterConvert}, Mode=TwoWay}"
-                    x:Name="CharacterPicker"  />
+                    x:Name="CharacterPicker" SelectedIndexChanged="Changed_CharacterPicker" />
+
+
+
+
 
             </StackLayout>
 

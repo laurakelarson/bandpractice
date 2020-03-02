@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Game.Models;
 using Game.ViewModels;
 using Xamarin.Forms;
 
@@ -12,6 +14,9 @@ namespace Game.Views.Battle
     {
         // Index View Model to help manage battle data across pages
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
+        // Character selected to recruit
+        public CharacterModel Character;
 
         /// <summary>
         /// Constructor
@@ -43,6 +48,16 @@ namespace Game.Views.Battle
         async void Recruit_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// Event handler for character picker - sets the character selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Changed_CharacterPicker(object sender, EventArgs e)
+        {
+            Character = (CharacterModel)CharacterPicker.SelectedItem;
         }
     }
 }
