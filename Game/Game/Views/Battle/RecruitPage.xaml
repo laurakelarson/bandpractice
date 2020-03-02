@@ -9,8 +9,8 @@
              >
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
-        <ToolbarItem Text="Recruit" Clicked="Recruit_Clicked"/>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Recruit" Clicked="Recruit_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
