@@ -98,6 +98,9 @@ namespace Game.Engine
             }
 
             // Select first in the list
+
+            // TODO: Teams, You need to implement your own Logic can not use mine.
+
             var defender = CharacterList
                 .Where(m => m.Alive).FirstOrDefault();
 
@@ -121,7 +124,10 @@ namespace Game.Engine
             }
 
             // Select first one to hit in the list for now...
-            // Attack the Weakness (lowest HP) MonsterModel first 
+            // Attack the Weakness (lowest HP) MonsterModel first
+
+            // TODO: Teams, You need to implement your own Logic can not use mine.
+
             var defender = MonsterList
                 .Where(m => m.Alive)
                 .OrderBy(m => m.CurrentHealth).FirstOrDefault();
@@ -455,6 +461,8 @@ namespace Game.Engine
         /// <returns></returns>
         public List<ItemModel> GetRandomMonsterItemDrops(int round)
         {
+            // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
+
             // number of random drops is a dice roll based on the round #
             var NumberToDrop = DiceHelper.RollDice(1, round);
 
