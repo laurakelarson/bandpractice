@@ -82,6 +82,24 @@ namespace Game.Views.Battle
 
             // Beats Required = Experience
             BeatsRequiredLabel.Text = Character.TotalExperience.ToString();
+            ToggleBeatsWarning();
+        }
+
+        /// <summary>
+        /// Helper method to check whether the user has enough Beats to recruit the selected character.
+        /// Toggles the Beats warning label to IsVisible=true if they do not have the required Beats.
+        /// </summary>
+        /// <returns></returns>
+        public bool ToggleBeatsWarning()
+        {
+            if (Character.TotalExperience > EngineViewModel.Beats)
+            {
+                BeatsWarning.IsVisible = true;
+                return true;
+            }
+
+            BeatsWarning.IsVisible = false;
+            return false;
         }
     }
 }

@@ -34,6 +34,13 @@
                     <Label Text="Beat Required:" FontAttributes="Bold" />
                     <Label Text="" FontAttributes="Bold" x:Name="BeatsRequiredLabel" />
                 </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Not enough Beats to recruit this character!"
+                       x:Name="BeatsWarning" IsVisible="false"
+                       TextColor="#EEC256" />
+                </StackLayout>
+
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Margin="10">
@@ -90,7 +97,6 @@
                     x:Name="CharacterImage" />
 
             </Grid>
-
         </StackLayout>
     </ContentPage.Content>
 
