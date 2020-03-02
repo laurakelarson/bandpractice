@@ -59,7 +59,16 @@ namespace Game.Views.Battle
         {
             Character = (CharacterModel)CharacterPicker.SelectedItem;
 
+            // Update display of stats
             LevelLabel.Text = Character.Level.ToString();
+            ExperienceLabel.Text = Character.TotalExperience.ToString();
+            HealthLabel.Text = Character.MaxHealth.ToString();
+            DefenseLabel.Text = Character.Defense.ToString();
+            AttackLabel.Text = Character.Attack.ToString();
+            SpeedLabel.Text = Character.Speed.ToString();
+
+            // Beats Required = Experience
+            BeatsRequiredLabel.Text = Character.TotalExperience.ToString();
         }
     }
 }
