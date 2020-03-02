@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Game.Models;
 using Xamarin.Forms;
 
 namespace Game.Helpers
@@ -20,7 +21,13 @@ namespace Game.Helpers
         /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is CharacterModel)
+            {
+                var character = (CharacterModel)value;
+                return character.Name + " - " + character.Type.ToString();
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
