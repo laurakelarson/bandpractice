@@ -12,7 +12,83 @@
         <StackLayout Style="{StaticResource VerticalStack}"
                      HorizontalOptions="CenterAndExpand"
                      VerticalOptions="CenterAndExpand">
-            <Label Text="MY BAND page content coming soon....."></Label>
+
+                <ListView x:Name="CharactersListView" 
+                    ItemsSource="{Binding PartyCharacterList}"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    CachingStrategy="RecycleElement"
+                    ItemSelected="OnCharacterSelected"
+                    HasUnevenRows="true"
+                    Margin="5,0,5,0"
+                    RowHeight="100"
+                    >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid ColumnSpacing="5" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Image  Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                        
+                                        Source="{Binding IconURI}"
+                                        Style="{StaticResource ImageMediumStyle}"
+                                        VerticalOptions="CenterAndExpand"/>
+
+                                <Label Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource ListStyle}"/>
+
+                                <StackLayout Grid.Column="1" Grid.Row="1"
+                                    Orientation="Horizontal">
+
+                                    <Label 
+                                       Text="Type:" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro" />
+
+                                    <Label Text="{Binding Type}" 
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro" />
+
+                                </StackLayout>
+
+                                <StackLayout Grid.Column="1" Grid.Row="2"
+                                    Orientation="Horizontal">
+
+                                    <Label 
+                                       Text="Level:" 
+                                       Style="{StaticResource ListStyle}"
+                                       FontSize="Micro" />
+
+                                    <Label Text="{Binding Level}" 
+                                        Style="{StaticResource ListStyle}"
+                                        FontSize="Micro" />
+
+                                </StackLayout>
+
+                            </Grid>
+
+                                <BoxView
+                                    BackgroundColor="{StaticResource TransparentColor}"
+                                    HeightRequest="20"></BoxView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
 
             <Button Clicked="BattleButton_Clicked" Text="STAGE"></Button>
         </StackLayout>

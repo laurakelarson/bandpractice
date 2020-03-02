@@ -50,5 +50,15 @@ namespace Game.Views
         {
 
         }
+
+        /// <summary>
+        /// Opens up a Band Member detail page, where user has the option to remove the band member.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void OnCharacterSelected(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
