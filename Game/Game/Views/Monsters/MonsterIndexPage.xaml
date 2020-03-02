@@ -9,11 +9,6 @@
              Title="{Binding Title}"
              Style="{StaticResource CRUDIPage}">
 
-    <Page.Resources>
-        <local_helpers:ItemListToStringConverter x:Key="ItemListToStringConverterKey"></local_helpers:ItemListToStringConverter>
-    </Page.Resources>
-
-
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Clicked="AddMonster_Clicked"  IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
