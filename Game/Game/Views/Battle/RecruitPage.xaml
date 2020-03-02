@@ -82,6 +82,11 @@
                     <Label Text="" x:Name="SpeedLabel" />
                 </StackLayout>
 
+                <Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+                    Style="{StaticResource ImageMediumStyle}"
+                    VerticalOptions="CenterAndExpand"
+                    x:Name="CharacterImage" />
+
             </Grid>
 
         </StackLayout>

@@ -67,6 +67,9 @@ namespace Game.Views.Battle
             AttackLabel.Text = Character.Attack.ToString();
             SpeedLabel.Text = Character.Speed.ToString();
 
+            // Update image
+            CharacterImage.Source = Character.IconURI;
+
             // Beats Required = Experience
             BeatsRequiredLabel.Text = Character.TotalExperience.ToString();
         }
