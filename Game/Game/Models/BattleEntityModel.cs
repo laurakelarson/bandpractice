@@ -112,7 +112,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="levelValue"></param>
         /// <returns></returns>
-        public override bool ChangeLevel(int levelValue)
+        public new bool ChangeLevel(int levelValue)
         {
             throw new NotImplementedException();
         }
@@ -121,7 +121,7 @@ namespace Game.Models
         /// Returns the name of the battle entity.
         /// </summary>
         /// <returns></returns>
-        public override string FormatOutput()
+        public new string FormatOutput()
         {
             return this.Name;
         }
