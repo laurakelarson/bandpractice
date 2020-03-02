@@ -28,6 +28,9 @@ namespace Game.Views.Battle
 
             // Set up binding to BattleEngineViewModel
             BindingContext = EngineViewModel;
+
+            // Character Picker should start at the first element
+            CharacterPicker.SelectedIndex = 0;
         }
 
         /// <summary>
