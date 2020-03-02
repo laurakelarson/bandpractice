@@ -95,8 +95,10 @@
             </ListView>
 
 
-
-            <Button Clicked="BattleButton_Clicked" Text="STAGE"></Button>
+            <ImageButton Source="enterstage_button.png"
+                         Style="{StaticResource ImageButtonHome}"
+                         HeightRequest="100"
+                         Clicked="BattleButton_Clicked"/>
         </StackLayout>
         
     </ContentPage.Content>
