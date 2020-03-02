@@ -32,7 +32,7 @@ namespace Game.Views.Battle
         /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PopModalAsync();
         }
 
         /// <summary>
