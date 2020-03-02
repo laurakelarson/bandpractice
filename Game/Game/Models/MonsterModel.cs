@@ -58,6 +58,16 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Default MonsterModel
+        /// Establish the Default Image Path
+        /// </summary>
+        public MonsterModel(MonsterTypeEnum type)
+        {
+            var data = DefaultMonsterHelper.DefaultMonster(type);
+            Update(data);
+        }
+
+        /// <summary>
         /// Constructor to create an Monster based on what is passed in
         /// </summary>
         /// <param name="data"></param>
