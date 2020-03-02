@@ -4,6 +4,10 @@
              x:Class="Game.Views.MyBandPage"
              >
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Recruit" Clicked="RecruitCharacter_Clicked"  IconImageSource="icon_add.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}"
                      HorizontalOptions="CenterAndExpand"

@@ -40,5 +40,15 @@ namespace Game.Views
 			//await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
 			//await Navigation.PopAsync();
 		}
+
+        /// <summary>
+        /// Open a character recruit page so user can add a character to the band.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void RecruitCharacter_Clicked(object sender, EventArgs e)
+        {
+
+        }
 	}
 }
