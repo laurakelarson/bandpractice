@@ -21,50 +21,50 @@
             <!-- Character Info Box -->
             
             <Frame
-                BorderColor="{StaticResource PrimaryTextColor}">
+                BorderColor="{StaticResource SecondaryTextColor}">
                 <Grid
                     HorizontalOptions="FillAndExpand">
                     <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
                         <Image Source="default_icon.png"
                                Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Text="Name"/>
-                        <Label Text="-"/>
-                        <Label Text="HP"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
                         <Image Source="default_icon.png"
                                Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Text="Name"/>
-                        <Label Text="-"/>
-                        <Label Text="HP"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
                         <Image Source="default_icon.png"
                                Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Text="Name"/>
-                        <Label Text="-"/>
-                        <Label Text="HP"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
                         <Image Source="default_icon.png"
                                Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Text="Name"/>
-                        <Label Text="-"/>
-                        <Label Text="HP"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                         <Image Source="default_icon.png"
                                Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Text="Name"/>
-                        <Label Text="-"/>
-                        <Label Text="HP"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
                         <Image Source="default_icon.png"
                                Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Text="Name"/>
-                        <Label Text="-"/>
-                        <Label Text="HP"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
+                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
                     </StackLayout>
                 </Grid>
             </Frame>
