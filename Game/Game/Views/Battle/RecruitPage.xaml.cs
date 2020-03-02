@@ -50,9 +50,14 @@ namespace Game.Views.Battle
         /// <param name="e"></param>
         async void Recruit_Clicked(object sender, EventArgs e)
         {
-            // Save a copy of the selected Character to the band/party
-            EngineViewModel.PartyCharacterList.Add(new CharacterModel(Character));
-            await Navigation.PopModalAsync();
+            // Save a copy of the selected Character to the band/party if player has enough Beats
+            if (Character.TotalExperience <= EngineViewModel.Beats)
+            {
+                EngineViewModel.Beats -= Character.TotalExperience;
+                EngineViewModel.PartyCharacterList.Add(new CharacterModel(Character));
+                await Navigation.PopModalAsync();
+            }
+
         }
 
         /// <summary>
