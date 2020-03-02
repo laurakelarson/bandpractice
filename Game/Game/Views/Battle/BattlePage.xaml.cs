@@ -12,12 +12,25 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattlePage: ContentPage
 	{
+
+		// This uses the Instance so it can be shared with other Battle Pages as needed
+		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public BattlePage ()
 		{
 			InitializeComponent ();
+
+			// Set up the UI to Defaults
+			BindingContext = EngineViewModel;
+
+			// Start the Battle Engine
+			EngineViewModel.Engine.StartBattle(false);
+
+			// Show the New Round Screen
+			ShowModalNewRoundPage();
 		}
 
 		/// <summary>
@@ -27,7 +40,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			DisplayAlert("SU", "Attack !!!", "OK");
+			
 		}
 
 		/// <summary>
@@ -93,6 +106,26 @@ namespace Game.Views
 			{
 				await Navigation.PopModalAsync();
 			}
+		}
+
+		/// <summary>
+		/// Show the Page for New Round
+		/// 
+		/// Upcomming Monsters
+		/// 
+		/// </summary>
+		public async void ShowModalNewRoundPage()
+		{
+			await Navigation.PushModalAsync(new NewRoundPage());
+
+			//HideUIElements();
+
+			//ClearMessages();
+
+			// Show the Attack Button Set
+			//BattlePlayerInfomationBox.IsVisible = true;
+			//MessageDisplayBox.IsVisible = true;
+			//AttackButton.IsVisible = true;
 		}
 	}
 }
