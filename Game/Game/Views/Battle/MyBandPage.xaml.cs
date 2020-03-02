@@ -37,10 +37,16 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleButton_Clicked(object sender, EventArgs e)
 		{
-			//Disabled until we implement Battle engine!
-			//await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
-			//await Navigation.PopAsync();
-		}
+			// Disable button if user has not recruited any characters
+			if (EngineViewModel.PartyCharacterList.Count < 1)
+            {
+				return;
+            }
+
+            // Open the Battle page
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            await Navigation.PopAsync();
+        }
 
         /// <summary>
         /// Open a character recruit page so user can add a character to the band.
