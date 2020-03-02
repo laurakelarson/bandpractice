@@ -5,16 +5,24 @@
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="New Round Page..."></Label>
+            <Label 
+                Style="{StaticResource HeaderCenterStyle}"
+                Text="PLAYING LIVE TONIGHT:"></Label>
 
-            <Label Text="YOUR BAND"></Label>
+            <Label 
+                Padding="0,10,0,10"
+                Style="{StaticResource LabelStyle}"
+                Text="YOUR BAND"></Label>
 
             <FlexLayout x:Name="PartyListFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
             
-            <Label Text="MONSTERS"></Label>
+            <Label 
+                Padding="0,30,0,10"
+                Style="{StaticResource LabelStyle}"
+                Text="MONSTERS"></Label>
 
             <FlexLayout x:Name="MonsterListFrame"
                                     JustifyContent="Start"
