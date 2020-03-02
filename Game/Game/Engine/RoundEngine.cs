@@ -57,7 +57,11 @@ namespace Game.Engine
             for (var i = 0; i < MaxNumberMonsters; i++)
             {
                 // for now, use default Massive Static
-                var data = DefaultMonsterHelper.DefaultMassiveStatic();
+                //var data = DefaultMonsterHelper.DefaultMassiveStatic();
+                var data = new MonsterModel(RandomEntityHelper.GetMonsterType());
+
+                // TODO - implement scaling to character levels
+                data.ChangeLevel(1);
 
                 // Help identify which Monster it is
                 data.Name += " " + (i + 1);
