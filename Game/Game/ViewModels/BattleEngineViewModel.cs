@@ -5,8 +5,8 @@ using Game.Models;
 namespace Game.ViewModels
 {
     /// <summary>
-    /// Index View Model
-    /// Manages the list of data records
+    /// Battle Index View Model
+    /// Manages the list of characters and engine for the battle
     /// </summary>
     public class BattleEngineViewModel
     {
