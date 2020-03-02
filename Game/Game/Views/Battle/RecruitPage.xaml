@@ -12,4 +12,25 @@
         <ToolbarItem Text="Recruit" Clicked="Recruit_Clicked"/>
     </ContentPage.ToolbarItems>
 
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource VerticalStack}"
+                     HorizontalOptions="StartAndExpand"
+                     VerticalOptions="StartAndExpand">
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Beats:" FontAttributes="Bold"></Label>
+                <Label Text="{Binding Beats}" FontAttributes="Bold"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Beat Required:" FontAttributes="Bold"
+                       x:Name="BeatsRequiredLabel"></Label>
+                <Label Text="" FontAttributes="Bold"></Label>
+            </StackLayout>
+
+
+            </StackLayout>
+    </ContentPage.Content>
+
+
 </ContentPage>
