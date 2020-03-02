@@ -58,6 +58,8 @@ namespace Game.Views.Battle
         void Changed_CharacterPicker(object sender, EventArgs e)
         {
             Character = (CharacterModel)CharacterPicker.SelectedItem;
+
+            LevelLabel.Text = Character.Level.ToString();
         }
     }
 }

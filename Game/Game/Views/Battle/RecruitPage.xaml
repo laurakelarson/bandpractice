@@ -39,12 +39,29 @@
                 <Picker
                     ItemsSource="{Binding DatabaseCharacterList}"
                     x:Name="CharacterPicker" SelectedIndexChanged="Changed_CharacterPicker" />
-
-
-
-
-
             </StackLayout>
+
+            <Grid ColumnSpacing="10" RowSpacing="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0"
+                                           Text="Stats" FontAttributes="Bold"
+                                           Style="{StaticResource ListStyle}"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                    <Label Text="Level:" Style="{StaticResource ListStyle}" />
+                    <Label Text="" Style="{StaticResource ListStyle}"
+                        x:Name="LevelLabel" />
+                </StackLayout>
+
+
+
+            </Grid>
 
         </StackLayout>
     </ContentPage.Content>
