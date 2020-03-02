@@ -29,5 +29,25 @@ namespace Game.Views.Battle
 
             BindingContext = this.ViewModel = data;
         }
+
+        /// <summary>
+        /// Handle event when user clicks Remove toolbar item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Remove_Clicked(object sender, EventArgs e)
+        {
+            
+        }
+
+        /// <summary>
+        /// Handle event when user clicks OK toolbar item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void OK_Clicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

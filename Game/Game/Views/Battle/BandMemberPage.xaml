@@ -5,6 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.Battle.BandMemberPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Remove" Clicked="Remove_Clicked" />
+        <ToolbarItem Text="OK" Clicked="OK_Clicked" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
     </ContentPage.Content>
 </ContentPage>
