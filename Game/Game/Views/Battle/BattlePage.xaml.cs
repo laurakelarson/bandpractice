@@ -28,9 +28,11 @@ namespace Game.Views
 
 			// Start the Battle Engine
 			EngineViewModel.Engine.StartBattle(false);
+			RoundCount.Text = EngineViewModel.Engine.Score.RoundCount.ToString();
 
 			// Show the New Round Screen
 			ShowModalNewRoundPage();
+
 		}
 
 		/// <summary>
