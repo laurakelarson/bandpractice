@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,12 +11,20 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MyBandPage : ContentPage
 	{
+        // Index View Model to help manage battle data across pages
+		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		public MyBandPage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
+			Title = "My Band";
+
+            // Start battle engine state with a cleared character list
+			BindingContext = EngineViewModel;
+			EngineViewModel.PartyCharacterList.Clear();
 		}
 
 		/// <summary>
