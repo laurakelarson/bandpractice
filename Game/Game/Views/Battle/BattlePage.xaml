@@ -4,11 +4,18 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Round"/>
-                <Label x:Name="RoundCount"
-                       Text="{Binding Data.RoundCount}"/>
+        <StackLayout Style="{StaticResource VerticalStack}"
+                     HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Label Text="Round" />
+                    <Label x:Name="RoundCount" 
+                           Text="{Binding Data.RoundCount}"/>
+                </StackLayout>
+
+                <Button HorizontalOptions="EndAndExpand"
+                    Clicked="QuitButton_Clicked" Text="Quit"></Button>
             </StackLayout>
             
             <!-- Character Info Box -->
@@ -29,7 +36,7 @@
             
             <Button Clicked="ExitButton_Clicked" Text="Exit"></Button>
 
-            <Button Clicked="QuitButton_Clicked" Text="Quit"></Button>
+            
 
         </StackLayout>
         
