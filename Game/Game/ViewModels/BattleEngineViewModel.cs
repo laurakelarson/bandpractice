@@ -52,6 +52,9 @@ namespace Game.ViewModels
         // Have the Database Character List point to the Character View Model List
         public ObservableCollection<CharacterModel> DatabaseCharacterList { get; set; } = CharacterIndexViewModel.Instance.Dataset;
 
+        //  Hold the number of Beats the player has
+        public int Beats { get; set; } = 0;
+
         #region Constructor
 
         /// <summary>
