@@ -31,7 +31,7 @@
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Beat Required:" FontAttributes="Bold" />
+                    <Label Text="Beats Required:" FontAttributes="Bold" />
                     <Label Text="" FontAttributes="Bold" x:Name="BeatsRequiredLabel" />
                 </StackLayout>
 
