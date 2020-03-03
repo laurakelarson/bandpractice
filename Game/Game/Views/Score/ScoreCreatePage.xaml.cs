@@ -42,6 +42,11 @@ namespace Game.Views
                 NameWarning.IsVisible = true;
                 return;
             }
+            if (string.IsNullOrEmpty(ScoreEntry.Text))
+            {
+                ScoreWarning.IsVisible = true;
+                return;
+            }
 
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
