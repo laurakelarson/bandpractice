@@ -31,7 +31,10 @@
                                         AlignContent="Start"
                                         Wrap="Wrap"/>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
+                <ImageButton Clicked="BeginButton_Clicked" 
+                             Source="begin_button.png" 
+                             HeightRequest="80"
+                             Style="{StaticResource ImageButtonHome}"></ImageButton>
 
             </StackLayout>
         </ScrollView>
