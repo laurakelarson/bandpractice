@@ -291,6 +291,7 @@ namespace Game.Engine
             {
                 // If no ItemModel in the slot then put on the first in the list
                 character.AddItem(setLocation, myList.FirstOrDefault());
+
                 return true;
             }
 
@@ -313,6 +314,36 @@ namespace Game.Engine
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Swap the Item the character has for one from the pool
+        /// 
+        /// Drop the current item back into the Pool
+        /// 
+        /// </summary>
+        /// <param name="character"></param>
+        /// <param name="setLocation"></param>
+        /// <param name="PoolItem"></param>
+        /// <returns></returns>
+        private ItemModel SwapCharacterItem(CharacterModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
+        {
+            // Put on the new ItemModel, which drops the one back to the pool
+            var droppedItem = character.AddItem(setLocation, PoolItem);
+
+            // Add the PoolItem to the list of selected items
+            //Score.ItemModelSelectList.Add(PoolItem);
+
+            // Remove the ItemModel just put on from the pool
+            ItemPool.Remove(PoolItem);
+
+            if (droppedItem != null)
+            {
+                // Add the dropped ItemModel to the pool
+                ItemPool.Add(droppedItem);
+            }
+
+            return droppedItem;
         }
 
     }
