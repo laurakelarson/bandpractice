@@ -30,14 +30,16 @@ namespace Game.Views
 			EngineViewModel.Engine.StartBattle(false);
 			RoundCount.Text = EngineViewModel.Engine.Score.RoundCount.ToString();
 
+			// Show the New Round Screen
+			ShowModalNewRoundPage();
+
 			// draw Character info box at top of Battle Page
 			foreach (var data in EngineViewModel.Engine.CharacterList)
 			{
 				CharacterInfoBox.Children.Add(CharacterInfo(data));
 			}
 
-			// Show the New Round Screen
-			ShowModalNewRoundPage();
+			BattleMessages.Text = string.Empty;
 
 		}
 

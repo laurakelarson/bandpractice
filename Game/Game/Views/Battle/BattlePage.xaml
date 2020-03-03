@@ -44,21 +44,19 @@
             <Frame
                 BorderColor="{StaticResource SecondaryTextColor}"
                 BackgroundColor="{StaticResource PrimaryBackgroundColor}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="700"/>
-                    </Grid.ColumnDefinitions>
-                    <ScrollView Grid.Row="0" Grid.Column="0"
+                <StackLayout
+                    x:Name="BattleMessageBox"
                     Orientation="Vertical"
                     VerticalOptions="Fill">
-                        <Label 
+                    <Label 
+                        x:Name="BattleMessages"
+                        HorizontalOptions="FillAndExpand" 
+                        LineBreakMode="WordWrap" 
+                        MaxLines="10"
+                        LineHeight="1"
                         Text="{Binding Data.MessageList}" 
                         Style="{StaticResource ScrollableLabel}"/>
-                    </ScrollView>
-                </Grid>
+                </StackLayout>
             </Frame>
 
 
