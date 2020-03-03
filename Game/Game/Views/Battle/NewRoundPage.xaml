@@ -4,34 +4,37 @@
              x:Class="Game.Views.NewRoundPage">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label 
-                Style="{StaticResource HeaderCenterStyle}"
-                Text="PLAYING LIVE TONIGHT:"></Label>
-
-            <Label 
-                Padding="0,10,0,10"
-                Style="{StaticResource LabelStyle}"
-                Text="YOUR BAND"></Label>
-
-            <FlexLayout x:Name="PartyListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+        <ScrollView>
+            <StackLayout Style="{StaticResource VerticalStack}">
             
-            <Label 
-                Padding="0,30,0,10"
-                Style="{StaticResource LabelStyle}"
-                Text="MONSTERS"></Label>
+                <Label 
+                    Style="{StaticResource HeaderCenterStyle}"
+                    Text="PLAYING LIVE TONIGHT:"></Label>
 
-            <FlexLayout x:Name="MonsterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
-                                    Wrap="Wrap"/>
+                <Label 
+                    Padding="0,10,0,10"
+                    Style="{StaticResource LabelStyle}"
+                    Text="YOUR BAND"></Label>
 
-            <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
+                <FlexLayout x:Name="PartyListFrame"
+                                        JustifyContent="Start"
+                                        AlignContent="Start"
+                                        Wrap="Wrap"/>
+            
+                <Label 
+                    Padding="0,30,0,10"
+                    Style="{StaticResource LabelStyle}"
+                    Text="MONSTERS"></Label>
 
-        </StackLayout>
-        
+                <FlexLayout x:Name="MonsterListFrame"
+                                        JustifyContent="Start"
+                                        AlignContent="Start"
+                                        Wrap="Wrap"/>
+
+                <Button Clicked="BeginButton_Clicked" Text="Begin"></Button>
+
+            </StackLayout>
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>
