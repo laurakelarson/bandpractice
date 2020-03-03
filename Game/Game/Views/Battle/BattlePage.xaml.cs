@@ -308,9 +308,9 @@ namespace Game.Views
 
 				Debug.WriteLine("New Round");
 
-				// Show the Round Over, after that is cleared, it will show the New Round Dialog
-				//ShowModalRoundOverPage();
-				return;
+                // Show the Round Over, after that is cleared, it will show the New Round Dialog
+                ShowModalRoundOverPage();
+                return;
 			}
 
 			// Check for Game Over
@@ -379,7 +379,7 @@ namespace Game.Views
 			//GameOverDisplay.IsVisible = true;
 		}
 
-		#region MessageHandelers
+		#region MessageHandlers
 
 		/// <summary>
 		/// Builds up the output message
@@ -411,6 +411,25 @@ namespace Game.Views
 			//HtmlBox.Source = htmlSource;
 		}
 
-		#endregion MessageHandelers
+		#endregion MessageHandlers
+
+
+		/// <summary>
+		/// Show the Round Over page
+		/// 
+		/// Round Over is where characters get items
+		/// 
+		/// </summary>
+		public async void ShowModalRoundOverPage()
+		{
+			//HideUIElements();
+
+			// Show the Round Over page
+			// Then show the Next Round Button
+			//NextRoundButton.IsVisible = true;
+
+			await Navigation.PushModalAsync(new RoundOverPage());
+		}
+
 	}
 }
