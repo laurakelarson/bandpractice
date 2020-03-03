@@ -203,13 +203,9 @@
             </Frame>
 
 
-            <Button Clicked="NewRoundButton_Clicked" Text="New Round"></Button>
-
             <Button Clicked="RoundOverButton_Clicked" Text="Round Over"></Button>
             
-            <Button Clicked="BattleOverButton_Clicked" Text="Battle Over"></Button>
-            
-            <Button Clicked="ExitButton_Clicked" Text="Exit"></Button>
+
 
             
 
