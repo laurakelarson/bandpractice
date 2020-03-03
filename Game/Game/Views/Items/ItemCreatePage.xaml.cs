@@ -31,6 +31,10 @@ namespace Game.Views
             //Need to make the SelectedItem a string, so it can select the correct item.
             LocationPicker.SelectedItem = data.Data.Location.ToString();
             AttributePicker.SelectedItem = data.Data.Attribute.ToString();
+
+            // Force the pickers to be in selected state, so user must pick a valid selection
+            LocationPicker.SelectedIndex = 0;
+            AttributePicker.SelectedIndex = 0;
         }
 
         /// <summary>
