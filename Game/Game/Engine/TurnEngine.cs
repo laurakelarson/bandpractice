@@ -188,9 +188,12 @@ namespace Game.Engine
                 TakeDamage(target, BattleMessages.DamageAmount);
             }
 
+            // update battle messages
             BattleMessages.CurrentHealth = target.CurrentHealth;
             BattleMessages.TurnMessageSpecial = BattleMessages.GetCurrentHealthMessage();
-            BattleMessages.AttackStatus = " attacks "; 
+            BattleMessages.AttackStatus = " attacks ";
+            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
+            Debug.WriteLine(BattleMessages.TurnMessage);
 
             bool died = RemoveIfDead(target);
 
@@ -198,9 +201,6 @@ namespace Game.Engine
             {
                 AddExperience(attacker, target.ExperiencePoints);
             }
-
-            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
-            Debug.WriteLine(BattleMessages.TurnMessage);
 
             return true;
         }
