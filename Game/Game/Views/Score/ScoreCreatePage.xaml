@@ -55,6 +55,7 @@
                         Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="1" Grid.Column="1"
+                        x:Name="ScoreEntry"
                         Keyboard="Numeric"
                         Text="{Binding Data.ScoreTotal}" 
                         Style="{StaticResource EntryStyle}"/>
@@ -69,6 +70,10 @@
                     <Label x:Name="NameWarning" IsVisible="false"
                        Style="{StaticResource WarningLabelStyle}"
                        Text="Name is required!" />
+
+                    <Label x:Name="ScoreWarning" IsVisible="false"
+                       Style="{StaticResource WarningLabelStyle}"
+                       Text="Score is required!" />
                 </StackLayout>
 
             </StackLayout>
