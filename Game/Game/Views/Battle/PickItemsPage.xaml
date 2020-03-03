@@ -9,16 +9,20 @@
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand">
 
-            <Label Text="ROCK ON!" FontSize="Large" HorizontalTextAlignment="Center"></Label>
+            <Label Text="ROCK ON!" Style="{StaticResource HeaderCenterStyle}"
+                   Margin="10" />
 
-            <Label Text="Item Swap Summary" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+            <StackLayout Style="{StaticResource VerticalStack}" Margin="10" >
+                <Label Text="Item Swap Summary" />
 
-            <ScrollView
+                <ScrollView
                     Orientation="Vertical"
                     VerticalOptions="Fill">
-                <Label x:Name="ItemsLabel"
-                        Style="{StaticResource ScrollableLabel}"/>
-            </ScrollView>
+
+                    <Label x:Name="ItemsLabel" Text="sljfd\nslfjds\nkfsldfsd\nkjdls"
+                        Style="{StaticResource ScrollableLabel}" />
+                </ScrollView>
+            </StackLayout>
 
             <Button Clicked="CloseButton_Clicked" Text="Next Round"></Button>
         </StackLayout>
