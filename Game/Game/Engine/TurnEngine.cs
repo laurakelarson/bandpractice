@@ -42,23 +42,24 @@ namespace Game.Engine
         /// 
         /// Do the Attack
         /// </summary>
-        /// <param name="attacker"></param>
+        /// <param name="Attacker"></param>
         /// <returns></returns>
-        public bool Attack(BattleEntityModel attacker)
+        public bool Attack(BattleEntityModel Attacker)
         {
-            //// For Attack, Choose Who
-            var target = AttackChoice(attacker);
-
-            if (target == null)
+            // for auto battle, engine should pick the attack target
+            if (Score.AutoBattle)
             {
-                return false;
+                // For Attack, Choose Who
+                CurrentDefender = AttackChoice(Attacker);
+
+                if (CurrentDefender == null)
+                {
+                    return false;
+                }
             }
 
             // Do Attack
-            TurnAsAttack(attacker, target);
-
-            CurrentAttacker = new BattleEntityModel(attacker);
-            CurrentDefender = new BattleEntityModel(target);
+            TurnAsAttack(Attacker, CurrentDefender);
 
             return true;
         }
