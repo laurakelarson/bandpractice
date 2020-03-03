@@ -195,8 +195,14 @@
             <Style TargetType="Image"
                 x:Key="ImageBattleSmallIconStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
-                <Setter Property="WidthRequest" Value="30" />
-                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="35" />
+                <Setter Property="HeightRequest" Value="35" />
+            </Style>
+            <Style TargetType="Image"
+                x:Key="ImageBattleSmallSpriteStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="WidthRequest" Value="20" />
+                <Setter Property="HeightRequest" Value="40" />
             </Style>
 
             <Style TargetType="Image"
