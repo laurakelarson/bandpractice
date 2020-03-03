@@ -6,7 +6,8 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}"
             HorizontalOptions="CenterAndExpand"
-            VerticalOptions="CenterAndExpand">
+            VerticalOptions="CenterAndExpand"
+            Spacing="10" >
 
             <Label Text="ROCK ON!" Style="{StaticResource HeaderCenterStyle}"
                    Margin="10" />
