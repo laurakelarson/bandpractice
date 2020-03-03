@@ -33,6 +33,7 @@
             
             
             <!-- Battle Grid  -  6 rows, 7 columns -->
+            <!-- Cell name format is C0R0 -->
 
             <Grid BackgroundColor="{StaticResource SecondaryTextColor}"
                   RowSpacing="0"
