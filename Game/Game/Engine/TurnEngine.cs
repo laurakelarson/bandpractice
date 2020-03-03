@@ -102,10 +102,11 @@ namespace Game.Engine
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
-            var defender = CharacterList
-                .Where(m => m.Alive).FirstOrDefault();
+            var Defender = EntityList
+                   .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Character)
+                   .OrderBy(m => m.ListOrder).FirstOrDefault();
 
-            return new BattleEntityModel(defender);
+            return Defender;
         }
 
         /// <summary>
