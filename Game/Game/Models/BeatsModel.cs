@@ -49,5 +49,29 @@ namespace Game.Models
         {
             _Beats = value; 
         }
+
+        /// <summary>
+        /// Update the beats model. 
+        /// </summary>
+        /// <param name="newData"></param>
+        /// <returns></returns>
+        public override bool Update(BeatsModel newData)
+        {
+            // new data cannot be null
+            if (newData == null)
+            {
+                return false; 
+            }
+
+            // cannot have fewer than 0 beats
+            if (newData.Beats < 0)
+            {
+                return false; 
+            }
+
+            // Update beats value
+            Beats = newData.Beats;
+            return true; 
+        }
     }
 }
