@@ -16,8 +16,7 @@
             <ScrollView
                     Orientation="Vertical"
                     VerticalOptions="Fill">
-                <Label 
-                        Text="items..." 
+                <Label x:Name="ItemsLabel"
                         Style="{StaticResource ScrollableLabel}"/>
             </ScrollView>
 
