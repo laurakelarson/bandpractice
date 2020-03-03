@@ -440,4 +440,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\demotape.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\begin_button.png" />
+  </ItemGroup>
 </Project>

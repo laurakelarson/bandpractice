@@ -127,6 +127,7 @@
     <Content Include="bassist.png" />
     <Content Include="bassist_icon.png" />
     <Content Include="battleboard.jpg" />
+    <Content Include="begin_button.png" />
     <Content Include="bp_logo.png" />
     <Content Include="cool_button.png" />
     <Content Include="default_character.png" />
