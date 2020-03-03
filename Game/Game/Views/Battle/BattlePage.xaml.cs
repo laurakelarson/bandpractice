@@ -65,7 +65,7 @@ namespace Game.Views
         /// <param name="e"></param>
         void AttackButton_Clicked(object sender, EventArgs e)
 		{
-			
+			NextAttackExample();
 		}
 
 		/// <summary>
@@ -398,8 +398,8 @@ namespace Game.Views
 			}
 
 			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLFormattedTurnMessage();
-			//HtmlBox.Source = HtmlBox.Source = htmlSource;
-		}
+            HtmlBox.Source = HtmlBox.Source = htmlSource;
+        }
 
 		/// <summary>
 		///  Clears the messages on the UX
@@ -408,8 +408,8 @@ namespace Game.Views
 		{
 			BattleMessages.Text = "";
 			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLBlankMessage();
-			//HtmlBox.Source = htmlSource;
-		}
+            HtmlBox.Source = htmlSource;
+        }
 
 		#endregion MessageHandlers
 
