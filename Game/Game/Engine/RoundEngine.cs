@@ -325,6 +325,9 @@ namespace Game.Engine
             // Add the PoolItem to the list of selected items
             //Score.ItemModelSelectList.Add(PoolItem);
 
+            // Update BattleMessage
+            BattleMessages.AddItemEquipped(character.Name, PoolItem.Name);
+
             // Remove the ItemModel just put on from the pool
             ItemPool.Remove(PoolItem);
 
