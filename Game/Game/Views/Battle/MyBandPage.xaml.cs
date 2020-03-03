@@ -44,7 +44,8 @@ namespace Game.Views
 				return;
             }
 
-            // Add the characters to the battle engine
+			// Add the characters to the battle engine
+			EngineViewModel.Engine.CharacterList.Clear();
             foreach (CharacterModel member in EngineViewModel.PartyCharacterList)
             {
 				EngineViewModel.Engine.AddBandMember(member);
