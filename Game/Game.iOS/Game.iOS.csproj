@@ -443,4 +443,25 @@
   <ItemGroup>
     <BundleResource Include="Resources\begin_button.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_bassist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_drummer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_guitarist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_keyboardist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_tambourine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sprite_vocalist.png" />
+  </ItemGroup>
 </Project>

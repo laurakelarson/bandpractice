@@ -242,6 +242,13 @@
     <Content Include="rock_on.png" />
     <Content Include="rock_on_text.png" />
     <Content Include="score_button.png" />
+    <Content Include="sprite_bassist.png" />
+    <Content Include="sprite_default.png" />
+    <Content Include="sprite_drummer.png" />
+    <Content Include="sprite_guitarist.png" />
+    <Content Include="sprite_keyboardist.png" />
+    <Content Include="sprite_tambourine.png" />
+    <Content Include="sprite_vocalist.png" />
     <Content Include="tambourine.png" />
     <Content Include="tambourine_icon.png" />
     <Content Include="tape.png" />
