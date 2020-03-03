@@ -1,6 +1,7 @@
 ﻿using Game.Models;
 using Game.ViewModels;
 using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -39,6 +40,10 @@ namespace Game.Views
 				CharacterInfoBox.Children.Add(CharacterInfo(data));
 			}
 
+			// For now, draw battle entities explicitly
+			DrawEntities();
+
+			// dummy declaration
 			BattleMessages.Text = string.Empty;
 
 		}
@@ -218,5 +223,17 @@ namespace Game.Views
 			//MessageDisplayBox.IsVisible = true;
 			//AttackButton.IsVisible = true;
 		}
+
+		public void DrawEntities()
+		{
+			var MonsterPositions = new List<string> { "C4R0", "C5R1", "C4R2", "C5R3", "C4R4", "C5R5" };
+			int idx = 0;
+			foreach (var data in EngineViewModel.Engine.MonsterList)
+			{
+				//CharacterInfoBox.Children.Add(CharacterInfo(data));
+				
+			}
+		}
+
 	}
 }
