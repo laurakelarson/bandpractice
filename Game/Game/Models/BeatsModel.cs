@@ -35,5 +35,12 @@ namespace Game.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        // Default constructor. Sets Beats to 500,000 
+        // by default. 
+        public BeatsModel()
+        {
+            _Beats = 500000; 
+        }
     }
 }
