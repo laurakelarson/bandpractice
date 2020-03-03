@@ -153,6 +153,17 @@
 
                     </StackLayout>
                 </Grid>
+
+                <StackLayout Spacing="10" Padding="10">
+                    <Label x:Name="NameWarning" IsVisible="false"
+                       Style="{StaticResource WarningLabelStyle}"
+                       Text="Name is required!" />
+
+                    <Label x:Name="DescriptionWarning" IsVisible="false"
+                       Style="{StaticResource WarningLabelStyle}"
+                       Text="Description is required!" />
+                </StackLayout>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
