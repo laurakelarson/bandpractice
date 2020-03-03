@@ -175,7 +175,7 @@ namespace Game.Views
 			{
 				Orientation = StackOrientation.Vertical,
 				HorizontalOptions = LayoutOptions.Start,
-				Padding = 5,
+				Padding = 2,
 				Spacing = 0,
 				Children = {
 					CharacterNameLabel,
@@ -188,7 +188,7 @@ namespace Game.Views
 			{
 				Orientation = StackOrientation.Horizontal,
 				HorizontalOptions = LayoutOptions.Start,
-				Padding = 5,
+				Padding = 2,
 				Spacing = 0,
 				Children = {
 					CharacterImage,

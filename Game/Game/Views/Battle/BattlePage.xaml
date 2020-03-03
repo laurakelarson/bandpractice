@@ -6,8 +6,7 @@
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}"
                      HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                     <Label Text="Round" />
                     <Label x:Name="RoundCount" 
