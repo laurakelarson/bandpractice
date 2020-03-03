@@ -42,5 +42,12 @@ namespace Game.Models
         {
             _Beats = 500000; 
         }
+
+        // Constructor. Assigns initial value of beats to value passed
+        // in to constructor. 
+        public BeatsModel(int value)
+        {
+            _Beats = value; 
+        }
     }
 }
