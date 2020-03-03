@@ -1,4 +1,5 @@
-﻿using Game.Models.Enum;
+﻿using System.Collections.Generic;
+using Game.Models.Enum;
 
 namespace Game.Models
 {
@@ -36,6 +37,9 @@ namespace Game.Models
 
         // The Remaining Health Mesage
         public int CurrentHealth = 0;
+
+        // Message about the items equipped by characters during an item swap
+        public List<string> ItemsEquipped = new List<string>();
 
         // Beginning of the Html Block for html formatting
         public string htmlHead = @"<html><body bgcolor=""#E8D0B6""><p>";
@@ -78,6 +82,33 @@ namespace Game.Models
         public string GetCurrentHealthMessage()
         {
             return " remaining health is " + CurrentHealth.ToString();
+        }
+
+        /// <summary>
+        /// Add an item equipped message to the list.
+        /// </summary>
+        /// <param name="CharacterName"></param>
+        /// <param name="ItemName"></param>
+        /// <returns></returns>
+        public bool AddItemEquipped(string CharacterName, string ItemName)
+        {
+            string message = CharacterName + " equipped " + ItemName + ".";
+            ItemsEquipped.Add(message);
+            return true;
+        }
+
+        /// <summary>
+        /// Returns the Items Equipped message as a string.
+        /// </summary>
+        /// <returns></returns>
+        public string GetItemsEquippedMessage()
+        {
+            string message = "";
+            foreach (string line in ItemsEquipped)
+            {
+                message += line + "\n";
+            }
+            return message;
         }
 
         /// <summary>
