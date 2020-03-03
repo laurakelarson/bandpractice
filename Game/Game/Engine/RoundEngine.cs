@@ -54,21 +54,27 @@ namespace Game.Engine
         /// <returns></returns>
         public int AddMonstersToRound()
         {
+            // used for scaling monsters to level of characters
+            int averageLevel = GetAverageCharacterLevel();
+            var range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1 };
+
             for (var i = 0; i < MaxNumberMonsters; i++)
             {
-                // for now, use default Massive Static
-                //var data = DefaultMonsterHelper.DefaultMassiveStatic();
                 var data = new MonsterModel(RandomEntityHelper.GetMonsterType());
+                // slightly randomizes Monster levels
+                var level = range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
+                data.ChangeLevel(level);
 
-                // TODO - implement scaling to character levels
-                data.ChangeLevel(1);
-
-                // Help identify which Monster it is
-                data.Name += " " + (i + 1);
                 MonsterList.Add(data);
             }
 
             return MonsterList.Count();
+        }
+
+        public int GetAverageCharacterLevel()
+        {
+            var List = new List<int>(CharacterList.Select(o => o.Level));
+            return (int)List.Average();
         }
 
         /// <summary>
