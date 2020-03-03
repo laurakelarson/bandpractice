@@ -290,7 +290,7 @@ namespace Game.Engine
             if (CharacterItem == null)
             {
                 // If no ItemModel in the slot then put on the first in the list
-                character.AddItem(setLocation, myList.FirstOrDefault());
+                SwapCharacterItem(character, setLocation, myList.FirstOrDefault());
 
                 return true;
             }
@@ -299,17 +299,8 @@ namespace Game.Engine
             {
                 if (PoolItem.Value > CharacterItem.Value)
                 {
-                    // Put on the new ItemModel, which drops the one back to the pool
-                    var droppedItem = character.AddItem(setLocation, PoolItem);
-
-                    // Remove the ItemModel just put on from the pool
-                    ItemPool.Remove(PoolItem);
-
-                    if (droppedItem != null)
-                    {
-                        // Add the dropped ItemModel to the pool
-                        ItemPool.Add(droppedItem);
-                    }
+                    SwapCharacterItem(character, setLocation, PoolItem);
+                    return true;
                 }
             }
 
