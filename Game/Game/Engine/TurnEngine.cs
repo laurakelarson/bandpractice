@@ -350,7 +350,8 @@ namespace Game.Engine
         public bool TargetDied(BattleEntityModel target)
         {
             // Mark Status in output
-            BattleMessages.TurnMessageSpecial = " and causes death";
+            BattleMessages.TurnMessageSpecial = target.Name + " dies";
+            Debug.WriteLine(BattleMessages.TurnMessageSpecial);
 
             // Remove target from list...
 
@@ -363,6 +364,7 @@ namespace Game.Engine
                     var character = CharacterList.Where(a => a.Id == target.Id).FirstOrDefault();
 
                     CharacterList.Remove(character);
+                    EntityList.Remove(EntityList.Find(m => m.Id.Equals(target.Id)));
 
                     // Add the MonsterModel to the killed list
                     Score.CharacterAtDeathList += character.FormatOutput() + "\n";
@@ -376,6 +378,7 @@ namespace Game.Engine
                     var monster = MonsterList.Where(a => a.Id == target.Id).FirstOrDefault();
 
                     MonsterList.Remove(monster);
+                    EntityList.Remove(EntityList.Find(m => m.Id.Equals(target.Id)));
 
                     // Add one to the monsters killed count...
                     Score.MonsterSlainNumber++;
