@@ -37,6 +37,12 @@
                     <StackLayout Style="{StaticResource OuterBoxStack}"
                     Spacing="10">
 
+                        <StackLayout Spacing="10" Padding="10">
+                            <Label x:Name="NameWarning" IsVisible="false"
+                                Style="{StaticResource WarningLabelStyle}"
+                                Text="Name is required!" />
+                        </StackLayout>
+
                         <Image x:Name="IconImage"
                        Source="{Binding Data.ImageURI}">
                         </Image>

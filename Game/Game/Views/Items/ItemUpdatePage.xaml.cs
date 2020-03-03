@@ -44,6 +44,18 @@ namespace Game.Views
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
+            // Check input of Name and Description (cannot be empty)
+            if (string.IsNullOrEmpty(ViewModel.Data.Name))
+            {
+                NameWarning.IsVisible = true;
+                return;
+            }
+            if (string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                DescriptionWarning.IsVisible = true;
+                return;
+            }
+
             // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
             {
