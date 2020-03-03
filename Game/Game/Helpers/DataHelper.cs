@@ -46,7 +46,7 @@ namespace Game.Helpers
             {
                 Name = name,
                 Type = CharacterTypeEnum.TambourinePlayer,
-                ImageURI = "tambourine.png",
+                ImageURI = "sprite_tambourine.png",
                 IconURI = "tambourine_icon.png",
                 Alive = true,
                 Level = 1,
@@ -70,7 +70,7 @@ namespace Game.Helpers
             {
                 Name = name,
                 Type = CharacterTypeEnum.Bassist,
-                ImageURI = "bassist.png",
+                ImageURI = "sprite_bassist.png",
                 IconURI = "bassist_icon.png",
                 Level = 2,
                 Alive = true,
@@ -94,7 +94,7 @@ namespace Game.Helpers
             {
                 Name = name,
                 Type = CharacterTypeEnum.Keyboardist,
-                ImageURI = "keyboardist.png",
+                ImageURI = "sprite_keyboardist.png",
                 IconURI = "keyboardist_icon.png",
                 Level = 5,
                 Alive = true,
@@ -118,7 +118,7 @@ namespace Game.Helpers
             {
                 Name = name,
                 Type = CharacterTypeEnum.Drummer,
-                ImageURI = "drummer.png",
+                ImageURI = "sprite_drummer.png",
                 IconURI = "drummer_icon.png",
                 Level = 8,
                 Alive = true,
@@ -142,7 +142,7 @@ namespace Game.Helpers
             {
                 Name = name,
                 Type = CharacterTypeEnum.Guitarist,
-                ImageURI = "guitarist.png",
+                ImageURI = "sprite_guitarist.png",
                 IconURI = "guitarist_icon.png",
                 Level = 12,
                 Alive = true,
@@ -166,7 +166,7 @@ namespace Game.Helpers
             {
                 Name = name,
                 Type = CharacterTypeEnum.LeadVocalist,
-                ImageURI = "vocalist.png",
+                ImageURI = "sprite_vocalist.png",
                 IconURI = "vocalist_icon.png",
                 Level = 16,
                 Alive = true,
