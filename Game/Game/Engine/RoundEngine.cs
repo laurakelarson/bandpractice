@@ -65,6 +65,10 @@ namespace Game.Engine
                 var level = range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
                 data.ChangeLevel(level);
 
+                // Update monster's grid position
+                data.RowPos = GridPositionHelper.MonsterPositions[i].X;
+                data.ColPos = GridPositionHelper.MonsterPositions[i].Y;
+
                 MonsterList.Add(data);
             }
 
