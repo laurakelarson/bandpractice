@@ -58,5 +58,11 @@ namespace Game.Models
         {
             return string.Empty;
         }
+
+        // Row position for entity on battle grid
+        public int RowPos { get; set; }
+
+        // Column position for entity on battle grid
+        public int ColPos { get; set; }
     }
 }
