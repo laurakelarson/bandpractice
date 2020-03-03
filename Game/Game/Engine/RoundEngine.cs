@@ -41,6 +41,9 @@ namespace Game.Engine
             // Make the EntityList: monsters and characters who are alive
             MakeEntityList();
 
+            // Update character starting positions on grid for next round
+            UpdateCharacterPositions();
+
             // Update Score for the RoundCount
             Score.RoundCount++;
 
@@ -75,10 +78,26 @@ namespace Game.Engine
             return MonsterList.Count();
         }
 
+        /// <summary>
+        /// Method to gather the average character level to assist in scaling monsters for the round
+        /// </summary>
+        /// <returns></returns>
         public int GetAverageCharacterLevel()
         {
             var List = new List<int>(CharacterList.Select(o => o.Level));
             return (int)List.Average();
+        }
+
+        /// <summary>
+        /// Method to update the row/column positions of characters remaining
+        /// </summary>
+        public void UpdateCharacterPositions()
+        {
+            for (int i = 0; i < CharacterList.Count; i++)
+            {
+                CharacterList[i].RowPos = GridPositionHelper.CharacterPositions[i].X;
+                CharacterList[i].ColPos = GridPositionHelper.CharacterPositions[i].Y;
+            }
         }
 
         /// <summary>
