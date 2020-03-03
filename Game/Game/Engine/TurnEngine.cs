@@ -408,7 +408,7 @@ namespace Game.Engine
             foreach (var ItemModel in myItemList)
             {
                 Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessages.TurnMessageSpecial += " ItemModel " + ItemModel.Name + " dropped";
+                BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
             }
 
             ItemPool.AddRange(myItemList);
