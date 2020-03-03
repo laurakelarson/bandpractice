@@ -140,7 +140,11 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
-            
+            <Style TargetType="Label"
+                x:Key="WarningLabelStyle"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="{StaticResource TriciaryTextColor}" />
+            </Style>
 
             
 
@@ -191,8 +195,8 @@
             <Style TargetType="Image"
                 x:Key="ImageBattleSmallIconStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
-                <Setter Property="WidthRequest" Value="35" />
-                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="HeightRequest" Value="30" />
             </Style>
 
             <Style TargetType="Image"
