@@ -39,8 +39,9 @@ namespace Game.Models
                 CurrentHealth -= damage;
                 if (CurrentHealth <= 0)
                 {
+                    // to prevent negative health for messages
+                    CurrentHealth = 0;
                     Alive = false;
-                    // drop items
                 }
                 return true;
             }
