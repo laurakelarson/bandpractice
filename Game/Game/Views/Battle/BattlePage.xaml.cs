@@ -96,8 +96,10 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void BattleOverButton_Clicked(object sender, EventArgs e)
 		{
-			// need Score object to pass to score page
-			//await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(), )));
+			// Display the Engine's Score
+			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(),
+                EngineViewModel.Engine.Score)));
+            //TODO save the Score in data source, update navigation stack (should we pop battle page?)
 		}
 
 		/// <summary>
