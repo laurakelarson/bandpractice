@@ -51,6 +51,30 @@ namespace Game.Models
         public string htmlTail = @"</p></body></html>";
 
         /// <summary>
+        /// Clear all the battle messsages to start fresh
+        /// </summary>
+        /// <returns></returns>
+        public bool ClearMessages()
+        {
+
+            PlayerType = EntityTypeEnum.Unknown;
+            HitStatus = HitStatusEnum.Unknown;
+            AttackerName = string.Empty;
+            TargetName = string.Empty;
+            AttackStatus = string.Empty;
+            TurnMessage = string.Empty;
+            TurnMessageSpecial = string.Empty;
+            ExperienceEarned = string.Empty;
+            LevelUpMessage = string.Empty;
+            ItemsEquipped.Clear();
+
+            DamageAmount = 0;
+            CurrentHealth = 0;
+
+            return true;
+        }
+
+        /// <summary>
         /// Return formatted string
         /// </summary>
         /// <param name="hitStatus"></param>
