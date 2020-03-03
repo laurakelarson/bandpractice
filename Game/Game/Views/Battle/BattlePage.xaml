@@ -19,54 +19,16 @@
             </StackLayout>
             
             <!-- Character Info Box -->
-            
+
             <Frame
-                BorderColor="{StaticResource SecondaryTextColor}">
-                <Grid
+                BorderColor="{StaticResource SecondaryTextColor}"
+                BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+                <FlexLayout
+                    BackgroundColor="{StaticResource PrimaryBackgroundColor}"
+                    x:Name="CharacterInfoBox"
                     HorizontalOptions="FillAndExpand">
-                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
-                        <Image Source="default_icon.png"
-                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
-                        <Image Source="default_icon.png"
-                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
-                        <Image Source="default_icon.png"
-                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
-                        <Image Source="default_icon.png"
-                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                        <Image Source="default_icon.png"
-                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                        <Image Source="default_icon.png"
-                               Style="{StaticResource ImageBattleSmallIconStyle}"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="Name"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="-"/>
-                        <Label Style="{StaticResource TinyLabelBattle}" Text="HP"/>
-                    </StackLayout>
-                </Grid>
+                    
+                </FlexLayout>
             </Frame>
             
             
@@ -80,7 +42,8 @@
             
             <!-- Message Box -->
             <Frame
-                BorderColor="{StaticResource SecondaryTextColor}">
+                BorderColor="{StaticResource SecondaryTextColor}"
+                BackgroundColor="{StaticResource PrimaryBackgroundColor}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="75"/>

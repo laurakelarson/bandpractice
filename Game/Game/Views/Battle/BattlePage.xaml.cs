@@ -30,17 +30,24 @@ namespace Game.Views
 			EngineViewModel.Engine.StartBattle(false);
 			RoundCount.Text = EngineViewModel.Engine.Score.RoundCount.ToString();
 
+			// draw Character info box at top of Battle Page
+			foreach (var data in EngineViewModel.Engine.CharacterList)
+			{
+				CharacterInfoBox.Children.Add(CharacterInfo(data));
+			}
+
 			// Show the New Round Screen
 			ShowModalNewRoundPage();
 
 		}
 
-		/// <summary>
-		/// Attack Action
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void AttackButton_Clicked(object sender, EventArgs e)
+        #region Button methods
+        /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void AttackButton_Clicked(object sender, EventArgs e)
 		{
 			
 		}
@@ -119,14 +126,84 @@ namespace Game.Views
 				await Navigation.PopModalAsync();
 			}
 		}
+        #endregion
 
-		/// <summary>
-		/// Show the Page for New Round
-		/// 
-		/// Upcomming Monsters
-		/// 
-		/// </summary>
-		public async void ShowModalNewRoundPage()
+
+		public StackLayout CharacterInfo(CharacterModel data)
+		{
+			if (data == null)
+			{
+				data = new CharacterModel();
+			}
+			// Hookup the image
+			var CharacterImage = new Image
+			{
+				Style = (Style)Application.Current.Resources["ImageBattleSmallIconStyle"],
+				Source = data.IconURI
+			};
+
+			var CharacterNameLabel = new Label()
+			{
+				Text = data.Name,
+				Style = (Style)Application.Current.Resources["ValueStyle"],
+				HorizontalOptions = LayoutOptions.Center,
+				HorizontalTextAlignment = TextAlignment.Center,
+				Padding = 0,
+				LineBreakMode = LineBreakMode.TailTruncation,
+				CharacterSpacing = 1,
+				LineHeight = 1,
+				MaxLines = 1,
+			};
+
+			// Add the HP
+			var CharacterHPLabel = new Label
+			{
+				Text = "HP - " + data.CurrentHealth,
+				Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+				HorizontalOptions = LayoutOptions.Center,
+				HorizontalTextAlignment = TextAlignment.Center,
+				Padding = 0,
+				LineBreakMode = LineBreakMode.TailTruncation,
+				CharacterSpacing = 1,
+				LineHeight = 1,
+				MaxLines = 1,
+			};
+
+			var CharacterStats = new StackLayout
+			{
+				Orientation = StackOrientation.Vertical,
+				HorizontalOptions = LayoutOptions.Start,
+				Padding = 5,
+				Spacing = 0,
+				Children = {
+					CharacterNameLabel,
+					CharacterHPLabel,
+				},
+			};
+
+			// Put the Image Button and Text stack inside a layout
+			var CharacterStack = new StackLayout
+			{
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.Start,
+				Padding = 5,
+				Spacing = 0,
+				Children = {
+					CharacterImage,
+					CharacterStats
+				},
+			};
+
+			return CharacterStack;
+		}
+
+        /// <summary>
+        /// Show the Page for New Round
+        /// 
+        /// Upcomming Monsters
+        /// 
+        /// </summary>
+        public async void ShowModalNewRoundPage()
 		{
 			await Navigation.PushModalAsync(new NewRoundPage());
 
