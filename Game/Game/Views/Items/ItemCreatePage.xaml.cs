@@ -47,10 +47,12 @@ namespace Game.Views
             // Check input of Name and Description (cannot be empty)
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
             {
+                NameWarning.IsVisible = true;
                 return;
             }
             if (string.IsNullOrEmpty(ViewModel.Data.Description))
             {
+                DescriptionWarning.IsVisible = true;
                 return;
             }
 
