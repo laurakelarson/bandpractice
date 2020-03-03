@@ -1,7 +1,10 @@
 ﻿using Game.Models;
+using Game.Models.Enum;
 using Game.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +19,12 @@ namespace Game.Views
 
 		// This uses the Instance so it can be shared with other Battle Pages as needed
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
+		// HTML Formatting for message output box
+		public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
+
+		// Wait time before proceeding
+		public int WaitTime = 1500;
 
 		/// <summary>
 		/// Constructor
@@ -262,5 +271,146 @@ namespace Game.Views
 
 			return CharacterButton;
 		}
+
+
+
+		/// <summary>
+		/// Next Attack Example
+		/// 
+		/// This code example follows the rule of
+		/// 
+		/// Auto Select Attacker
+		/// Auto Select Defender
+		/// 
+		/// Do the Attack and show the result
+		/// 
+		/// So the pattern is Click Next, Next, Next until game is over
+		/// 
+		/// </summary>
+		public void NextAttackExample()
+		{
+			// Get the turn, set the current player and attacker to match
+			SetAttackerAndDefender();
+
+			// Hold the current state
+			var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
+
+			// Output the Message of what happened.
+			GameMessage();
+
+			// Show the outcome on the Board
+			//DrawGameAttackerDefenderBoard();
+
+			if (RoundCondition == RoundEnum.NewRound)
+			{
+				// Pause
+				Task.Delay(WaitTime);
+
+				Debug.WriteLine("New Round");
+
+				// Show the Round Over, after that is cleared, it will show the New Round Dialog
+				//ShowModalRoundOverPage();
+				return;
+			}
+
+			// Check for Game Over
+			if (RoundCondition == RoundEnum.GameOver)
+			{
+				// Pause
+				Task.Delay(WaitTime);
+
+				Debug.WriteLine("Game Over");
+
+				GameOver();
+				return;
+			}
+		}
+
+		/// <summary>
+		/// Decide The Turn and who to Attack
+		/// </summary>
+		public void SetAttackerAndDefender()
+		{
+			EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
+
+			switch (EngineViewModel.Engine.CurrentAttacker.EntityType)
+			{
+				case EntityTypeEnum.Character:
+					// User would select who to attack
+
+					// for now just auto selecting
+					EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+					break;
+
+				case EntityTypeEnum.Monster:
+				default:
+
+					// Monsters turn, so auto pick a Character to Attack
+					EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Game is over
+		/// 
+		/// Show Buttons
+		/// 
+		/// Clean up the Engine
+		/// 
+		/// Show the Score
+		/// 
+		/// Clear the Board
+		/// 
+		/// </summary>
+		public void GameOver()
+		{
+			// Wrap up
+			EngineViewModel.Engine.EndBattle();
+
+			// Save the Score to the Score View Model, by sending a message to it.
+			var Score = EngineViewModel.Engine.Score;
+			MessagingCenter.Send(this, "AddData", Score);
+
+			// Hide the Game Board
+			//GameUIDisplay.IsVisible = false;
+
+			// Show the Game Over Display
+			//GameOverDisplay.IsVisible = true;
+		}
+
+		#region MessageHandelers
+
+		/// <summary>
+		/// Builds up the output message
+		/// </summary>
+		/// <param name="message"></param>
+		public void GameMessage()
+		{
+			// Output The Message that happened.
+			BattleMessages.Text = string.Format("{0} \n {1}", EngineViewModel.Engine.BattleMessages.TurnMessage, BattleMessages.Text);
+
+			Debug.WriteLine(BattleMessages.Text);
+
+			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
+			{
+				BattleMessages.Text = string.Format("{0} \n {1}", EngineViewModel.Engine.BattleMessages.LevelUpMessage, BattleMessages.Text);
+			}
+
+			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLFormattedTurnMessage();
+			//HtmlBox.Source = HtmlBox.Source = htmlSource;
+		}
+
+		/// <summary>
+		///  Clears the messages on the UX
+		/// </summary>
+		public void ClearMessages()
+		{
+			BattleMessages.Text = "";
+			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLBlankMessage();
+			//HtmlBox.Source = htmlSource;
+		}
+
+		#endregion MessageHandelers
 	}
 }
