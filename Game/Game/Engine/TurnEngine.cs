@@ -417,7 +417,7 @@ namespace Game.Engine
         }
 
         /// <summary>
-        /// Has the character or monster drop all their items and returns the list of item models
+        /// Have the character or monster drop all their items and returns the list of item models
         /// </summary>
         /// <param name="target"></param>
         /// <returns></returns>
