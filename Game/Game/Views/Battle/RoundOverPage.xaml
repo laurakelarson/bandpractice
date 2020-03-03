@@ -4,18 +4,26 @@
              x:Class="Game.Views.RoundOverPage">
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}">
-            <Label Text="Round Over Page..."></Label>
+        <StackLayout Style="{StaticResource VerticalStack}"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
 
-            <Label Text="Items Found..."></Label>
+            <Label Text="ROCK ON!" Style="{StaticResource HeaderCenterStyle}"
+                   Margin="10" />
 
-            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
-            <Image Source="items.png" Style="{StaticResource ImageMediumStyle}"></Image>
+            <StackLayout Style="{StaticResource VerticalStack}" Margin="10" >
+                <Label Text="Item Swap Summary" />
 
-            <Button Clicked="PickItems_Clicked" Text="Pick Items"></Button>
+                <ScrollView
+                    Orientation="Vertical"
+                    VerticalOptions="Fill">
 
-            <Button Clicked="NextButton_Clicked" Text="Next Round"></Button>
+                    <Label x:Name="ItemsLabel"
+                        Style="{StaticResource ScrollableLabel}" />
+                </ScrollView>
+            </StackLayout>
 
+            <Button Clicked="NextRound_Clicked" Text="Next Round"></Button>
         </StackLayout>
         
     </ContentPage.Content>
