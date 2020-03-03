@@ -188,9 +188,12 @@ namespace Game.Engine
                 TakeDamage(target, BattleMessages.DamageAmount);
             }
 
+            // update battle messages
             BattleMessages.CurrentHealth = target.CurrentHealth;
             BattleMessages.TurnMessageSpecial = BattleMessages.GetCurrentHealthMessage();
-            BattleMessages.AttackStatus = " attacks "; 
+            BattleMessages.AttackStatus = " attacks ";
+            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
+            Debug.WriteLine(BattleMessages.TurnMessage);
 
             bool died = RemoveIfDead(target);
 
@@ -198,9 +201,6 @@ namespace Game.Engine
             {
                 AddExperience(attacker, target.ExperiencePoints);
             }
-
-            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
-            Debug.WriteLine(BattleMessages.TurnMessage);
 
             return true;
         }
@@ -225,12 +225,25 @@ namespace Game.Engine
 
             // character should gain experience
             var character = CharacterList.Where(a => a.Id == entity.Id).FirstOrDefault();
+            int level = character.Level;
             character.AddExperience(experience);
             EntityList.Where(a => a.Id == character.Id).FirstOrDefault().Update(character);
+
+            // update battle messages
+            BattleMessages.ExperienceEarned = "Earned " + experience + " points";
+            Debug.WriteLine(BattleMessages.ExperienceEarned);
+
+            // did character level up?
+            if (level != character.Level)
+            {
+                BattleMessages.LevelUpMessage = entity.Name + " is now Level " + entity.Level + " With Health Max of " + entity.MaxHealth;
+                Debug.WriteLine(BattleMessages.LevelUpMessage);
+            }
 
             // update score - both Experience and Total Score
             Score.ScoreTotal += experience;
             Score.ExperienceGainedTotal += experience;
+
             return true;
         }
 
