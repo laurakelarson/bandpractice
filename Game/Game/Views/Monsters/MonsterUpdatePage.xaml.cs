@@ -64,6 +64,13 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         async void Save_Clicked(object sender, EventArgs e)
         {
+            // Check input of Name (cannot be empty)
+            if (string.IsNullOrEmpty(ViewModel.Data.Name))
+            {
+                NameWarning.IsVisible = true;
+                return;
+            }
+
             MessagingCenter.Send(this, "Update", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
