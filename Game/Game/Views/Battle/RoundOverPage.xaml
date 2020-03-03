@@ -9,8 +9,11 @@
             VerticalOptions="CenterAndExpand"
             Spacing="10" >
 
-            <Label Text="ROCK ON!" Style="{StaticResource HeaderCenterStyle}"
-                   Margin="10" />
+            <StackLayout Orientation="Horizontal">
+                <Image Source="rock_on.png"/>
+                <Image Source="rock_on_text.png"/>
+            </StackLayout>
+            
 
             <StackLayout Style="{StaticResource VerticalStack}" Margin="10" >
                 <Label Text="Item Swap Summary" />
@@ -24,7 +27,11 @@
                 </ScrollView>
             </StackLayout>
 
-            <Button Clicked="NextRound_Clicked" Text="Next Round"></Button>
+            <ImageButton 
+                Source="nextround.png" 
+                Clicked="NextRound_Clicked" 
+                HeightRequest="100"
+                Style="{StaticResource ImageButtonHome}"></ImageButton>
         </StackLayout>
         
     </ContentPage.Content>
