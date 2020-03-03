@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,12 +11,18 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickItemsPage : ContentPage
     {
+        // Index View Model to help manage battle data across pages
+        public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
+
         /// <summary>
         /// Constructor
         /// </summary>
         public PickItemsPage()
         {
             InitializeComponent();
+
+            // Bind to battle engine instance
+            BindingContext = EngineViewModel;
         }
         /// <summary>
         /// Quit the Battle
