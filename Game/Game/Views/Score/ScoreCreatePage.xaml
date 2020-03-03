@@ -55,6 +55,7 @@
                         Style="{StaticResource LabelStyle}"/>
                     
                     <Entry Grid.Row="1" Grid.Column="1"
+                        Keyboard="Numeric"
                         Text="{Binding Data.ScoreTotal}" 
                         Style="{StaticResource EntryStyle}"/>
 
