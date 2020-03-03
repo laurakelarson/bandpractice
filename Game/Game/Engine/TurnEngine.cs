@@ -404,12 +404,17 @@ namespace Game.Engine
             // If Random drops are enabled, then add some....
             myItemList.AddRange(GetRandomMonsterItemDrops(Score.RoundCount));
 
+            // refresh special battle message
+            BattleMessages.TurnMessageSpecial = string.Empty;
+
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
             {
                 Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
+                BattleMessages.TurnMessageSpecial += ItemModel.Name + " dropped\n";
             }
+
+            Debug.WriteLine(BattleMessages.TurnMessageSpecial);
 
             ItemPool.AddRange(myItemList);
 
