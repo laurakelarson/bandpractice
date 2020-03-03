@@ -322,9 +322,6 @@ namespace Game.Engine
             // Put on the new ItemModel, which drops the one back to the pool
             var droppedItem = character.AddItem(setLocation, PoolItem);
 
-            // Add the PoolItem to the list of selected items
-            //Score.ItemModelSelectList.Add(PoolItem);
-
             // Update BattleMessage
             BattleMessages.AddItemEquipped(character.Name, PoolItem.Name);
 
