@@ -228,14 +228,39 @@ namespace Game.Views
 
 		public void DrawEntities()
 		{
-			var MonsterPositions = new List<string> { "C4R0", "C5R1", "C4R2", "C5R3", "C4R4", "C5R5" };
-			int idx = 0;
+
 			foreach (var data in EngineViewModel.Engine.MonsterList)
 			{
-				//CharacterInfoBox.Children.Add(CharacterInfo(data));
-				
+				BattleGrid.Children.Add(DrawMonster(data), data.ColPos, data.RowPos);
+			}
+
+			foreach (var data in EngineViewModel.Engine.CharacterList)
+			{
+				BattleGrid.Children.Add(DrawCharacter(data), data.ColPos, data.RowPos);
 			}
 		}
 
+		public ImageButton DrawMonster(MonsterModel data)
+		{
+			var MonsterButton = new ImageButton
+			{
+				Source = data.ImageURI,
+				Style = (Style)Application.Current.Resources["ImageBattleSmallIconStyle"]
+			};
+
+			return MonsterButton;
+		}
+
+		public ImageButton DrawCharacter(CharacterModel data)
+		{
+			var CharacterButton = new ImageButton
+			{
+				Source = data.ImageURI,
+				Style = (Style)Application.Current.Resources["ImageBattleSmallSpriteStyle"]
+				// Clicked = ???????
+			};
+
+			return CharacterButton;
+		}
 	}
 }
