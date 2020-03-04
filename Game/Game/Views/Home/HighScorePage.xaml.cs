@@ -30,6 +30,11 @@ namespace Game.Views.Home
 
             // Query view model for high score - should be first in data set based on sort order
             HighScore = ScoreIndexViewModel.Instance.Dataset.FirstOrDefault();
+
+            if (HighScore != null)
+            {
+                ScoreLabel.Text = HighScore.ScoreTotal.ToString();
+            }
         }
 
         /// <summary>

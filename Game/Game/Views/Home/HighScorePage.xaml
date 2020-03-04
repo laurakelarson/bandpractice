@@ -12,7 +12,7 @@
 
             <Image Source="score_button.png"/>
             
-            <Label Text="High Score will display here!" />
+            <Label x:Name="ScoreLabel" />
 
             <ImageButton 
                 Style="{StaticResource ImageButtonHome}"
