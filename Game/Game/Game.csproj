@@ -27,9 +27,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\Battle\PickItemsPage.xaml.cs">
-      <DependentUpon>PickItemsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\Battle\RoundOverPage.xaml.cs">
       <DependentUpon>RoundOverPage.xaml</DependentUpon>
     </Compile>
