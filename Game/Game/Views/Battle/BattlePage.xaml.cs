@@ -377,23 +377,22 @@ namespace Game.Views
 		public void GameMessage()
 		{
 			// Output The Message that happened.
-			BattleMessages.Text = EngineViewModel.Engine.BattleMessages.TurnMessage;
-
-			Debug.WriteLine(BattleMessages.Text);
+			string message = EngineViewModel.Engine.BattleMessages.TurnMessage;
 
 			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.TurnMessageSpecial))
 			{
-				BattleMessages.Text += "\n" + EngineViewModel.Engine.BattleMessages.TurnMessageSpecial;
+				message += "\n" + EngineViewModel.Engine.BattleMessages.TurnMessageSpecial;
 			}
 
 			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
 			{
-				BattleMessages.Text += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
+				message += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
 			}
 
-			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLFormattedTurnMessage();
-            HtmlBox.Source = HtmlBox.Source = htmlSource;
-        }
+			Debug.WriteLine(message);
+
+			BattleMessages.Text = message;
+		}
 
 		/// <summary>
 		///  Clears the messages on the UX
