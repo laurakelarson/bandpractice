@@ -11,6 +11,10 @@ using Xamarin.Forms.Xaml;
 
 namespace Game.Views.Home
 {
+    /// <summary>
+    /// High Score Page
+    /// Displays the highest recorded score in the game
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HighScorePage : ContentPage
     {
@@ -18,6 +22,10 @@ namespace Game.Views.Home
 
         GenericViewModel<ScoreModel> ViewModel { get; set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="data"></param>
         public HighScorePage(GenericViewModel<ScoreModel> data)
         {
             InitializeComponent();
