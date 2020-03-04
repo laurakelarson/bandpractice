@@ -11,6 +11,10 @@
                 HorizontalOptions="CenterAndExpand">
 
             <Image Source="score_button.png"/>
+
+            <Label x:Name="NewHighScoreLabel" IsVisible="false"
+                   Text="New high score!!!"
+                   Style="{StaticResource WarningLabelStyle}" />
             
             <Label x:Name="ScoreLabel" />
 

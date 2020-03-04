@@ -75,6 +75,7 @@ namespace Game.Views.Home
             {
                 ScoreLabel.Text = NewScore.ScoreTotal.ToString();
                 NameLabel.Text = NewScore.Name;
+                NewHighScoreLabel.IsVisible = true;
                 return true;
             }
 
@@ -82,6 +83,7 @@ namespace Game.Views.Home
             {
                 ScoreLabel.Text = NewScore.ScoreTotal.ToString();
                 NameLabel.Text = NewScore.Name;
+                NewHighScoreLabel.IsVisible = true;
                 return true;
             }
 
