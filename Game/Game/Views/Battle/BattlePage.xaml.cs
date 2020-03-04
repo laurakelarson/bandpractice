@@ -383,12 +383,6 @@ namespace Game.Views
 		/// </summary>
 		public async void ShowModalRoundOverPage()
 		{
-			//HideUIElements();
-
-			// Show the Round Over page
-			// Then show the Next Round Button
-			//NextRoundButton.IsVisible = true;
-
 			await Navigation.PushModalAsync(new RoundOverPage());
 		}
 
