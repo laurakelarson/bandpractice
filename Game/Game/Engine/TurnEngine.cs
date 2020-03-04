@@ -155,9 +155,8 @@ namespace Game.Engine
                 return false;
             }
 
-            BattleMessages.TurnMessage = string.Empty;
-            BattleMessages.TurnMessageSpecial = string.Empty;
-            BattleMessages.AttackStatus = string.Empty;
+            // refresh battle messages for turn
+            BattleMessages.ClearMessages();
 
             BattleMessages.PlayerType = EntityTypeEnum.Monster;
 
