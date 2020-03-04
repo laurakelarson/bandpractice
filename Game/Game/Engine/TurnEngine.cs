@@ -190,9 +190,8 @@ namespace Game.Engine
 
             // update battle messages
             BattleMessages.CurrentHealth = target.CurrentHealth;
-            BattleMessages.TurnMessageSpecial = BattleMessages.GetCurrentHealthMessage();
             BattleMessages.AttackStatus = " attacks ";
-            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.TurnMessageSpecial;
+            BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.GetCurrentHealthMessage();
             Debug.WriteLine(BattleMessages.TurnMessage);
 
             bool died = RemoveIfDead(target);
@@ -351,7 +350,6 @@ namespace Game.Engine
         {
             // Mark Status in output
             BattleMessages.TurnMessageSpecial = target.Name + " dies";
-            Debug.WriteLine(BattleMessages.TurnMessageSpecial);
 
             // Remove target from list...
 
@@ -369,6 +367,8 @@ namespace Game.Engine
                     // Add the MonsterModel to the killed list
                     Score.CharacterAtDeathList += character.FormatOutput() + "\n";
 
+                    Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+
                     return true;
 
                 case EntityTypeEnum.Monster:
@@ -385,6 +385,8 @@ namespace Game.Engine
 
                     // Add the MonsterModel to the killed list
                     Score.MonstersKilledList += monster.FormatOutput() + "\n";
+
+                    Debug.WriteLine(BattleMessages.TurnMessageSpecial);
 
                     return true;
             }
@@ -404,14 +406,11 @@ namespace Game.Engine
             // If Random drops are enabled, then add some....
             myItemList.AddRange(GetRandomMonsterItemDrops(Score.RoundCount));
 
-            // refresh special battle message
-            BattleMessages.TurnMessageSpecial = string.Empty;
-
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
             {
                 Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessages.TurnMessageSpecial += ItemModel.Name + " dropped\n";
+                BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
             }
 
             Debug.WriteLine(BattleMessages.TurnMessageSpecial);
