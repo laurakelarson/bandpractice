@@ -99,18 +99,6 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Battle Over, so Exit Button
-		/// Need to show this for the user to click on.
-		/// The Quit does a prompt, exit just exits
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void ExitButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PopModalAsync();
-		}
-
-		/// <summary>
 		/// Quit the Battle
 		/// 
 		/// Quitting out
