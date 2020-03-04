@@ -38,7 +38,7 @@
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Not enough Beats to recruit this character!"
                        x:Name="BeatsWarning" IsVisible="false"
-                       TextColor="#EEC256" />
+                       Style="{StaticResource WarningLabelStyle}" />
                 </StackLayout>
 
             </StackLayout>
