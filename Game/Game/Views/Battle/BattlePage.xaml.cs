@@ -5,6 +5,7 @@ using Game.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -373,8 +374,10 @@ namespace Game.Views
 			// Wrap up
 			EngineViewModel.Engine.EndBattle();
 
-			// Save the Score to the Score View Model, by sending a message to it.
+			// Save the Score to the Score View Model, for now use first band member's name as Score Name
 			var Score = EngineViewModel.Engine.Score;
+			Score.Name = EngineViewModel.PartyCharacterList.FirstOrDefault().Name + " "
+                + Score.GameDate.ToShortDateString();
 			MessagingCenter.Send(this, "Create", Score);
 
 			// Display the Game Over/Score page
