@@ -54,11 +54,6 @@ namespace Game.Models
         {
             GameDate = DateTime.Now;    // Set to be now by default.
             AutoBattle = false;         //assume user battle
-
-            //CharacterAtDeathList = null;
-            //MonstersKilledList = null;
-            //ItemsDroppedList = null;
-
             TurnCount = 0;
             RoundCount = 0;
             TurnCount = 0;
@@ -73,7 +68,6 @@ namespace Game.Models
         /// <param name="data"></param>
         public ScoreModel(ScoreModel data)
         {
-            // Id = data.Id;
             Update(data);
         }
 
@@ -109,6 +103,11 @@ namespace Game.Models
 
         #region ScoreItems
 
+        /// <summary>
+        /// Helper method to add a CharacterModel to the CharacterAtDeathList
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool AddToList(CharacterModel data)
         {
             if (data == null)
@@ -120,6 +119,11 @@ namespace Game.Models
             return true;
         }
 
+        /// <summary>
+        /// Helper method to add a MonsterModel to the MonsterAtDeathList
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool AddToList(MonsterModel data)
         {
             if (data == null)
