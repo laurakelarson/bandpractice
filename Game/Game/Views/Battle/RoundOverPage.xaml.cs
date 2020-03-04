@@ -22,13 +22,12 @@ namespace Game.Views
 		{
 			InitializeComponent();
 
+			// end the round - characters distribute item pool
+			BattleEngineViewModel.Instance.Engine.EndRound();
+
 			// Display the items equipped during the round
-			string DummyText = "Spot equipped bowtie.\nBowie equipped bunny slippers.\nKoopa equipped mushroom.\n"
-				+ "Dr. Dog equipped headphones.\nFall McCartney equipped didgeridoo.";
-			ItemsLabel.Text = DummyText;
-			//TODO hook up battle so real message is displayed
-			//ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
-		}
+            ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
+        }
 
 		/// <summary>
 		/// Advance to the next round
