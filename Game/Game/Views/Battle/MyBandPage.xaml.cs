@@ -41,6 +41,7 @@ namespace Game.Views
 			// Disable button if user has not recruited any characters
 			if (EngineViewModel.PartyCharacterList.Count < 1)
             {
+				ZeroMemberWarning.IsVisible = true;
 				return;
             }
 
@@ -63,10 +64,12 @@ namespace Game.Views
         /// <param name="e"></param>
         async void RecruitCharacter_Clicked(object sender, EventArgs e)
         {
+			ZeroMemberWarning.IsVisible = false;
 
 			// Disable button if user has recruited max number
 			if (EngineViewModel.PartyCharacterList.Count >= EngineViewModel.Engine.MaxNumberCharacters)
             {
+				MaxMemberWarning.IsVisible = true;
 				return;
             }
 
@@ -92,6 +95,7 @@ namespace Game.Views
 
 			// Manually deselect item.
 			CharactersListView.SelectedItem = null;
+			MaxMemberWarning.IsVisible = false;
 		}
 	}
 }

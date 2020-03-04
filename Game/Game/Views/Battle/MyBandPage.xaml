@@ -22,7 +22,17 @@
                     FontAttributes="Bold"></Label>
             </StackLayout>
 
-                <ListView x:Name="CharactersListView" 
+            <StackLayout Orientation="Vertical">
+                <Label Text="You must recruit at least one band member!"
+                       x:Name="ZeroMemberWarning" IsVisible="false"
+                       Style="{StaticResource WarningLabelStyle}" />
+
+                <Label Text="Your band is at capacity!"
+                       x:Name="MaxMemberWarning" IsVisible="false"
+                       Style="{StaticResource WarningLabelStyle}" />
+            </StackLayout>
+
+            <ListView x:Name="CharactersListView" 
                     ItemsSource="{Binding PartyCharacterList}"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                     RefreshCommand="{Binding LoadItemsCommand}"
