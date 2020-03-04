@@ -104,7 +104,9 @@ namespace Game.Views
             // Start a new round
 			EngineViewModel.Engine.NewRound();
 
+            // reset visual elements
 			BattleMessages.Text = string.Empty;
+			NewRoundButton.IsVisible = false;
 
 			await Navigation.PushModalAsync(new NewRoundPage());
 		}
