@@ -97,21 +97,6 @@ namespace Game.Views
 		{
 			await Navigation.PushModalAsync(new NewRoundPage());
 		}
-		
-
-		/// <summary>
-		/// Battle Over
-		/// Battle Over button shows when all characters are dead
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void BattleOverButton_Clicked(object sender, EventArgs e)
-		{
-			// Display the Engine's Score
-			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(),
-                EngineViewModel.Engine.Score)));
-            //TODO save the Score in data source, update navigation stack (should we pop battle page?)
-		}
 
 		/// <summary>
 		/// Battle Over, so Exit Button
