@@ -18,12 +18,14 @@ namespace Game.Helpers
         public static string GetCharacterName()
         {
 
-            List<String> FirstNameList = new List<String> { "Frankie", "DJ Thunder", "Kit", "Vic", "Spark", "Ace", 
+            List<String> FirstNameList = new List<String> { "Frankie", "DJ Thunder", "Kit", "Vic", "Spark", "Ace", "Rudy", "Bogus", "Wednesday",
                 "Charlie", "Crazy Danni Chill", "Big Celeste Koopa", "Sovereign", "Avery", "Riley", "Dakota", "Reese", "Remi", "Mr. Laura", 
                 "Nicki Mythic", "Harley", "Dr. Funk", "Sage", "Dallas", "River", "Eden", "Angel Skye", "Sutton", "Ali", "MC Alex Duke",
-                "Lennox", "Quincy", "Ally A Trigga", "Monroe", "Devon", "Blade", "Francis", "Blair", "Memphis", "Bowie", 
-                "Rebel", "Ripley", "Indigo", "Zephyr", "Ari", "Sasha", "Jojo", "Mimi", "Maverick", "Rambo", "Jax", 
-                "T. Riddle", "Juniper", "DJ Rumor", "Lil Dizzee", "C. Dolla"};
+                "Lennox", "Quincy", "Ally A Trigga", "Monroe", "Devon", "Blade", "Francis", "Blair", "Memphis", "Bowie", "Lane", "Silver",
+                "Rebel", "Ripley", "Indigo", "Zephyr", "Ari", "Sasha", "Jojo", "Mimi", "Maverick", "Rambo", "Jax", "Harper", "Rowan",
+                "T. Riddle", "Juniper", "DJ Rumor", "Lil Dizzee", "C. Dolla", "Jade", "Shade", "Bennie", "Jude", "Marley", "Enigma",
+                "MC McFly", "Lil Ice", "Eazy", "Young Spyda", "Commander Keys", "Mac Rocket", "Riri", "Aria", "Harmony", "Cadenza",
+                "Chanson", "Lark", "Piper", "Rhapsody"};
 
             var result = FirstNameList.ElementAt(DiceHelper.RollDice(1, FirstNameList.Count()) - 1);
 
