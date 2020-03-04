@@ -331,7 +331,7 @@ namespace Game.Views
 
 			// Save the Score to the Score View Model, by sending a message to it.
 			var Score = EngineViewModel.Engine.Score;
-			MessagingCenter.Send(this, "AddData", Score);
+			MessagingCenter.Send(this, "Create", Score);
 
 			// Display the Game Over/Score page
 			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(),
