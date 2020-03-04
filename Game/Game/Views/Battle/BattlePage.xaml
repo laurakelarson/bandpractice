@@ -32,7 +32,7 @@
             
             
             <!-- Battle Grid  -  6 rows, 7 columns -->
-            <!-- Cell name format is C0R0 -->
+            <!-- Cell name format is R0C0 -->
 
             <Grid x:Name="BattleGrid"
                 BackgroundColor="{StaticResource SecondaryTextColor}"
