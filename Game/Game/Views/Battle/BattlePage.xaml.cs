@@ -195,15 +195,8 @@ namespace Game.Views
 		{
 			await Navigation.PushModalAsync(new NewRoundPage());
 
-			//HideUIElements();
-
-			//ClearMessages();
-
-			// Show the Attack Button Set
-			//BattlePlayerInfomationBox.IsVisible = true;
-			//MessageDisplayBox.IsVisible = true;
-			//AttackButton.IsVisible = true;
-		}
+            ClearMessages();
+        }
 
 		public void DrawEntities()
 		{
@@ -267,9 +260,6 @@ namespace Game.Views
 
 			// Output the Message of what happened.
 			GameMessage();
-
-			// Show the outcome on the Board
-			//DrawGameAttackerDefenderBoard();
 
 			if (RoundCondition == RoundEnum.NewRound)
 			{
