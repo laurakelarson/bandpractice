@@ -66,7 +66,6 @@ namespace Game.Models
             TurnMessageSpecial = string.Empty;
             ExperienceEarned = string.Empty;
             LevelUpMessage = string.Empty;
-            ItemsEquipped.Clear();
 
             DamageAmount = 0;
             CurrentHealth = 0;
