@@ -206,7 +206,8 @@
 
             <Button Clicked="RoundOverButton_Clicked" Text="Round Over"></Button>
             
-
+            <Button Clicked="NewRoundButton_Clicked" Text="New Round"
+                    x:Name="NewRoundButton" IsVisible="false" ></Button>
 
             
 
