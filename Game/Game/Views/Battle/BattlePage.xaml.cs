@@ -352,18 +352,9 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Game is over
-		/// 
-		/// Show Buttons
-		/// 
-		/// Clean up the Engine
-		/// 
-		/// Show the Score
-		/// 
-		/// Clear the Board
-		/// 
+		/// Game Over: end battle, save score, and pop score/game over page.
 		/// </summary>
-		public void GameOver()
+		public async void GameOver()
 		{
 			// Wrap up
 			EngineViewModel.Engine.EndBattle();
@@ -372,11 +363,9 @@ namespace Game.Views
 			var Score = EngineViewModel.Engine.Score;
 			MessagingCenter.Send(this, "AddData", Score);
 
-			// Hide the Game Board
-			//GameUIDisplay.IsVisible = false;
-
-			// Show the Game Over Display
-			//GameOverDisplay.IsVisible = true;
+			// Display the Game Over/Score page
+			await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(),
+				EngineViewModel.Engine.Score)));
 		}
 
 		#region MessageHandlers
