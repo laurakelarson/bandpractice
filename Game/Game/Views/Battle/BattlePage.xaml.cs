@@ -20,9 +20,6 @@ namespace Game.Views
 		// This uses the Instance so it can be shared with other Battle Pages as needed
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
-		// HTML Formatting for message output box
-		public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
-
 		// Wait time before proceeding
 		public int WaitTime = 1500;
 
