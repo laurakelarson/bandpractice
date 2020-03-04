@@ -51,7 +51,7 @@ namespace Game.Views
 		/// <param name="e"></param>
 		public async void HighScoreButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new HighScorePage(new GenericViewModel<ScoreModel>())));
+			await Navigation.PushModalAsync(new NavigationPage(new HighScorePage()));
 		}
 	}
 }

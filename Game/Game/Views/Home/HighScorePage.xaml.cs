@@ -18,19 +18,18 @@ namespace Game.Views.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HighScorePage : ContentPage
     {
-        private GenericViewModel<ScoreModel> genericViewModel;
-
-        GenericViewModel<ScoreModel> ViewModel { get; set; }
+        // to hold the high score
+        public ScoreModel HighScore;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="data"></param>
-        public HighScorePage(GenericViewModel<ScoreModel> data)
+        public HighScorePage()
         {
             InitializeComponent();
 
-
+            // Query view model for high score - should be first in data set based on sort order
+            HighScore = ScoreIndexViewModel.Instance.Dataset.FirstOrDefault();
         }
 
         /// <summary>
