@@ -26,8 +26,7 @@
                     Text="Manual/Auto:"
                     Style="{StaticResource LabelStyle}"/>
 
-                    <Label 
-                    Text="{Binding Data.AutoBattle}"
+                    <Label x:Name="AutoManualLabel"
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 

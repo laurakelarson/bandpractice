@@ -26,7 +26,15 @@ namespace Game.Views
 			InitializeComponent ();
 			data.Data = score;
 			BindingContext = this.ViewModel = data;
-			
+
+            if (score.AutoBattle == true)
+            {
+				AutoManualLabel.Text = "Auto";
+            }
+            if (score.AutoBattle == false)
+            {
+				AutoManualLabel.Text = "Manual";
+            }
 		}
 
 		/// <summary>
