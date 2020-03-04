@@ -52,6 +52,11 @@ namespace Game.Views
 			await Navigation.PushModalAsync(new NavigationPage(new HighScorePage()));
 		}
 
+        /// <summary>
+        /// Event handler for Demotape button - opens up the AutoBattlePage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		public async void Demotape_Button_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new AutoBattlePage());
