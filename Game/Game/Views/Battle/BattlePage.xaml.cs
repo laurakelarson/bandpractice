@@ -399,9 +399,7 @@ namespace Game.Views
 		/// </summary>
 		public void ClearMessages()
 		{
-			BattleMessages.Text = "";
-			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLBlankMessage();
-            HtmlBox.Source = htmlSource;
+			BattleMessages.Text = string.Empty;
         }
 
 		#endregion MessageHandlers
