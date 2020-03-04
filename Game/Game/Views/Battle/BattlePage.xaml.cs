@@ -116,7 +116,11 @@ namespace Game.Views
 		}
         #endregion
 
-
+        /// <summary>
+        /// Display character details
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
 		public StackLayout CharacterInfo(CharacterModel data)
 		{
 			if (data == null)
@@ -198,6 +202,9 @@ namespace Game.Views
             ClearMessages();
         }
 
+        /// <summary>
+        /// Display the characters and monsters
+        /// </summary>
 		public void DrawEntities()
 		{
 
@@ -212,6 +219,11 @@ namespace Game.Views
 			}
 		}
 
+        /// <summary>
+        /// Display monster
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
 		public ImageButton DrawMonster(MonsterModel data)
 		{
 			var MonsterButton = new ImageButton
@@ -223,6 +235,11 @@ namespace Game.Views
 			return MonsterButton;
 		}
 
+        /// <summary>
+        /// Display character
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
 		public ImageButton DrawCharacter(CharacterModel data)
 		{
 			var CharacterButton = new ImageButton
@@ -234,8 +251,6 @@ namespace Game.Views
 
 			return CharacterButton;
 		}
-
-
 
 		/// <summary>
 		/// Next Attack Example
