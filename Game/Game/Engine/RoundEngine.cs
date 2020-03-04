@@ -47,6 +47,9 @@ namespace Game.Engine
             // Update Score for the RoundCount
             Score.RoundCount++;
 
+            // Clear the items equipped Battle Messages to accrue for new round
+            BattleMessages.ItemsEquipped.Clear();
+
             return true;
         }
 
