@@ -31,12 +31,10 @@ namespace Game.Views.Home
             // Query view model for high score - should be first in data set based on sort order
             HighScore = ScoreIndexViewModel.Instance.Dataset.FirstOrDefault();
 
-            //TODO display high score - need to compare the previously recorded score to the new one because the data source doesn't have time to save it before this page loads.
-            //if (HighScore != null)
-            //{
-            //    ScoreLabel.Text = HighScore.ScoreTotal.ToString();
-            //}
-            ScoreLabel.Text = "High Score coming soon!";
+            if (HighScore != null)
+            {
+                ScoreLabel.Text = HighScore.ScoreTotal.ToString();
+            }
         }
 
         /// <summary>
@@ -50,12 +48,8 @@ namespace Game.Views.Home
             // Query view model for high score - should be first in data set based on sort order
             HighScore = ScoreIndexViewModel.Instance.Dataset.FirstOrDefault();
 
-            //TODO display high score - need to compare the previously recorded score to the new one because the data source doesn't have time to save it before this page loads.
-            //if (HighScore != null)
-            //{
-            //    ScoreLabel.Text = HighScore.ScoreTotal.ToString();
-            //}
-            ScoreLabel.Text = "High Score coming soon!";
+            // Display the highest score
+            CompareScoreToDisplay(NewScore);
         }
 
         /// <summary>
@@ -68,7 +62,30 @@ namespace Game.Views.Home
             await Navigation.PopModalAsync();
         }
 
-    }
+        /// <summary>
+        /// Helper method to compare the oldest highest recorded score to a new one.
+        /// Returns true if the new score is the new high score.
+        /// </summary>
+        /// <param name="NewScore"></param>
+        /// <returns></returns>
+        public bool CompareScoreToDisplay(ScoreModel NewScore)
+        {
+            if (HighScore == null)
+            {
+                ScoreLabel.Text = NewScore.ScoreTotal.ToString();
+                return true;
+            }
 
+            if (HighScore.ScoreTotal < NewScore.ScoreTotal)
+            {
+                ScoreLabel.Text = NewScore.ScoreTotal.ToString();
+                return true;
+            }
+
+            ScoreLabel.Text = HighScore.ScoreTotal.ToString();
+            return false;
+        }
+
+    }
 
 }
