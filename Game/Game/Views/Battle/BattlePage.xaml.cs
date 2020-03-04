@@ -1,4 +1,5 @@
-﻿using Game.Models;
+﻿using Game.Helpers;
+using Game.Models;
 using Game.Models.Enum;
 using Game.ViewModels;
 using System;
@@ -46,6 +47,8 @@ namespace Game.Views
 				CharacterInfoBox.Children.Add(CharacterInfo(data));
 			}
 
+			// Add children to grid
+			DrawGrid();
 			// For now, draw battle entities explicitly
 			DrawEntities();
 
@@ -122,6 +125,8 @@ namespace Game.Views
 			}
 		}
         #endregion
+
+
 
         /// <summary>
         /// Display character details
@@ -209,6 +214,22 @@ namespace Game.Views
             ClearMessages();
         }
 
+
+		public void DrawGrid()
+		{
+			for (int row = 0; row < 6; row++)
+			{
+				for (int col = 0; col < 7; col++)
+				{
+					var child = new BoxView()
+					{
+						BackgroundColor = (Color)Application.Current.Resources["PrimaryBackgroundColor"],
+						Margin = 1
+					};
+					BattleGrid.Children.Add(child, row, col);
+				}
+			}
+		}
         /// <summary>
         /// Display the characters and monsters
         /// </summary>
