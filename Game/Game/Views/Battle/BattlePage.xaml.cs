@@ -83,6 +83,8 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void RoundOverButton_Clicked(object sender, EventArgs e)
 		{
+			NewRoundButton.IsVisible = true;
+
 			await Navigation.PushModalAsync(new RoundOverPage());
 		}
 
@@ -95,6 +97,11 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NewRoundButton_Clicked(object sender, EventArgs e)
 		{
+            // Start a new round
+			EngineViewModel.Engine.NewRound();
+
+			BattleMessages.Text = string.Empty;
+
 			await Navigation.PushModalAsync(new NewRoundPage());
 		}
 
@@ -283,9 +290,10 @@ namespace Game.Views
 
 				Debug.WriteLine("New Round");
 
-                // Show the Round Over, after that is cleared, it will show the New Round Dialog
+                // Show the Round Over, after that is cleared, New Round Button will be visible
                 ShowModalRoundOverPage();
-                return;
+				NewRoundButton.IsVisible = true;
+				return;
 			}
 
 			// Check for Game Over
