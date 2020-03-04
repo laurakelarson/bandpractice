@@ -34,6 +34,7 @@ namespace Game.Views.Home
             if (HighScore != null)
             {
                 ScoreLabel.Text = HighScore.ScoreTotal.ToString();
+                NameLabel.Text = HighScore.Name;
             }
         }
 
@@ -73,16 +74,19 @@ namespace Game.Views.Home
             if (HighScore == null)
             {
                 ScoreLabel.Text = NewScore.ScoreTotal.ToString();
+                NameLabel.Text = NewScore.Name;
                 return true;
             }
 
             if (HighScore.ScoreTotal < NewScore.ScoreTotal)
             {
                 ScoreLabel.Text = NewScore.ScoreTotal.ToString();
+                NameLabel.Text = NewScore.Name;
                 return true;
             }
 
             ScoreLabel.Text = HighScore.ScoreTotal.ToString();
+            NameLabel.Text = HighScore.Name;
             return false;
         }
 

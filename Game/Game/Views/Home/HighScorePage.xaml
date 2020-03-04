@@ -14,6 +14,8 @@
             
             <Label x:Name="ScoreLabel" />
 
+            <Label x:Name="NameLabel" />
+
             <ImageButton 
                 Style="{StaticResource ImageButtonHome}"
                 Source="cool_button.png"
