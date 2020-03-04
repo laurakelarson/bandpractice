@@ -200,19 +200,6 @@
                         Text="{Binding Data.MessageList}" 
                         Style="{StaticResource ScrollableLabel}"/>
 
-                    <!-- WebView to display formatted battle messages -->
-                     <WebView
-                        x:Name="HtmlBox"
-                        WidthRequest="100"
-                        MinimumWidthRequest="100"
-                        HeightRequest="100"
-                        MinimumHeightRequest="100"
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="Start"
-                        BackgroundColor="Transparent"
-                        IsVisible="false"
-                        />
-
                 </StackLayout>
             </Frame>
 
