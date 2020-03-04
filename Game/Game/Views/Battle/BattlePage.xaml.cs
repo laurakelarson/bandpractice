@@ -47,8 +47,9 @@ namespace Game.Views
 				CharacterInfoBox.Children.Add(CharacterInfo(data));
 			}
 
-			// Add children to grid
+			// Add gridlines
 			DrawGrid();
+
 			// For now, draw battle entities explicitly
 			DrawEntities();
 
@@ -300,6 +301,13 @@ namespace Game.Views
 
 			// Hold the current state
 			var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
+
+			// Update current HP for entities
+			CharacterInfoBox.Children.Clear();
+			foreach (var data in EngineViewModel.Engine.CharacterList)
+			{
+				CharacterInfoBox.Children.Add(CharacterInfo(data));
+			}
 
 			// Output the Message of what happened.
 			GameMessage();
