@@ -388,13 +388,18 @@ namespace Game.Views
 		public void GameMessage()
 		{
 			// Output The Message that happened.
-			BattleMessages.Text = string.Format("{0} \n {1}", EngineViewModel.Engine.BattleMessages.TurnMessage, BattleMessages.Text);
+			BattleMessages.Text = EngineViewModel.Engine.BattleMessages.TurnMessage;
 
 			Debug.WriteLine(BattleMessages.Text);
 
+			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.TurnMessageSpecial))
+			{
+				BattleMessages.Text += "\n" + EngineViewModel.Engine.BattleMessages.TurnMessageSpecial;
+			}
+
 			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
 			{
-				BattleMessages.Text = string.Format("{0} \n {1}", EngineViewModel.Engine.BattleMessages.LevelUpMessage, BattleMessages.Text);
+				BattleMessages.Text += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
 			}
 
 			htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLFormattedTurnMessage();
