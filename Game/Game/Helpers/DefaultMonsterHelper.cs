@@ -486,7 +486,8 @@ namespace Game.Helpers
         }
 
         /// <summary>
-        /// Helper method to take a string of item names and return a json formatted string of the id list
+        /// Queries the Item Index View Model for an item of the input name.
+        /// If item is found, returns the Id, otherwise returns an empty string if the item does not exist.
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
