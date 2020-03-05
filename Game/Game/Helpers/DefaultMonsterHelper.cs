@@ -492,11 +492,14 @@ namespace Game.Helpers
         /// <returns></returns>
         public static string ConvertItemsList(string itemName)
         {
-            if (itemName.Equals(string.Empty))
+            // Ask Item Index View Model if it has this named item
+            var item = ItemIndexViewModel.Instance.GetItemByName(itemName);
+
+            // item was not found
+            if (item == null)
             {
                 return string.Empty;
             }
-            var item = ItemIndexViewModel.Instance.GetItemByName(itemName);
 
             string output = item.Id;
             return output;
