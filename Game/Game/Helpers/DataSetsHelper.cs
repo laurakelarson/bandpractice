@@ -14,14 +14,10 @@ namespace Game.Helpers
         /// <summary>
         /// Warms up and loads the data sets in the correct order to account for data dependencies
         /// </summary>
-        public static async void WarmUp()
+        public static void WarmUp()
         {
             // load items before monster and character
-            int source = ItemIndexViewModel.Instance.GetCurrentDataSource();
-
-            // force load of item data into SQL
-            await ItemIndexViewModel.Instance.SetDataSource(1);
-            await ItemIndexViewModel.Instance.SetDataSource(source);
+            ItemIndexViewModel.Instance.GetCurrentDataSource();
 
             ScoreIndexViewModel.Instance.GetCurrentDataSource();
 
