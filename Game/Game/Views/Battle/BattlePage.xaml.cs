@@ -221,9 +221,9 @@ namespace Game.Views
 
 		public void DrawGrid()
 		{
-			for (int row = 0; row < 6; row++)
+			for (int row = 0; row < 7; row++)
 			{
-				for (int col = 0; col < 7; col++)
+				for (int col = 0; col < 6; col++)
 				{
 					var child = new BoxView()
 					{
