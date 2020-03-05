@@ -105,7 +105,6 @@ namespace Game.Helpers
             result.ChangeLevel(1);
             result.Name = "Chomper";
             result.ImageURI = "monster_chomper.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Earmuffs" });
             result.ItemPocket1 = FindItemId("Earmuffs");
             result.ItemPocket2 = FindItemId("Coffee");
             result.ItemPocket3 = FindItemId("Energy Drink");
@@ -123,8 +122,6 @@ namespace Game.Helpers
             result.ChangeLevel(2);
             result.Name = "Massive Static";
             result.ImageURI = "monster_static.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Coffee" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Coffee" });
             result.ItemPocket1 = FindItemId("Coffee");
             result.ItemPocket2 = FindItemId("Coffee");
             result.ItemPocket3 = FindItemId("Microphone");
@@ -141,7 +138,6 @@ namespace Game.Helpers
             result.ChangeLevel(3);
             result.Name = "Motobeast";
             result.ImageURI = "monster_motobeast.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Earmuffs" });
             result.ItemPocket1 = FindItemId("Earmuffs");
             result.ItemPocket2 = FindItemId("Earplugs");
             result.ItemPocket3 = FindItemId("Prank Doorbell");
@@ -158,8 +154,6 @@ namespace Game.Helpers
             result.ChangeLevel(4);
             result.Name = "Kazoom";
             result.ImageURI = "monster_kazoom.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Earmuffs", "Earplugs" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Prank Doorbell" });
             result.ItemPocket1 = FindItemId("Earmuffs");
             result.ItemPocket2 = FindItemId("Earplugs");
             result.ItemPocket3 = FindItemId("Prank Doorbell");
@@ -176,7 +170,6 @@ namespace Game.Helpers
             result.ChangeLevel(5);
             result.Name = "Panpot";
             result.ImageURI = "monster_potpan.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Energy Drink", "Prank Doorbell" });
             result.ItemPocket1 = FindItemId("Energy Drink");
             result.ItemPocket2 = FindItemId("Prank Doorbell");
             result.ItemPocket3 = FindItemId("Tuning Fork");
@@ -193,8 +186,6 @@ namespace Game.Helpers
             result.ChangeLevel(6);
             result.Name = "Jackhammer";
             result.ImageURI = "monster_jackhammer.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Coffee", "Metronome" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Whoopee Cushion" });
             result.ItemPocket1 = FindItemId("Coffee");
             result.ItemPocket2 = FindItemId("Metronome");
             result.ItemPocket3 = FindItemId("Whoopee Cushion");
@@ -211,7 +202,6 @@ namespace Game.Helpers
             result.ChangeLevel(7);
             result.Name = "Brakez";
             result.ImageURI = "monster_brakez.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Band T-shirt", "Whoopee Cushion", "Earmuffs" });
             result.ItemPocket1 = FindItemId("Band T-shirt");
             result.ItemPocket2 = FindItemId("Whoopee Cushion");
             result.ItemPocket3 = FindItemId("Earmuffs");
@@ -228,8 +218,6 @@ namespace Game.Helpers
             result.ChangeLevel(8);
             result.Name = "Driller";
             result.ImageURI = "monster_driller.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Energy Drink", "Tuning Fork" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Vuvuzela" });
             result.ItemPocket1 = FindItemId("Energy Drink");
             result.ItemPocket2 = FindItemId("Tuning Fork");
             result.ItemPocket3 = FindItemId("Vuvuzela");
@@ -246,7 +234,6 @@ namespace Game.Helpers
             result.ChangeLevel(8);
             result.Name = "Alarmer";
             result.ImageURI = "monster_alarm.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Coffee", "Ring", "Earplugs" });
             result.ItemPocket1 = FindItemId("Coffee");
             result.ItemPocket2 = FindItemId("Ring");
             result.ItemPocket3 = FindItemId("Earplugs");
@@ -263,8 +250,6 @@ namespace Game.Helpers
             result.ChangeLevel(10);
             result.Name = "Shrill Babe";
             result.ImageURI = "monster_screaming_babe.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Earmuffs", "Band Hoodie" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Cool Outfit", "Ocarina" });
             result.ItemPocket1 = FindItemId("Earmuffs");
             result.ItemPocket2 = FindItemId("Cool Outfit");
             result.ItemPocket3 = FindItemId("Ocarina");
@@ -281,7 +266,6 @@ namespace Game.Helpers
             result.ChangeLevel(11);
             result.Name = "Buzz Rowdy";
             result.ImageURI = "monster_buzz.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Lucky Socks", "Ocarina", "Tuning Fork" });
             result.ItemPocket1 = FindItemId("Lucky Socks");
             result.ItemPocket2 = FindItemId("Ocarina");
             result.ItemPocket3 = FindItemId("Tuning Fork");
@@ -298,8 +282,6 @@ namespace Game.Helpers
             result.ChangeLevel(12);
             result.Name = "Piercing Feedback";
             result.ImageURI = "monster_feedback.png";
-            // result.ItemsDropped = FindItemId(new List<string>() { "Energy Drink", "Band T-shirt" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Metronome", "Bagpipe" });
             result.ItemPocket1 = FindItemId("Energy Drink");
             result.ItemPocket2 = FindItemId("Band T-shirt");
             result.ItemPocket3 = FindItemId("Bagpipe");
@@ -316,8 +298,6 @@ namespace Game.Helpers
             result.ChangeLevel(13);
             result.Name = "Fran Drescher";
             result.ImageURI = "monster_fran.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Lucky Socks", "Metronome" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Mood Ring" });
             result.ItemPocket1 = FindItemId("Lucky Socks");
             result.ItemPocket2 = FindItemId("Metronome");
             result.ItemPocket3 = FindItemId("Mood Ring");
@@ -334,7 +314,6 @@ namespace Game.Helpers
             result.ChangeLevel(14);
             result.Name = "Yowling Feline Monster";
             result.ImageURI = "monster_cat.png";
-            //result.UniqueDrops = FindItemId(new List<string>() { "Noise-Canceling Headphones", "Banjo" });
             result.ItemPocket1 = FindItemId("Lucky Socks");
             result.ItemPocket2 = FindItemId("Noise-Canceling Headphones");
             result.ItemPocket3 = FindItemId("Banjo");
@@ -351,8 +330,6 @@ namespace Game.Helpers
             result.ChangeLevel(15);
             result.Name = "Nickelback";
             result.ImageURI = "monster_nickelback.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Earplugs", "Band Hoodie" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Cool Outfit", "Temporary Tattoo" });
             result.ItemPocket1 = FindItemId("Earplugs");
             result.ItemPocket2 = FindItemId("Band Hoodie");
             result.ItemPocket3 = FindItemId("Temporary Tattoo");
@@ -369,8 +346,6 @@ namespace Game.Helpers
             result.ChangeLevel(15);
             result.Name = "Lloyd Christmas";
             result.ImageURI = "monster_lloyd_christmas.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Ring", "Athletic Socks" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Bunny Slippers", "Keytar" });
             result.ItemPocket1 = FindItemId("Ring");
             result.ItemPocket2 = FindItemId("Athletic Socks");
             result.ItemPocket3 = FindItemId("Keytar");
@@ -387,8 +362,6 @@ namespace Game.Helpers
             result.ChangeLevel(16);
             result.Name = "Recorder Apprentice";
             result.ImageURI = "monster_recorder_student.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Mood Ring", "Comfy Sneakers" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Golden Recorder", "Temporary Tattoo" });
             result.ItemPocket1 = FindItemId("Comfy Sneakers");
             result.ItemPocket2 = FindItemId("Golden Recorder");
             result.ItemPocket3 = FindItemId("Temporary Tattoo");
@@ -405,8 +378,6 @@ namespace Game.Helpers
             result.ChangeLevel(17);
             result.Name = "Airhorn Leviathan";
             result.ImageURI = "monster_airhorn.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Lucky Socks" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Noise-Canceling Headphones", "Rock Ock" });
             result.ItemPocket1 = FindItemId("Lucky Socks");
             result.ItemPocket2 = FindItemId("Noise-Canceling Headphones");
             result.ItemPocket3 = FindItemId("Glockenspiel");
@@ -423,8 +394,6 @@ namespace Game.Helpers
             result.ChangeLevel(18);
             result.Name = "Earsplitting Nails on Chalkboard";
             result.ImageURI = "monster_chalkboard.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Earmuffs", "Athletic Socks" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Bunny Slippers" });
             result.ItemPocket1 = FindItemId("Earmuffs");
             result.ItemPocket2 = FindItemId("Athletic Socks");
             result.ItemPocket3 = FindItemId("Bunny Slippers");
@@ -441,8 +410,6 @@ namespace Game.Helpers
             result.ChangeLevel(19);
             result.Name = "Rubber Chicken Blob";
             result.ImageURI = "monster_rubber_chicken.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Bunny Slippers", "Mood Ring" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Glockenspiel" });
             result.ItemPocket1 = FindItemId("Bunny Slippers");
             result.ItemPocket2 = FindItemId("Mood Ring");
             result.ItemPocket3 = FindItemId("Glockenspiel");
@@ -459,8 +426,6 @@ namespace Game.Helpers
             result.ChangeLevel(19);
             result.Name = "Agonizing Silence";
             result.ImageURI = "monster_silence.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Temporary Tattoo", "Comfy Sneakers" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Theremin" });
             result.ItemPocket1 = FindItemId("Theremin");
             result.ItemPocket2 = FindItemId("Temporary Tattoo");
             result.ItemPocket3 = FindItemId("Comfy Sneakers");
@@ -477,8 +442,6 @@ namespace Game.Helpers
             result.ChangeLevel(20);
             result.Name = "Gilbert Gottfried";
             result.ImageURI = "monster_gilbert.png";
-            //result.ItemsDropped = FindItemId(new List<string>() { "Rock Ock", "Keytar", "Glockenspiel" });
-            //result.UniqueDrops = FindItemId(new List<string>() { "Didgeridoo of Destruction" });
             result.ItemPocket1 = FindItemId("Rock Ock");
             result.ItemPocket2 = FindItemId("Glockenspiel");
             result.ItemPocket3 = FindItemId("Didgeridoo of Destruction");
