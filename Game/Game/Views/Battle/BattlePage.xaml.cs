@@ -371,6 +371,9 @@ namespace Game.Views
 		/// </summary>
 		public async void GameOver()
 		{
+			// Hide New Round button
+			NewRoundButton.IsVisible = false;
+
 			// Wrap up
 			EngineViewModel.Engine.EndBattle();
 
