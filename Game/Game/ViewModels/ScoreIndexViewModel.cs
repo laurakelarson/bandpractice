@@ -68,6 +68,12 @@ namespace Game.ViewModels
                 await CreateAsync(data as ScoreModel);
             });
 
+            // Register the Create Message from the main Battle Page
+            MessagingCenter.Subscribe<BattlePage, ScoreModel>(this, "Create", async (obj, data) =>
+            {
+                await CreateAsync(data as ScoreModel);
+            });
+
             // Register the Update Message
             MessagingCenter.Subscribe<ScoreUpdatePage, ScoreModel>(this, "Update", async (obj, data) =>
             {
