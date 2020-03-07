@@ -88,8 +88,6 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void RoundOverButton_Clicked(object sender, EventArgs e)
 		{
-			NewRoundButton.IsVisible = true;
-
 			await Navigation.PushModalAsync(new RoundOverPage());
 		}
 
