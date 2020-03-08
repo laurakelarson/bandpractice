@@ -70,6 +70,11 @@ namespace Game.Engine
                 // slightly randomizes Monster levels
                 var level = range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
                 data.ChangeLevel(level);
+                if (level == 1)
+                {
+                    // MONSTERS SHOULDN'T GIVE ZERO EXPERIENCE :(
+                    data.ExperienceGiven = 100;
+                }
 
                 // Update monster's grid position
                 data.RowPos = GridPositionHelper.MonsterPositions[i].X;
