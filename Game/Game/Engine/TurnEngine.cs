@@ -186,7 +186,8 @@ namespace Game.Engine
 
                 if (target.EntityType == EntityTypeEnum.Monster)
                 {
-                    int ExperienceGained = (int)Math.Ceiling((double)(BattleMessages.DamageAmount / target.MaxHealth) * target.ExperiencePoints);
+                    double FractionalExperience = (double)BattleMessages.DamageAmount / (double)target.MaxHealth;
+                    int ExperienceGained = (int)Math.Ceiling(FractionalExperience * (double)target.ExperiencePoints);
                     TakeDamage(target, BattleMessages.DamageAmount);
                     // If monster takes damage he loses proportional amount of remaining experience points to attacker
                     AddExperience(attacker, ExperienceGained);
