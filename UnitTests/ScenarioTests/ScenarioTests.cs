@@ -247,5 +247,70 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(true, Engine.Score.RoundCount > Engine.MaxRoundCount);
         }
 
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_InValid_Trun_Loop_Should_Fail()
+        {
+            /* 
+             * Test infinate turn.  
+             * 
+             * Monsters overpower Characters game never ends
+             * 
+             * 1 Character
+             *      Speed low
+             *      Hit weak
+             *      Health low
+             * 
+             * 6 Monsters
+             *      Speed High
+             *      Hit strong
+             *      Health High
+             * 
+             * Rolls for always Miss
+             * 
+             * Should never end
+             * 
+             * Inifinite Loop Check should stop the game
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            var CharacterPlayer = new CharacterModel
+                            {
+                                Speed = 1,
+                                Level = 1,
+                                MaxHealth = 1,
+                                CurrentHealth = 1,
+                            };
+
+            Engine.CharacterList.Add(CharacterPlayer);
+
+
+            // Add Monsters
+
+            Engine.MaxNumberMonsters = 6;
+
+            // Controll Rolls,  Always Miss
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, Engine.Score.TurnCount > Engine.MaxTurnCount);
+            Assert.AreEqual(true, Engine.Score.RoundCount < Engine.MaxRoundCount);
+        }
+
+
+
     }
 }
