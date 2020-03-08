@@ -82,6 +82,34 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Adds monsters to the round.
+        /// Since monsters may be duplicated, appends a number to the name of each monster.
+        /// </summary>
+        /// <returns></returns>
+        public int AddMonstersToRound(List<MonsterModel> monsters)
+        {
+            // used for scaling monsters to level of characters
+            int averageLevel = GetAverageCharacterLevel();
+            var range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1 };
+
+            for (var i = 0; i < MaxNumberMonsters; i++)
+            {
+                var data = monsters[i];
+                // slightly randomizes Monster levels
+                var level = range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
+                data.ChangeLevel(level);
+
+                // Update monster's grid position
+                data.RowPos = GridPositionHelper.MonsterPositions[i].X;
+                data.ColPos = GridPositionHelper.MonsterPositions[i].Y;
+
+                MonsterList.Add(data);
+            }
+
+            return MonsterList.Count();
+        }
+
+        /// <summary>
         /// Method to gather the average character level to assist in scaling monsters for the round
         /// </summary>
         /// <returns></returns>
