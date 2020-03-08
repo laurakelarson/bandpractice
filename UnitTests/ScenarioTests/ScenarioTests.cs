@@ -26,5 +26,19 @@ namespace UnitTests.ScenarioTests
         public void TearDown()
         {
         }
+
+        [Test]
+        public void AutoBattleEngine_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = Engine;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
