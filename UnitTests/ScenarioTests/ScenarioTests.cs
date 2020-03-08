@@ -172,5 +172,80 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(true, result);
         }
 
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_InValid_Round_Loop_Should_Fail()
+        {
+            /* 
+             * Test infinite rounds.  
+             * 
+             * Characters overpower monsters, game never ends
+             * 
+             * 6 Character
+             *      Speed high
+             *      Hit Hard
+             *      High health
+             * 
+             * 1 Monsters
+             *      Slow
+             *      Weak Hit
+             *      Weak health
+             * 
+             * Should never end
+             * 
+             * Inifinite Loop Check should stop the game
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 6;
+
+            var CharacterPlayer = new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 20,
+                                MaxHealth = 200,
+                                CurrentHealth = 200,
+                                TotalExperience = 1,
+                            };
+
+            var CharacterPlayerMin = new CharacterModel
+                {
+                    Speed = 99,
+                    Level = 1,
+                    MaxHealth = 200,
+                    CurrentHealth = 200,
+                    TotalExperience = 1,
+                };
+
+            Engine.CharacterList.Add(CharacterPlayer);
+            Engine.CharacterList.Add(CharacterPlayer);
+            Engine.CharacterList.Add(CharacterPlayer);
+            Engine.CharacterList.Add(CharacterPlayer);
+            Engine.CharacterList.Add(CharacterPlayer);
+            Engine.CharacterList.Add(CharacterPlayerMin);
+
+            // Add Monsters
+
+            Engine.MaxNumberMonsters = 1;
+
+            // Controll Rolls,  Hit is always a 3
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(3);
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, Engine.Score.RoundCount > Engine.MaxRoundCount);
+        }
+
     }
 }
