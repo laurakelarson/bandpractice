@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Game.Helpers;
 using System.Linq;
 using Game.ViewModels;
+using System.Collections.Generic;
 
 namespace UnitTests.ScenarioTests
 {
@@ -75,6 +76,57 @@ namespace UnitTests.ScenarioTests
 
             //Assert
             Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Character_Level_Up_Should_Pass()
+        {
+
+            /* 
+             * Test to force leveling up of a character during the battle
+             * 
+             * 1 Character, Experience set at next level mark
+             * 
+             * 6 Monsters
+             * 
+             * Character Should Level UP 1 level
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            CharacterIndexViewModel.Instance.Dataset.Clear();
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var Character = new CharacterModel
+            {
+                TotalExperience = 300,    // Enough for next level
+                Name = "Level Up",
+                Level = 1,
+                Attack = 100,
+                Speed = 1000    // Go first
+            };
+
+            // Remember Start Level
+            var StartLevel = Character.Level;
+
+            Engine.CharacterList.Add(Character);
+
+            // Add Monsters
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, Engine.Score.CharacterAtDeathList.Contains("Level Up"));
+            Assert.AreEqual(true, Engine.Score.CharacterAtDeathList.Contains("Level: 2"));
         }
     }
 }
