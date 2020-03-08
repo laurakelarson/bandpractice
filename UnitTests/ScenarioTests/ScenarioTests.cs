@@ -128,5 +128,49 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(true, Engine.Score.CharacterAtDeathList.Contains("Level Up"));
             Assert.AreEqual(true, Engine.Score.CharacterAtDeathList.Contains("Level: 2"));
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_GameOver_Round_1_Should_Pass()
+        {
+            /* 
+             * 
+             * 1 Character, Speed slowest, only 1 HP
+             * 
+             * 6 Monsters
+             * 
+             * Should end in the first round
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            var CharacterPlayer = new CharacterModel
+                            {
+                                Speed = -1, // Will go last...
+                                Level = 10,
+                                CurrentHealth = 1,
+                                TotalExperience = 1,
+                            };
+
+            Engine.CharacterList.Add(CharacterPlayer);
+
+
+            // Add Monsters
+
+            Engine.MaxNumberMonsters = 6;
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
     }
 }
