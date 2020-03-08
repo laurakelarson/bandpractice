@@ -88,10 +88,6 @@ namespace Game.Engine
         /// <returns></returns>
         public int AddMonstersToRound(List<MonsterModel> monsters)
         {
-            // used for scaling monsters to level of characters
-            int averageLevel = GetAverageCharacterLevel();
-            var range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1 };
-
             for (var i = 0; i < MaxNumberMonsters; i++)
             {
                 var data = monsters[i];
