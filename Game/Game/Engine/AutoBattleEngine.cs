@@ -71,6 +71,14 @@ namespace Game.Engine
             // Fight Loop. Continue until Game is Over...
             do
             {
+                // Check for excessive duration
+                if (DetectInfiniteLoop())
+                {
+                    Debug.WriteLine("Aborting, More than Max Rounds");
+                    EndBattle();
+                    return false;
+                }
+
                 Debug.WriteLine("Next Turn");
 
                 // Do the turn...
