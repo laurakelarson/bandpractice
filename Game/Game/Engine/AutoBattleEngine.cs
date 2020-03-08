@@ -95,5 +95,28 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// Check if the Engine is not ending
+        /// 
+        /// Too many Rounds
+        /// Too many Turns in a round
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool DetectInfiniteLoop()
+        {
+            if (Score.RoundCount > MaxRoundCount)
+            {
+                return true;
+            }
+
+            if (Score.TurnCount > MaxTurnCount)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
