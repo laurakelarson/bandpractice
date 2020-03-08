@@ -32,6 +32,12 @@ namespace Game.Engine
         // Max number of Monsters
         public int MaxNumberMonsters = 6;
 
+        // Max Number of Rounds for AutoBattle
+        public int MaxRoundCount = 1000;
+
+        // Max Number of Turns for AutoBattle
+        public int MaxTurnCount = 10000;
+
         // Current Round state
         public RoundEnum RoundState = RoundEnum.Unknown;
 
