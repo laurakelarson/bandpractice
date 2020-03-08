@@ -179,12 +179,24 @@ namespace Game.Engine
             }
 
             // It's a Hit
-            if (BattleMessages.HitStatus == HitStatusEnum.Hit)
-            {
+            if (BattleMessages.HitStatus == HitStatusEnum.Hit) { 
+
                 //Calculate Damage
                 BattleMessages.DamageAmount = GetDamage(attacker);
 
-                TakeDamage(target, BattleMessages.DamageAmount);
+                if (target.EntityType == EntityTypeEnum.Monster)
+                {
+                    int ExperienceGained = (int)Math.Ceiling((double)(BattleMessages.DamageAmount / target.MaxHealth) * target.ExperiencePoints);
+                    TakeDamage(target, BattleMessages.DamageAmount);
+                    // If monster takes damage he loses proportional amount of remaining experience points to attacker
+                    AddExperience(attacker, ExperienceGained);
+                    target.ExperiencePoints -= ExperienceGained;
+                }
+               else
+                {
+                    TakeDamage(target, BattleMessages.DamageAmount);
+                }
+
             }
 
             // update battle messages
