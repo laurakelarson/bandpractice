@@ -16,5 +16,15 @@ namespace UnitTests.ScenarioTests
     {
         AutoBattleEngine Engine;
 
+        [SetUp]
+        public void Setup()
+        {
+            Engine = new AutoBattleEngine();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+        }
     }
 }
