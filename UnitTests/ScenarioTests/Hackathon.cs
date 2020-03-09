@@ -193,5 +193,84 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(HitStatusEnum.Miss, BattleEngine.BattleMessages.HitStatus);
         }
 
+        [Test]
+        public async Task HackathonScenario_Scenario_2_Character_Not_Bob_Should_Hit()
+        {
+            /* 
+             * Scenario Number:  
+             *      2
+             *      
+             * Description: 
+             *      See Default Test
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      See Defualt Test
+             *                 
+             * Test Algrorithm:
+             *      Create Character named Mike
+             *      Create Monster
+             *      Call TurnAsAttack so Mike can attack Monster
+             * 
+             * Test Conditions:
+             *      Control Dice roll so natural hit
+             *      Test with Character of not named Bob
+             *  
+             *  Validation
+             *      Verify Enum is Hit
+             *      
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 1;
+
+            var Yoshi = new CharacterModel
+            {
+                Speed = 200,
+                Level = 10,
+                CurrentHealth = 100,
+                TotalExperience = 100,
+                Name = "Yoshi"
+            };
+            var CharacterPlayer = new BattleEntityModel(Yoshi);
+
+            BattleEngine.CharacterList.Add(Yoshi);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberMonsters = 1;
+
+            var Monster = new MonsterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster",
+            };
+            var MonsterPlayer = new BattleEntityModel(Monster);
+
+            BattleEngine.MonsterList.Add(Monster);
+
+            // Have dice roll 20
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            // Battle needs to create entity list
+            BattleEngine.MakeEntityList();
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+
+            //Reset
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(HitStatusEnum.Hit, BattleEngine.BattleMessages.HitStatus);
+        }
     }
 }
