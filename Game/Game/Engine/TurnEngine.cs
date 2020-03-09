@@ -158,6 +158,16 @@ namespace Game.Engine
             // refresh battle messages for turn
             BattleMessages.ClearMessages();
 
+            // Hackathon
+            // Hackathon Scenario 2, Bob alwasys misses
+            if (attacker.Name.Equals("Bob"))
+            {
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                BattleMessages.TurnMessage = "Bob always Misses";
+                Debug.WriteLine(BattleMessages.TurnMessage);
+                return true;
+            }
+
             BattleMessages.PlayerType = EntityTypeEnum.Monster;
 
             var AttackScore = GetAttack(attacker);
