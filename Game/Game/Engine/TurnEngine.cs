@@ -47,18 +47,14 @@ namespace Game.Engine
         public bool Attack(BattleEntityModel Attacker)
         {
             // If no defender, should return null regardless of autobattle or regular battle
+            
+            // For Attack, Choose Who
+            CurrentDefender = AttackChoice(Attacker);
             if (CurrentDefender == null)
             {
                 return false;
             }
-            // for auto battle, engine should pick the attack target
-            if (Score.AutoBattle)
-            {
-                // For Attack, Choose Who
-                CurrentDefender = AttackChoice(Attacker);
 
-                
-            }
 
             // Do Attack
             TurnAsAttack(Attacker, CurrentDefender);
