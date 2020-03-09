@@ -21,7 +21,7 @@ namespace UnitTests.ScenarioTests
         public void Setup()
         {
             AutoBattleEngine = new AutoBattleEngine();
-            BattleEngine = new BattleEngine();
+            BattleEngine = EngineViewModel.Engine;
         }
 
         [TearDown]
@@ -112,5 +112,86 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
             Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
         }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_2_Character_Bob_Should_Miss()
+        {
+            /* 
+             * Scenario Number:  
+             *  2
+             *  
+             * Description: 
+             *      Make a Character called Bob
+             *      Bob Always Misses
+             *      Other Characters Always Hit
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      Change to Turn Engine
+             *      Changed TurnAsAttack method
+             *      Check for Name of Bob and return miss
+             *                 
+             * Test Algrorithm:
+             *  Create Character named Bob
+             *  Create Monster
+             *  Call TurnAsAttack
+             * 
+             * Test Conditions:
+             *  Test with Character of Named Bob
+             *  Test with Character of any other name
+             * 
+             * Validation:
+             *      Verify Enum is Miss
+             *  
+             */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 1;
+            var Bob = new CharacterModel
+                {
+                    Speed = 200,
+                    Level = 10,
+                    CurrentHealth = 100,
+                    TotalExperience = 100,
+                    Name = "Bob"
+                };
+            var CharacterPlayer = new BattleEntityModel(Bob);
+
+            BattleEngine.CharacterList.Add(Bob);
+
+            // Set Monster Conditions
+
+            // Add a monster to attack
+            BattleEngine.MaxNumberMonsters = 1;
+
+            var Monster = new MonsterModel
+                {
+                    Speed = 1,
+                    Level = 1,
+                    CurrentHealth = 1,
+                    ExperienceGiven = 1,
+                    Name = "Monster",
+                };
+            var MonsterPlayer = new BattleEntityModel(Monster);
+
+            BattleEngine.MonsterList.Add(Monster);
+
+            // Have dice rull 19
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(19);
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+
+            //Reset
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(HitStatusEnum.Miss, BattleEngine.BattleMessages.HitStatus);
+        }
+
     }
 }
