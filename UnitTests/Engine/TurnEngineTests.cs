@@ -669,9 +669,11 @@ namespace UnitTests.Engine
         public void TurnEngine_TurnAsAttack_Monster_Attacks_Character_Miss_Should_Pass()
         {
             // Arrange
+            Engine.MaxNumberCharacters = 1;
             var Character = new CharacterModel();
             Engine.CharacterList.Add(Character);
 
+            Engine.MaxNumberMonsters = 1;
             var Monster = new MonsterModel();
             Engine.MonsterList.Add(Monster);
 
