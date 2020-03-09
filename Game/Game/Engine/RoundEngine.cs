@@ -113,6 +113,10 @@ namespace Game.Engine
         /// <returns></returns>
         public int GetAverageCharacterLevel()
         {
+            if (CharacterList.Count() == 0)
+            {
+                return 1;
+            }
             var List = new List<int>(CharacterList.Select(o => o.Level));
             return (int)List.Average();
         }
