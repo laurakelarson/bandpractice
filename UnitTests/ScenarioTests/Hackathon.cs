@@ -20,8 +20,8 @@ namespace UnitTests.ScenarioTests
         [SetUp]
         public void Setup()
         {
-            AutoBattleEngine = EngineViewModel.AutoBattleEngine;
-            BattleEngine = EngineViewModel.Engine;
+            AutoBattleEngine = new AutoBattleEngine();
+            BattleEngine = new BattleEngine();
         }
 
         [TearDown]
@@ -84,7 +84,7 @@ namespace UnitTests.ScenarioTests
 
             // Set Character Conditions
 
-            EngineViewModel.Engine.MaxNumberCharacters = 1;
+            AutoBattleEngine.MaxNumberCharacters = 1;
 
             var CharacterPlayerYoshi = new CharacterModel
                             {
@@ -95,7 +95,7 @@ namespace UnitTests.ScenarioTests
                                 Name = "Yoshi"
                             };
 
-            EngineViewModel.Engine.CharacterList.Add(CharacterPlayerYoshi);
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
             // Set Monster Conditions
 
@@ -109,7 +109,7 @@ namespace UnitTests.ScenarioTests
 
             //Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(null, AutoBattleEngine.PlayerList.Find(m => m.Name.Equals("Yoshi")));
+            Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
             Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
         }
     }
