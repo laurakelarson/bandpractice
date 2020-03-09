@@ -529,9 +529,11 @@ namespace UnitTests.Engine
         public void TurnEngine_TurnAsAttack_Character_Attacks_Null_Should_Fail()
         {
             // Arrange
+            Engine.MaxNumberCharacters = 1;
             var Character = new CharacterModel();
             Engine.CharacterList.Add(Character);
 
+            Engine.MaxNumberMonsters = 1;
             var Monster = new MonsterModel();
             Engine.MonsterList.Add(Monster);
 
