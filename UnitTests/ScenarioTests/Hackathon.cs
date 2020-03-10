@@ -87,13 +87,13 @@ namespace UnitTests.ScenarioTests
             AutoBattleEngine.MaxNumberCharacters = 1;
 
             var CharacterPlayerYoshi = new CharacterModel
-                            {
-                                Speed = -1, // Will go last...
-                                Level = 1,
-                                CurrentHealth = 1,
-                                TotalExperience = 1,
-                                Name = "Yoshi"
-                            };
+            {
+                Speed = -1, // Will go last...
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
 
             AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
@@ -150,13 +150,13 @@ namespace UnitTests.ScenarioTests
 
             BattleEngine.MaxNumberCharacters = 1;
             var Bob = new CharacterModel
-                {
-                    Speed = 200,
-                    Level = 10,
-                    CurrentHealth = 100,
-                    TotalExperience = 100,
-                    Name = "Bob"
-                };
+            {
+                Speed = 200,
+                Level = 10,
+                CurrentHealth = 100,
+                TotalExperience = 100,
+                Name = "Bob"
+            };
             var CharacterPlayer = new BattleEntityModel(Bob);
 
             BattleEngine.CharacterList.Add(Bob);
@@ -167,13 +167,13 @@ namespace UnitTests.ScenarioTests
             BattleEngine.MaxNumberMonsters = 1;
 
             var Monster = new MonsterModel
-                {
-                    Speed = 1,
-                    Level = 1,
-                    CurrentHealth = 1,
-                    ExperienceGiven = 1,
-                    Name = "Monster",
-                };
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster",
+            };
             var MonsterPlayer = new BattleEntityModel(Monster);
 
             BattleEngine.MonsterList.Add(Monster);
@@ -580,7 +580,7 @@ namespace UnitTests.ScenarioTests
 
             var CharacterPlayerMarble = new CharacterModel
             {
-                Speed = 90, 
+                Speed = 90,
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
@@ -810,7 +810,7 @@ namespace UnitTests.ScenarioTests
 
             var CharacterPlayerYoshi = new CharacterModel
             {
-                Speed = 1, 
+                Speed = 1,
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
@@ -941,5 +941,89 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(false, result.Alive);
         }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_5_CriticalHits_Disabled_Should_Pass()
+        {
+            /* 
+             * Scenario Number:  
+             *      5
+             *      
+             * Description: 
+             *      Critical Hits can be enabled in the battle engine.
+             *      The attacker will automatically hit and cause double damage if the tohit roll is a natural 20 (Modifies are not included). 
+             *      So, a rat of level 1, can take a big bite out of a level 20 warrior’s ear by rolling that lucky 20.
+             *      Both Monsters and Characters get the benefit of a Critical Hit
+             *      A roll of 20 always hits regardless of the critical hit enabled or not.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      CriticalHitsEnabled flag added to BaseEngine
+             *      Update TurnEngine to implement Critical Hits if enabled
+             *      Flag added to BattleMessagesModel to help in display of debug/battle messages
+             *      Add debug switch to About page
+             * 
+             * Test Algorithm:
+             *      Add Character to engine - very fast, so hits first
+             *      Disable critical hits
+             *      Dice rolls set to 20 - always hit
+             * 
+             * Test Conditions:
+             *      Player takes one turn (attack)
+             * 
+             * Validation:
+             *      Verify Battle Message after attack does not contain "Critical"
+             *  
+             */
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 1000000, // Will go first...
+                Level = 1,
+                CurrentHealth = 100,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+            BattleEngine.MonsterList.Clear();
+
+            // Battle will add the monsters
+
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
+            // Disable Critical Hits
+            BattleEngine.CriticalHitsEnabled = false;
+
+            // Have dice roll 20
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            //Act
+            BattleEngine.NewRound();
+            var Player = BattleEngine.GetNextPlayerTurn();
+            BattleEngine.TakeTurn(Player);
+            var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
+
+            //Resets
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
+
     }
 }
