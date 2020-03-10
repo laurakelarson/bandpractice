@@ -538,6 +538,10 @@ namespace UnitTests.ScenarioTests
             var result = BattleEngine.EntityList.ElementAt(count - 1);
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
@@ -609,6 +613,10 @@ namespace UnitTests.ScenarioTests
             var result = BattleEngine.EntityList.ElementAt(0);
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
