@@ -66,10 +66,20 @@ namespace Game.Engine
         }
         /// <summary>
         /// Hackathon Scenario 33 - unlucky things happen on round 13
+        /// Random character falls down dead
         /// </summary>
         public void UnluckyRound()
         {
-
+            var count = 0;
+            foreach (var character in CharacterList)
+            {
+                if (count == 0)
+                {
+                    var diceroll = DiceHelper.RollDice(1, MaxNumberCharacters) - 1;
+                    CharacterList[diceroll].Alive = false;
+                    count++;
+                }
+            }
         }
         /// <summary>
         /// Adds monsters to the round.
