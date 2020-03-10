@@ -506,7 +506,7 @@ namespace UnitTests.ScenarioTests
             var result1 = BattleEngine.EntityList[0].FirstBuff; // Yoshi should be buffed first round
 
             // adjust Yoshi's speed so Marble goes first next round
-            BattleEngine.EntityList[0].Speed = 20;
+            BattleEngine.CharacterList[0].Speed = 20;
             BattleEngine.NewRound();
             var test = BattleEngine.EntityList[0];
             var character2 = BattleEngine.EntityList[0].Name;
