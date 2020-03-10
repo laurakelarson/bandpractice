@@ -47,6 +47,10 @@ namespace Game.Engine
             // Update Score for the RoundCount
             Score.RoundCount++;
 
+            // Sort the EntityList
+            // (note: this needs to be done after RoundCount is incremented to implement hackathon rule)
+            OrderEntityListByTurnOrder();
+
             // Clear the items equipped Battle Messages to accrue for new round
             BattleMessages.ItemsEquipped.Clear();
 
@@ -194,8 +198,8 @@ namespace Game.Engine
         /// <returns></returns>
         public BattleEntityModel GetNextPlayerTurn()
         {
-            // Recalculate Order
-            OrderEntityListByTurnOrder();
+            // Remove the Dead
+            RemoveDeadPlayersFromList();
 
             // Get Next Player
             var PlayerCurrent = GetNextPlayerInList();
@@ -204,10 +208,21 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Remove Dead Players from the List
+        /// </summary>
+        /// <returns></returns>
+        public List<BattleEntityModel> RemoveDeadPlayersFromList()
+        {
+            EntityList = EntityList.Where(m => m.Alive == true).ToList();
+            return EntityList;
+        }
+
+        /// <summary>
         /// Order the Players in Turn Sequence
         /// </summary>
         public List<BattleEntityModel> OrderEntityListByTurnOrder()
         {
+            // Standard:
             // Order is based by... 
             // Order by Speed (Descending)
             // Then by Highest level (Descending)
@@ -216,8 +231,19 @@ namespace Game.Engine
             // Then by Alphabetic on Name (Ascending)
             // Then by First in list order (Ascending)
 
-            // Work with the Class variable EntityList
-            EntityList = MakeEntityList();
+            // Hackathon: Every 5th round, the sort order for turn order changes
+            // and list is sorted by Characters first, then lowest health, then lowest speed
+
+            // Special treatment for every 5th round (hackathon rule)
+            if (Score.RoundCount % 5 == 0)
+            {
+                EntityList = EntityList.OrderBy(a => a.EntityType)
+                    .ThenBy(a => a.CurrentHealth)
+                    .ThenBy(a => a.Speed)
+                    .ToList();
+
+                return EntityList;
+            }
 
             EntityList = EntityList.OrderByDescending(a => a.Speed)
                 .ThenByDescending(a => a.Level)
