@@ -278,7 +278,16 @@ namespace Game.Engine
             switch (Target.EntityType)
             {
                 case (EntityTypeEnum.Character):
-                    CharacterList.First(a => a.Id == Target.Id).TakeDamage(damage);
+                    var character = CharacterList.First(a => a.Id == Target.Id);
+                    character.TakeDamage(damage);
+                    // Hackathon scenario 9 - Miracle Max
+                    if(!character.Alive && EntityList.First(a => a.Id == Target.Id).MiracleMax)
+                    {
+                        character.CurrentHealth = character.MaxHealth; // it's a miracle!
+                        BattleMessages.TurnMessageSpecial = character.Name + " has been miraculously revived by Miracle Max!\nSee Miracle Max for all of your miraculous needs~";
+                        Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+                        EntityList.First(a => a.Id == Target.Id).MiracleMax = false;
+                    }
                     return true;
                 case (EntityTypeEnum.Monster):
                 default:
