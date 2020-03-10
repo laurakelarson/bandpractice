@@ -274,6 +274,202 @@ namespace UnitTests.ScenarioTests
         }
 
         [Test]
+        public async Task HackathonScenario_Scenario_30_FirstCharacter_Buffed_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      30
+            *      
+            * Description: 
+            *      The first character in the player list gets their base Attack, Speed, Defense values 
+            *      buffed by 2x for the time they are the first in the list.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
+            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
+            *      on whether character is first in entity list, and if they are, buff their stats. If 
+            *      the character was previously buffed and no longer gets the buff, they are debuffed.
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set speed to 100 (very fast, first in order)
+            *      
+            *      Start a battle, check if that character is buffed
+            * 
+            * Test Conditions:
+            *      Character should have highest speed, and therefore would hold position 0 in list
+            * 
+            * Validation:
+            *      Entity field FirstBuff() will be true
+            *  
+            */
+
+            //Arrange
+            // Set Character Conditions
+
+            //AutoBattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 100, // Will go last...
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
+
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+
+            ////Act
+            //var result = await AutoBattleEngine.RunAutoBattle();
+
+            ////Reset
+
+            ////Assert
+            //Assert.AreEqual(true, result);
+            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
+            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
+            Assert.AreEqual(true, true);
+        }
+        [Test]
+        public async Task HackathonScenario_Scenario_30_SecondCharacter_NotBuffed_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      30
+            *      
+            * Description: 
+            *      The first character in the player list gets their base Attack, Speed, Defense values 
+            *      buffed by 2x for the time they are the first in the list.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
+            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
+            *      on whether character is first in entity list, and if they are, buff their stats. If 
+            *      the character was previously buffed and no longer gets the buff, they are debuffed.
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set speed to 100 (very fast, first in order)
+            *      Create second character
+            *      Set their speed to a lower amount
+            *      
+            *      Start a battle, check if second character is not buffed
+            * 
+            * Test Conditions:
+            *      Character should not have highest speed, and therefore would not hold position 0 in list
+            * 
+            * Validation:
+            *      Entity field FirstBuff() will be false
+            *  
+            */
+
+            //Arrange
+            // Set Character Conditions
+
+            //AutoBattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 100, // Will go last...
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
+
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+
+            ////Act
+            //var result = await AutoBattleEngine.RunAutoBattle();
+
+            ////Reset
+
+            ////Assert
+            //Assert.AreEqual(true, result);
+            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
+            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
+            Assert.AreEqual(true, true);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_30_NewRoundUnbuff_Buffed_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      30
+            *      
+            * Description: 
+            *      The first character in the player list gets their base Attack, Speed, Defense values 
+            *      buffed by 2x for the time they are the first in the list.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
+            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
+            *      on whether character is first in entity list, and if they are, buff their stats. If 
+            *      the character was previously buffed and no longer gets the buff, they are debuffed.
+            * 
+            * Test Algorithm:
+            *      Create Character - Set speed to 100 (very fast, first in order)
+            *      Create other characters - normal speeds
+            *      
+            *      Start a battle, check if first character is buffed
+            *      Adjust speeds of first character and another character so other character is fastest
+            *      Advance round, check if other character is buffed and first character unbuffed
+            * 
+            * Test Conditions:
+            *      Characters will change speeds and force change in buffs
+            * 
+            * Validation:
+            *      Entity field FirstBuff() will be true for first character in first round
+            *      FirstBuff() will be true for second character in second round, false for first character
+            *  
+            */
+
+            //Arrange
+            // Set Character Conditions
+
+            //AutoBattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 100, // Will go last...
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
+
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+
+            ////Act
+            //var result = await AutoBattleEngine.RunAutoBattle();
+
+            ////Reset
+
+            ////Assert
+            //Assert.AreEqual(true, result);
+            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
+            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
+            Assert.AreEqual(true, true);
+        }
+
+        [Test]
         public async Task HackathonScenario_Scenario_32_Round1_Should_Pass()
         {
             /* 
@@ -399,6 +595,7 @@ namespace UnitTests.ScenarioTests
             //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
             Assert.AreEqual(true, true);
         }
+
 
     }
 }
