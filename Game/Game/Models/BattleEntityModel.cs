@@ -75,10 +75,10 @@ namespace Game.Models
             Description = data.Description;
             Speed = data.Speed + data.GetItemBonus(AttributeEnum.Speed);
             ImageURI = data.ImageURI;
-            CurrentHealth = data.CurrentHealth;
-            MaxHealth = data.MaxHealth;
-            Attack = data.Attack;
-            Defense = data.Defense;
+            CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
+            MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
+            Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
+            Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
         }
 
         /// <summary>
@@ -124,10 +124,10 @@ namespace Game.Models
             Description = data.Description;
             Speed = data.Speed + data.GetItemBonus(AttributeEnum.Speed);
             ImageURI = data.ImageURI;
-            CurrentHealth = data.CurrentHealth;
-            MaxHealth = data.MaxHealth;
-            Attack = data.Attack;
-            Defense = data.Defense;
+            CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
+            MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
+            Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
+            Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
             return true;
         }
 
