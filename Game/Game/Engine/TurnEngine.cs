@@ -214,12 +214,7 @@ namespace Game.Engine
             BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.GetCurrentHealthMessage();
             Debug.WriteLine(BattleMessages.TurnMessage);
 
-            bool died = RemoveIfDead(target);
-
-            if (died)
-            {
-                AddExperience(attacker, target.ExperiencePoints);
-            }
+            RemoveIfDead(target);
 
             return true;
         }
