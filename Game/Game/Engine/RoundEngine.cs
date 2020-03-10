@@ -194,13 +194,23 @@ namespace Game.Engine
         /// <returns></returns>
         public BattleEntityModel GetNextPlayerTurn()
         {
-            // Recalculate Order
-            OrderEntityListByTurnOrder();
+            // Remove the Dead
+            RemoveDeadPlayersFromList();
 
             // Get Next Player
             var PlayerCurrent = GetNextPlayerInList();
 
             return PlayerCurrent;
+        }
+
+        /// <summary>
+        /// Remove Dead Players from the List
+        /// </summary>
+        /// <returns></returns>
+        public List<BattleEntityModel> RemoveDeadPlayersFromList()
+        {
+            EntityList = EntityList.Where(m => m.Alive == true).ToList();
+            return EntityList;
         }
 
         /// <summary>
