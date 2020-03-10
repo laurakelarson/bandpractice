@@ -23,15 +23,15 @@ namespace Game.Models
 
         public void BuffCharacterStats()
         {
-            Attack = Attack * 2;
-            Speed = Speed * 2;
-            Defense = Defense * 2;
+            Attack *= 2;
+            Speed *= 2;
+            Defense *= 2;
         }
         public void UnbuffCharacterStats()
         {
-            Attack = Attack / 2;
-            Speed = Speed / 2;
-            Defense = Defense / 2;
+            Attack /= 2;
+            Speed /= 2;
+            Defense /= 2;
         }
 
         /// <summary>
@@ -56,6 +56,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth;
             MaxHealth = data.MaxHealth;
+            Attack = data.Attack;
+            Defense = data.Defense;
         }
 
         /// <summary>
@@ -75,7 +77,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth;
             MaxHealth = data.MaxHealth;
-
+            Attack = data.Attack;
+            Defense = data.Defense;
         }
 
         /// <summary>
@@ -95,6 +98,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth;
             MaxHealth = data.MaxHealth;
+            Attack = data.Attack;
+            Defense = data.Defense;
         }
 
         /// <summary>
@@ -121,6 +126,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth;
             MaxHealth = data.MaxHealth;
+            Attack = data.Attack;
+            Defense = data.Defense;
             return true;
         }
 
