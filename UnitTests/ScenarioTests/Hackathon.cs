@@ -597,6 +597,9 @@ namespace UnitTests.ScenarioTests
 
             // Battle will add the monsters
 
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
             // Update Round Count for test (4 rounds have been completed already)
             BattleEngine.Score.RoundCount = 4;
 
