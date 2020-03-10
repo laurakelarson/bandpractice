@@ -32,8 +32,9 @@ namespace Game.Engine
         /// <returns></returns>
         public bool NewRound()
         {
-            // End the existing round
-            EndRound();
+            if (Score.RoundCount > 0)
+                // End the existing round only if past round 0
+                EndRound();
 
             // Populate New Monsters...
             AddMonstersToRound();
