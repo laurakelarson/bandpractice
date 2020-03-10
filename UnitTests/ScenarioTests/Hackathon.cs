@@ -317,6 +317,7 @@ namespace UnitTests.ScenarioTests
                 CurrentHealth = 1,
                 TotalExperience = 1,
                 Attack = 10,
+                Defense = 10,
                 Name = "Yoshi"
             };
 
