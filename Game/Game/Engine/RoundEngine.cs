@@ -96,7 +96,12 @@ namespace Game.Engine
         {
             // used for scaling monsters to level of characters
             int averageLevel = GetAverageCharacterLevel();
-            var range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1 };
+            var range = new List<int> { averageLevel };
+            if (averageLevel < 2)
+            {
+                range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1 };
+            } 
+            
 
             for (var i = 0; i < MaxNumberMonsters; i++)
             {
