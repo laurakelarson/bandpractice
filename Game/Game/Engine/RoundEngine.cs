@@ -209,12 +209,12 @@ namespace Game.Engine
         public List<BattleEntityModel> OrderEntityListByTurnOrder()
         {
             // Order is based by... 
-            // Order by Speed (Desending)
+            // Order by Speed (Descending)
             // Then by Highest level (Descending)
             // Then by Highest Experience Points (Descending)
-            // Then by Character before MonsterModel (enum assending)
-            // Then by Alphabetic on Name (Assending)
-            // Then by First in list order (Assending
+            // Then by Character before MonsterModel (enum ascending)
+            // Then by Alphabetic on Name (Ascending)
+            // Then by First in list order (Ascending)
 
             // Work with the Class variable EntityList
             EntityList = MakeEntityList();
@@ -226,6 +226,9 @@ namespace Game.Engine
                 .ThenBy(a => a.Name)
                 .ThenBy(a => a.ListOrder)
                 .ToList();
+
+            // Hackathon scenario 30 - volunteer to be first
+            // if character position in list is 0 they get buffed, otherwise no buff
 
             return EntityList;
         }
