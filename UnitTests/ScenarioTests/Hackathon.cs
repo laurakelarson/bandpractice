@@ -678,24 +678,22 @@ namespace UnitTests.ScenarioTests
             *      33
             *      
             * Description: 
-            *      On 13th round, a random character dies at the beginning of the round
+            *      On 13th round, a random character dies at the beginning of the round.
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for every 5th round,
-            *      and apply new sorting order rule if Round number is a multiple of 5
+            *      RoundEngine class: added UnluckyRound() method to randomly choose a character to die.
             * 
             * Test Algorithm:
-            *      Create Character
-            *      Set speed to -1 (very slow)
-            *      
-            *      Set Round number to 4 completed
+            *      Create Characters - six
+            *      Set forced dice roll to 1 to kill first character
+            *      Set Round number to 12
             *      Start New Round
             * 
             * Test Conditions:
-            *      Round number is 5, so new hackathon Entity sort order should be applied
+            *      Round number is 13, so UnluckyRound should kill a character
             * 
             * Validation:
-            *      Character is first in EntityList
+            *      First character in character list is dead
             *  
             */
 
@@ -703,7 +701,7 @@ namespace UnitTests.ScenarioTests
 
             // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 1;
+            BattleEngine.MaxNumberCharacters = 6;
 
             var CharacterPlayerYoshi = new CharacterModel
             {
