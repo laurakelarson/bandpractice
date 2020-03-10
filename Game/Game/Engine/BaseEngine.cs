@@ -52,5 +52,8 @@ namespace Game.Engine
 
         // Entity currently engaged
         public BattleEntityModel CurrentEntity;
+
+        // Flag to enable Critical Hits (hackathon rule)
+        public bool CriticalHitsEnabled = false;
     }
 }
