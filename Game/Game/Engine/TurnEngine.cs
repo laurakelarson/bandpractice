@@ -449,7 +449,7 @@ namespace Game.Engine
 
             // I feel generous, even when characters die, random drops happen :-)
             // If Random drops are enabled, then add some....
-            myItemList.AddRange(GetRandomMonsterItemDrops(Score.RoundCount));
+            myItemList.AddRange(GetRandomMonsterItemDrops(myItemList));
 
             var itemsForPool = new List<ItemModel>();
 
@@ -539,19 +539,17 @@ namespace Game.Engine
         /// </summary>
         /// <param name="round"></param>
         /// <returns></returns>
-        public List<ItemModel> GetRandomMonsterItemDrops(int round)
+        public List<ItemModel> GetRandomMonsterItemDrops(List<ItemModel> list)
         {
-            // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
-
-            // number of random drops is a dice roll based on the round #
-            var NumberToDrop = DiceHelper.RollDice(1, round);
+            // number of random drops is a dice roll based on the monster's item pockets
+            var NumberToDrop = DiceHelper.RollDice(1, 3);
 
             var myList = new List<ItemModel>();
 
             for (var i = 0; i < NumberToDrop; i++)
             {
                 // add a random item from the data source
-                myList.Add(ItemIndexViewModel.Instance.GetRandomItem());
+                myList.Add(list[i]);
             }
             return myList;
         }
