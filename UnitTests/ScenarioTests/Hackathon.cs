@@ -702,6 +702,84 @@ namespace UnitTests.ScenarioTests
             *      Start New Round
             * 
             * Test Conditions:
+            *      Round number is 1, so UnluckyRound should not kill a character
+            * 
+            * Validation:
+            *      First character in character list is alive
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 6;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 1, 
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+            BattleEngine.MonsterList.Clear();
+
+            // Battle will add the monsters
+
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
+            // Update Round Count for test
+            BattleEngine.Score.RoundCount = 0;
+
+            //Act
+            BattleEngine.NewRound();
+            // get the first Entity in list
+            var result = BattleEngine.EntityList.ElementAt(0);
+
+            //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(true, result.Alive);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_33_Round13_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      33
+            *      
+            * Description: 
+            *      On 13th round, a random character dies at the beginning of the round.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: added UnluckyRound() method to randomly choose a character to die.
+            * 
+            * Test Algorithm:
+            *      Create Characters - six
+            *      Set forced dice roll to 1 to kill first character
+            *      Set Round number to 12
+            *      Start New Round
+            * 
+            * Test Conditions:
             *      Round number is 13, so UnluckyRound should kill a character
             * 
             * Validation:
@@ -717,7 +795,7 @@ namespace UnitTests.ScenarioTests
 
             var CharacterPlayerYoshi = new CharacterModel
             {
-                Speed = 1, 
+                Speed = 1,
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
@@ -759,81 +837,6 @@ namespace UnitTests.ScenarioTests
 
             //Assert
             Assert.AreEqual(false, result.Alive);
-        }
-
-        [Test]
-        public async Task HackathonScenario_Scenario_33_Round13_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      33
-            *      
-            * Description: 
-            *      Every 5th round, the sort order for turn order changes and list is sorted by Characters first, 
-            *      then lowest health, then lowest speed
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for every 5th round,
-            *      and apply new sorting order rule if Round number is a multiple of 5
-            * 
-            * Test Algorithm:
-            *      Create Character
-            *      Set speed to -1 (very slow)
-            *      
-            *      Set Round number to 4 completed
-            *      Start New Round
-            * 
-            * Test Conditions:
-            *      Round number is 5, so new hackathon Entity sort order should be applied
-            * 
-            * Validation:
-            *      Character is first in EntityList
-            *  
-            */
-
-            //Arrange
-
-            // Set Character Conditions
-
-            BattleEngine.MaxNumberCharacters = 1;
-
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = -1, // Will go last...
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Name = "Yoshi"
-            };
-
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-
-            // Set Monster Conditions
-            BattleEngine.MaxNumberMonsters = 6;
-            BattleEngine.MonsterList.Clear();
-
-            // Battle will add the monsters
-
-            // Don't need any items for test
-            BattleEngine.ItemPool.Clear();
-
-            // Update Round Count for test (4 rounds have been completed already)
-            BattleEngine.Score.RoundCount = 4;
-
-            //Act
-            BattleEngine.NewRound();
-            // get the first Entity in list
-            var result = BattleEngine.EntityList.ElementAt(0);
-
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
-
-            //Assert
-            Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
         }
     }
 }
