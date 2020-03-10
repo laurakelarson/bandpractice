@@ -58,9 +58,19 @@ namespace Game.Engine
             // Clear the items equipped Battle Messages to accrue for new round
             BattleMessages.ItemsEquipped.Clear();
 
+            // Hackathon Scenario 33
+            if (Score.RoundCount == 13)
+                UnluckyRound();
+
             return true;
         }
+        /// <summary>
+        /// Hackathon Scenario 33 - unlucky things happen on round 13
+        /// </summary>
+        public void UnluckyRound()
+        {
 
+        }
         /// <summary>
         /// Adds monsters to the round.
         /// Since monsters may be duplicated, appends a number to the name of each monster.
