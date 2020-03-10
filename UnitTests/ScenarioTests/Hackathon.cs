@@ -1025,5 +1025,88 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(false, result);
         }
 
+        [Test]
+        public async Task HackathonScenario_Scenario_5_CriticalHits_Enabled_Should_Pass()
+        {
+            /* 
+             * Scenario Number:  
+             *      5
+             *      
+             * Description: 
+             *      Critical Hits can be enabled in the battle engine.
+             *      The attacker will automatically hit and cause double damage if the tohit roll is a natural 20 (Modifies are not included). 
+             *      So, a rat of level 1, can take a big bite out of a level 20 warrior’s ear by rolling that lucky 20.
+             *      Both Monsters and Characters get the benefit of a Critical Hit
+             *      A roll of 20 always hits regardless of the critical hit enabled or not.
+             * 
+             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+             *      CriticalHitsEnabled flag added to BaseEngine
+             *      Update TurnEngine to implement Critical Hits if enabled
+             *      Flag added to BattleMessagesModel to help in display of debug/battle messages
+             *      Add debug switch to About page
+             * 
+             * Test Algorithm:
+             *      Add Character to engine - very fast, so hits first
+             *      Enable critical hits
+             *      Dice rolls set to 20 - always critical hit
+             * 
+             * Test Conditions:
+             *      Player takes one turn (attack)
+             * 
+             * Validation:
+             *      Verify Battle Message after attack contains "Critical"
+             *  
+             */
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 1000000, // Will go first...
+                Level = 1,
+                CurrentHealth = 100,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+            BattleEngine.MonsterList.Clear();
+
+            // Battle will add the monsters
+
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
+            // Disable Critical Hits
+            BattleEngine.CriticalHitsEnabled = true;
+
+            // Have dice roll 20
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            //Act
+            BattleEngine.NewRound();
+            var Player = BattleEngine.GetNextPlayerTurn();
+            BattleEngine.TakeTurn(Player);
+            var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
+
+            //Resets
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
+            BattleEngine.CriticalHitsEnabled = false;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
