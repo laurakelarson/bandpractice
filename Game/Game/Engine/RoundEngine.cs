@@ -42,8 +42,9 @@ namespace Game.Engine
             // Unbuff any buffed characters 
             UnbuffCharacters();
 
-            // Hackathon Scenario 33
-            if (Score.RoundCount == 13)
+            // Hackathon Scenario 33, off by one because another scenario requires roundcount to be 
+            // incremented below!
+            if (Score.RoundCount == 12)
                 UnluckyRound();
 
             // Make the EntityList: monsters and characters who are alive
