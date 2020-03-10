@@ -17,6 +17,23 @@ namespace Game.Models
         // Number representing the entity's place in the battle list
         public int ListOrder = 0;
 
+        // Hackathon scenario 30 - volunteer to be first
+        // If FirstBuff set to true, character gets buffed attributes
+        public bool FirstBuff { get; set; } = false;
+
+        public void BuffCharacterStats()
+        {
+            Attack = Attack * 2;
+            Speed = Speed * 2;
+            Defense = Defense * 2;
+        }
+        public void UnbuffCharacterStats()
+        {
+            Attack = Attack / 2;
+            Speed = Speed / 2;
+            Defense = Defense / 2;
+        }
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -116,6 +133,7 @@ namespace Game.Models
         {
             throw new NotImplementedException();
         }
+
 
         /// <summary>
         /// Returns the name of the battle entity.
