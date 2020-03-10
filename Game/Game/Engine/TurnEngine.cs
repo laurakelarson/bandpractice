@@ -430,6 +430,8 @@ namespace Game.Engine
             // If Random drops are enabled, then add some....
             myItemList.AddRange(GetRandomMonsterItemDrops(Score.RoundCount));
 
+            var itemsForPool = new List<ItemModel>();
+
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
             {
@@ -437,12 +439,14 @@ namespace Game.Engine
                 {
                     Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
                     BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
+
+                    itemsForPool.Add(ItemModel);
                 }
             }
 
             Debug.WriteLine(BattleMessages.TurnMessageSpecial);
 
-            ItemPool.AddRange(myItemList);
+            ItemPool.AddRange(itemsForPool);
 
             return myItemList.Count();
         }
