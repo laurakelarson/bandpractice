@@ -222,7 +222,14 @@ namespace Game.Models
             // level up until correct level reached for TotalExperience 
             while (TotalExperience >= nextLevelExperience)
             {
-                LevelUp(); 
+                LevelUp();
+
+                // Cannot level up beyond 20 - exit before attempting to access LevelAttributesList
+                if (Level >= 20)
+                {
+                    return true;
+                }
+
                 NextLevelDetails = LevelAttributesHelper.Instance.LevelAttributesList[Level + 1];
                 nextLevelExperience = NextLevelDetails.Experience;
             }
