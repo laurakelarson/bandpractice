@@ -255,6 +255,24 @@ namespace Game.Engine
 
             // Hackathon scenario 30 - volunteer to be first
             // if character position in list is 0 they get buffed, otherwise no buff
+            foreach (var entity in EntityList)
+            {
+                if (entity.EntityType == EntityTypeEnum.Character && entity.ListOrder == 0)
+                {
+                    entity.BuffCharacterStats();
+                    entity.FirstBuff = true; 
+                } else
+                {
+                    if (entity.FirstBuff)
+                    {
+                        entity.FirstBuff = false;
+                        entity.UnbuffCharacterStats(); // only want to unbuff if they have been buffed
+                    }
+                }
+                    
+
+                
+            }
 
             return EntityList;
         }
