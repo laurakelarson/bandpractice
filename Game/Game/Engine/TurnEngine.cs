@@ -192,6 +192,15 @@ namespace Game.Engine
                 //Calculate Damage
                 BattleMessages.DamageAmount = GetDamage(attacker);
 
+                // Calculate Critical Hit if enabled
+                if (CriticalHitsEnabled)
+                {
+                    if (BattleMessages.CriticalHit)
+                    {
+                        BattleMessages.DamageAmount *= 2;
+                    }
+                }
+
                 if (target.EntityType == EntityTypeEnum.Monster)
                 {
                     double FractionalExperience = (double)BattleMessages.DamageAmount / (double)target.MaxHealth;
@@ -212,6 +221,16 @@ namespace Game.Engine
             BattleMessages.CurrentHealth = target.CurrentHealth;
             BattleMessages.AttackStatus = " attacks ";
             BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.GetCurrentHealthMessage();
+
+            if (CriticalHitsEnabled)
+            {
+                if (BattleMessages.CriticalHit)
+                {
+                    BattleMessages.TurnMessage += "\nCritical Hit!!!";
+                    BattleMessages.CriticalHit = false; // toggle flag
+                }
+            }
+
             Debug.WriteLine(BattleMessages.TurnMessage);
 
             RemoveIfDead(target);
