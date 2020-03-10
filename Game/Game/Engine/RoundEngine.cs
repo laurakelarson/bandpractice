@@ -77,6 +77,7 @@ namespace Game.Engine
                 {
                     var diceroll = DiceHelper.RollDice(1, MaxNumberCharacters) - 1;
                     CharacterList[diceroll].Alive = false;
+                    BattleMessages.TurnMessageSpecial = CharacterList[diceroll].Name + " dies a horribly unlucky death!";
                     count++;
                 }
             }
