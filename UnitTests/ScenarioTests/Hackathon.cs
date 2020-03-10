@@ -379,34 +379,52 @@ namespace UnitTests.ScenarioTests
             //Arrange
             // Set Character Conditions
 
-            //AutoBattleEngine.MaxNumberCharacters = 1;
+            BattleEngine.MaxNumberCharacters = 1;
 
             var CharacterPlayerYoshi = new CharacterModel
             {
-                Speed = 100, // Will go last...
+                Speed = 100, // Will go first and trigger buff
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
+                Attack = 10,
+                Defense = 10,
                 Name = "Yoshi"
             };
 
-            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            var CharacterPlayerMarble = new CharacterModel
+            {
+                Speed = 90, // high enough speed to occupy position 1
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Attack = 10,
+                Defense = 10,
+                Name = "Marble"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
 
             // Set Monster Conditions
 
             // Auto Battle will add the monsters
 
+            // Update Round Count for test (starting game from beginning)
+            BattleEngine.Score.RoundCount = 0;
 
-            ////Act
-            //var result = await AutoBattleEngine.RunAutoBattle();
+            //Act
+            BattleEngine.NewRound();
 
-            ////Reset
+            // get the first Entity in list
+            var character = BattleEngine.EntityList[1];
 
-            ////Assert
-            //Assert.AreEqual(true, result);
-            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
-            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
-            Assert.AreEqual(true, true);
+            //Reset
+
+            //Assert
+            Assert.AreEqual(false, character.FirstBuff);
+            Assert.AreEqual(10, character.Attack);
         }
 
         [Test]
@@ -446,34 +464,52 @@ namespace UnitTests.ScenarioTests
             //Arrange
             // Set Character Conditions
 
-            //AutoBattleEngine.MaxNumberCharacters = 1;
+            BattleEngine.MaxNumberCharacters = 1;
 
             var CharacterPlayerYoshi = new CharacterModel
             {
-                Speed = 100, // Will go last...
+                Speed = 100, // Will go first and trigger buff
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
+                Attack = 10,
+                Defense = 10,
                 Name = "Yoshi"
             };
 
-            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            var CharacterPlayerMarble = new CharacterModel
+            {
+                Speed = 90, // high enough speed to occupy position 1
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Attack = 10,
+                Defense = 10,
+                Name = "Marble"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
 
             // Set Monster Conditions
 
             // Auto Battle will add the monsters
 
+            // Update Round Count for test (starting game from beginning)
+            BattleEngine.Score.RoundCount = 0;
 
-            ////Act
-            //var result = await AutoBattleEngine.RunAutoBattle();
+            //Act
+            BattleEngine.NewRound();
 
-            ////Reset
+            // get the first Entity in list
+            var character = BattleEngine.EntityList[1];
 
-            ////Assert
-            //Assert.AreEqual(true, result);
-            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
-            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
-            Assert.AreEqual(true, true);
+            //Reset
+
+            //Assert
+            Assert.AreEqual(false, character.FirstBuff);
+            Assert.AreEqual(10, character.Attack);
         }
 
         [Test]
