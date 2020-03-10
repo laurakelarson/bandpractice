@@ -44,6 +44,9 @@ namespace Game.Models
         // Message about the items equipped by characters during an item swap
         public List<string> ItemsEquipped = new List<string>();
 
+        // Track whether attack was a Critical Hit (hackathon rule)
+        public bool CriticalHit = false;
+
         // Beginning of the Html Block for html formatting
         public string htmlHead = @"<html><body bgcolor=""#E8D0B6""><p>";
 
