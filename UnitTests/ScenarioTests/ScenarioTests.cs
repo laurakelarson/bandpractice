@@ -396,5 +396,54 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Character_Dies_Item_Drop_Should_Pass()
+        {
+            /*
+             * 1 Characters:
+             *      lowest speed
+             *      1 HP
+             *      holding an item
+             * 
+             * 1 Monster
+             * 
+             * Character should die,
+             * Bogus item should be in item drop.
+             */
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 3;
+
+            var CharacterPlayer = new CharacterModel
+            {
+                Speed = -1, // Will go last....
+                Level = 10,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+            };
+
+            // Add Item
+            var Item = ItemIndexViewModel.Instance.GetRandomItem();
+            CharacterPlayer.AddItem(Item.Location, Item);
+
+            Engine.CharacterList.Add(CharacterPlayer);
+
+
+            // Add Monsters
+
+            Engine.MaxNumberMonsters = 1;
+
+            //Act
+            await Engine.RunAutoBattle();
+            bool result = Engine.Score.ItemsDroppedList.Contains(Item.Name);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
