@@ -747,7 +747,7 @@ namespace UnitTests.ScenarioTests
             //Act
             BattleEngine.NewRound();
             // get the first Entity in list
-            var result = BattleEngine.EntityList.ElementAt(0);
+            var result = BattleEngine.CharacterList.ElementAt(0);
 
             //Reset
             BattleEngine.Score.RoundCount = 0;
@@ -802,13 +802,23 @@ namespace UnitTests.ScenarioTests
                 Name = "Yoshi"
             };
 
+            var CharacterPlayerMarble = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Marble"
+            };
+
+
             BattleEngine.CharacterList.Clear();
             BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
 
             // Set Monster Conditions
             BattleEngine.MaxNumberMonsters = 6;
@@ -826,7 +836,7 @@ namespace UnitTests.ScenarioTests
             //Act
             BattleEngine.NewRound();
             // get the first Entity in list
-            var result = BattleEngine.EntityList.ElementAt(0);
+            var result = BattleEngine.CharacterList.ElementAt(0);
 
             //Reset
             BattleEngine.Score.RoundCount = 0;
