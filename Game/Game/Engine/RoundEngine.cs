@@ -96,10 +96,11 @@ namespace Game.Engine
         {
             // used for scaling monsters to level of characters
             int averageLevel = GetAverageCharacterLevel();
+            var level = averageLevel;
             var range = new List<int> { averageLevel };
-            if (averageLevel < 2)
+            if (averageLevel > 2 && averageLevel < 20)
             {
-                range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1 };
+                range = new List<int> { averageLevel - 1, averageLevel, averageLevel + 1, averageLevel + 2 };
             } 
             
 
@@ -107,7 +108,10 @@ namespace Game.Engine
             {
                 var data = new MonsterModel(RandomEntityHelper.GetMonsterType());
                 // slightly randomizes Monster levels
-                var level = range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
+                if (range.Count > 1)
+                {
+                    range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
+                }
                 data.ChangeLevel(level);
                 if (level == 1)
                 {
