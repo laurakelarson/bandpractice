@@ -375,34 +375,38 @@ namespace UnitTests.ScenarioTests
 
             // Set Character Conditions
 
-            //AutoBattleEngine.MaxNumberCharacters = 1;
+            BattleEngine.MaxNumberCharacters = 1;
 
-            //var CharacterPlayerYoshi = new CharacterModel
-            //{
-            //    Speed = -1, // Will go last...
-            //    Level = 1,
-            //    CurrentHealth = 1,
-            //    TotalExperience = 1,
-            //    Name = "Yoshi"
-            //};
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = -1, // Will go last...
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
 
-            //AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
-            //// Set Monster Conditions
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+            BattleEngine.MonsterList.Clear();
 
-            //// Auto Battle will add the monsters
+            // Battle will add the monsters
 
+            // Update Round Count for test (4 rounds have been completed already)
+            BattleEngine.Score.RoundCount = 4;
 
-            ////Act
-            //var result = await AutoBattleEngine.RunAutoBattle();
+            //Act
+            BattleEngine.NewRound();
+            // get the first Entity in list
+            var result = BattleEngine.EntityList.ElementAt(0);
 
-            ////Reset
+            //Reset
 
-            ////Assert
-            //Assert.AreEqual(true, result);
-            //Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
-            //Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
-            Assert.AreEqual(true, true);
+            //Assert
+            Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
         }
 
     }
