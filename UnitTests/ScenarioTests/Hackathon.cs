@@ -274,6 +274,97 @@ namespace UnitTests.ScenarioTests
         }
 
         [Test]
+        public async Task HackathonScenario_Scenario_9_MiracleMax_SaveCharacter_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      9
+            *      
+            * Description: 
+            *      Miracle Max steps in once per character per battle to save characters on the brink of death.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      BattleEntityModel: added field for MiracleMax (bool) 
+            *      TurnEngine class: update TakeDamage method to add conditions for checking MiracleMax 
+            *      status if character would otherwise die.
+            * 
+            * Test Algorithm:
+            *      Create Character
+            *      Set health low and speed low so it will take damage
+            *      Set Current health low but Max health high
+            *      
+            *      Start a battle, initiate attack on character
+            * 
+            * Test Conditions:
+            *      Character should take damage and be saved by Miracle Max 
+            * 
+            * Validation:
+            *      Character's alive status will be alive and current health will match max health
+            *  
+            */
+
+            //Arrange
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = -1, // will go last and take damage 
+                Level = 1,
+                CurrentHealth = 1,
+                MaxHealth = 100,
+                TotalExperience = 1,
+                Attack = 10,
+                Defense = 10,
+                Name = "Yoshi"
+            };
+            var CharacterPlayer = new BattleEntityModel(CharacterPlayerYoshi);
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+            // Add a monster to attack
+            BattleEngine.MaxNumberMonsters = 1;
+
+            var Monster = new MonsterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                ExperienceGiven = 1,
+                Name = "Monster",
+            };
+            var MonsterPlayer = new BattleEntityModel(Monster);
+
+            BattleEngine.MonsterList.Add(Monster);
+
+            // Update Round Count for test (starting game from beginning)
+            BattleEngine.Score.RoundCount = 0;
+            // Have dice roll 20
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
+            // Battle needs to create entity list
+            BattleEngine.NewRound();
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+            var result2 = BattleEngine.EntityList[1];
+
+            //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(100, result2.MaxHealth);
+        }
+
+        [Test]
         public async Task HackathonScenario_Scenario_30_FirstCharacter_Buffed_Should_Pass()
         {
             /* 
