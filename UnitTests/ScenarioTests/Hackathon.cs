@@ -326,7 +326,7 @@ namespace UnitTests.ScenarioTests
 
             // Battle will add the monsters
 
-            // Update Round Count for test
+            // Update Round Count for test (starting game from beginning)
             BattleEngine.Score.RoundCount = 0;
 
             //Act
@@ -337,7 +337,7 @@ namespace UnitTests.ScenarioTests
 
             //Reset
 
-            ////Asserts
+            //Assert
             Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
         }
 
