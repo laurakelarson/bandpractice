@@ -91,6 +91,22 @@
                         x:Name="DebugSettingsFrame"
                         IsVisible="False">
 
+                    <StackLayout Style="{StaticResource HorizontalStack}"
+                                    Padding="50,0,0,0">
+
+                        <Label Text="Enable Critical Hits" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+
+                        <Switch
+                            HorizontalOptions="Start" 
+                            VerticalOptions="Center"
+                            x:Name="CriticalHitsValue"
+                            IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled}"
+                            Toggled="CriticalHits_Toggled" 
+                        />
+
+                    </StackLayout>
+
+
                 <StackLayout Style="{StaticResource HorizontalStack}"
                                     Padding="50,0,0,0">
 

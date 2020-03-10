@@ -34,6 +34,9 @@ namespace Game.Views.Battle
 
 			var Engine = new Game.Engine.AutoBattleEngine();
 
+            // Check whether user has enabled Critical Hits (hackathon rule)
+            Engine.CriticalHitsEnabled = BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled;
+
 			await Engine.RunAutoBattle();
 
 			var Score = Engine.GetScoreObject();

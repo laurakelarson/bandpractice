@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Game.Helpers;
+using Game.ViewModels;
 using Xamarin.Forms;
 
 namespace Game.Views
@@ -81,6 +82,24 @@ namespace Game.Views
             {
                 // data helper to pass on command to each index view model
                 await DataSetsHelper.WipeData();
+            }
+        }
+
+        /// <summary>
+        /// Event handler to enable Critical Hits in battle engine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CriticalHits_Toggled(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (CriticalHitsValue.IsToggled == true)
+            {
+                BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled = true;
+            }
+            else
+            {
+                BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled = false;
             }
         }
     }
