@@ -446,7 +446,7 @@ namespace UnitTests.ScenarioTests
             * 
             * Test Algorithm:
             *      Create Character - Set speed to 100 (very fast, first in order)
-            *      Create other characters - normal speeds
+            *      Create other character - speed to 90
             *      
             *      Start a battle, check if first character is buffed
             *      Adjust speeds of first character and another character so other character is fastest
@@ -479,7 +479,7 @@ namespace UnitTests.ScenarioTests
 
             var CharacterPlayerMarble = new CharacterModel
             {
-                Speed = 90, // high enough speed to occupy position 1
+                Speed = 90, 
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
@@ -499,17 +499,28 @@ namespace UnitTests.ScenarioTests
             // Update Round Count for test (starting game from beginning)
             BattleEngine.Score.RoundCount = 0;
 
+
             //Act
             BattleEngine.NewRound();
+            var character1 = BattleEngine.EntityList[0].Name;
+            var result1 = BattleEngine.EntityList[0].FirstBuff; // Yoshi should be buffed first round
 
-            // get the first Entity in list
-            var character = BattleEngine.EntityList[1];
+            // adjust Yoshi's speed so Marble goes first next round
+            BattleEngine.EntityList[0].Speed = 20;
+            BattleEngine.NewRound();
+            var test = BattleEngine.EntityList[0];
+            var character2 = BattleEngine.EntityList[0].Name;
+            var result2 = BattleEngine.EntityList[0].FirstBuff; // Marble should be buffed
+            var result3 = BattleEngine.EntityList[1].FirstBuff; // Yoshi should not be buffed
 
             //Reset
 
             //Assert
-            Assert.AreEqual(false, character.FirstBuff);
-            Assert.AreEqual(10, character.Attack);
+            Assert.AreEqual(true, result1);
+            Assert.AreEqual("Yoshi", character1);
+            Assert.AreEqual(true, result2);
+            Assert.AreEqual("Marble", character2);
+            Assert.AreEqual(false, result3);
         }
 
         [Test]

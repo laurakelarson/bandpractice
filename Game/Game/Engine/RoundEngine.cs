@@ -39,6 +39,9 @@ namespace Game.Engine
             // Populate New Monsters...
             AddMonstersToRound();
 
+            // Unbuff any buffed characters 
+            UnbuffCharacters();
+
             // Make the EntityList: monsters and characters who are alive
             MakeEntityList();
 
@@ -256,26 +259,29 @@ namespace Game.Engine
 
             // Hackathon scenario 30 - volunteer to be first
             // if character position in list is 0 they get buffed, otherwise no buff
-            foreach (var entity in EntityList)
-            {
-                if (entity.EntityType == EntityTypeEnum.Character && entity.ListOrder == 0)
-                {
-                    entity.BuffCharacterStats();
-                    entity.FirstBuff = true; 
-                } else
-                {
-                    if (entity.FirstBuff)
-                    {
-                        entity.FirstBuff = false;
-                        entity.UnbuffCharacterStats(); // only want to unbuff if they have been buffed
-                    }
-                }
-                    
-
-                
-            }
+            if (EntityList[0].EntityType == EntityTypeEnum.Character)
+             {
+                EntityList[0].BuffCharacterStats();
+                EntityList[0].FirstBuff = true; 
+             }
+            
 
             return EntityList;
+        }
+
+        /// <summary>
+        /// Method to unbuff any buffed characters at beginning of round before entity list is remade
+        /// </summary>
+        public void UnbuffCharacters()
+        {
+            foreach (var entity in EntityList)
+            {
+                if (entity.FirstBuff)
+                {
+                    entity.UnbuffCharacterStats();
+                    entity.FirstBuff = false;
+                }
+            }
         }
 
         /// <summary>
@@ -284,6 +290,7 @@ namespace Game.Engine
         /// <returns></returns>
         public List<BattleEntityModel> MakeEntityList()
         {
+
             // Start from a clean list of players
             EntityList.Clear();
 
