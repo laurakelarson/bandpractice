@@ -539,6 +539,10 @@ namespace UnitTests.ScenarioTests
             var result = BattleEngine.EntityList.ElementAt(count - 1);
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
@@ -598,6 +602,9 @@ namespace UnitTests.ScenarioTests
 
             // Battle will add the monsters
 
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
             // Update Round Count for test (4 rounds have been completed already)
             BattleEngine.Score.RoundCount = 4;
 
@@ -607,6 +614,10 @@ namespace UnitTests.ScenarioTests
             var result = BattleEngine.EntityList.ElementAt(0);
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
