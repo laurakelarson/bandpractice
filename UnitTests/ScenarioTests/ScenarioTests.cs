@@ -354,5 +354,47 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(true, result);
         }
 
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Monster_Dies_Item_Drop_Should_Pass()
+        {
+            /*
+             * 2 Characters: highest speed
+             * 
+             * 1 Monster
+             * 
+             * Characters should defeat at least one Monster.
+             * Monster should drop at least one item.
+             */
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 2;
+
+            var CharacterPlayer = new CharacterModel
+            {
+                Speed = 1000, // Will go first....
+                Level = 10,
+                CurrentHealth = 100,
+                TotalExperience = 1,
+            };
+
+            Engine.CharacterList.Add(CharacterPlayer);
+            Engine.CharacterList.Add(new CharacterModel(CharacterPlayer));
+
+
+            // Add Monsters
+
+            Engine.MaxNumberMonsters = 1;
+
+            //Act
+            await Engine.RunAutoBattle();
+            bool result = Engine.Score.ItemsDroppedList.Count() > 0;
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
