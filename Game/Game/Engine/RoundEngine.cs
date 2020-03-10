@@ -220,9 +220,6 @@ namespace Game.Engine
             // Hackathon: Every 5th round, the sort order for turn order changes
             // and list is sorted by Characters first, then lowest health, then lowest speed
 
-            // Work with the Class variable EntityList
-            EntityList = MakeEntityList();
-
             // Special treatment for every 5th round (hackathon rule)
             if (Score.RoundCount % 5 == 0)
             {
