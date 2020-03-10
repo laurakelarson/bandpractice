@@ -61,6 +61,8 @@ namespace Game.Models
             MaxHealth = data.MaxHealth;
             Attack = data.Attack;
             Defense = data.Defense;
+            MiracleMax = data.MiracleMax;
+            FirstBuff = data.FirstBuff;
         }
 
         /// <summary>
