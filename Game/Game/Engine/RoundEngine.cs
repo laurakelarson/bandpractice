@@ -47,6 +47,10 @@ namespace Game.Engine
             // Update Score for the RoundCount
             Score.RoundCount++;
 
+            // Sort the EntityList
+            // (note: this needs to be done after RoundCount is incremented to implement hackathon rule)
+            OrderEntityListByTurnOrder();
+
             // Clear the items equipped Battle Messages to accrue for new round
             BattleMessages.ItemsEquipped.Clear();
 
