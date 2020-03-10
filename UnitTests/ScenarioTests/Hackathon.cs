@@ -300,6 +300,7 @@ namespace UnitTests.ScenarioTests
             * 
             * Validation:
             *      Character's alive status will be alive and current health will match max health
+            *      MiracleMax field will be false
             *  
             */
 
@@ -330,7 +331,7 @@ namespace UnitTests.ScenarioTests
 
             var Monster = new MonsterModel
             {
-                Speed = 1,
+                Speed = 100,
                 Level = 1,
                 CurrentHealth = 1,
                 ExperienceGiven = 1,
@@ -341,7 +342,7 @@ namespace UnitTests.ScenarioTests
             BattleEngine.MonsterList.Add(Monster);
 
             // Update Round Count for test (starting game from beginning)
-            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.Score.RoundCount = 1;
             // Have dice roll 20
             DiceHelper.DisableRandomValues();
             DiceHelper.SetForcedDiceRollValue(20);
@@ -350,7 +351,7 @@ namespace UnitTests.ScenarioTests
             BattleEngine.NewRound();
 
             //Act
-            var result = BattleEngine.TurnAsAttack(CharacterPlayer, MonsterPlayer);
+            var result = BattleEngine.TurnAsAttack(BattleEngine.EntityList[0], BattleEngine.EntityList[1]);
             var result2 = BattleEngine.EntityList[1];
 
             //Reset
@@ -361,7 +362,8 @@ namespace UnitTests.ScenarioTests
 
             //Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(100, result2.MaxHealth);
+            Assert.AreEqual(100, result2.CurrentHealth);
+            Assert.AreEqual(false, result2.MiracleMax);
         }
 
         [Test]
