@@ -42,6 +42,10 @@ namespace Game.Engine
             // Unbuff any buffed characters 
             UnbuffCharacters();
 
+            // Hackathon Scenario 33
+            if (Score.RoundCount == 13)
+                UnluckyRound();
+
             // Make the EntityList: monsters and characters who are alive
             MakeEntityList();
 
@@ -58,9 +62,7 @@ namespace Game.Engine
             // Clear the items equipped Battle Messages to accrue for new round
             BattleMessages.ItemsEquipped.Clear();
 
-            // Hackathon Scenario 33
-            if (Score.RoundCount == 13)
-                UnluckyRound();
+            
 
             return true;
         }
