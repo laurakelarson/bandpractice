@@ -338,6 +338,10 @@ namespace UnitTests.ScenarioTests
             var character = BattleEngine.EntityList[0];
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(true, character.FirstBuff);
@@ -421,6 +425,10 @@ namespace UnitTests.ScenarioTests
             var character = BattleEngine.EntityList[1];
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(false, character.FirstBuff);
@@ -514,6 +522,10 @@ namespace UnitTests.ScenarioTests
             var result3 = BattleEngine.EntityList[1].FirstBuff; // Yoshi should not be buffed
 
             //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(true, result1);
@@ -705,7 +717,7 @@ namespace UnitTests.ScenarioTests
 
             var CharacterPlayerYoshi = new CharacterModel
             {
-                Speed = -1, // Will go last...
+                Speed = 1, 
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
@@ -713,6 +725,11 @@ namespace UnitTests.ScenarioTests
             };
 
             BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
             BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
             // Set Monster Conditions
@@ -724,9 +741,10 @@ namespace UnitTests.ScenarioTests
             // Don't need any items for test
             BattleEngine.ItemPool.Clear();
 
-            // Update Round Count for test (4 rounds have been completed already)
-            BattleEngine.Score.RoundCount = 4;
-
+            // Update Round Count for test (12 rounds have been completed already)
+            BattleEngine.Score.RoundCount = 12;
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
             //Act
             BattleEngine.NewRound();
             // get the first Entity in list
@@ -737,9 +755,10 @@ namespace UnitTests.ScenarioTests
             BattleEngine.CharacterList.Clear();
             BattleEngine.MonsterList.Clear();
             BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
 
             //Assert
-            Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
+            Assert.AreEqual(false, result.Alive);
         }
 
         [Test]
