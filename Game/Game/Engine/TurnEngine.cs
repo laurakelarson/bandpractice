@@ -421,6 +421,15 @@ namespace Game.Engine
             // If Random drops are enabled, then add some....
             myItemList.AddRange(GetRandomMonsterItemDrops(Score.RoundCount));
 
+            // check list for null items
+            foreach (var ItemModel in myItemList)
+            {
+                if (ItemModel == null)
+                {
+                    myItemList.Remove(ItemModel);
+                }
+            }
+
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
             {
