@@ -424,8 +424,11 @@ namespace Game.Engine
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
             {
-                Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
+                if (ItemModel != null)
+                {
+                    Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
+                    BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
+                }
             }
 
             Debug.WriteLine(BattleMessages.TurnMessageSpecial);
