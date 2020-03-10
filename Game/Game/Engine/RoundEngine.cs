@@ -208,6 +208,7 @@ namespace Game.Engine
         /// </summary>
         public List<BattleEntityModel> OrderEntityListByTurnOrder()
         {
+            // Standard:
             // Order is based by... 
             // Order by Speed (Desending)
             // Then by Highest level (Descending)
@@ -216,8 +217,22 @@ namespace Game.Engine
             // Then by Alphabetic on Name (Assending)
             // Then by First in list order (Assending
 
+            // Hackathon: Every 5th round, the sort order for turn order changes
+            // and list is sorted by Characters first, then lowest health, then lowest speed
+
             // Work with the Class variable EntityList
             EntityList = MakeEntityList();
+
+            // Special treatment for every 5th round (hackathon rule)
+            if (Score.RoundCount % 5 == 0)
+            {
+                EntityList = EntityList.OrderBy(a => a.EntityType)
+                    .ThenBy(a => a.CurrentHealth)
+                    .ThenBy(a => a.Speed)
+                    .ToList();
+
+                return EntityList;
+            }
 
             EntityList = EntityList.OrderByDescending(a => a.Speed)
                 .ThenByDescending(a => a.Level)
