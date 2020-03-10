@@ -489,6 +489,12 @@ namespace Game.Engine
             {
                 // Force Hit
                 BattleMessages.HitStatus = HitStatusEnum.Hit;
+
+                if (CriticalHitsEnabled)
+                {
+                    BattleMessages.CriticalHit = true;
+                }
+
                 return BattleMessages.HitStatus;
             }
 
