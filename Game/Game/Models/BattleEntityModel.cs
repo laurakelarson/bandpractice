@@ -34,6 +34,9 @@ namespace Game.Models
             Defense /= 2;
         }
 
+        // Hackathon Scenario 9 - Miracle Max can save you from certain death once per battle 
+        public bool MiracleMax { get; set; } = false;
+
         /// <summary>
         /// Constructor.
         /// </summary>
