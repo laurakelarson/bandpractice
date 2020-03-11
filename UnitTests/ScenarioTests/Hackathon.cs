@@ -284,7 +284,7 @@ namespace UnitTests.ScenarioTests
             *      Miracle Max steps in once per character per battle to save characters on the brink of death.
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      BattleEntityModel: added field for MiracleMax (bool) 
+            *      CharacterModel: added field for MiracleMax (bool) 
             *      TurnEngine class: update TakeDamage method to add conditions for checking MiracleMax 
             *      status if character would otherwise die.
             * 
@@ -364,6 +364,114 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(true, result);
             Assert.AreEqual(100, result2.CurrentHealth);
             Assert.AreEqual(false, result2.MiracleMax);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_10_Grenade_ItemDrop_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      10
+            *      
+            * Description: 
+            *      When a Unique Item from a monster Drops, there is a chance, that it is a 
+            *      Hand Grenade that suddenly does damage to all monsters. 
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      TurnEngine class: update ItemDrop method to dice roll for grenade drop which 
+            *      causes damage to all monsters in MonsterList
+            * 
+            * Test Algorithm:
+            *      Create Characters (normal stats), Monsters (weak stats)
+            *      
+            *      Start a battle 
+            *      Force dice roll
+            *      Force item drop
+            * 
+            * Test Conditions:
+            *      Monsters should take damage from grenade drop
+            * 
+            * Validation:
+            *      Monsters' health should be lower than original health
+            *  
+            */
+
+            //Arrange
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 1;
+
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 20, // will go first and kill first monster 
+                Level = 1,
+                CurrentHealth = 1,
+                MaxHealth = 10,
+                TotalExperience = 10,
+                Attack = 10,
+                Defense = 10,
+                Name = "Yoshi"
+            };
+            var CharacterPlayer = new BattleEntityModel(CharacterPlayerYoshi);
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+
+            // Set Monster Conditions
+            // Add a monster to attack
+            BattleEngine.MaxNumberMonsters = 4;
+
+            var MonsterWeak = new MonsterModel
+            {
+                Speed = -1, // character needs to go first to hit
+                Level = 1,
+                CurrentHealth = 1, // needs to die to drop item and trigger grenade drop
+                ExperienceGiven = 1,
+                Name = "Monster",
+            };
+            var Monster = new MonsterModel
+            {
+                Speed = -1, // character needs to go first to hit
+                Level = 1,
+                CurrentHealth = 10,
+                ExperienceGiven = 1,
+                Name = "Monster",
+            };
+
+            BattleEngine.MonsterList.Add(MonsterWeak);
+            BattleEngine.MonsterList.Add(Monster);
+            BattleEngine.MonsterList.Add(Monster);
+            BattleEngine.MonsterList.Add(Monster);
+
+            // Update Round Count for test (starting game from beginning)
+            BattleEngine.Score.RoundCount = 0;
+            // Have dice roll 1 to trigger grenade drop
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
+
+            // Battle needs to create entity list
+            BattleEngine.NewRound();
+
+            //Act
+            var result = BattleEngine.TurnAsAttack(BattleEngine.EntityList[0], BattleEngine.EntityList[1]);
+            var monster1 = BattleEngine.MonsterList[0]; // should be dead
+            var monster2 = BattleEngine.MonsterList[1]; // three others should have taken damage
+            var monster3 = BattleEngine.MonsterList[2];
+            var monster4 = BattleEngine.MonsterList[3];
+
+            //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, monster1.Alive);
+            Assert.AreNotEqual(10, monster2.CurrentHealth);
+            Assert.AreNotEqual(10, monster3.CurrentHealth);
+            Assert.AreNotEqual(10, monster4.CurrentHealth);
         }
 
         [Test]
