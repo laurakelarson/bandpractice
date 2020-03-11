@@ -391,7 +391,7 @@ namespace UnitTests.Engine
 
         // test random drop
         [Test]
-        public void TurnEngine_DropItems_Monster_Items_0_Random_Drop_1_Should_Return_1()
+        public void TurnEngine_DropItems_Character_Items_0_Random_Drop_Should_Return_0()
         {
             // Arrange
             var Character = new CharacterModel();
@@ -412,7 +412,7 @@ namespace UnitTests.Engine
             Engine.StartBattle(false);
 
             // Assert
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(0, result);
         }
 
         #endregion Mechanics
