@@ -102,5 +102,23 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled = false;
             }
         }
+
+        /// <summary>
+        /// Event handler to enable Critical Miss in battle engine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CriticalMiss_Toggled(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (CriticalMissValue.IsToggled == true)
+            {
+                BattleEngineViewModel.Instance.Engine.CriticalMissEnabled = true;
+            }
+            else
+            {
+                BattleEngineViewModel.Instance.Engine.CriticalMissEnabled = false;
+            }
+        }
     }
 }

@@ -106,6 +106,21 @@
 
                     </StackLayout>
 
+                    <StackLayout Style="{StaticResource HorizontalStack}"
+                                    Padding="50,0,0,0">
+
+                        <Label Text="Enable Critical Miss" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+
+                        <Switch
+                            HorizontalOptions="Start" 
+                            VerticalOptions="Center"
+                            x:Name="CriticalMissValue"
+                            IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CriticalMissEnabled}"
+                            Toggled="CriticalMiss_Toggled" 
+                        />
+
+                    </StackLayout>
+
 
                 <StackLayout Style="{StaticResource HorizontalStack}"
                                     Padding="50,0,0,0">
