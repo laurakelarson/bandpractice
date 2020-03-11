@@ -37,7 +37,10 @@ namespace Game.Views.Battle
             // Check whether user has enabled Critical Hits (hackathon rule)
             Engine.CriticalHitsEnabled = BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled;
 
-			await Engine.RunAutoBattle();
+            // Check whether user has enabled Critical Miss (hackathon rule)
+            Engine.CriticalMissEnabled = BattleEngineViewModel.Instance.Engine.CriticalMissEnabled;
+
+            await Engine.RunAutoBattle();
 
 			var Score = Engine.GetScoreObject();
 
