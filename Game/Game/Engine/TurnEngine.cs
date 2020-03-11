@@ -309,7 +309,6 @@ namespace Game.Engine
                         character.Alive = true;
                         BattleMessages.TurnMessageSpecial = character.Name + " has been miraculously revived by Miracle Max!\nSee Miracle Max for all of your miraculous needs~";
                         Debug.WriteLine(BattleMessages.TurnMessageSpecial);
-                        
                     }
                     return true;
                 case (EntityTypeEnum.Monster):

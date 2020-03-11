@@ -74,18 +74,21 @@ namespace Game.Engine
         /// </summary>
         public void UnluckyRound()
         {
-            var count = 0;
-            foreach (var character in CharacterList)
+            int count = 0;
+            while (count == 0)
             {
-                if (count == 0)
+                var diceroll = DiceHelper.RollDice(1, MaxNumberCharacters) - 1;
+                var character = CharacterList[diceroll];
+                if (character.Alive)
                 {
-                    var diceroll = DiceHelper.RollDice(1, MaxNumberCharacters) - 1;
-                    CharacterList[diceroll].Alive = false;
+                    TargetDied(EntityList.First(a => a.Id == character.Id));
                     BattleMessages.TurnMessageSpecial = CharacterList[diceroll].Name + " dies a horribly unlucky death!";
                     Debug.WriteLine(BattleMessages.TurnMessageSpecial);
                     count++;
                 }
             }
+
+
         }
         /// <summary>
         /// Adds monsters to the round.
