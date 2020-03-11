@@ -724,7 +724,7 @@ namespace Game.Engine
                 ItemPool.Add(character.RemoveItem(equipped.ElementAt(unequip)));
             }
 
-            return false;   // invalid dice roll
+            return true;
         }
 
         /// <summary>
