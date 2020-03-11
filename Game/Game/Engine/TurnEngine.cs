@@ -588,6 +588,13 @@ namespace Game.Engine
             // number of random drops is a dice roll based on the monster's item pockets
             var NumberToDrop = DiceHelper.RollDice(1, 3);
 
+            // check if forced dice rolls are being used
+            // if they are, set roll to 3 to avoid index out of range error in loop below
+            if (DiceHelper.ForceConstantRoll == true)
+            {
+                NumberToDrop = 3;
+            }
+
             var myList = new List<ItemModel>();
 
             for (var i = 0; i < NumberToDrop; i++)
