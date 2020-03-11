@@ -747,7 +747,41 @@ namespace Game.Engine
             // Drop an item
             if (d10 <= 6)
             {
+                // randomly check a monster's item pocket
+                var d3 = DiceHelper.RollDice(1, 3);
 
+                if (d3 == 1)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(monster.ItemPocket1);
+                    monster.ItemPocket1 = string.Empty;
+                    if (item == null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetRandomItem();
+                    }
+                    ItemPool.Add(item);
+                }
+
+                if (d3 == 2)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(monster.ItemPocket2);
+                    monster.ItemPocket2 = string.Empty;
+                    if (item == null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetRandomItem();
+                    }
+                    ItemPool.Add(item);
+                }
+
+                if (d3 == 3)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(monster.ItemPocket3);
+                    monster.ItemPocket3 = string.Empty;
+                    if (item == null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetRandomItem();
+                    }
+                    ItemPool.Add(item);
+                }
             }
 
             return true;
