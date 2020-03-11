@@ -645,6 +645,7 @@ namespace Game.Engine
             if (d10 == 1)
             {
                 character.RemoveItem(ItemLocationEnum.PrimaryHand);
+                BattleMessages.CriticalMissMessage = "Item in primary hand broke!";
                 return true;
             }
 
@@ -654,6 +655,7 @@ namespace Game.Engine
                 var item = character.RemoveItem(ItemLocationEnum.PrimaryHand);
                 if (item != null)
                 {
+                    BattleMessages.CriticalMissMessage = character.Name + " dropped " + item.Name + " in item pool!";
                     ItemPool.Add(item);
                     return true;
                 }
@@ -721,7 +723,9 @@ namespace Game.Engine
                     return false;   // did not remove an item
                 }
 
-                ItemPool.Add(character.RemoveItem(equipped.ElementAt(unequip)));
+                item = character.RemoveItem(equipped.ElementAt(unequip));
+                ItemPool.Add(item);
+                BattleMessages.CriticalMissMessage = character.Name + " dropped " + item.Name + " in item pool!";
             }
 
             return true;
