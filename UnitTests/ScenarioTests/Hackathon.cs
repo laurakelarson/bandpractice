@@ -1522,54 +1522,52 @@ namespace UnitTests.ScenarioTests
 
             // Set Character Conditions
 
-            //BattleEngine.MaxNumberCharacters = 1;
+            BattleEngine.MaxNumberCharacters = 1;
 
-            //var CharacterPlayerYoshi = new CharacterModel
-            //{
-            //    Speed = 1000000, // Will go first...
-            //    Level = 1,
-            //    CurrentHealth = 100,
-            //    TotalExperience = 1,
-            //    Name = "Yoshi"
-            //};
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 1000000, // Will go first...
+                Level = 1,
+                CurrentHealth = 100,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
 
-            //BattleEngine.CharacterList.Clear();
-            //BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
-            //// Set Monster Conditions
-            //BattleEngine.MaxNumberMonsters = 6;
-            //BattleEngine.MonsterList.Clear();
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+            BattleEngine.MonsterList.Clear();
 
-            //// Battle will add the monsters
+            // Battle will add the monsters
 
-            //// Don't need any items for test
-            //BattleEngine.ItemPool.Clear();
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
 
-            //// Disable Critical Hits
-            //BattleEngine.CriticalHitsEnabled = true;
+            // Disable Critical Hits
+            BattleEngine.CriticalHitsEnabled = true;
 
-            //// Have dice roll 20
-            //DiceHelper.DisableRandomValues();
-            //DiceHelper.SetForcedDiceRollValue(20);
+            // Have dice roll 20
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
 
-            ////Act
-            //BattleEngine.NewRound();
-            //var Player = BattleEngine.GetNextPlayerTurn();
-            //BattleEngine.TakeTurn(Player);
-            //var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
+            //Act
+            BattleEngine.NewRound();
+            var Player = BattleEngine.GetNextPlayerTurn();
+            BattleEngine.TakeTurn(Player);
+            var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
 
-            ////Resets
-            //BattleEngine.Score.RoundCount = 0;
-            //BattleEngine.CharacterList.Clear();
-            //BattleEngine.MonsterList.Clear();
-            //BattleEngine.ItemPool.Clear();
-            //DiceHelper.EnableRandomValues();
-            //BattleEngine.CriticalHitsEnabled = false;
+            //Resets
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
+            BattleEngine.CriticalHitsEnabled = false;
 
-            ////Assert
-            //Assert.AreEqual(true, result);
-
-            Assert.AreEqual(true, true);
+            //Assert
+            Assert.AreEqual(true, result);
         }
 
     }
