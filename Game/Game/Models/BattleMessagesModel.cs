@@ -53,6 +53,9 @@ namespace Game.Models
         // Track whether attack was a Critical Miss (hackathon rule)
         public bool CriticalMiss = false;
 
+        // Message about what happened when there was a Critical Miss
+        public string CriticalMissMessage = string.Empty;
+
         // Beginning of the Html Block for html formatting
         public string htmlHead = @"<html><body bgcolor=""#E8D0B6""><p>";
 
