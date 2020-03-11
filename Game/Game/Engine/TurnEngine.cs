@@ -300,11 +300,11 @@ namespace Game.Engine
                     var character = CharacterList.First(a => a.Id == Target.Id);
                     character.TakeDamage(damage);
                     // Hackathon scenario 9 - Miracle Max
-                    if(!character.Alive && EntityList.First(a => a.Id == Target.Id).MiracleMax)
+                    if(!character.Alive && character.MiracleMax)
                     {
                         EntityList.First(a => a.Id == Target.Id).CurrentHealth = character.MaxHealth; // it's a miracle!
                         character.CurrentHealth = character.MaxHealth;
-                        EntityList.First(a => a.Id == Target.Id).MiracleMax = false;
+                        character.MiracleMax = false;
                         EntityList.First(a => a.Id == Target.Id).Alive = true;
                         character.Alive = true;
                         BattleMessages.TurnMessageSpecial = character.Name + " has been miraculously revived by Miracle Max!\nSee Miracle Max for all of your miraculous needs~";

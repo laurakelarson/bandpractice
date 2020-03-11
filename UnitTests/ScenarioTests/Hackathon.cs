@@ -352,7 +352,7 @@ namespace UnitTests.ScenarioTests
 
             //Act
             var result = BattleEngine.TurnAsAttack(BattleEngine.EntityList[0], BattleEngine.EntityList[1]);
-            var result2 = BattleEngine.EntityList[1];
+            var result2 = BattleEngine.CharacterList[0];
 
             //Reset
             BattleEngine.Score.RoundCount = 0;

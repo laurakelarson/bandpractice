@@ -55,7 +55,10 @@ namespace Game.Models
         // The character's icon image
         public string IconURI { get; set; } = "default_icon.png";
 
-        
+
+        // Hackathon Scenario 9 - Miracle Max can save you from certain death once per battle 
+        public bool MiracleMax { get; set; } = true;
+
         /// <summary>
         ///  Default constructor for the character
         /// </summary>
@@ -107,6 +110,7 @@ namespace Game.Models
             OffHandItem = newData.OffHandItem;
             RightFingerItem = newData.RightFingerItem;
             LeftFingerItem = newData.LeftFingerItem;
+            MiracleMax = newData.MiracleMax;
 
             return true;
         }

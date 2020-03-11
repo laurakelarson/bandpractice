@@ -34,9 +34,7 @@ namespace Game.Models
             Defense /= 2;
         }
 
-        // Hackathon Scenario 9 - Miracle Max can save you from certain death once per battle 
-        public bool MiracleMax { get; set; } = true;
-
+        
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -61,7 +59,6 @@ namespace Game.Models
             MaxHealth = data.MaxHealth;
             Attack = data.Attack;
             Defense = data.Defense;
-            MiracleMax = data.MiracleMax;
             FirstBuff = data.FirstBuff;
         }
 
