@@ -403,12 +403,12 @@ namespace UnitTests.ScenarioTests
 
             var CharacterPlayerYoshi = new CharacterModel
             {
-                Speed = 20, // will go first and kill first monster 
+                Speed = 20, 
                 Level = 1,
                 CurrentHealth = 1,
                 MaxHealth = 10,
                 TotalExperience = 10,
-                Attack = 10,
+                Attack = 50,
                 Defense = 10,
                 Name = "Yoshi"
             };
@@ -443,8 +443,8 @@ namespace UnitTests.ScenarioTests
             BattleEngine.MonsterList.Add(Monster);
             BattleEngine.MonsterList.Add(Monster);
 
-            // Update Round Count for test (starting game from beginning)
-            BattleEngine.Score.RoundCount = 0;
+            // Update Round Count for test (grenade drop uses round count for damage calculation)
+            BattleEngine.Score.RoundCount = 2;
             // Have dice roll 1 to trigger grenade drop
             DiceHelper.DisableRandomValues();
             DiceHelper.SetForcedDiceRollValue(1);
@@ -453,7 +453,8 @@ namespace UnitTests.ScenarioTests
             BattleEngine.NewRound();
 
             //Act
-            var result = BattleEngine.TurnAsAttack(BattleEngine.EntityList[0], BattleEngine.EntityList[1]);
+            // Force weak monster to take damage, which should force an Item drop that forces damaging grenade
+            BattleEngine.TakeDamage(BattleEngine.EntityList.First(a => a.Id == BattleEngine.MonsterList[0].Id), 10);
             var monster1 = BattleEngine.MonsterList[0]; // should be dead
             var monster2 = BattleEngine.MonsterList[1]; // three others should have taken damage
             var monster3 = BattleEngine.MonsterList[2];
@@ -467,11 +468,10 @@ namespace UnitTests.ScenarioTests
             DiceHelper.EnableRandomValues();
 
             //Assert
-            Assert.AreEqual(true, result);
             Assert.AreEqual(false, monster1.Alive);
-            Assert.AreNotEqual(10, monster2.CurrentHealth);
-            Assert.AreNotEqual(10, monster3.CurrentHealth);
-            Assert.AreNotEqual(10, monster4.CurrentHealth);
+            Assert.AreNotEqual(Monster.CurrentHealth, monster2.CurrentHealth);
+            Assert.AreNotEqual(Monster.CurrentHealth, monster3.CurrentHealth);
+            Assert.AreNotEqual(Monster.CurrentHealth, monster4.CurrentHealth);
         }
 
         [Test]
