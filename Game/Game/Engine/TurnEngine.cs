@@ -658,7 +658,7 @@ namespace Game.Engine
             if (d10 == 1)
             {
                 character.RemoveItem(ItemLocationEnum.PrimaryHand);
-                BattleMessages.CriticalMissMessage = "Item in primary hand broke!";
+                BattleMessages.CriticalMissMessage = "Critical miss! Item in primary hand broke!";
                 return true;
             }
 
@@ -668,7 +668,8 @@ namespace Game.Engine
                 var item = character.RemoveItem(ItemLocationEnum.PrimaryHand);
                 if (item != null)
                 {
-                    BattleMessages.CriticalMissMessage = character.Name + " dropped " + item.Name + " in item pool!";
+                    BattleMessages.CriticalMissMessage = "Critical miss!" + character.Name
+                        + " dropped " + item.Name + " in item pool!";
                     ItemPool.Add(item);
                     return true;
                 }
@@ -738,7 +739,8 @@ namespace Game.Engine
 
                 item = character.RemoveItem(equipped.ElementAt(unequip));
                 ItemPool.Add(item);
-                BattleMessages.CriticalMissMessage = character.Name + " dropped " + item.Name + " in item pool!";
+                BattleMessages.CriticalMissMessage = "Critical miss!" + character.Name
+                    + " dropped " + item.Name + " in item pool!";
             }
 
             return true;
@@ -776,7 +778,8 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
-                    BattleMessages.CriticalMissMessage = monster.Name + " dropped " + item.Name + " in item pool!";
+                    BattleMessages.CriticalMissMessage = "Critical miss!" + monster.Name
+                        + " dropped " + item.Name + " in item pool!";
                 }
 
                 if (d3 == 2)
@@ -788,7 +791,8 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
-                    BattleMessages.CriticalMissMessage = monster.Name + " dropped " + item.Name + " in item pool!";
+                    BattleMessages.CriticalMissMessage = "Critical miss!" + monster.Name
+                        + " dropped " + item.Name + " in item pool!";
                 }
 
                 if (d3 == 3)
@@ -800,7 +804,8 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
-                    BattleMessages.CriticalMissMessage = monster.Name + " dropped " + item.Name + " in item pool!";
+                    BattleMessages.CriticalMissMessage = "Critical miss!" + monster.Name
+                        + " dropped " + item.Name + " in item pool!";
                 }
             }
 
