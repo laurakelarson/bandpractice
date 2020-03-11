@@ -303,8 +303,10 @@ namespace Game.Engine
                     if(!character.Alive && EntityList.First(a => a.Id == Target.Id).MiracleMax)
                     {
                         EntityList.First(a => a.Id == Target.Id).CurrentHealth = character.MaxHealth; // it's a miracle!
+                        character.CurrentHealth = character.MaxHealth;
                         EntityList.First(a => a.Id == Target.Id).MiracleMax = false;
                         EntityList.First(a => a.Id == Target.Id).Alive = true;
+                        character.Alive = true;
                         BattleMessages.TurnMessageSpecial = character.Name + " has been miraculously revived by Miracle Max!\nSee Miracle Max for all of your miraculous needs~";
                         Debug.WriteLine(BattleMessages.TurnMessageSpecial);
                         
@@ -444,12 +446,42 @@ namespace Game.Engine
         /// <returns></returns>
         public int DropItems(BattleEntityModel target)
         {
+            // Reset item drop message
+            BattleMessages.ItemDropMessage = string.Empty;
+
             // Drop Items to ItemModel Pool
             var myItemList = RemoveItems(target);
 
             // I feel generous, even when characters die, random drops happen :-)
             // If Random drops are enabled, then add some....
             myItemList.AddRange(GetRandomMonsterItemDrops(myItemList));
+
+            // Hackathon Scenario 10
+            if (myItemList.Count == 1)
+            {
+                var diceroll = DiceHelper.RollDice(1, 10);
+                if (diceroll == 1)
+                {
+                    var damageroll = DiceHelper.RollDice(1, 4);
+                    var damage = Score.RoundCount * damageroll;
+                    BattleMessages.ItemDropMessage += "GRENADE dropped!";
+                    Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+
+                    foreach (var monster in MonsterList)
+                    {
+                        // monsters take damage
+                        TakeDamage(EntityList.First(a => a.Id == monster.Id), damage);
+                        // remove monsters if dead
+                        var dead = RemoveIfDead(EntityList.First(a => a.Id == monster.Id));
+                        // add dead monsters' items to myItemList
+                        if (dead)
+                        {
+                            var monsterItemList = RemoveItems(EntityList.First(a => a.Id == monster.Id));
+                            myItemList.AddRange(GetRandomMonsterItemDrops(monsterItemList));
+                        }
+                    }
+                }
+            }
 
             var itemsForPool = new List<ItemModel>();
 
@@ -459,13 +491,13 @@ namespace Game.Engine
                 if (ItemModel != null)
                 {
                     Score.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
-                    BattleMessages.TurnMessageSpecial += "\n" + ItemModel.Name + " dropped";
+                    BattleMessages.ItemDropMessage += "\n" + ItemModel.Name + " dropped";
 
                     itemsForPool.Add(ItemModel);
                 }
             }
 
-            Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+            Debug.WriteLine(BattleMessages.ItemDropMessage);
 
             ItemPool.AddRange(itemsForPool);
 
@@ -548,9 +580,10 @@ namespace Game.Engine
 
             for (var i = 0; i < NumberToDrop; i++)
             {
-                // add a random item from the data source
+                // add items from monster's pockets
                 myList.Add(list[i]);
             }
+
             return myList;
         }
 
