@@ -183,11 +183,18 @@ namespace Game.Engine
             // It's a Miss
             if (BattleMessages.HitStatus == HitStatusEnum.Miss)
             {
+                BattleMessages.TurnMessage = attacker.Name + " misses " + target.Name;
+
                 // Check if Critical Miss is enabled (hackathon rule)
                 if (CriticalMissEnabled)
                 {
+                    BattleMessages.CriticalMissMessage += "Critical miss!!! ";
                     CriticalMiss(attacker);
+
+                    BattleMessages.TurnMessage += "\n" + BattleMessages.CriticalMissMessage;
                 }
+
+                Debug.WriteLine(BattleMessages.TurnMessage);
 
                 return true;
             }
