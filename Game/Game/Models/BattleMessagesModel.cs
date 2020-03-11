@@ -78,6 +78,7 @@ namespace Game.Models
             TurnMessageSpecial = string.Empty;
             ExperienceEarned = string.Empty;
             LevelUpMessage = string.Empty;
+            CriticalMissMessage = string.Empty;
 
             DamageAmount = 0;
             CurrentHealth = 0;
