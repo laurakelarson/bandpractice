@@ -52,6 +52,17 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
-        
+        [Test]
+        public void HomePage_MyBandButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.MyBand_Button_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
