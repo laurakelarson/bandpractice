@@ -99,10 +99,14 @@ namespace Game.Engine
             // if they are, exit to avoid trying to access an invalid index or create an endless loop
             if (DiceHelper.ForceConstantRoll == true)
             {
-                MakeEntityList();
-                var character = CharacterList[DiceHelper.ForcedDiceRollValue-1];
-                if (character.Alive)
-                    TargetDied(EntityList.First(a => a.Id == character.Id));
+                var index = DiceHelper.ForcedDiceRollValue - 1;
+                if (index >= 0 && index < CharacterList.Count())
+                {
+                    MakeEntityList();
+                    var character = CharacterList[index];
+                    if (character.Alive)
+                        TargetDied(EntityList.First(a => a.Id == character.Id));
+                }
                 return;
             }
 
@@ -145,7 +149,11 @@ namespace Game.Engine
                 // slightly randomizes Monster levels
                 if (range.Count > 1)
                 {
-                    range.ElementAt(DiceHelper.RollDice(1, range.Count()) - 1);
+                    var dice = DiceHelper.RollDice(1, range.Count()) - 1;
+                    if (dice >= 0 && dice < range.Count())
+                    {
+                        level = range.ElementAt(dice);
+                    }
                 }
                 data.ChangeLevel(level);
                 if (level == 1)
