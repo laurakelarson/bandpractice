@@ -533,6 +533,12 @@ namespace Game.Engine
 
             if (d20 == 1)
             {
+                // flag Critical Miss if enabled (hackathon rule)
+                if (CriticalMissEnabled)
+                {
+                    BattleMessages.CriticalMiss = true;
+                }
+
                 // Force Miss
                 BattleMessages.HitStatus = HitStatusEnum.Miss;
                 return BattleMessages.HitStatus;
