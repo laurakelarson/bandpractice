@@ -1428,7 +1428,7 @@ namespace UnitTests.ScenarioTests
              * Test Algorithm:
              *      Add Character to engine - very fast, so hits first
              *      Disable critical miss
-             *      Dice rolls set to 20 - always hit
+             *      Dice rolls set to 1 - miss (threshold for critical miss)
              * 
              * Test Conditions:
              *      Player takes one turn (attack)
@@ -1441,53 +1441,51 @@ namespace UnitTests.ScenarioTests
 
             // Set Character Conditions
 
-            //BattleEngine.MaxNumberCharacters = 1;
+            BattleEngine.MaxNumberCharacters = 1;
 
-            //var CharacterPlayerYoshi = new CharacterModel
-            //{
-            //    Speed = 1000000, // Will go first...
-            //    Level = 1,
-            //    CurrentHealth = 100,
-            //    TotalExperience = 1,
-            //    Name = "Yoshi"
-            //};
+            var CharacterPlayerYoshi = new CharacterModel
+            {
+                Speed = 1000000, // Will go first...
+                Level = 1,
+                CurrentHealth = 100,
+                TotalExperience = 1,
+                Name = "Yoshi"
+            };
 
-            //BattleEngine.CharacterList.Clear();
-            //BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
-            //// Set Monster Conditions
-            //BattleEngine.MaxNumberMonsters = 6;
-            //BattleEngine.MonsterList.Clear();
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+            BattleEngine.MonsterList.Clear();
 
-            //// Battle will add the monsters
+            // Battle will add the monsters
 
-            //// Don't need any items for test
-            //BattleEngine.ItemPool.Clear();
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
 
-            //// Disable Critical Hits
-            //BattleEngine.CriticalHitsEnabled = false;
+            // Disable Critical Hits
+            BattleEngine.CriticalMissEnabled = false;
 
-            //// Have dice roll 20
-            //DiceHelper.DisableRandomValues();
-            //DiceHelper.SetForcedDiceRollValue(20);
+            // Have dice roll 20
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(1);
 
-            ////Act
-            //BattleEngine.NewRound();
-            //var Player = BattleEngine.GetNextPlayerTurn();
-            //BattleEngine.TakeTurn(Player);
-            //var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
+            //Act
+            BattleEngine.NewRound();
+            var Player = BattleEngine.GetNextPlayerTurn();
+            BattleEngine.TakeTurn(Player);
+            var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
 
-            ////Resets
-            //BattleEngine.Score.RoundCount = 0;
-            //BattleEngine.CharacterList.Clear();
-            //BattleEngine.MonsterList.Clear();
-            //BattleEngine.ItemPool.Clear();
-            //DiceHelper.EnableRandomValues();
+            //Resets
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+            DiceHelper.EnableRandomValues();
 
-            ////Assert
-            //Assert.AreEqual(false, result);
-
-            Assert.AreEqual(true, true);
+            //Assert
+            Assert.AreEqual(false, result);
         }
 
         [Test]
