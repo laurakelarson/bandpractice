@@ -68,6 +68,26 @@ namespace Game.Engine
 
             return true;
         }
+
+        /// <summary>
+        /// Hackathon Hack 39 Age comes with wisdom - double experience earned every 3 levels that characters have survived
+        /// </summary
+        /// <returns></returns>
+        public void WisdomCheck()
+        {
+            if (Score.RoundCount % 3 == 0)
+            {
+                foreach (var character in CharacterList)
+                {
+                    if (character.Alive)
+                    {
+                        character.AddExperience(character.TotalExperience); //double experience every three levels
+                    }
+                }
+            }
+        }
+
+
         /// <summary>
         /// Hackathon Scenario 33 - unlucky things happen on round 13
         /// Random character falls down dead
