@@ -110,6 +110,7 @@ namespace Game.Models
             OffHandItem = newData.OffHandItem;
             RightFingerItem = newData.RightFingerItem;
             LeftFingerItem = newData.LeftFingerItem;
+            MiracleMax = newData.MiracleMax;
 
             return true;
         }
