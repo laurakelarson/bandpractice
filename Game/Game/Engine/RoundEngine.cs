@@ -74,6 +74,13 @@ namespace Game.Engine
         /// </summary>
         public void UnluckyRound()
         {
+            // first, check whether forced dice rolls are being used
+            // if they are, exit to avoid trying to access an invalid index or create an endless loop
+            if (DiceHelper.ForceConstantRoll == true)
+            {
+                return;
+            }
+
             int count = 0;
             while (count == 0)
             {
