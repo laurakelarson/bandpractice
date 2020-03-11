@@ -457,37 +457,38 @@ namespace Game.Engine
             // Drop Items to ItemModel Pool
             var myItemList = RemoveItems(target);
 
-            // I feel generous, even when characters die, random drops happen :-)
-            // If Random drops are enabled, then add some....
-            myItemList.AddRange(GetRandomMonsterItemDrops(myItemList));
-
-            // Hackathon Scenario 10
-            if (myItemList.Count == 1)
+            // Add monster drop items
+            if (target.EntityType == EntityTypeEnum.Monster)
             {
-                var diceroll = DiceHelper.RollDice(1, 10);
-                if (diceroll == 1)
-                {
-                    var damageroll = DiceHelper.RollDice(1, 4);
-                    var damage = Score.RoundCount * damageroll;
-                    BattleMessages.ItemDropMessage += "GRENADE dropped!";
-                    Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+                myItemList.AddRange(GetRandomMonsterItemDrops(myItemList));
 
-                    foreach (var monster in MonsterList)
+                // Hackathon Scenario 10
+                if (myItemList.Count == 1)
+                {
+                    var diceroll = DiceHelper.RollDice(1, 10);
+                    if (diceroll == 1)
                     {
-                        // monsters take damage
-                        TakeDamage(EntityList.First(a => a.Id == monster.Id), damage);
-                        // remove monsters if dead
-                        var dead = RemoveIfDead(EntityList.First(a => a.Id == monster.Id));
-                        // add dead monsters' items to myItemList
-                        if (dead)
+                        var damageroll = DiceHelper.RollDice(1, 4);
+                        var damage = Score.RoundCount * damageroll;
+                        BattleMessages.ItemDropMessage += "GRENADE dropped!";
+                        Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+
+                        foreach (var monster in MonsterList)
                         {
-                            var monsterItemList = RemoveItems(EntityList.First(a => a.Id == monster.Id));
-                            myItemList.AddRange(GetRandomMonsterItemDrops(monsterItemList));
+                            // monsters take damage
+                            TakeDamage(EntityList.First(a => a.Id == monster.Id), damage);
+                            // remove monsters if dead
+                            var dead = RemoveIfDead(EntityList.First(a => a.Id == monster.Id));
+                            // add dead monsters' items to myItemList
+                            if (dead)
+                            {
+                                var monsterItemList = RemoveItems(EntityList.First(a => a.Id == monster.Id));
+                                myItemList.AddRange(GetRandomMonsterItemDrops(monsterItemList));
+                            }
                         }
                     }
                 }
             }
-
             var itemsForPool = new List<ItemModel>();
 
             // Add to ScoreModel
