@@ -29,6 +29,9 @@ namespace Game.Models
         // Turn Special Message
         public string TurnMessageSpecial = string.Empty;
 
+        // Item drop Message
+        public string ItemDropMessage = string.Empty;
+
         // Turn Experience Earned Message
         public string ExperienceEarned = string.Empty;
 
