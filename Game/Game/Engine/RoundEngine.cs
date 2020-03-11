@@ -78,6 +78,10 @@ namespace Game.Engine
             // if they are, exit to avoid trying to access an invalid index or create an endless loop
             if (DiceHelper.ForceConstantRoll == true)
             {
+                MakeEntityList();
+                var character = CharacterList[DiceHelper.ForcedDiceRollValue-1];
+                if (character.Alive)
+                    TargetDied(EntityList.First(a => a.Id == character.Id));
                 return;
             }
 

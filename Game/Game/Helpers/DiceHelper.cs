@@ -20,7 +20,7 @@ namespace Game.Helpers
 
         // Holds the exact value of a dice roll if
         // not using random rolls
-        private static int ForcedDiceRollValue = 1;
+        public static int ForcedDiceRollValue = 1;
 
         // Sets the dice roll to the value passed in 
         public static void SetForcedDiceRollValue(int value)

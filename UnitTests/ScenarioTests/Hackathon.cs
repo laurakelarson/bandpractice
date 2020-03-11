@@ -962,7 +962,7 @@ namespace UnitTests.ScenarioTests
         }
 
         [Test]
-        public async Task HackathonScenario_Scenario_33_Round13_Should_Pass()
+        public async Task HackathonScenario_Scenario_33_Round13_Should_Fail()
         {
             /* 
             * Scenario Number:  
@@ -984,7 +984,7 @@ namespace UnitTests.ScenarioTests
             *      Round number is 13, so UnluckyRound should kill a character
             * 
             * Validation:
-            *      First character in character list is dead
+            *      First character (named "Yoshi") is dead
             *  
             */
 
@@ -1037,7 +1037,8 @@ namespace UnitTests.ScenarioTests
             //Act
             BattleEngine.NewRound();
             // get the first Entity in list
-            var result = BattleEngine.CharacterList.ElementAt(0);
+            var result = BattleEngine.CharacterList.Any(a => a.Name == "Yoshi");
+            var result2 = BattleEngine.CharacterList.Any(a => a.Name == "Marble");
 
             //Reset
             BattleEngine.Score.RoundCount = 0;
@@ -1047,7 +1048,8 @@ namespace UnitTests.ScenarioTests
             DiceHelper.EnableRandomValues();
 
             //Assert
-            Assert.AreEqual(false, result.Alive);
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, result2);
         }
 
         [Test]
