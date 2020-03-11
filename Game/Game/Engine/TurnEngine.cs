@@ -665,7 +665,7 @@ namespace Game.Engine
                 var item = character.RemoveItem(ItemLocationEnum.PrimaryHand);
                 if (item != null)
                 {
-                    BattleMessages.CriticalMissMessage = "Critical miss!" + character.Name
+                    BattleMessages.CriticalMissMessage = "Critical miss! " + character.Name
                         + " dropped " + item.Name + " in item pool!";
                     ItemPool.Add(item);
                     return true;
@@ -736,7 +736,7 @@ namespace Game.Engine
 
                 item = character.RemoveItem(equipped.ElementAt(unequip));
                 ItemPool.Add(item);
-                BattleMessages.CriticalMissMessage = "Critical miss!" + character.Name
+                BattleMessages.CriticalMissMessage = "Critical miss! " + character.Name
                     + " dropped " + item.Name + " in item pool!";
             }
 
@@ -775,7 +775,7 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
-                    BattleMessages.CriticalMissMessage = "Critical miss!" + monster.Name
+                    BattleMessages.CriticalMissMessage = "Critical miss! " + monster.Name
                         + " dropped " + item.Name + " in item pool!";
                 }
 
@@ -788,7 +788,7 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
-                    BattleMessages.CriticalMissMessage = "Critical miss!" + monster.Name
+                    BattleMessages.CriticalMissMessage = "Critical miss! " + monster.Name
                         + " dropped " + item.Name + " in item pool!";
                 }
 
@@ -801,7 +801,7 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
-                    BattleMessages.CriticalMissMessage = "Critical miss!" + monster.Name
+                    BattleMessages.CriticalMissMessage = "Critical miss! " + monster.Name
                         + " dropped " + item.Name + " in item pool!";
                 }
             }
