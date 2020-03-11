@@ -183,6 +183,12 @@ namespace Game.Engine
             // It's a Miss
             if (BattleMessages.HitStatus == HitStatusEnum.Miss)
             {
+                // Check if Critical Miss is enabled (hackathon rule)
+                if (CriticalMissEnabled)
+                {
+                    CriticalMiss(attacker);
+                }
+
                 return true;
             }
 
@@ -591,6 +597,16 @@ namespace Game.Engine
             }
 
             return myList;
+        }
+
+        /// <summary>
+        /// Handle the Critical Miss event (if enabled)
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <returns></returns>
+        public bool CriticalMiss(BattleEntityModel attacker)
+        {
+            return true;
         }
 
     }
