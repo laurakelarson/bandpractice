@@ -89,7 +89,7 @@ namespace Game.Engine
                 if (character.Alive)
                 {
                     TargetDied(EntityList.First(a => a.Id == character.Id));
-                    BattleMessages.TurnMessageSpecial = CharacterList[diceroll].Name + " dies a horribly unlucky death!";
+                    BattleMessages.TurnMessageSpecial = character.Name + " dies a horribly unlucky death!";
                     Debug.WriteLine(BattleMessages.TurnMessageSpecial);
                     count++;
                 }
