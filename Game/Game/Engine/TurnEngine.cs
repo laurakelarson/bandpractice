@@ -644,20 +644,86 @@ namespace Game.Engine
             // Primary Hand Item breaks
             if (d10 == 1)
             {
-
+                character.RemoveItem(ItemLocationEnum.PrimaryHand);
+                return true;
             }
 
             // Character Drops the Primary Hand Item back into the item pool
             if (d10 >= 2 && d10 <= 4)
             {
-
+                var item = character.RemoveItem(ItemLocationEnum.PrimaryHand);
+                if (item != null)
+                {
+                    ItemPool.Add(item);
+                    return true;
+                }
             }
 
             // Character drops a random equipped item back into the item pool
             if (d10 >= 5 && d10 <= 6)
             {
+                // check where character has items equipped
+                var equipped = new List<ItemLocationEnum>();
 
+                var item = character.GetItemByLocation(ItemLocationEnum.Head);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.Head);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.Necklass);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.Necklass);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.Feet);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.Feet);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.PrimaryHand);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.PrimaryHand);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.OffHand);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.OffHand);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.RightFinger);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.RightFinger);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.LeftFinger);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.LeftFinger);
+                }
+
+                // no items equipped
+                if (equipped.Count() <= 0)
+                {
+                    return true;
+                }
+
+                var unequip = DiceHelper.RollDice(1, equipped.Count()) - 1;
+
+                // check that dice roll was valid (in case forced rolls are being used)
+                if (unequip < 0 || unequip >= equipped.Count())
+                {
+                    return false;   // did not remove an item
+                }
+
+                ItemPool.Add(character.RemoveItem(equipped.ElementAt(unequip)));
             }
+
             return true;
         }
 
@@ -681,7 +747,41 @@ namespace Game.Engine
             // Drop an item
             if (d10 <= 6)
             {
+                // randomly check a monster's item pocket
+                var d3 = DiceHelper.RollDice(1, 3);
 
+                if (d3 == 1)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(monster.ItemPocket1);
+                    monster.ItemPocket1 = string.Empty;
+                    if (item == null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetRandomItem();
+                    }
+                    ItemPool.Add(item);
+                }
+
+                if (d3 == 2)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(monster.ItemPocket2);
+                    monster.ItemPocket2 = string.Empty;
+                    if (item == null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetRandomItem();
+                    }
+                    ItemPool.Add(item);
+                }
+
+                if (d3 == 3)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(monster.ItemPocket3);
+                    monster.ItemPocket3 = string.Empty;
+                    if (item == null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetRandomItem();
+                    }
+                    ItemPool.Add(item);
+                }
             }
 
             return true;
