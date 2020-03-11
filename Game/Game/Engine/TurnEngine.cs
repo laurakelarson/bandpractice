@@ -644,21 +644,87 @@ namespace Game.Engine
             // Primary Hand Item breaks
             if (d10 == 1)
             {
-
+                character.RemoveItem(ItemLocationEnum.PrimaryHand);
+                return true;
             }
 
             // Character Drops the Primary Hand Item back into the item pool
             if (d10 >= 2 && d10 <= 4)
             {
-
+                var item = character.RemoveItem(ItemLocationEnum.PrimaryHand);
+                if (item != null)
+                {
+                    ItemPool.Add(item);
+                    return true;
+                }
             }
 
             // Character drops a random equipped item back into the item pool
             if (d10 >= 5 && d10 <= 6)
             {
+                // check where character has items equipped
+                var equipped = new List<ItemLocationEnum>();
 
+                var item = character.GetItemByLocation(ItemLocationEnum.Head);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.Head);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.Necklass);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.Necklass);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.Feet);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.Feet);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.PrimaryHand);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.PrimaryHand);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.OffHand);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.OffHand);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.RightFinger);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.RightFinger);
+                }
+
+                item = character.GetItemByLocation(ItemLocationEnum.LeftFinger);
+                if (item != null)
+                {
+                    equipped.Add(ItemLocationEnum.LeftFinger);
+                }
+
+                // no items equipped
+                if (equipped.Count() <= 0)
+                {
+                    return true;
+                }
+
+                var unequip = DiceHelper.RollDice(1, equipped.Count()) - 1;
+
+                // check that dice roll was valid (in case forced rolls are being used)
+                if (unequip < 0 || unequip >= equipped.Count())
+                {
+                    return false;   // did not remove an item
+                }
+
+                ItemPool.Add(character.RemoveItem(equipped.ElementAt(unequip)));
             }
-            return true;
+
+            return false;   // invalid dice roll
         }
 
         /// <summary>
