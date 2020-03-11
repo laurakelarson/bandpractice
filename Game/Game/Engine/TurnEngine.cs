@@ -613,6 +613,77 @@ namespace Game.Engine
         /// <returns></returns>
         public bool CriticalMiss(BattleEntityModel attacker)
         {
+            switch (attacker.EntityType)
+            {
+                case EntityTypeEnum.Monster:
+                    return MonsterCriticalMiss(MonsterList.First(a => a.Id == attacker.Id));
+
+                case EntityTypeEnum.Character:
+                    return CharacterCriticalMiss(CharacterList.First(a => a.Id == attacker.Id));
+                default:
+                    return false;
+            }
+        }
+
+        /// <summary>
+        /// Character experience a critical miss.
+        /// After rolling a critical miss. Roll a 10 sided dice. The following things can happen.
+        /// Roll Value 
+        ///     1, Primary Hand Item breaks, and is lost forever
+        ///     2-4, Character Drops the Primary Hand Item back into the item pool
+        ///     5-6, Character drops a random equipped item back into the item pool
+        ///     7-10, Nothing bad happens, luck was with the attacker
+        /// </summary>
+        /// <param name="character"></param>
+        /// <returns></returns>
+        public bool CharacterCriticalMiss(CharacterModel character)
+        {
+            // roll dice to determine event
+            var d10 = DiceHelper.RollDice(1, 10);
+
+            // Primary Hand Item breaks
+            if (d10 == 1)
+            {
+
+            }
+
+            // Character Drops the Primary Hand Item back into the item pool
+            if (d10 >= 2 && d10 <= 4)
+            {
+
+            }
+
+            // Character drops a random equipped item back into the item pool
+            if (d10 >= 5 && d10 <= 6)
+            {
+
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Monster experience a critical miss.
+        /// Since monsters don't equip items, critical miss is slightly different than characters.
+        /// After rolling a critical miss. Roll a 10 sided dice. The following things can happen.
+        /// Roll Value 
+        ///     1-6, Monster drops an item from one of its pockets.
+        ///          If it has no items in any pockets, it drops a random item.
+        ///          The dropped item is added to the item pool.
+        ///     7-10, Nothing bad happens, luck was with the attacker
+        /// </summary>
+        /// <param name="monster"></param>
+        /// <returns></returns>
+        public bool MonsterCriticalMiss(MonsterModel monster)
+        {
+            // roll dice to determine event
+            var d10 = DiceHelper.RollDice(1, 10);
+
+            // Drop an item
+            if (d10 <= 6)
+            {
+
+            }
+
             return true;
         }
 
