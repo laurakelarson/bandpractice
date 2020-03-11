@@ -56,13 +56,13 @@ namespace UnitTests.ScenarioTests
             *      1
             *      
             * Description: 
-            *      Make a Character called Yoshi, who dies in the first round
+            *      Make a Character called Mike, who dies in the first round
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      No Code changes requied 
             * 
             * Test Algrorithm:
-            *      Create Character named Yoshi
+            *      Create Character named Mike
             *      Set speed to -1 so he is really slow
             *      Set Max health to 1 so he is weak
             *      Set Current Health to 1 so he is weak
@@ -75,7 +75,7 @@ namespace UnitTests.ScenarioTests
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      Verify Yoshi is not in the Player List
+            *      Verify Mike is not in the Player List
             *      Verify Round Count is 1
             *  
             */
@@ -86,16 +86,16 @@ namespace UnitTests.ScenarioTests
 
             AutoBattleEngine.MaxNumberCharacters = 1;
 
-            var CharacterPlayerYoshi = new CharacterModel
+            var CharacterPlayerMike = new CharacterModel
             {
                 Speed = -1, // Will go last...
                 Level = 1,
                 CurrentHealth = 1,
                 TotalExperience = 1,
-                Name = "Yoshi"
+                Name = "Mike"
             };
 
-            AutoBattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+            AutoBattleEngine.CharacterList.Add(CharacterPlayerMike);
 
             // Set Monster Conditions
 
@@ -109,7 +109,7 @@ namespace UnitTests.ScenarioTests
 
             //Assert
             Assert.AreEqual(true, result);
-            Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Yoshi")));
+            Assert.AreEqual(null, AutoBattleEngine.EntityList.Find(m => m.Name.Equals("Mike")));
             Assert.AreEqual(1, AutoBattleEngine.Score.RoundCount);
         }
 
