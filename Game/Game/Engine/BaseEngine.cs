@@ -55,5 +55,8 @@ namespace Game.Engine
 
         // Flag to enable Critical Hits (hackathon rule)
         public bool CriticalHitsEnabled = false;
+
+        // Flag to enable Critical Miss (hackathon rule)
+        public bool CriticalMissEnabled = false;
     }
 }
