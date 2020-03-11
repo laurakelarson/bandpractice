@@ -188,10 +188,16 @@ namespace Game.Engine
                 // Check if Critical Miss is enabled (hackathon rule)
                 if (CriticalMissEnabled)
                 {
-                    BattleMessages.CriticalMissMessage += "Critical miss!!! ";
-                    CriticalMiss(attacker);
+                    if (BattleMessages.CriticalMiss)
+                    {
+                        BattleMessages.CriticalMissMessage += "Critical miss!!! ";
+                        CriticalMiss(attacker);
 
-                    BattleMessages.TurnMessage += "\n" + BattleMessages.CriticalMissMessage;
+                        BattleMessages.TurnMessage += "\n" + BattleMessages.CriticalMissMessage;
+
+                        // toggle flag
+                        BattleMessages.CriticalMiss = false;
+                    }
                 }
 
                 Debug.WriteLine(BattleMessages.TurnMessage);
