@@ -1218,5 +1218,194 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_39_Round1_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      39
+            *      
+            * Description: 
+            *      On any round divisible by three, any surviving characters should double their experience
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: added WisdomCheck() method to double experience for all surviving characters
+            * 
+            * Test Algorithm:
+            *      Create Characters - three with regular stats
+            *      Start New Round
+            * 
+            * Test Conditions:
+            *      Round number is 1, so characters should not get wisdom bonus
+            * 
+            * Validation:
+            *      All three characters are untouched by wisdom bonus
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 3;
+
+            var Yoshi = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 2,
+                Name = "Yoshi"
+            };
+
+            var Marble = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 5,
+                Name = "Marble"
+            };
+
+            var Baby = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 10,
+                Name = "Baby"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(Yoshi);
+            BattleEngine.CharacterList.Add(Marble);
+            BattleEngine.CharacterList.Add(Baby);
+
+
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+
+            // Battle will add the monsters
+
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
+            // Update Round Count for test
+            BattleEngine.Score.RoundCount = 1;
+
+            //Act
+            BattleEngine.NewRound();
+            // get entities in character list
+            var char1 = BattleEngine.CharacterList.ElementAt(0);
+            var char2 = BattleEngine.CharacterList.ElementAt(1);
+            var char3 = BattleEngine.CharacterList.ElementAt(2);
+
+            //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+
+            //Assert
+            Assert.AreEqual(2, char1.TotalExperience);
+            Assert.AreEqual(5, char2.TotalExperience);
+            Assert.AreEqual(10, char3.TotalExperience);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_39_Round3_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      39
+            *      
+            * Description: 
+            *      On any round divisible by three, any surviving characters should double their experience
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      RoundEngine class: added WisdomCheck() method to double experience for all surviving characters
+            * 
+            * Test Algorithm:
+            *      Create Characters - three with regular stats
+            *      Start New Round
+            * 
+            * Test Conditions:
+            *      Round number is 3, so characters should get wisdom bonus
+            * 
+            * Validation:
+            *      All three characters should be affected by wisdom bonus
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            BattleEngine.MaxNumberCharacters = 3;
+
+            var Yoshi = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 2,
+                Name = "Yoshi"
+            };
+
+            var Marble = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 5,
+                Name = "Marble"
+            };
+
+            var Baby = new CharacterModel
+            {
+                Speed = 1,
+                Level = 1,
+                CurrentHealth = 1,
+                TotalExperience = 10,
+                Name = "Baby"
+            };
+
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.CharacterList.Add(Yoshi);
+            BattleEngine.CharacterList.Add(Marble);
+            BattleEngine.CharacterList.Add(Baby);
+
+
+            // Set Monster Conditions
+            BattleEngine.MaxNumberMonsters = 6;
+
+            // Battle will add the monsters
+
+            // Don't need any items for test
+            BattleEngine.ItemPool.Clear();
+
+            // Update Round Count for test - will update to 3 inside of NewRound()
+            BattleEngine.Score.RoundCount = 2;
+
+            //Act
+            BattleEngine.NewRound();
+            // get entities in character list
+            var char1 = BattleEngine.CharacterList.ElementAt(0);
+            var char2 = BattleEngine.CharacterList.ElementAt(1);
+            var char3 = BattleEngine.CharacterList.ElementAt(2);
+
+            //Reset
+            BattleEngine.Score.RoundCount = 0;
+            BattleEngine.CharacterList.Clear();
+            BattleEngine.MonsterList.Clear();
+            BattleEngine.ItemPool.Clear();
+
+            //Assert
+            Assert.AreEqual(4, char1.TotalExperience);
+            Assert.AreEqual(10, char2.TotalExperience);
+            Assert.AreEqual(20, char3.TotalExperience);
+        }
+
     }
 }
