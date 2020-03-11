@@ -763,6 +763,7 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
+                    BattleMessages.CriticalMissMessage = monster.Name + " dropped " + item.Name + " in item pool!";
                 }
 
                 if (d3 == 2)
@@ -774,6 +775,7 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
+                    BattleMessages.CriticalMissMessage = monster.Name + " dropped " + item.Name + " in item pool!";
                 }
 
                 if (d3 == 3)
@@ -785,6 +787,7 @@ namespace Game.Engine
                         item = ItemIndexViewModel.Instance.GetRandomItem();
                     }
                     ItemPool.Add(item);
+                    BattleMessages.CriticalMissMessage = monster.Name + " dropped " + item.Name + " in item pool!";
                 }
             }
 
