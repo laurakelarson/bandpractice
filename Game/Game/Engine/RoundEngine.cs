@@ -77,7 +77,7 @@ namespace Game.Engine
             int count = 0;
             while (count == 0)
             {
-                var diceroll = DiceHelper.RollDice(1, MaxNumberCharacters) - 1;
+                var diceroll = DiceHelper.RollDice(1, CharacterList.Count()) - 1;
                 var character = CharacterList[diceroll];
                 if (character.Alive)
                 {
