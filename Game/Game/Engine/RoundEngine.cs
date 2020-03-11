@@ -64,7 +64,8 @@ namespace Game.Engine
             // Clear the items equipped Battle Messages to accrue for new round
             BattleMessages.ItemsEquipped.Clear();
 
-            
+            // double experience earned every three rounds character survives
+            WisdomCheck();
 
             return true;
         }
