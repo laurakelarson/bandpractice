@@ -407,8 +407,6 @@ namespace Game.Views
 				message += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
 			}
 
-			Debug.WriteLine(message);
-
 			BattleMessages.Text = message;
 		}
 
