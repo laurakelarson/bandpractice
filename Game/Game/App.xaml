@@ -235,6 +235,15 @@
             </Style>
 
             <Style TargetType="ImageButton"
+                   x:Key="ImageButtonMedium">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="WidthRequest" Value="60"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            
+            <Style TargetType="ImageButton"
                    x:Key="ImageButtonHome">
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryTextColor}"/>
