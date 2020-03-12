@@ -16,6 +16,15 @@ namespace Game.Engine
     /// </summary>
     public class TurnEngine : BaseEngine
     {
+        #region Algrorithm
+        // Attack or Move
+        // Roll To Hit
+        // Decide Hit or Miss
+        // Decide Damage
+        // Death
+        // Drop Items
+        // Turn Over
+        #endregion Algrorithm
 
 
         /// <summary>
