@@ -211,6 +211,7 @@ namespace Game.Views
         /// </summary>
         public async void ShowModalNewRoundPage()
 		{
+			EngineViewModel.Engine.NewRound();
 			await Navigation.PushModalAsync(new NewRoundPage());
 
             ClearMessages();

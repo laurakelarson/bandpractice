@@ -120,7 +120,7 @@ namespace Game.Models
         /// <returns></returns>
         public string GetCurrentHealthMessage()
         {
-            return " remaining health is " + CurrentHealth.ToString();
+            return ", their remaining health is " + CurrentHealth.ToString();
         }
 
         /// <summary>

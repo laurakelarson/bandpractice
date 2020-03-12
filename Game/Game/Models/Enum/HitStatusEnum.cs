@@ -38,7 +38,7 @@
             switch (value)
             {
                 case HitStatusEnum.Hit:
-                    Message = " hits ";
+                    Message = " strikes ";
                     break;
 
                 case HitStatusEnum.CriticalHit:

@@ -36,6 +36,8 @@ namespace Game.Views
 		/// <param name="e"></param>
 		async void NextRound_Clicked(object sender, EventArgs e)
 		{
+			// start new round when clicked, then pop the page
+			BattleEngineViewModel.Instance.Engine.NewRound();
 			await Navigation.PopModalAsync();
 		}
 	}

@@ -432,7 +432,7 @@ namespace Game.Engine
         public bool TargetDied(BattleEntityModel target)
         {
             // Mark Status in output
-            BattleMessages.TurnMessageSpecial = target.Name + " has perished :(";
+            BattleMessages.TurnMessageSpecial = target.Name + " has perished.";
 
             // Remove target from list...
 
