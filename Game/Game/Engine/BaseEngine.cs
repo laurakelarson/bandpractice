@@ -53,6 +53,15 @@ namespace Game.Engine
         // Entity currently engaged
         public BattleEntityModel CurrentEntity;
 
+        // Hold the current coordinate on the map
+        public CoordinateModel CurrentMapLocation;
+
+        // Hold the coordinate to move to on the map
+        public CoordinateModel MoveMapLocation;
+
+        // The battle Map
+        public MapModel MapModel = new MapModel();
+
         // Flag to enable Critical Hits (hackathon rule)
         public bool CriticalHitsEnabled = false;
 
