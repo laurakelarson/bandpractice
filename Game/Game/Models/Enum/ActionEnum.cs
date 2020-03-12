@@ -1,7 +1,7 @@
 ﻿namespace Game.Models
 {
     /// <summary>
-    /// The Types of states a Action can have
+    /// The Types of states an Action can have
     /// Used in Battles.
     /// </summary>
     public enum ActionEnum
@@ -15,7 +15,7 @@
         // Move
         Move = 10,
 
-        // Ability
+        // Wait
         Wait = 20
     }
 
