@@ -231,6 +231,7 @@ namespace Game.Views
 
 		public void DrawGrid()
 		{
+			BattleGrid.Children.Clear();
 			for (int row = 0; row < 7; row++)
 			{
 				for (int col = 0; col < 6; col++)
@@ -339,6 +340,7 @@ namespace Game.Views
 
                 // Show the Round Over, after that is cleared, New Round Button will be visible
                 ShowModalRoundOverPage();
+				DrawGrid();
 				DrawEntities();
 				NewRoundButton.IsVisible = true;
 				return;
@@ -432,7 +434,11 @@ namespace Game.Views
 
 			// Redraw entities if anyone has died
 			if (message.Contains("perished"))
+			{
+				DrawGrid();
 				DrawEntities();
+			}
+				
 		}
 
 		/// <summary>
