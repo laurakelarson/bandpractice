@@ -7,7 +7,7 @@ namespace Game.Models
 {
     public class EntityModel <T> : BaseModel <T>
     {
-        // Status indicating whether the character is currently alive or not
+        // Status indicating whether the entity is currently alive or not
         public bool Alive { get; set; } = true;
 
         // The level of the entity
@@ -23,7 +23,7 @@ namespace Game.Models
         // The entity's attack level. A higher attack level will be more likely successful.
         public int Attack { get; set; } = 0;
 
-        // The max health level of the character
+        // The max health level of the entity
         public int MaxHealth { get; set; } = 1;
 
         // The current health level of the entity
@@ -33,7 +33,7 @@ namespace Game.Models
         public int Range { get; set; } = 1;
 
         /// <summary>
-        /// Method to inflict damage to Monster object
+        /// Method to inflict damage to Entity object
         /// </summary>
         public bool TakeDamage(int damage)
         {
@@ -51,13 +51,21 @@ namespace Game.Models
             return false;
         }
 
-
+        /// <summary>
+        /// Change the level - should be implemented in inheriting classes.
+        /// For now, return false.
+        /// </summary>
+        /// <param name="levelValue"></param>
+        /// <returns></returns>
         public bool ChangeLevel(int levelValue)
         {
             return false;
         }
 
-
+        /// <summary>
+        /// Format output of the EntityModel - should be implemented in inheriting classes.
+        /// </summary>
+        /// <returns></returns>
         public string FormatOutput()
         {
             return string.Empty;
