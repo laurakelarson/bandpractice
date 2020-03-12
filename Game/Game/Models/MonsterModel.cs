@@ -119,9 +119,6 @@ namespace Game.Models
             // obtain attributes of level == value
             var NewLevelAttributes = LevelAttributesHelper.Instance.LevelAttributesList[levelValue];
 
-            // grab old Level value before updating
-            var oldLevel = Level;
-
             // set Level and attributes
             Level = NewLevelAttributes.Level;
             Attack = NewLevelAttributes.Attack;
@@ -130,12 +127,9 @@ namespace Game.Models
             ExperienceGiven = NewLevelAttributes.Experience;
             Range = NewLevelAttributes.Range;
 
-            // calculate new max health
-            var maxHealth = DiceHelper.RollDice(levelValue, 10);
-
-            // set current and max health
-            CurrentHealth += (maxHealth - MaxHealth);
-            MaxHealth = maxHealth;
+            // calculate new health based on dice roll
+            // set CurrentHealth as MaxHealth, since this method is used for scaling monsters up or down (rather than leveling up only)
+            MaxHealth = CurrentHealth = DiceHelper.RollDice(levelValue, 10);
 
             // attributes successfully set 
             return true;
