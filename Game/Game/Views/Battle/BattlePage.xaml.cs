@@ -265,25 +265,6 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Display the characters and monsters
-		/// </summary>
-		public void RedrawEntity()
-		{
-
-			foreach (var data in EngineViewModel.Engine.MonsterList)
-			{
-				if (data.Alive)
-					BattleGrid.Children.Add(DrawMonster(data), data.ColPos, data.RowPos);
-			}
-
-			foreach (var data in EngineViewModel.Engine.CharacterList)
-			{
-				if (data.Alive)
-					BattleGrid.Children.Add(DrawCharacter(data), data.ColPos, data.RowPos);
-			}
-		}
-
-		/// <summary>
 		/// Display monster
 		/// </summary>
 		/// <param name="data"></param>
@@ -448,6 +429,10 @@ namespace Game.Views
 			}
 
 			BattleMessages.Text = message;
+
+			// Redraw entities if anyone has died
+			if (message.Contains("perished"))
+				DrawEntities();
 		}
 
 		/// <summary>
