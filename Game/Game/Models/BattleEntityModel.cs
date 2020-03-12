@@ -138,17 +138,6 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// ChangeLevel not currently implemented in this class
-        /// </summary>
-        /// <param name="levelValue"></param>
-        /// <returns></returns>
-        public new bool ChangeLevel(int levelValue)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
         /// Returns the name of the battle entity.
         /// </summary>
         /// <returns></returns>
