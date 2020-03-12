@@ -269,6 +269,24 @@ namespace Game.Models
             return DiceHelper.RollDice(1, 20) + Level + GetItemBonus(AttributeEnum.Attack);
         }
 
+        /// <summary>
+        /// Gets the character's Range stat, taking into account whether
+        /// they're holding a weapon that boosts this stat
+        /// </summary>
+        /// <returns></returns>
+        public int GetRange()
+        {
+            var total = Range;
+
+            var weapon = GetItemByLocation(ItemLocationEnum.PrimaryHand);
+            if (weapon != null)
+            {
+                total += weapon.Range;
+            }
+
+            return total;
+        }
+
         #region Equipped Items
 
         /// <summary>
