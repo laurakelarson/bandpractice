@@ -76,7 +76,7 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            Speed = data.Speed + data.GetItemBonus(AttributeEnum.Speed);
+            Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
@@ -127,7 +127,7 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
-            Speed = data.Speed + data.GetItemBonus(AttributeEnum.Speed);
+            Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
