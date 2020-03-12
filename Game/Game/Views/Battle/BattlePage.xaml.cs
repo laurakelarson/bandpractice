@@ -325,6 +325,7 @@ namespace Game.Views
 			{
 				CharacterInfoBox.Children.Add(CharacterInfo(data));
 			}
+			DrawEntities();
 
 			// Output the Message of what happened.
 			GameMessage();
@@ -338,6 +339,7 @@ namespace Game.Views
 
                 // Show the Round Over, after that is cleared, New Round Button will be visible
                 ShowModalRoundOverPage();
+				DrawEntities();
 				NewRoundButton.IsVisible = true;
 				AttackButton.IsVisible = false;
 				SkipButton.IsVisible = false;
