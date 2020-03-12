@@ -29,6 +29,9 @@ namespace Game.Models
         // The current health level of the entity
         public int CurrentHealth { get; set; } = 1;
 
+        // The movement range of the entity. Base stat starts at 1.
+        public int Range { get; set; } = 1;
+
         /// <summary>
         /// Method to inflict damage to Monster object
         /// </summary>
