@@ -263,5 +263,29 @@ namespace Game.Models
 
             return false;
         }
+
+        /// <summary>
+        /// Calculate distance between two map locations
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public int CalculateDistance(MapModelLocation start, MapModelLocation end)
+        {
+            return Distance(start.Column, start.Row, end.Column, end.Row);
+        }
+
+        /// <summary>
+        /// Calculate Distance between locations
+        /// </summary>
+        /// <param name="x1"></param>
+        /// <param name="y1"></param>
+        /// <param name="x2"></param>
+        /// <param name="y2"></param>
+        /// <returns></returns>
+        public int Distance(int x1, int y1, int x2, int y2)
+        {
+            return ((int)Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2)));
+        }
     }
 }
