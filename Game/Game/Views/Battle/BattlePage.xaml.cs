@@ -82,35 +82,35 @@ namespace Game.Views
 
 		// Both of these methods had zero references - no need for them!
 
-		///// <summary>
-		///// Battle Over
-		///// Battle Over button shows when all characters are dead
-		///// </summary>
-		///// <param name="sender"></param>
-		///// <param name="e"></param>
-		//async void RoundOverButton_Clicked(object sender, EventArgs e)
-		//{
-		//	await Navigation.PushModalAsync(new RoundOverPage());
-		//}
+		/// <summary>
+		/// Battle Over
+		/// Battle Over button shows when all characters are dead
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void RoundOverButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new RoundOverPage());
+		}
 
 
-		///// <summary>
-		///// Battle Over
-		///// Battle Over button shows when all characters are dead
-		///// </summary>
-		///// <param name="sender"></param>
-		///// <param name="e"></param>
-		//async void NewRoundButton_Clicked(object sender, EventArgs e)
-		//{
-  //          // Start a new round
-		//	EngineViewModel.Engine.NewRound();
+		/// <summary>
+		/// Battle Over
+		/// Battle Over button shows when all characters are dead
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		async void NewRoundButton_Clicked(object sender, EventArgs e)
+		{
+			// Start a new round
+			EngineViewModel.Engine.NewRound();
 
-  //          // reset visual elements
-		//	BattleMessages.Text = string.Empty;
-		//	NewRoundButton.IsVisible = false;
+			// reset visual elements
+			BattleMessages.Text = string.Empty;
+			NewRoundButton.IsVisible = false;
 
-		//	await Navigation.PushModalAsync(new NewRoundPage());
-		//}
+			await Navigation.PushModalAsync(new NewRoundPage());
+		}
 
 		/// <summary>
 		/// Quit the Battle
