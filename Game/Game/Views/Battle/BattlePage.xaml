@@ -71,8 +71,8 @@
             </Frame>
 
             <!-- Round Over button is only needed for debugging, new round button handles it better -->
-            <Button Clicked="RoundOverButton_Clicked" Text="Round Over"
-                    x:Name="RoundOverButton" IsVisible="False"></Button>
+            <!-- <Button Clicked="RoundOverButton_Clicked" Text="Round Over"
+                    x:Name="RoundOverButton" IsVisible="False"></Button>-->
             
             <Button Clicked="NewRoundButton_Clicked" Text="New Round"
                     x:Name="NewRoundButton" IsVisible="False" ></Button>
