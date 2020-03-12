@@ -17,10 +17,10 @@ namespace Game.Models
     public class MapModel
     {
         // The X axies Size
-        public int MapXAxiesCount = 6;
+        public int MapXAxesCount = 6;
 
         // The Y axies Size
-        public int MapYAxiesCount = 6;
+        public int MapYAxesCount = 6;
 
         // The Map Locations
         public MapModelLocation[,] MapGridLocation;
@@ -30,7 +30,7 @@ namespace Game.Models
         public MapModel()
         {
             // Create the Map
-            MapGridLocation = new MapModelLocation[MapXAxiesCount, MapYAxiesCount];
+            MapGridLocation = new MapModelLocation[MapXAxesCount, MapYAxesCount];
 
             ClearMapGrid();
         }
@@ -42,9 +42,9 @@ namespace Game.Models
         public bool ClearMapGrid()
         {
             //Populate Map with Empty Values
-            for (var x = 0; x < MapXAxiesCount; x++)
+            for (var x = 0; x < MapXAxesCount; x++)
             {
-                for (var y = 0; y < MapYAxiesCount; y++)
+                for (var y = 0; y < MapYAxesCount; y++)
                 {
                     // Populate the entire map with blank
                     MapGridLocation[x, y] = new MapModelLocation { Row = y, Column = x, Player = EmptySquare };
@@ -71,7 +71,7 @@ namespace Game.Models
 
                 // If too many to fit on a row, start at the next row
                 x++;
-                if (x >= MapXAxiesCount)
+                if (x >= MapXAxesCount)
                 {
                     x = 0;
                     y++;
@@ -79,14 +79,14 @@ namespace Game.Models
             }
 
             x = 0;
-            y = MapYAxiesCount - 1;
+            y = MapYAxesCount - 1;
             foreach (var data in PlayerList.Where(m => m.EntityType == EntityTypeEnum.Monster))
             {
                 MapGridLocation[x, y].Player = data;
 
                 // If too many to fit on a row, start at the next row
                 x++;
-                if (x >= MapXAxiesCount)
+                if (x >= MapXAxesCount)
                 {
                     x = 0;
                     y--;
@@ -113,12 +113,12 @@ namespace Game.Models
                 return false;
             }
 
-            if (ToX >= MapXAxiesCount)
+            if (ToX >= MapXAxesCount)
             {
                 return false;
             }
 
-            if (ToY >= MapYAxiesCount)
+            if (ToY >= MapYAxesCount)
             {
                 return false;
             }
@@ -139,9 +139,9 @@ namespace Game.Models
         /// <returns></returns>
         public bool RemovePlayerFromMap(BattleEntityModel data)
         {
-            for (var x = 0; x < MapXAxiesCount; x++)
+            for (var x = 0; x < MapXAxesCount; x++)
             {
-                for (var y = 0; y < MapYAxiesCount; y++)
+                for (var y = 0; y < MapYAxesCount; y++)
                 {
                     if (MapGridLocation[x, y].Player.Id.Equals(data.Id))
                     {
