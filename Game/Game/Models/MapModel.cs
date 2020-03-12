@@ -247,9 +247,7 @@ namespace Game.Models
             var distanceX = Math.Abs(locationAttacker.Column - locationDefender.Column);
             var distanceY = Math.Abs(locationAttacker.Row - locationDefender.Row);
 
-            //TODO Fix this to work with our models
-            //var AttackerRange = Attacker.GetRange();
-            var AttackerRange = 0;
+            var AttackerRange = Attacker.Range;
 
             // Can Reach on X?
             if (distanceX <= AttackerRange)
