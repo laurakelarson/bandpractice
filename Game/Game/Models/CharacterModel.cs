@@ -284,6 +284,18 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Gets the character's Attack stat, taking into account whether
+        /// they're holding items that boost this stat
+        /// </summary>
+        /// <returns></returns>
+        public int GetAttack()
+        {
+            var total = Attack;
+            total += GetItemBonus(AttributeEnum.Attack);
+            return total;
+        }
+
+        /// <summary>
         /// Gets the character's Range stat, taking into account whether
         /// they're holding a weapon that boosts this stat
         /// </summary>
