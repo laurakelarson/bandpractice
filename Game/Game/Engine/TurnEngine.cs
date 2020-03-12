@@ -116,7 +116,7 @@ namespace Game.Engine
 
             // Select first in the list
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            // TODO: Teams, You need to implement your own Logic can not use mine. //Have this sort the list for options, then choose the closest character (can probably use MapModel IsTargetInRange method)
 
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Character)
@@ -144,7 +144,7 @@ namespace Game.Engine
             // Select first one to hit in the list for now...
             // Attack the Weakness (lowest HP) MonsterModel first
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            // TODO: Teams, You need to implement your own Logic can not use mine. //Have this sort the list for options, then choose the closest character (can probably use MapModel IsTargetInRange method)
 
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Monster)
