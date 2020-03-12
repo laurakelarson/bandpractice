@@ -78,8 +78,8 @@ namespace Game.Models
             Description = data.Description;
             Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
-            CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
-            MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
+            CurrentHealth = data.CurrentHealth;
+            MaxHealth = data.MaxHealth;
             Attack = data.GetAttack();
             Defense = data.GetDefense();
             Range = data.GetRange();
@@ -129,8 +129,8 @@ namespace Game.Models
             Description = data.Description;
             Speed = data.GetSpeed();
             ImageURI = data.ImageURI;
-            CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
-            MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
+            CurrentHealth = data.CurrentHealth;
+            MaxHealth = data.MaxHealth;
             Attack = data.GetAttack();
             Defense = data.GetDefense();
             Range = data.GetRange();
