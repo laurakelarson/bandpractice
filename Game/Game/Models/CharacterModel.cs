@@ -269,6 +269,20 @@ namespace Game.Models
             return DiceHelper.RollDice(1, 20) + Level + GetItemBonus(AttributeEnum.Attack);
         }
 
+        #region Calculate Stats
+
+        /// <summary>
+        /// Gets the character's Speed stat, taking into account whether
+        /// they're holding items that boost this stat
+        /// </summary>
+        /// <returns></returns>
+        public int GetSpeed()
+        {
+            var total = Speed;
+            total += GetItemBonus(AttributeEnum.Speed);
+            return total;
+        }
+
         /// <summary>
         /// Gets the character's Range stat, taking into account whether
         /// they're holding a weapon that boosts this stat
@@ -286,6 +300,8 @@ namespace Game.Models
 
             return total;
         }
+
+        #endregion Calculate Stats
 
         #region Equipped Items
 
