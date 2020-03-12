@@ -287,5 +287,101 @@ namespace Game.Models
         {
             return ((int)Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2)));
         }
+
+        /// <summary>
+        /// Returns the valid move set of coordinates for a given player.
+        /// Player may be able to move one coordinate in the direction: left, right, up, or down.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public List<CoordinateModel> ValidMoveSet(BattleEntityModel player)
+        {
+            var Current = GetLocationForPlayer(player);
+
+            if (Current == null)
+            {
+                return null;
+            }
+
+            var MoveSet = new List<CoordinateModel>();
+
+            // Left
+            if (IsValidMove(Current.Row, Current.Column - 1))
+            {
+                MoveSet.Add(new CoordinateModel(Current.Row, Current.Column - 1));
+            }
+
+
+            // Right
+            if (IsValidMove(Current.Row, Current.Column + 1))
+            {
+                MoveSet.Add(new CoordinateModel(Current.Row, Current.Column + 1));
+            }
+
+            // Up
+            if (IsValidMove(Current.Row - 1, Current.Column))
+            {
+                MoveSet.Add(new CoordinateModel(Current.Row - 1, Current.Column));
+            }
+
+            // Down
+            if (IsValidMove(Current.Row + 1, Current.Column))
+            {
+                MoveSet.Add(new CoordinateModel(Current.Row + 1, Current.Column));
+            }
+
+            return MoveSet;
+        }
+
+        /// <summary>
+        /// Validates that the coordinate at given row and column is both empty and a valid space on Map
+        /// </summary>
+        /// <param name="Row"></param>
+        /// <param name="Column"></param>
+        /// <returns></returns>
+        public bool IsValidMove(int Row, int Column)
+        {
+            if (IsValidCoordinateOnGrid(Row, Column))
+            {
+                if (IsEmptySquare(Row, Column))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Check whether the provided row and column is a valid coordinate on the Map.
+        /// Verifies the coordinate location only (does not check whether coordinate is occupied)
+        /// </summary>
+        /// <param name="Row"></param>
+        /// <param name="Column"></param>
+        /// <returns></returns>
+        public bool IsValidCoordinateOnGrid(int Row, int Column)
+        {
+            if (Row < 0)
+            {
+                return false;
+            }
+
+            if (Row >= MapXAxesCount)
+            {
+                return false;
+            }
+
+            if (Column < 0)
+            {
+                return false;
+            }
+
+            if (Column > MapYAxesCount)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
