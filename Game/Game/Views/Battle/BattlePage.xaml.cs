@@ -219,8 +219,6 @@ namespace Game.Views
 			// reset visual elements
 			BattleMessages.Text = string.Empty;
 			NewRoundButton.IsVisible = false;
-			AttackButton.IsVisible = true;
-			SkipButton.IsVisible = true;
 
 			// redraw grid with living entities
 			DrawEntities();
@@ -246,6 +244,7 @@ namespace Game.Views
 				}
 			}
 		}
+
         /// <summary>
         /// Display the characters and monsters
         /// </summary>
@@ -265,11 +264,30 @@ namespace Game.Views
 			}
 		}
 
-        /// <summary>
-        /// Display monster
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+		/// <summary>
+		/// Display the characters and monsters
+		/// </summary>
+		public void RedrawEntity()
+		{
+
+			foreach (var data in EngineViewModel.Engine.MonsterList)
+			{
+				if (data.Alive)
+					BattleGrid.Children.Add(DrawMonster(data), data.ColPos, data.RowPos);
+			}
+
+			foreach (var data in EngineViewModel.Engine.CharacterList)
+			{
+				if (data.Alive)
+					BattleGrid.Children.Add(DrawCharacter(data), data.ColPos, data.RowPos);
+			}
+		}
+
+		/// <summary>
+		/// Display monster
+		/// </summary>
+		/// <param name="data"></param>
+		/// <returns></returns>
 		public ImageButton DrawMonster(MonsterModel data)
 		{
 			var MonsterButton = new ImageButton
@@ -325,10 +343,11 @@ namespace Game.Views
 			{
 				CharacterInfoBox.Children.Add(CharacterInfo(data));
 			}
-			DrawEntities();
+			
 
 			// Output the Message of what happened.
 			GameMessage();
+
 
 			if (RoundCondition == RoundEnum.NewRound)
 			{
@@ -341,8 +360,6 @@ namespace Game.Views
                 ShowModalRoundOverPage();
 				DrawEntities();
 				NewRoundButton.IsVisible = true;
-				AttackButton.IsVisible = false;
-				SkipButton.IsVisible = false;
 				return;
 			}
 
@@ -421,7 +438,10 @@ namespace Game.Views
 			{
 				message += "\n" + EngineViewModel.Engine.BattleMessages.TurnMessageSpecial;
 			}
-
+			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.ItemDropMessage))
+			{
+				message += "\n" + EngineViewModel.Engine.BattleMessages.ItemDropMessage;
+			}
 			if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
 			{
 				message += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
