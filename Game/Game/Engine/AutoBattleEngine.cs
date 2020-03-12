@@ -56,14 +56,15 @@ namespace Game.Engine
 
             // Prepare for Battle
 
-            // Picks 6 Characters
+            // Picks 6 Characters, for now one of each type
             // TODO - implement better character picking method when we get Beats figured out
-            
-            for (int i = CharacterList.Count(); i < MaxNumberCharacters; i++)
-            {
-                CharacterModel data = DataHelper.DefaultTambourine();
-                AddBandMember(data);
-            }
+
+            AddBandMember(DataHelper.DefaultDrummer());
+            AddBandMember(DataHelper.DefaultBassist());
+            AddBandMember(DataHelper.DefaultGuitarist());
+            AddBandMember(DataHelper.DefaultTambourine());
+            AddBandMember(DataHelper.DefaultLeadVocalist());
+            AddBandMember(DataHelper.DefaultKeyboardist());
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
