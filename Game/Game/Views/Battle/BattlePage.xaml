@@ -46,8 +46,8 @@
 
             <!-- Buttons -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button Clicked="SkipButton_Clicked" Text="Skip"></Button>
-                <Button Clicked="AttackButton_Clicked" Text="Attack"></Button>
+                <Button x:Name="SkipButton" Clicked="SkipButton_Clicked" Text="Skip" IsVisible="True"></Button>
+                <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Attack" IsVisible="True"></Button>
             </StackLayout>
             
             <!-- Message Box -->

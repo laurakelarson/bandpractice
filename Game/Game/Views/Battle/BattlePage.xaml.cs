@@ -80,35 +80,37 @@ namespace Game.Views
 
 		}
 
-		/// <summary>
-		/// Battle Over
-		/// Battle Over button shows when all characters are dead
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void RoundOverButton_Clicked(object sender, EventArgs e)
-		{
-			await Navigation.PushModalAsync(new RoundOverPage());
-		}
+		// Both of these methods had zero references - no need for them!
+
+		///// <summary>
+		///// Battle Over
+		///// Battle Over button shows when all characters are dead
+		///// </summary>
+		///// <param name="sender"></param>
+		///// <param name="e"></param>
+		//async void RoundOverButton_Clicked(object sender, EventArgs e)
+		//{
+		//	await Navigation.PushModalAsync(new RoundOverPage());
+		//}
 
 
-		/// <summary>
-		/// Battle Over
-		/// Battle Over button shows when all characters are dead
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		async void NewRoundButton_Clicked(object sender, EventArgs e)
-		{
-            // Start a new round
-			EngineViewModel.Engine.NewRound();
+		///// <summary>
+		///// Battle Over
+		///// Battle Over button shows when all characters are dead
+		///// </summary>
+		///// <param name="sender"></param>
+		///// <param name="e"></param>
+		//async void NewRoundButton_Clicked(object sender, EventArgs e)
+		//{
+  //          // Start a new round
+		//	EngineViewModel.Engine.NewRound();
 
-            // reset visual elements
-			BattleMessages.Text = string.Empty;
-			NewRoundButton.IsVisible = false;
+  //          // reset visual elements
+		//	BattleMessages.Text = string.Empty;
+		//	NewRoundButton.IsVisible = false;
 
-			await Navigation.PushModalAsync(new NewRoundPage());
-		}
+		//	await Navigation.PushModalAsync(new NewRoundPage());
+		//}
 
 		/// <summary>
 		/// Quit the Battle
@@ -126,7 +128,7 @@ namespace Game.Views
 				await Navigation.PopModalAsync();
 			}
 		}
-        #endregion
+        #endregion 
 
 
 
@@ -211,7 +213,18 @@ namespace Game.Views
         /// </summary>
         public async void ShowModalNewRoundPage()
 		{
+			// Start a new round
 			EngineViewModel.Engine.NewRound();
+
+			// reset visual elements
+			BattleMessages.Text = string.Empty;
+			NewRoundButton.IsVisible = false;
+			AttackButton.IsVisible = true;
+			SkipButton.IsVisible = true;
+
+			// redraw grid with living entities
+			DrawEntities();
+
 			await Navigation.PushModalAsync(new NewRoundPage());
 
             ClearMessages();
@@ -241,12 +254,14 @@ namespace Game.Views
 
 			foreach (var data in EngineViewModel.Engine.MonsterList)
 			{
-				BattleGrid.Children.Add(DrawMonster(data), data.ColPos, data.RowPos);
+				if (data.Alive)
+					BattleGrid.Children.Add(DrawMonster(data), data.ColPos, data.RowPos);
 			}
 
 			foreach (var data in EngineViewModel.Engine.CharacterList)
 			{
-				BattleGrid.Children.Add(DrawCharacter(data), data.ColPos, data.RowPos);
+				if (data.Alive)
+					BattleGrid.Children.Add(DrawCharacter(data), data.ColPos, data.RowPos);
 			}
 		}
 
@@ -304,7 +319,7 @@ namespace Game.Views
 			// Hold the current state
 			var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
 
-			// Update current HP for entities
+			// Update current HP for entities, update battle grid with only alive entities
 			CharacterInfoBox.Children.Clear();
 			foreach (var data in EngineViewModel.Engine.CharacterList)
 			{
@@ -324,6 +339,8 @@ namespace Game.Views
                 // Show the Round Over, after that is cleared, New Round Button will be visible
                 ShowModalRoundOverPage();
 				NewRoundButton.IsVisible = true;
+				AttackButton.IsVisible = false;
+				SkipButton.IsVisible = false;
 				return;
 			}
 
