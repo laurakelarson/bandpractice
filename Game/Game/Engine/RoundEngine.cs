@@ -61,6 +61,10 @@ namespace Game.Engine
             // (note: this needs to be done after RoundCount is incremented to implement hackathon rule)
             OrderEntityListByTurnOrder();
 
+            //TODO figure out how to make this work with how we're drawing the current battle map
+            // Populate MapModel with Characters and Monsters
+            MapModel.PopulateMapModel(EntityList);
+
             // Clear the items equipped Battle Messages to accrue for new round
             BattleMessages.ItemsEquipped.Clear();
 
