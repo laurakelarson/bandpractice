@@ -82,7 +82,7 @@ namespace Game.Models
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
             Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
             Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
-            Range = data.Range; //TODO get weapon range from character model
+            Range = data.GetRange();
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Game.Models
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
             Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
             Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
-            Range = data.Range; //TODO get weapon range from character model
+            Range = data.GetRange();
             return true;
         }
 
