@@ -4,9 +4,6 @@
              x:Class="Game.Views.MyBandPage"
              >
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Recruit" Clicked="RecruitCharacter_Clicked"  IconImageSource="icon_add.png"/>
-    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout Style="{StaticResource VerticalStack}"
@@ -20,6 +17,16 @@
                     x:Name="BeatsLabel"
                     Text="{Binding Beats}" 
                     FontAttributes="Bold"></Label>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal"
+                         Padding="20,0,0,0">
+                <ImageButton 
+                    Source="icon_add.png"
+                    Style="{StaticResource ImageButtonMedium}"
+                    Clicked="RecruitCharacter_Clicked"></ImageButton>
+                <Label Style="{StaticResource CenterMessageStyle}"
+                       Text="Recruit Bandmate"></Label>
             </StackLayout>
 
             <StackLayout Orientation="Vertical">
