@@ -337,8 +337,11 @@ namespace Game.Views
 				Task.Delay(WaitTime);
 
 				Debug.WriteLine("New Round");
+				// Trigger new round
+				EngineViewModel.Engine.NewRound();
 
-                // Show the Round Over, after that is cleared, New Round Button will be visible
+				// Show the Round Over, after that is cleared, New Round Modal will be shown as well
+				ShowModalNewRoundPage();
                 ShowModalRoundOverPage();
 				DrawGrid();
 				DrawEntities();
