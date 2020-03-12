@@ -256,7 +256,7 @@ namespace Game.Engine
 
             // update battle messages
             BattleMessages.CurrentHealth = target.CurrentHealth;
-            BattleMessages.AttackStatus = " attacks ";
+            BattleMessages.AttackStatus = " strikes ";
             BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name + BattleMessages.GetCurrentHealthMessage();
 
             if (CriticalHitsEnabled)
@@ -300,13 +300,13 @@ namespace Game.Engine
             EntityList.Where(a => a.Id == character.Id).FirstOrDefault().Update(character);
 
             // update battle messages
-            BattleMessages.ExperienceEarned = "Earned " + experience + " points";
+            BattleMessages.ExperienceEarned = "Won " + experience + " beats!";
             Debug.WriteLine(BattleMessages.ExperienceEarned);
 
             // did character level up?
             if (level != character.Level)
             {
-                BattleMessages.LevelUpMessage = entity.Name + " is now Level " + entity.Level + " With Health Max of " + entity.MaxHealth;
+                BattleMessages.LevelUpMessage = entity.Name + " is now Level " + entity.Level + " with max health of " + entity.MaxHealth;
                 Debug.WriteLine(BattleMessages.LevelUpMessage);
             }
 
@@ -432,7 +432,7 @@ namespace Game.Engine
         public bool TargetDied(BattleEntityModel target)
         {
             // Mark Status in output
-            BattleMessages.TurnMessageSpecial = target.Name + " dies";
+            BattleMessages.TurnMessageSpecial = target.Name + " has perished :(";
 
             // Remove target from list...
 
@@ -597,7 +597,7 @@ namespace Game.Engine
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
-                BattleMessages.AttackStatus = " misses ";
+                BattleMessages.AttackStatus = " blunders and misses ";
                 // Miss
                 BattleMessages.HitStatus = HitStatusEnum.Miss;
                 BattleMessages.DamageAmount = 0;
