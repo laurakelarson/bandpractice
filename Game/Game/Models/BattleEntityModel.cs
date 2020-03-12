@@ -60,6 +60,7 @@ namespace Game.Models
             Attack = data.Attack;
             Defense = data.Defense;
             FirstBuff = data.FirstBuff;
+            Range = data.Range;
         }
 
         /// <summary>
@@ -81,6 +82,7 @@ namespace Game.Models
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
             Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
             Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
+            Range = data.Range; //TODO get weapon range from character model
         }
 
         /// <summary>
@@ -102,6 +104,7 @@ namespace Game.Models
             MaxHealth = data.MaxHealth;
             Attack = data.Attack;
             Defense = data.Defense;
+            Range = data.Range;
         }
 
         /// <summary>
@@ -130,6 +133,7 @@ namespace Game.Models
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
             Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
             Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
+            Range = data.Range; //TODO get weapon range from character model
             return true;
         }
 
