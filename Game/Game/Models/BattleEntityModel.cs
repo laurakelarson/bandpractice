@@ -80,8 +80,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
-            Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
-            Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
+            Attack = data.GetAttack();
+            Defense = data.GetDefense();
             Range = data.GetRange();
         }
 
@@ -131,8 +131,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             CurrentHealth = data.CurrentHealth + data.GetItemBonus(AttributeEnum.CurrentHealth);
             MaxHealth = data.MaxHealth + data.GetItemBonus(AttributeEnum.MaxHealth);
-            Attack = data.Attack + data.GetItemBonus(AttributeEnum.Attack);
-            Defense = data.Defense + data.GetItemBonus(AttributeEnum.Defense);
+            Attack = data.GetAttack();
+            Defense = data.GetDefense();
             Range = data.GetRange();
             return true;
         }
