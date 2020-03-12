@@ -24,9 +24,6 @@ namespace Game.Models
         // Amount of experience the monster will give on defeat
         public int ExperienceGiven { get; set; }
 
-        // The range of the monster to attack. Attacks within range will be successful
-        public int Range { get; set; }
-
         // Flag indicating whether a Monster is a boss or not
         public bool Boss { get; set; } = false;
 
