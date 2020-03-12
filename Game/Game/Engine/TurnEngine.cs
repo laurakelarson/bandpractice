@@ -204,6 +204,7 @@ namespace Game.Engine
             // It's a Miss
             if (BattleMessages.HitStatus == HitStatusEnum.Miss)
             {
+                BattleMessages.TurnMessage = attacker.Name + BattleMessages.AttackStatus + target.Name;
                 // Check if Critical Miss is enabled (hackathon rule)
                 if (CriticalMissEnabled)
                 {
@@ -601,6 +602,7 @@ namespace Game.Engine
                 // Miss
                 BattleMessages.HitStatus = HitStatusEnum.Miss;
                 BattleMessages.DamageAmount = 0;
+               
                 return BattleMessages.HitStatus;
             }
 
