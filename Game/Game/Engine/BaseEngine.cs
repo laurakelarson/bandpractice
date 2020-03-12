@@ -59,6 +59,9 @@ namespace Game.Engine
         // Hold the coordinate to move to on the map
         public CoordinateModel MoveMapLocation;
 
+        // Hold the move roll value at the start of each turn
+        public int MoveRollValue = 0;
+
         // The battle Map
         public MapModel MapModel = new MapModel();
 
