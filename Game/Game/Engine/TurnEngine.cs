@@ -16,15 +16,24 @@ namespace Game.Engine
     /// </summary>
     public class TurnEngine : BaseEngine
     {
-        #region Algrorithm
-        // Attack or Move
-        // Roll To Hit
-        // Decide Hit or Miss
-        // Decide Damage
-        // Death
-        // Drop Items
+        #region Algorithm
+        // Roll 6-sided dice to determine how many Moves on grid
+        // Move, Wait, or Attack
+        // Move:
+        //      Directions: up, down, left, or right
+        //      Each Move consumes one value from 6d roll
+        //      Entity can only move at beginning of their turn - if they Attack or Wait, they lose any remaning values from their roll
+        // Wait:
+        //      Character decides to do nothing - ends Turn
+        // Attack:
+        //      Allowed only if in range of target
+        //      Roll To Hit
+        //      Decide Hit or Miss
+        //      Decide Damage
+        //      Death
+        //      Drop Items
         // Turn Over
-        #endregion Algrorithm
+        #endregion Algorithm
 
 
         /// <summary>
