@@ -79,6 +79,7 @@ namespace Game.Models
             ExperienceEarned = string.Empty;
             LevelUpMessage = string.Empty;
             CriticalMissMessage = string.Empty;
+            ItemDropMessage = string.Empty;
 
             DamageAmount = 0;
             CurrentHealth = 0;
