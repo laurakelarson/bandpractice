@@ -1,8 +1,8 @@
 ﻿namespace Game.Models
 {
     /// <summary>
-    /// The Types of s a Action can have
-    /// Used in Action Crudi, and in Battles.
+    /// The Types of states a Action can have
+    /// Used in Battles.
     /// </summary>
     public enum ActionEnum
     {
@@ -16,7 +16,7 @@
         Move = 10,
 
         // Ability
-        Ability = 20
+        Wait = 20
     }
 
     /// <summary>
@@ -44,8 +44,8 @@
                     Message = " Moves ";
                     break;
 
-                case ActionEnum.Ability:
-                    Message = " Uses Ability ";
+                case ActionEnum.Wait:
+                    Message = " Waits ";
                     break;
 
                 case ActionEnum.Unknown:
