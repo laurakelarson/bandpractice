@@ -41,6 +41,7 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TakeTurn(BattleEntityModel attacker)
         {
+            //TODO TurnEngine: add logic to handle manual battle for characters
             var result = AutoTurn(attacker);
 
             Score.TurnCount++;
