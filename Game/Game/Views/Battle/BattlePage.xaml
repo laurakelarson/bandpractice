@@ -4,6 +4,7 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
+        <ScrollView>
         <AbsoluteLayout
                 IsVisible="True"
                 HorizontalOptions="FillAndExpand"
@@ -150,6 +151,6 @@
         </AbsoluteLayout>
         
         
-        
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
