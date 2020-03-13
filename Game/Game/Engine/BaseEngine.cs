@@ -53,6 +53,9 @@ namespace Game.Engine
         // Entity currently engaged
         public BattleEntityModel CurrentEntity;
 
+        // The Current Action 
+        public ActionEnum CurrentAction;
+
         // Hold the current coordinate on the map
         public CoordinateModel CurrentMapLocation;
 
