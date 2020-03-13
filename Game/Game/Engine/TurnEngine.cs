@@ -153,7 +153,7 @@ namespace Game.Engine
 
                 case EntityTypeEnum.Character:
                 default:
-                    return SelectMonsterToAttack();
+                    return SelectMonsterToMoveToward();
             }
         }
 
@@ -176,6 +176,33 @@ namespace Game.Engine
             // Select character to move to based on lowest current health, then highest level
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Character)
+                   .OrderBy(m => m.CurrentHealth)
+                   .ThenByDescending(m => m.Level)
+                   .FirstOrDefault();
+
+            return Defender;
+        }
+
+        /// <summary>
+        /// Pick the Monster to Move toward
+        /// </summary>
+        /// <returns></returns>
+        public BattleEntityModel SelectMonsterToMoveToward()
+        {
+            if (MonsterList == null)
+            {
+                return null;
+            }
+
+            if (MonsterList.Count < 1)
+            {
+                return null;
+            }
+
+            // Select closest monster to attack
+            // Break ties on lowest current health, then highest level
+            var Defender = EntityList
+                   .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Monster)
                    .OrderBy(m => m.CurrentHealth)
                    .ThenByDescending(m => m.Level)
                    .FirstOrDefault();
