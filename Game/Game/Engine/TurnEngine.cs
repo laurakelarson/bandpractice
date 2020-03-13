@@ -41,7 +41,7 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TakeTurn(BattleEntityModel attacker)
         {
-            var result = Attack(attacker);
+            var result = AutoTurn(attacker);
 
             Score.TurnCount++;
 
