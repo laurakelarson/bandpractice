@@ -114,13 +114,14 @@ namespace Game.Engine
                 return null;
             }
 
-            // Select first in the list
-
-            // TODO: Teams, You need to implement your own Logic can not use mine. //Have this sort the list for options, then choose the closest character (can probably use MapModel IsTargetInRange method)
-
+            // Select closest character to attack
+            // Break ties on lowest current health, then highest level
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Character)
-                   .OrderBy(m => m.ListOrder).FirstOrDefault();
+                   .OrderBy(m => MapModel.CalculateDistance(MapModel.GetLocationForPlayer(CurrentAttacker), MapModel.GetLocationForPlayer(m)))
+                   .ThenBy(m => m.CurrentHealth)
+                   .ThenByDescending(m => m.Level)
+                   .FirstOrDefault();
 
             return Defender;
         }
