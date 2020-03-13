@@ -53,6 +53,12 @@ namespace Game.Engine
         // Entity currently engaged
         public BattleEntityModel CurrentEntity;
 
+        // Hold the Battle State, Unknown is default
+        public BattleStateEnum BattleStateEnum = BattleStateEnum.Unknown;
+
+        // Hold the Battle Settings
+        public BattleSettingsModel BattleSettingsModel = new BattleSettingsModel();
+
         // The Current Action 
         public ActionEnum CurrentAction;
 
