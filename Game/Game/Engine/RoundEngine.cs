@@ -41,12 +41,12 @@ namespace Game.Engine
             AddMonstersToRound();
 
             // Unbuff any buffed characters 
-            UnbuffCharacters();
+            //UnbuffCharacters();
 
             // Hackathon Scenario 33, off by one because another scenario requires roundcount to be 
             // incremented below!
-            if (Score.RoundCount == 12)
-                UnluckyRound();
+            //if (Score.RoundCount == 12)
+            //    UnluckyRound();
 
             // Make the EntityList: monsters and characters who are alive
             MakeEntityList();
@@ -93,43 +93,44 @@ namespace Game.Engine
         }
 
 
-        /// <summary>
-        /// Hackathon Scenario 33 - unlucky things happen on round 13
-        /// Random character falls down dead
-        /// </summary>
-        public void UnluckyRound()
-        {
-            // first, check whether forced dice rolls are being used
-            // if they are, exit to avoid trying to access an invalid index or create an endless loop
-            if (DiceHelper.ForceConstantRoll == true)
-            {
-                var index = DiceHelper.ForcedDiceRollValue - 1;
-                if (index >= 0 && index < CharacterList.Count())
-                {
-                    MakeEntityList();
-                    var character = CharacterList[index];
-                    if (character.Alive)
-                        TargetDied(EntityList.First(a => a.Id == character.Id));
-                }
-                return;
-            }
+        ///// <summary>
+        ///// Hackathon Scenario 33 - unlucky things happen on round 13
+        ///// Random character falls down dead
+        ///// </summary>
+        //public void UnluckyRound()
+        //{
+        //    // first, check whether forced dice rolls are being used
+        //    // if they are, exit to avoid trying to access an invalid index or create an endless loop
+        //    if (DiceHelper.ForceConstantRoll == true)
+        //    {
+        //        var index = DiceHelper.ForcedDiceRollValue - 1;
+        //        if (index >= 0 && index < CharacterList.Count())
+        //        {
+        //            MakeEntityList();
+        //            var character = CharacterList[index];
+        //            if (character.Alive)
+        //                TargetDied(EntityList.First(a => a.Id == character.Id));
+        //        }
+        //        return;
+        //    }
 
-            int count = 0;
-            while (count == 0)
-            {
-                var diceroll = DiceHelper.RollDice(1, CharacterList.Count()) - 1;
-                var character = CharacterList[diceroll];
-                if (character.Alive)
-                {
-                    TargetDied(EntityList.First(a => a.Id == character.Id));
-                    BattleMessages.TurnMessageSpecial = character.Name + " dies a horribly unlucky death!";
-                    Debug.WriteLine(BattleMessages.TurnMessageSpecial);
-                    count++;
-                }
-            }
+        //    int count = 0;
+        //    while (count == 0)
+        //    {
+        //        var diceroll = DiceHelper.RollDice(1, CharacterList.Count()) - 1;
+        //        var character = CharacterList[diceroll];
+        //        if (character.Alive)
+        //        {
+        //            TargetDied(EntityList.First(a => a.Id == character.Id));
+        //            BattleMessages.TurnMessageSpecial = character.Name + " dies a horribly unlucky death!";
+        //            Debug.WriteLine(BattleMessages.TurnMessageSpecial);
+        //            count++;
+        //        }
+        //    }
 
 
-        }
+        //}
+
         /// <summary>
         /// Adds monsters to the round.
         /// Since monsters may be duplicated, appends a number to the name of each monster.
@@ -351,20 +352,20 @@ namespace Game.Engine
             return EntityList;
         }
 
-        /// <summary>
-        /// Method to unbuff any buffed characters at beginning of round before entity list is remade
-        /// </summary>
-        public void UnbuffCharacters()
-        {
-            foreach (var entity in EntityList)
-            {
-                if (entity.FirstBuff)
-                {
-                    entity.UnbuffCharacterStats();
-                    entity.FirstBuff = false;
-                }
-            }
-        }
+        ///// <summary>
+        ///// Method to unbuff any buffed characters at beginning of round before entity list is remade
+        ///// </summary>
+        //public void UnbuffCharacters()
+        //{
+        //    foreach (var entity in EntityList)
+        //    {
+        //        if (entity.FirstBuff)
+        //        {
+        //            entity.UnbuffCharacterStats();
+        //            entity.FirstBuff = false;
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Populates the EntityList with the characters and monsters who are alive
