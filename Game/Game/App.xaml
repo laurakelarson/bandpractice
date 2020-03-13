@@ -146,6 +146,13 @@
                 <Setter Property="TextColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="ValueStyleBattleMicro"
+                BasedOn="{StaticResource ValueStyleMicro}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="NoWrap" />
+            </Style>
+
             
 
             <Style TargetType="Label"
@@ -159,6 +166,12 @@
                 BasedOn="{StaticResource HeaderStyle}">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="CenterMessageLargeStyle"
+                BasedOn="{StaticResource CenterMessageStyle}">
+                <Setter Property="FontSize" Value="Large" />
             </Style>
 
             <!-- Image -->
@@ -223,6 +236,18 @@
                 BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="WidthRequest" Value="80" />
                 <Setter Property="HeightRequest" Value="80" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="BattleMapPlayerSmallStyle"
+                BasedOn="{StaticResource ImageBattleSmallStyle}">
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="PlayerBattleMediumStyle"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="HeightRequest" Value="75" />
+                <Setter Property="WidthRequest" Value="75" />
             </Style>
 
             <!-- ImageButton -->
@@ -314,13 +339,59 @@
                 <Setter Property="WidthRequest" Value="100" />
                 <Setter Property="Spacing" Value="1" />
             </Style>
-            
+
+            <Style TargetType="StackLayout"
+                x:Key="PlayerBattleOuterBox"
+                BasedOn="{StaticResource HorizontalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="PlayerBattleInfoBox"
+                BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HeightRequest" Value="110" />
+                <Setter Property="WidthRequest" Value="100" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            </Style>
             
             <Style TargetType="ScrollView">
                 <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
 
             </Style>
-            
+
+            <Style TargetType="StackLayout"
+                x:Key="BattleMapBox"
+                BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style TargetType="StackLayout"
+                x:Key="BattleUIBottomBox"
+                BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HeightRequest" Value="250" />
+                <Setter Property="MinimumHeightRequest" Value="250" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="BattleMapImageBox"
+                BasedOn="{StaticResource VerticalStack}">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+
+
+            <Style TargetType="StackLayout"
+                x:Key="PlayerBattleDisplayBox"
+                BasedOn="{StaticResource PlayerInfoBox}">
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="WidthRequest" Value="80" />
+            </Style>
             
             <!-- Frame -->
             <Style TargetType="FlexLayout"
@@ -330,7 +401,28 @@
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource TransparentColor}" />
             </Style>
+            
+            <Style TargetType="Frame"
+                x:Key="PlayerBattleOuterFrame">
+                <Setter Property="HeightRequest" Value="112" />
+                <Setter Property="WidthRequest" Value="250" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
+            </Style>
 
+            <Style TargetType="Frame"
+                x:Key="BattleMapFrame">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="WidthRequest" Value="60" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
+            </Style>
             <!-- Entry -->
             <Style TargetType="Entry"
                 x:Key="EntryStyle">
