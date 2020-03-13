@@ -231,6 +231,25 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Return all Empty Locations on the map
+        /// </summary>
+        /// <returns></returns>
+        public List<MapModelLocation> GetEmptyLocations()
+        {
+            var Result = new List<MapModelLocation>();
+
+            foreach (var data in MapGridLocation)
+            {
+                if (data.Player.EntityType == EntityTypeEnum.Unknown)
+                {
+                    Result.Add(data);
+                }
+            }
+
+            return Result;
+        }
+
+        /// <summary>
         /// See if the Attacker is next to the Defender by the distance of Range
         /// 
         /// If either the X or Y distance is less than or equal the range, then they can hit
