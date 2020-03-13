@@ -104,7 +104,7 @@ namespace Game.Engine
             if (Attacker.EntityType == EntityTypeEnum.Monster)
             {
                 // For Attack, Choose Who
-                CurrentDefender = AttackChoice(Attacker);
+                CurrentDefender = MoveChoice(Attacker);
 
                 if (CurrentDefender == null)
                 {
@@ -137,6 +137,24 @@ namespace Game.Engine
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Decide who to move toward
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public BattleEntityModel MoveChoice(BattleEntityModel data)
+        {
+            switch (data.EntityType)
+            {
+                case EntityTypeEnum.Monster:
+                    return SelectCharacterToAttack();
+
+                case EntityTypeEnum.Character:
+                default:
+                    return SelectMonsterToAttack();
+            }
         }
 
         /// <summary>
