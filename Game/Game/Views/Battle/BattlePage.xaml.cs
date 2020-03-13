@@ -557,13 +557,26 @@ namespace Game.Views
                 return;
             }
 
-            AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.ImageURI;
-            AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
-            AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
+            if (EngineViewModel.Engine.CurrentAttacker.EntityType == EntityTypeEnum.Character)
+            {
+                AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.IconURI;
+                AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
+                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
 
-            DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.ImageURI;
-            DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
-            DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+                DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.ImageURI;
+                DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
+                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+            } else
+            {
+                AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.ImageURI;
+                AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
+                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
+
+                DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.IconURI;
+                DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
+                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+            }
+            
 
             if (EngineViewModel.Engine.CurrentDefender.Alive == false)
             {

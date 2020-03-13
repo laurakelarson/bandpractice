@@ -20,6 +20,9 @@ namespace Game.Models
         // Give the copy a differet quid, so it can be used in the battles as a copy
         public string Guid = System.Guid.NewGuid().ToString();
 
+        // for use in battle UI
+        public string IconURI = string.Empty;
+
         //// Hackathon scenario 30 - volunteer to be first
         //// If FirstBuff set to true, character gets buffed attributes
         //public bool FirstBuff { get; set; } = false;
@@ -87,6 +90,7 @@ namespace Game.Models
             Attack = data.GetAttack();
             Defense = data.GetDefense();
             Range = data.GetRange();
+            IconURI = data.IconURI;
         }
 
         /// <summary>
