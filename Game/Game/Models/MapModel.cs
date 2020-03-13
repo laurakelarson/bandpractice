@@ -275,6 +275,38 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Walk the Map and Find the Location that is reachable based on the range or closest to the target
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public MapModelLocation ReturnClosestEmptyLocation(MapModelLocation Target, int Range)
+        {
+            MapModelLocation Result = null;
+
+            int LowestDistance = int.MaxValue;
+
+            foreach (var data in GetEmptyLocations())
+            {
+                var distance = CalculateDistance(data, Target);
+
+                // Target can be reached with this Range
+                if (distance <= Range)
+                {
+                    return data;
+                }
+
+                if (distance < LowestDistance)
+                {
+                    Result = data;
+                    LowestDistance = distance;
+                }
+            }
+
+
+            return Result;
+        }
+
+        /// <summary>
         /// See if the Attacker is next to the Defender by the distance of Range
         /// 
         /// If either the X or Y distance is less than or equal the range, then they can hit
