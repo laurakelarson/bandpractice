@@ -49,6 +49,66 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Find a Desired Target
+        /// Move close to them
+        /// Get to move the number of Speed
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool MoveAsTurn(BattleEntityModel Attacker)
+        {
+
+            /*
+             * TODO: TEAMS Work out your own move logic if you are implementing move
+             * 
+             * Mike's Logic
+             * The monster or charcter will move to a different square if one is open
+             * Find the Desired Target
+             * Jump to the closest space near the target that is open
+             * 
+             * If no open spaces, return false
+             * 
+             */
+
+            if (Attacker.EntityType == EntityTypeEnum.Monster)
+            {
+                // For Attack, Choose Who
+                CurrentDefender = AttackChoice(Attacker);
+
+                if (CurrentDefender == null)
+                {
+                    return false;
+                }
+
+                // Get X, Y for Defender
+                var locationDefender = MapModel.GetLocationForPlayer(CurrentDefender);
+                if (locationDefender == null)
+                {
+                    return false;
+                }
+
+                var locationAttacker = MapModel.GetLocationForPlayer(Attacker);
+                if (locationAttacker == null)
+                {
+                    return false;
+                }
+
+                // Find Location Nearest to Defender that is Open.
+
+                // Get the Open Locations
+                var openSquare = MapModel.ReturnClosestEmptyLocation(locationDefender);
+
+                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
+
+                BattleMessages.TurnMessage = Attacker.Name + " moves closer to " + CurrentDefender.Name;
+
+                return MapModel.MovePlayerOnMap(locationAttacker, openSquare);
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Attack as a turn.
         ///
         /// Pick who to go after
