@@ -55,6 +55,8 @@ namespace Game.Engine
         /// <returns></returns>
         public bool AutoTurn(BattleEntityModel Attacker)
         {
+            CurrentAttacker = Attacker;
+
             // Assume Move if nothing else happens
             CurrentAction = ActionEnum.Move;
 
@@ -150,8 +152,6 @@ namespace Game.Engine
         /// <returns></returns>
         public bool Attack(BattleEntityModel Attacker)
         {
-            CurrentAttacker = Attacker;
-
             // If no defender, should return null regardless of autobattle or regular battle
             
             // For Attack, Choose Who
