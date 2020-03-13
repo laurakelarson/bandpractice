@@ -17,7 +17,8 @@
         Hit = 5,
 
         // Critical Hit, bonus after hit happens
-        CriticalHit = 15
+        CriticalHit = 15,
+        Default = 16
     }
 
     /// <summary>
