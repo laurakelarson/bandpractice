@@ -886,7 +886,8 @@ namespace Game.Views
         public async void ShowScoreButton_Clicked(object sender, EventArgs args)
         {
             ShowBattleMode();
-            //await Navigation.PushModalAsync(new ScorePage());
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(), EngineViewModel.Engine.Score)));
+
         }
 
         /// <summary>
