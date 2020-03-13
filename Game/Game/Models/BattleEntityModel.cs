@@ -17,24 +17,27 @@ namespace Game.Models
         // Number representing the entity's place in the battle list
         public int ListOrder = 0;
 
-        // Hackathon scenario 30 - volunteer to be first
-        // If FirstBuff set to true, character gets buffed attributes
-        public bool FirstBuff { get; set; } = false;
+        // Give the copy a differet quid, so it can be used in the battles as a copy
+        public string Guid = System.Guid.NewGuid().ToString();
 
-        public void BuffCharacterStats()
-        {
-            Attack *= 2;
-            Speed *= 2;
-            Defense *= 2;
-        }
-        public void UnbuffCharacterStats()
-        {
-            Attack /= 2;
-            Speed /= 2;
-            Defense /= 2;
-        }
+        //// Hackathon scenario 30 - volunteer to be first
+        //// If FirstBuff set to true, character gets buffed attributes
+        //public bool FirstBuff { get; set; } = false;
 
-        
+        //public void BuffCharacterStats()
+        //{
+        //    Attack *= 2;
+        //    Speed *= 2;
+        //    Defense *= 2;
+        //}
+        //public void UnbuffCharacterStats()
+        //{
+        //    Attack /= 2;
+        //    Speed /= 2;
+        //    Defense /= 2;
+        //}
+
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -59,8 +62,9 @@ namespace Game.Models
             MaxHealth = data.MaxHealth;
             Attack = data.Attack;
             Defense = data.Defense;
-            FirstBuff = data.FirstBuff;
+           // FirstBuff = data.FirstBuff;
             Range = data.Range;
+            Guid = data.Guid;
         }
 
         /// <summary>
