@@ -16,6 +16,20 @@
                         AbsoluteLayout.LayoutBounds="1,1,1,1" 
                         AbsoluteLayout.LayoutFlags="All">
 
+                <!-- Character Info Box -->
+
+                <Frame
+                BorderColor="{StaticResource SecondaryTextColor}"
+                BackgroundColor="{StaticResource PrimaryBackgroundColor}">
+                    <FlexLayout
+                    BackgroundColor="{StaticResource PrimaryBackgroundColor}"
+                    x:Name="CharacterInfoBox"
+                    HorizontalOptions="FillAndExpand">
+
+                    </FlexLayout>
+                </Frame>
+
+                
                 <!--The Top of the Battle UI Holds the List of Players-->
                 <StackLayout VerticalOptions="Start" x:Name="TopPlayerDisplay">
                     <StackLayout Style="{StaticResource VerticalStack}"

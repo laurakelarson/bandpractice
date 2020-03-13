@@ -59,6 +59,13 @@ namespace Game.Views
             // Add Players to Display
             DrawGameAttackerDefenderBoard();
 
+            // draw Character info box at top of Battle Page
+            foreach (var data in EngineViewModel.Engine.CharacterList)
+            {
+                CharacterInfoBox.Children.Add(CharacterInfo(data));
+            }
+
+
             // Set the Battle Mode
             ShowBattleMode();
         }
@@ -376,14 +383,29 @@ namespace Game.Views
         /// <returns></returns>
         public ImageButton DetermineMapImageButton(MapModelLocation MapModel)
         {
-            var data = new ImageButton
+            ImageButton data;
+            if (MapModel.Player.EntityType == EntityTypeEnum.Character)
             {
-                Style = (Style)Application.Current.Resources["BattleMapPlayerSmallStyle"],
-                Source = MapModel.Player.ImageURI,
+                data = new ImageButton
+                {
+                    Style = (Style)Application.Current.Resources["ImageBattleSmallSpriteStyle"],
+                    Source = MapModel.Player.ImageURI,
 
-                // Store the guid to identify this button
-                AutomationId = MapModel.Player.Guid
-            };
+                    // Store the guid to identify this button
+                    AutomationId = MapModel.Player.Guid
+                };
+            } else
+            {
+                data = new ImageButton
+                {
+                    Style = (Style)Application.Current.Resources["ImageBattleSmallIconStyle"],
+                    Source = MapModel.Player.ImageURI,
+
+                    // Store the guid to identify this button
+                    AutomationId = MapModel.Player.Guid
+                };
+            }
+            
 
             switch (MapModel.Player.EntityType)
             {
@@ -608,6 +630,14 @@ namespace Game.Views
             // Show the outcome on the Board
             DrawGameAttackerDefenderBoard();
 
+            // Update current HP for entities, update battle grid with only alive entities
+            CharacterInfoBox.Children.Clear();
+            foreach (var data in EngineViewModel.Engine.CharacterList)
+            {
+                CharacterInfoBox.Children.Add(CharacterInfo(data));
+            }
+
+
             if (RoundCondition == RoundEnum.NewRound)
             {
                 EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.NewRound;
@@ -639,6 +669,80 @@ namespace Game.Views
                 return;
             }
         }
+
+        /// <summary>
+        /// Display character details
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public StackLayout CharacterInfo(CharacterModel data)
+        {
+            if (data == null)
+            {
+                data = new CharacterModel();
+            }
+            // Hookup the image
+            var CharacterImage = new Image
+            {
+                Style = (Style)Application.Current.Resources["ImageBattleSmallIconStyle"],
+                Source = data.IconURI
+            };
+
+            var CharacterNameLabel = new Label()
+            {
+                Text = data.Name,
+                Style = (Style)Application.Current.Resources["ValueStyle"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            // Add the HP
+            var CharacterHPLabel = new Label
+            {
+                Text = "HP - " + data.CurrentHealth,
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            var CharacterStats = new StackLayout
+            {
+                Orientation = StackOrientation.Vertical,
+                HorizontalOptions = LayoutOptions.Start,
+                Padding = 2,
+                Spacing = 0,
+                Children = {
+                        CharacterNameLabel,
+                        CharacterHPLabel,
+                    },
+            };
+
+            // Put the Image Button and Text stack inside a layout
+            var CharacterStack = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                HorizontalOptions = LayoutOptions.Start,
+                Padding = 2,
+                Spacing = 0,
+                Children = {
+                        CharacterImage,
+                        CharacterStats
+                    },
+            };
+
+            return CharacterStack;
+        }
+
 
         /// <summary>
         /// Decide The Turn and who to Attack
