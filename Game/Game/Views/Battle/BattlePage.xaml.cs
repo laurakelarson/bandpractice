@@ -889,6 +889,10 @@ namespace Game.Views
         {
             ShowBattleMode();
             //await Navigation.PushModalAsync(new ScorePage());
+
+            // Display the Game Over/Score page
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage(new GenericViewModel<ScoreModel>(),
+                EngineViewModel.Engine.Score)));
         }
 
         /// <summary>
