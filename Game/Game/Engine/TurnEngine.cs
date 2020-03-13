@@ -90,13 +90,11 @@ namespace Game.Engine
         {
 
             /*
-             * TODO: TEAMS Work out your own move logic if you are implementing move
-             * 
-             * Mike's Logic
-             * The monster or charcter will move to a different square if one is open
-             * Find the Desired Target
-             * Jump to the closest space near the target that is open
-             * 
+             * Move Logic
+             *      Find the desired target based on MoveChoice (lowest current health, then highest level)
+             *      Find an empty square near the target that is reachable based on Attacker's range
+             *      Jump/teleport to the empty square
+             *
              * If no open spaces, return false
              * 
              */
@@ -128,6 +126,16 @@ namespace Game.Engine
 
                 // Get the Open Locations - preference to first found spot that is in Range distance
                 var openSquare = MapModel.ReturnClosestEmptyLocation(locationDefender, Attacker.Range);
+
+                // No empty square found
+                if (openSquare == null)
+                {
+                    Debug.WriteLine(string.Format("{0} waits", locationAttacker.Player.Name));
+
+                    BattleMessages.TurnMessage = Attacker.Name + " waits";
+
+                    return false;
+                }
 
                 Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name,
                     locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
