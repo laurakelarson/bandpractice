@@ -101,29 +101,29 @@ namespace Game.Models
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool MovePlayerOnMap(MapModelLocation data, int ToX, int ToY)
+        public bool MovePlayerOnMap(MapModelLocation data, MapModelLocation target)
         {
-            if (ToX < 0)
+            if (target.Column < 0)
             {
                 return false;
             }
 
-            if (ToY < 0)
+            if (target.Row < 0)
             {
                 return false;
             }
 
-            if (ToX >= MapXAxesCount)
+            if (target.Column >= MapXAxesCount)
             {
                 return false;
             }
 
-            if (ToY >= MapYAxesCount)
+            if (target.Row >= MapYAxesCount)
             {
                 return false;
             }
 
-            MapGridLocation[ToX, ToY].Player = data.Player;
+            MapGridLocation[target.Column, target.Row].Player = data.Player;
 
             // Clear out the old location
             MapGridLocation[data.Column, data.Row].Player = EmptySquare;
