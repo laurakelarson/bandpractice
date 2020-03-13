@@ -17,14 +17,12 @@ namespace Game.Engine
     public class TurnEngine : BaseEngine
     {
         #region Algorithm
-        // Roll 6-sided dice to determine how many Moves on grid
-        // Move, Wait, or Attack
+        // Turn consists of a Move or Attack
+        //
         // Move:
-        //      Directions: up, down, left, or right
-        //      Each Move consumes one value from 6d roll
-        //      Entity can only move at beginning of their turn - if they Attack or Wait, they lose any remaning values from their roll
-        // Wait:
-        //      Character decides to do nothing - ends Turn
+        //      Move to an empty space on the Map
+        //      Turn Over
+        //
         // Attack:
         //      Allowed only if in range of target
         //      Roll To Hit
@@ -32,7 +30,7 @@ namespace Game.Engine
         //      Decide Damage
         //      Death
         //      Drop Items
-        // Turn Over
+        //      Turn Over
         #endregion Algorithm
 
 
