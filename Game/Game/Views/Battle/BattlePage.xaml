@@ -138,9 +138,11 @@
                     IsVisible="false">
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="10">
-                    <Label Text="Thank you for Playing" Style="{StaticResource CenterMessageLargeStyle}"/>
+                    <Image Source="gameover.png"/>
 
-                    <Label Text="Check your score, or click Exit and return soon" Style="{StaticResource MessageStyle}" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" MaxLines="5" Padding="20"/>
+                    <Label Text="You rocked out hard, but not hard enough." LineBreakMode="WordWrap" Style="{StaticResource CenterMessageLargeStyle}"/>
+
+                    <Label Text="See your score, or click Exit and try again!" Style="{StaticResource MessageStyle}" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" MaxLines="5" Padding="20"/>
 
                     <Button x:Name="ShowScoreButton" Clicked="ShowScoreButton_Clicked" Text="Score" WidthRequest="50"/>
 
