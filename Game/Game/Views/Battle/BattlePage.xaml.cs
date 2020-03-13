@@ -797,9 +797,11 @@ namespace Game.Views
         /// </summary>
         public void GameOver()
         {
-            // Save the Score to the Score View Model, by sending a message to it.
+            // Save the Score to the Score View Model, use first band member's name as Score Name
             var Score = EngineViewModel.Engine.Score;
-            MessagingCenter.Send(this, "AddData", Score);
+            Score.Name = EngineViewModel.PartyCharacterList.FirstOrDefault().Name + " "
+                   + Score.GameDate.ToShortDateString();
+            MessagingCenter.Send(this, "Create", Score);
 
             ShowBattleMode();
         }
