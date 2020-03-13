@@ -41,9 +41,6 @@ namespace Game.Engine
         /// <returns></returns>
         public bool TakeTurn(BattleEntityModel attacker)
         {
-            // Roll dice for Move value
-            MoveRollValue = DiceHelper.RollDice(1, 6);
-
             var result = Attack(attacker);
 
             Score.TurnCount++;
