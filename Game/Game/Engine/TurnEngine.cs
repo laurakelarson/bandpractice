@@ -62,6 +62,8 @@ namespace Game.Engine
         /// <returns></returns>
         public bool Attack(BattleEntityModel Attacker)
         {
+            CurrentAttacker = Attacker;
+
             // If no defender, should return null regardless of autobattle or regular battle
             
             // For Attack, Choose Who
@@ -139,14 +141,14 @@ namespace Game.Engine
                 return null;
             }
 
-            // Select first one to hit in the list for now...
-            // Attack the Weakness (lowest HP) MonsterModel first
-
-            // TODO: Teams, You need to implement your own Logic can not use mine. //Have this sort the list for options, then choose the closest character (can probably use MapModel IsTargetInRange method)
-
+            // Select closest monster to attack
+            // Break ties on lowest current health, then highest level
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Monster)
-                   .OrderBy(m => m.CurrentHealth).FirstOrDefault();
+                   .OrderBy(m => MapModel.CalculateDistance(MapModel.GetLocationForPlayer(CurrentAttacker), MapModel.GetLocationForPlayer(m)))
+                   .ThenBy(m => m.CurrentHealth)
+                   .ThenByDescending(m => m.Level)
+                   .FirstOrDefault();
 
             return Defender;
         }
