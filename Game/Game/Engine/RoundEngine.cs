@@ -340,13 +340,13 @@ namespace Game.Engine
                 .ThenBy(a => a.ListOrder)
                 .ToList();
 
-            // Hackathon scenario 30 - volunteer to be first
-            // if character position in list is 0 they get buffed, otherwise no buff
-            if (EntityList[0].EntityType == EntityTypeEnum.Character && !EntityList[0].FirstBuff)
-             {
-                EntityList[0].BuffCharacterStats();
-                EntityList[0].FirstBuff = true; 
-             }
+            //// Hackathon scenario 30 - volunteer to be first
+            //// if character position in list is 0 they get buffed, otherwise no buff
+            //if (EntityList[0].EntityType == EntityTypeEnum.Character && !EntityList[0].FirstBuff)
+            // {
+            //    EntityList[0].BuffCharacterStats();
+            //    EntityList[0].FirstBuff = true; 
+            // }
             
 
             return EntityList;
