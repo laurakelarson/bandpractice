@@ -32,14 +32,14 @@ namespace Game.Views
 			BindingContext = EngineViewModel;
 			BeatsLabel.Text = EngineViewModel.Beats.ToString();
 
-			// Set up default characters
+			// Set up default band
 			EngineViewModel.PartyCharacterList.Clear();
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultDrummer());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultBassist());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultGuitarist());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultTambourine());
 			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultLeadVocalist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultGuitarist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultDrummer());
 			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultKeyboardist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultBassist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultTambourine());
 		}
 
 		/// <summary>
