@@ -331,37 +331,3 @@ namespace Game.Models
         {
             return ((int)Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2)));
         }
-
-        /// <summary>
-        /// Check whether the provided row and column is a valid coordinate on the Map.
-        /// Verifies the coordinate location only (does not check whether coordinate is occupied)
-        /// </summary>
-        /// <param name="Row"></param>
-        /// <param name="Column"></param>
-        /// <returns></returns>
-        public bool IsValidCoordinateOnGrid(int Row, int Column)
-        {
-            if (Row < 0)
-            {
-                return false;
-            }
-
-            if (Row >= MapXAxesCount)
-            {
-                return false;
-            }
-
-            if (Column < 0)
-            {
-                return false;
-            }
-
-            if (Column > MapYAxesCount)
-            {
-                return false;
-            }
-
-            return true;
-        }
-    }
-}
