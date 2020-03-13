@@ -126,10 +126,11 @@ namespace Game.Engine
 
                 // Find Location Nearest to Defender that is Open.
 
-                // Get the Open Locations
-                var openSquare = MapModel.ReturnClosestEmptyLocation(locationDefender);
+                // Get the Open Locations - preference to first found spot that is in Range distance
+                var openSquare = MapModel.ReturnClosestEmptyLocation(locationDefender, Attacker.Range);
 
-                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
+                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name,
+                    locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
 
                 BattleMessages.TurnMessage = Attacker.Name + " moves closer to " + CurrentDefender.Name;
 
