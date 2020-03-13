@@ -410,7 +410,7 @@
                 <Setter Property="Padding" Value="0" />
                 <Setter Property="VerticalOptions" Value="Start" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}" />
             </Style>
 
             <Style TargetType="Frame"
@@ -421,7 +421,7 @@
                 <Setter Property="Padding" Value="0" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
-                <Setter Property="BorderColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}" />
             </Style>
             <!-- Entry -->
             <Style TargetType="Entry"
