@@ -60,7 +60,7 @@ namespace Game.ViewModels
         //TODO: update Beats to follow game rules
 
         //  Hold the number of Beats the player has
-        public int Beats { get; set; } = 500000;    
+        public int Beats { get; set; } = 0;    
 
         #region Constructor
 
