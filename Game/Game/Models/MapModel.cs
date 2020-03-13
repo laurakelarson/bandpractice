@@ -288,19 +288,12 @@ namespace Game.Models
             var locationDefender = GetLocationForPlayer(Defender);
 
             // Get X distance in absolute value
-            var distanceX = Math.Abs(locationAttacker.Column - locationDefender.Column);
-            var distanceY = Math.Abs(locationAttacker.Row - locationDefender.Row);
+            var distance = Math.Abs(CalculateDistance(locationAttacker, locationDefender));
 
             var AttackerRange = Attacker.Range;
 
-            // Can Reach on X?
-            if (distanceX <= AttackerRange)
-            {
-                return true;
-            }
-
-            // Can reach on Y?
-            if (distanceY <= AttackerRange)
+            // Can Reach?
+            if (distance <= AttackerRange)
             {
                 return true;
             }
