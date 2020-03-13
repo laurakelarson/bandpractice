@@ -13,10 +13,7 @@
         Attack = 1,
 
         // Move
-        Move = 10,
-
-        // Wait
-        Wait = 20
+        Move = 10
     }
 
     /// <summary>
@@ -42,10 +39,6 @@
 
                 case ActionEnum.Move:
                     Message = " Moves ";
-                    break;
-
-                case ActionEnum.Wait:
-                    Message = " Waits ";
                     break;
 
                 case ActionEnum.Unknown:
