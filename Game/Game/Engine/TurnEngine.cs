@@ -49,6 +49,34 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Have an entity automatically take a turn
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <returns></returns>
+        public bool AutoTurn(BattleEntityModel Attacker)
+        {
+            // Assume Move if nothing else happens
+            CurrentAction = ActionEnum.Move;
+
+            // See if Desired Target is within Range, and if so attack away
+            if (MapModel.IsTargetInRange(Attacker, AttackChoice(Attacker)))
+            {
+                CurrentAction = ActionEnum.Attack;
+            }
+
+            // Perform the action
+            switch (CurrentAction)
+            {
+                case ActionEnum.Attack:
+                    return Attack(Attacker);
+                case ActionEnum.Move:
+                case ActionEnum.Unknown:
+                default:
+                    return MoveAsTurn(Attacker);
+            }
+        }
+
+        /// <summary>
         /// Find a Desired Target
         /// Move close to them
         /// Get to move the number of Speed
