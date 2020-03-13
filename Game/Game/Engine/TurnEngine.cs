@@ -602,7 +602,8 @@ namespace Game.Engine
             // Mark Status in output
             BattleMessages.TurnMessageSpecial = target.Name + " has perished.";
 
-            // Remove target from list...
+            // Remove target from Map
+            MapModel.RemovePlayerFromMap(target);
 
             // Using a switch so in the future additional PlayerTypes can be added (Boss...)
             switch (target.EntityType)
