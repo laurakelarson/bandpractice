@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Helpers;
 using Game.Models;
 using Game.ViewModels;
 using Game.Views.Battle;
@@ -24,9 +25,21 @@ namespace Game.Views
 			InitializeComponent();
 			Title = "My Band";
 
-            // Bind to battle engine instance
+			// Beats start at 0
+			EngineViewModel.Beats = 0;
+
+			// Bind to battle engine instance
 			BindingContext = EngineViewModel;
 			BeatsLabel.Text = EngineViewModel.Beats.ToString();
+
+			// Set up default characters
+			EngineViewModel.PartyCharacterList.Clear();
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultDrummer());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultBassist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultGuitarist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultTambourine());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultLeadVocalist());
+			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultKeyboardist());
 		}
 
 		/// <summary>
