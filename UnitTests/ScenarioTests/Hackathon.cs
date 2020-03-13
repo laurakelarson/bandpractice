@@ -366,375 +366,375 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(false, result2.MiracleMax);
         }
 
-        [Test]
-        public async Task HackathonScenario_Scenario_10_Grenade_ItemDrop_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      10
-            *      
-            * Description: 
-            *      When a Unique Item from a monster Drops, there is a chance, that it is a 
-            *      Hand Grenade that suddenly does damage to all monsters. 
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngine class: update ItemDrop method to dice roll for grenade drop which 
-            *      causes damage to all monsters in MonsterList
-            * 
-            * Test Algorithm:
-            *      Create Characters (normal stats), Monsters (weak stats)
-            *      
-            *      Start a battle 
-            *      Force dice roll
-            *      Force item drop
-            * 
-            * Test Conditions:
-            *      Monsters should take damage from grenade drop
-            * 
-            * Validation:
-            *      Monsters' health should be lower than original health
-            *  
-            */
+        //[Test]
+        //public async Task HackathonScenario_Scenario_10_Grenade_ItemDrop_Should_Pass()
+        //{
+        //    /* 
+        //    * Scenario Number:  
+        //    *      10
+        //    *      
+        //    * Description: 
+        //    *      When a Unique Item from a monster Drops, there is a chance, that it is a 
+        //    *      Hand Grenade that suddenly does damage to all monsters. 
+        //    * 
+        //    * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+        //    *      TurnEngine class: update ItemDrop method to dice roll for grenade drop which 
+        //    *      causes damage to all monsters in MonsterList
+        //    * 
+        //    * Test Algorithm:
+        //    *      Create Characters (normal stats), Monsters (weak stats)
+        //    *      
+        //    *      Start a battle 
+        //    *      Force dice roll
+        //    *      Force item drop
+        //    * 
+        //    * Test Conditions:
+        //    *      Monsters should take damage from grenade drop
+        //    * 
+        //    * Validation:
+        //    *      Monsters' health should be lower than original health
+        //    *  
+        //    */
 
-            //Arrange
-            // Set Character Conditions
+        //    //Arrange
+        //    // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 1;
+        //    BattleEngine.MaxNumberCharacters = 1;
 
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = 20, 
-                Level = 1,
-                CurrentHealth = 1,
-                MaxHealth = 10,
-                TotalExperience = 10,
-                Attack = 50,
-                Defense = 10,
-                Name = "Yoshi"
-            };
-            var CharacterPlayer = new BattleEntityModel(CharacterPlayerYoshi);
+        //    var CharacterPlayerYoshi = new CharacterModel
+        //    {
+        //        Speed = 20, 
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        MaxHealth = 10,
+        //        TotalExperience = 10,
+        //        Attack = 50,
+        //        Defense = 10,
+        //        Name = "Yoshi"
+        //    };
+        //    var CharacterPlayer = new BattleEntityModel(CharacterPlayerYoshi);
 
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
-            // Set Monster Conditions
-            // Add a monster to attack
-            BattleEngine.MaxNumberMonsters = 4;
+        //    // Set Monster Conditions
+        //    // Add a monster to attack
+        //    BattleEngine.MaxNumberMonsters = 4;
 
-            var MonsterWeak = new MonsterModel
-            {
-                Speed = -1, // character needs to go first to hit
-                Level = 1,
-                CurrentHealth = 1, // needs to die to drop item and trigger grenade drop
-                ExperienceGiven = 1,
-                Name = "Monster",
-            };
-            var Monster = new MonsterModel
-            {
-                Speed = -1, // character needs to go first to hit
-                Level = 1,
-                CurrentHealth = 10,
-                ExperienceGiven = 1,
-                Name = "Monster",
-            };
+        //    var MonsterWeak = new MonsterModel
+        //    {
+        //        Speed = -1, // character needs to go first to hit
+        //        Level = 1,
+        //        CurrentHealth = 1, // needs to die to drop item and trigger grenade drop
+        //        ExperienceGiven = 1,
+        //        Name = "Monster",
+        //    };
+        //    var Monster = new MonsterModel
+        //    {
+        //        Speed = -1, // character needs to go first to hit
+        //        Level = 1,
+        //        CurrentHealth = 10,
+        //        ExperienceGiven = 1,
+        //        Name = "Monster",
+        //    };
 
-            BattleEngine.MonsterList.Add(MonsterWeak);
-            BattleEngine.MonsterList.Add(Monster);
-            BattleEngine.MonsterList.Add(Monster);
-            BattleEngine.MonsterList.Add(Monster);
+        //    BattleEngine.MonsterList.Add(MonsterWeak);
+        //    BattleEngine.MonsterList.Add(Monster);
+        //    BattleEngine.MonsterList.Add(Monster);
+        //    BattleEngine.MonsterList.Add(Monster);
 
-            // Update Round Count for test (grenade drop uses round count for damage calculation)
-            BattleEngine.Score.RoundCount = 2;
-            // Have dice roll 1 to trigger grenade drop
-            DiceHelper.DisableRandomValues();
-            DiceHelper.SetForcedDiceRollValue(1);
+        //    // Update Round Count for test (grenade drop uses round count for damage calculation)
+        //    BattleEngine.Score.RoundCount = 2;
+        //    // Have dice roll 1 to trigger grenade drop
+        //    DiceHelper.DisableRandomValues();
+        //    DiceHelper.SetForcedDiceRollValue(1);
 
-            // Battle needs to create entity list
-            BattleEngine.NewRound();
+        //    // Battle needs to create entity list
+        //    BattleEngine.NewRound();
 
-            //Act
-            // Force weak monster to take damage, which should force an Item drop that forces damaging grenade
-            BattleEngine.TakeDamage(BattleEngine.EntityList.First(a => a.Id == BattleEngine.MonsterList[0].Id), 10);
-            var monster1 = BattleEngine.MonsterList[0]; // should be dead
-            var monster2 = BattleEngine.MonsterList[1]; // three others should have taken damage
-            var monster3 = BattleEngine.MonsterList[2];
-            var monster4 = BattleEngine.MonsterList[3];
+        //    //Act
+        //    // Force weak monster to take damage, which should force an Item drop that forces damaging grenade
+        //    BattleEngine.TakeDamage(BattleEngine.EntityList.First(a => a.Id == BattleEngine.MonsterList[0].Id), 10);
+        //    var monster1 = BattleEngine.MonsterList[0]; // should be dead
+        //    var monster2 = BattleEngine.MonsterList[1]; // three others should have taken damage
+        //    var monster3 = BattleEngine.MonsterList[2];
+        //    var monster4 = BattleEngine.MonsterList[3];
 
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
-            DiceHelper.EnableRandomValues();
+        //    //Reset
+        //    BattleEngine.Score.RoundCount = 0;
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.MonsterList.Clear();
+        //    BattleEngine.ItemPool.Clear();
+        //    DiceHelper.EnableRandomValues();
 
-            //Assert
-            Assert.AreEqual(false, monster1.Alive);
-            Assert.AreNotEqual(Monster.CurrentHealth, monster2.CurrentHealth);
-            Assert.AreNotEqual(Monster.CurrentHealth, monster3.CurrentHealth);
-            Assert.AreNotEqual(Monster.CurrentHealth, monster4.CurrentHealth);
-        }
+        //    //Assert
+        //    Assert.AreEqual(false, monster1.Alive);
+        //    Assert.AreNotEqual(Monster.CurrentHealth, monster2.CurrentHealth);
+        //    Assert.AreNotEqual(Monster.CurrentHealth, monster3.CurrentHealth);
+        //    Assert.AreNotEqual(Monster.CurrentHealth, monster4.CurrentHealth);
+        //}
 
-        [Test]
-        public async Task HackathonScenario_Scenario_30_FirstCharacter_Buffed_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      30
-            *      
-            * Description: 
-            *      The first character in the player list gets their base Attack, Speed, Defense values 
-            *      buffed by 2x for the time they are the first in the list.
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
-            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
-            *      on whether character is first in entity list, and if they are, buff their stats. If 
-            *      the character was previously buffed and no longer gets the buff, they are debuffed.
-            * 
-            * Test Algorithm:
-            *      Create Character
-            *      Set speed to 100 (very fast, first in order)
-            *      
-            *      Start a battle, check if that character is buffed
-            * 
-            * Test Conditions:
-            *      Character should have highest speed, and therefore would hold position 0 in list
-            * 
-            * Validation:
-            *      Entity field FirstBuff() will be true
-            *      Attack attribute will be doubled
-            *  
-            */
+       // [Test]
+        //public async Task HackathonScenario_Scenario_30_FirstCharacter_Buffed_Should_Pass()
+        //{
+        //    /* 
+        //    * Scenario Number:  
+        //    *      30
+        //    *      
+        //    * Description: 
+        //    *      The first character in the player list gets their base Attack, Speed, Defense values 
+        //    *      buffed by 2x for the time they are the first in the list.
+        //    * 
+        //    * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+        //    *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
+        //    *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
+        //    *      on whether character is first in entity list, and if they are, buff their stats. If 
+        //    *      the character was previously buffed and no longer gets the buff, they are debuffed.
+        //    * 
+        //    * Test Algorithm:
+        //    *      Create Character
+        //    *      Set speed to 100 (very fast, first in order)
+        //    *      
+        //    *      Start a battle, check if that character is buffed
+        //    * 
+        //    * Test Conditions:
+        //    *      Character should have highest speed, and therefore would hold position 0 in list
+        //    * 
+        //    * Validation:
+        //    *      Entity field FirstBuff() will be true
+        //    *      Attack attribute will be doubled
+        //    *  
+        //    */
 
-            //Arrange
-            // Set Character Conditions
+        //    //Arrange
+        //    // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 1;
+        //    BattleEngine.MaxNumberCharacters = 1;
 
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = 100, // Will go first and trigger buff
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Attack = 10,
-                Defense = 10,
-                Name = "Yoshi"
-            };
+        //    var CharacterPlayerYoshi = new CharacterModel
+        //    {
+        //        Speed = 100, // Will go first and trigger buff
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Attack = 10,
+        //        Defense = 10,
+        //        Name = "Yoshi"
+        //    };
 
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
-            // Set Monster Conditions
+        //    // Set Monster Conditions
 
-            // Auto Battle will add the monsters
+        //    // Auto Battle will add the monsters
 
-            // Update Round Count for test (starting game from beginning)
-            BattleEngine.Score.RoundCount = 0;
+        //    // Update Round Count for test (starting game from beginning)
+        //    BattleEngine.Score.RoundCount = 0;
 
-            //Act
-            BattleEngine.NewRound();
+        //    //Act
+        //    BattleEngine.NewRound();
 
-            // get the first Entity in list
-            var character = BattleEngine.EntityList[0];
+        //    // get the first Entity in list
+        //    var character = BattleEngine.EntityList[0];
 
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
+        //    //Reset
+        //    BattleEngine.Score.RoundCount = 0;
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.MonsterList.Clear();
+        //    BattleEngine.ItemPool.Clear();
 
-            //Assert
-            Assert.AreEqual(true, character.FirstBuff);
-            Assert.AreEqual(20, character.Attack);
-        }
-        [Test]
-        public async Task HackathonScenario_Scenario_30_SecondCharacter_NotBuffed_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      30
-            *      
-            * Description: 
-            *      The first character in the player list gets their base Attack, Speed, Defense values 
-            *      buffed by 2x for the time they are the first in the list.
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
-            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
-            *      on whether character is first in entity list, and if they are, buff their stats. If 
-            *      the character was previously buffed and no longer gets the buff, they are debuffed.
-            * 
-            * Test Algorithm:
-            *      Create Character
-            *      Set speed to 100 (very fast, first in order)
-            *      Create second character
-            *      Set their speed to a lower amount
-            *      
-            *      Start a battle, check if second character is not buffed
-            * 
-            * Test Conditions:
-            *      Character should not have highest speed, and therefore would not hold position 0 in list
-            * 
-            * Validation:
-            *      Entity field FirstBuff() will be false
-            *  
-            */
+        //    //Assert
+        //    Assert.AreEqual(true, character.FirstBuff);
+        //    Assert.AreEqual(20, character.Attack);
+        //}
+        //[Test]
+        //public async Task HackathonScenario_Scenario_30_SecondCharacter_NotBuffed_Should_Pass()
+        //{
+        //    /* 
+        //    * Scenario Number:  
+        //    *      30
+        //    *      
+        //    * Description: 
+        //    *      The first character in the player list gets their base Attack, Speed, Defense values 
+        //    *      buffed by 2x for the time they are the first in the list.
+        //    * 
+        //    * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+        //    *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
+        //    *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
+        //    *      on whether character is first in entity list, and if they are, buff their stats. If 
+        //    *      the character was previously buffed and no longer gets the buff, they are debuffed.
+        //    * 
+        //    * Test Algorithm:
+        //    *      Create Character
+        //    *      Set speed to 100 (very fast, first in order)
+        //    *      Create second character
+        //    *      Set their speed to a lower amount
+        //    *      
+        //    *      Start a battle, check if second character is not buffed
+        //    * 
+        //    * Test Conditions:
+        //    *      Character should not have highest speed, and therefore would not hold position 0 in list
+        //    * 
+        //    * Validation:
+        //    *      Entity field FirstBuff() will be false
+        //    *  
+        //    */
 
-            //Arrange
-            // Set Character Conditions
+        //    //Arrange
+        //    // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 1;
+        //    BattleEngine.MaxNumberCharacters = 1;
 
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = 100, // Will go first and trigger buff
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Attack = 10,
-                Defense = 10,
-                Name = "Yoshi"
-            };
+        //    var CharacterPlayerYoshi = new CharacterModel
+        //    {
+        //        Speed = 100, // Will go first and trigger buff
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Attack = 10,
+        //        Defense = 10,
+        //        Name = "Yoshi"
+        //    };
 
-            var CharacterPlayerMarble = new CharacterModel
-            {
-                Speed = 90, // high enough speed to occupy position 1
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Attack = 10,
-                Defense = 10,
-                Name = "Marble"
-            };
+        //    var CharacterPlayerMarble = new CharacterModel
+        //    {
+        //        Speed = 90, // high enough speed to occupy position 1
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Attack = 10,
+        //        Defense = 10,
+        //        Name = "Marble"
+        //    };
 
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
 
-            // Set Monster Conditions
+        //    // Set Monster Conditions
 
-            // Auto Battle will add the monsters
+        //    // Auto Battle will add the monsters
 
-            // Update Round Count for test (starting game from beginning)
-            BattleEngine.Score.RoundCount = 0;
+        //    // Update Round Count for test (starting game from beginning)
+        //    BattleEngine.Score.RoundCount = 0;
 
-            //Act
-            BattleEngine.NewRound();
+        //    //Act
+        //    BattleEngine.NewRound();
 
-            // get the first Entity in list
-            var character = BattleEngine.EntityList[1];
+        //    // get the first Entity in list
+        //    var character = BattleEngine.EntityList[1];
 
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
+        //    //Reset
+        //    BattleEngine.Score.RoundCount = 0;
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.MonsterList.Clear();
+        //    BattleEngine.ItemPool.Clear();
 
-            //Assert
-            Assert.AreEqual(false, character.FirstBuff);
-            Assert.AreEqual(10, character.Attack);
-        }
+        //    //Assert
+        //    Assert.AreEqual(false, character.FirstBuff);
+        //    Assert.AreEqual(10, character.Attack);
+        //}
 
-        [Test]
-        public async Task HackathonScenario_Scenario_30_NewRoundUnbuff_Buffed_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      30
-            *      
-            * Description: 
-            *      The first character in the player list gets their base Attack, Speed, Defense values 
-            *      buffed by 2x for the time they are the first in the list.
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
-            *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
-            *      on whether character is first in entity list, and if they are, buff their stats. If 
-            *      the character was previously buffed and no longer gets the buff, they are debuffed.
-            * 
-            * Test Algorithm:
-            *      Create Character - Set speed to 100 (very fast, first in order)
-            *      Create other character - speed to 90
-            *      
-            *      Start a battle, check if first character is buffed
-            *      Adjust speeds of first character and another character so other character is fastest
-            *      Advance round, check if other character is buffed and first character unbuffed
-            * 
-            * Test Conditions:
-            *      Characters will change speeds and force change in buffs
-            * 
-            * Validation:
-            *      Entity field FirstBuff() will be true for first character in first round
-            *      FirstBuff() will be true for second character in second round, false for first character
-            *  
-            */
+        //[Test]
+        //public async Task HackathonScenario_Scenario_30_NewRoundUnbuff_Buffed_Should_Pass()
+        //{
+        //    /* 
+        //    * Scenario Number:  
+        //    *      30
+        //    *      
+        //    * Description: 
+        //    *      The first character in the player list gets their base Attack, Speed, Defense values 
+        //    *      buffed by 2x for the time they are the first in the list.
+        //    * 
+        //    * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+        //    *      BattleEntityModel: added field for FirstBuff (bool) and methods to buff/unbuff entity
+        //    *      RoundEngine class: update OrderEntityListByTurnOrder method to check for conditions
+        //    *      on whether character is first in entity list, and if they are, buff their stats. If 
+        //    *      the character was previously buffed and no longer gets the buff, they are debuffed.
+        //    * 
+        //    * Test Algorithm:
+        //    *      Create Character - Set speed to 100 (very fast, first in order)
+        //    *      Create other character - speed to 90
+        //    *      
+        //    *      Start a battle, check if first character is buffed
+        //    *      Adjust speeds of first character and another character so other character is fastest
+        //    *      Advance round, check if other character is buffed and first character unbuffed
+        //    * 
+        //    * Test Conditions:
+        //    *      Characters will change speeds and force change in buffs
+        //    * 
+        //    * Validation:
+        //    *      Entity field FirstBuff() will be true for first character in first round
+        //    *      FirstBuff() will be true for second character in second round, false for first character
+        //    *  
+        //    */
 
-            //Arrange
-            // Set Character Conditions
+        //    //Arrange
+        //    // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 1;
+        //    BattleEngine.MaxNumberCharacters = 1;
 
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = 100, // Will go first and trigger buff
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Attack = 10,
-                Defense = 10,
-                Name = "Yoshi"
-            };
+        //    var CharacterPlayerYoshi = new CharacterModel
+        //    {
+        //        Speed = 100, // Will go first and trigger buff
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Attack = 10,
+        //        Defense = 10,
+        //        Name = "Yoshi"
+        //    };
 
-            var CharacterPlayerMarble = new CharacterModel
-            {
-                Speed = 90,
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Attack = 10,
-                Defense = 10,
-                Name = "Marble"
-            };
+        //    var CharacterPlayerMarble = new CharacterModel
+        //    {
+        //        Speed = 90,
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Attack = 10,
+        //        Defense = 10,
+        //        Name = "Marble"
+        //    };
 
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
 
-            // Set Monster Conditions
+        //    // Set Monster Conditions
 
-            // Auto Battle will add the monsters
+        //    // Auto Battle will add the monsters
 
-            // Update Round Count for test (starting game from beginning)
-            BattleEngine.Score.RoundCount = 0;
+        //    // Update Round Count for test (starting game from beginning)
+        //    BattleEngine.Score.RoundCount = 0;
 
 
-            //Act
-            BattleEngine.NewRound();
-            var character1 = BattleEngine.EntityList[0].Name;
-            var result1 = BattleEngine.EntityList[0].FirstBuff; // Yoshi should be buffed first round
+        //    //Act
+        //    BattleEngine.NewRound();
+        //    var character1 = BattleEngine.EntityList[0].Name;
+        //    var result1 = BattleEngine.EntityList[0].FirstBuff; // Yoshi should be buffed first round
 
-            // adjust Yoshi's speed so Marble goes first next round
-            BattleEngine.CharacterList[0].Speed = 20;
-            BattleEngine.NewRound();
-            var test = BattleEngine.EntityList[0];
-            var character2 = BattleEngine.EntityList[0].Name;
-            var result2 = BattleEngine.EntityList[0].FirstBuff; // Marble should be buffed
-            var result3 = BattleEngine.EntityList[1].FirstBuff; // Yoshi should not be buffed
+        //    // adjust Yoshi's speed so Marble goes first next round
+        //    BattleEngine.CharacterList[0].Speed = 20;
+        //    BattleEngine.NewRound();
+        //    var test = BattleEngine.EntityList[0];
+        //    var character2 = BattleEngine.EntityList[0].Name;
+        //    var result2 = BattleEngine.EntityList[0].FirstBuff; // Marble should be buffed
+        //    var result3 = BattleEngine.EntityList[1].FirstBuff; // Yoshi should not be buffed
 
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
+        //    //Reset
+        //    BattleEngine.Score.RoundCount = 0;
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.MonsterList.Clear();
+        //    BattleEngine.ItemPool.Clear();
 
-            //Assert
-            Assert.AreEqual(true, result1);
-            Assert.AreEqual("Yoshi", character1);
-            Assert.AreEqual(true, result2);
-            Assert.AreEqual("Marble", character2);
-            Assert.AreEqual(false, result3);
-        }
+        //    //Assert
+        //    Assert.AreEqual(true, result1);
+        //    Assert.AreEqual("Yoshi", character1);
+        //    Assert.AreEqual(true, result2);
+        //    Assert.AreEqual("Marble", character2);
+        //    Assert.AreEqual(false, result3);
+        //}
 
         [Test]
         public async Task HackathonScenario_Scenario_32_Round1_Should_Pass()
@@ -883,174 +883,174 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(CharacterPlayerYoshi.Name, result.Name);
         }
 
-        [Test]
-        public async Task HackathonScenario_Scenario_33_Round1_Should_Pass()
-        {
-            /* 
-            * Scenario Number:  
-            *      33
-            *      
-            * Description: 
-            *      On 13th round, a random character dies at the beginning of the round.
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine class: added UnluckyRound() method to randomly choose a character to die.
-            * 
-            * Test Algorithm:
-            *      Create Characters - six
-            *      Set forced dice roll to 1 to kill first character
-            *      Set Round number to 12
-            *      Start New Round
-            * 
-            * Test Conditions:
-            *      Round number is 1, so UnluckyRound should not kill a character
-            * 
-            * Validation:
-            *      First character in character list is alive
-            *  
-            */
+        //[Test]
+        //public async Task HackathonScenario_Scenario_33_Round1_Should_Pass()
+        //{
+        //    /* 
+        //    * Scenario Number:  
+        //    *      33
+        //    *      
+        //    * Description: 
+        //    *      On 13th round, a random character dies at the beginning of the round.
+        //    * 
+        //    * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+        //    *      RoundEngine class: added UnluckyRound() method to randomly choose a character to die.
+        //    * 
+        //    * Test Algorithm:
+        //    *      Create Characters - six
+        //    *      Set forced dice roll to 1 to kill first character
+        //    *      Set Round number to 12
+        //    *      Start New Round
+        //    * 
+        //    * Test Conditions:
+        //    *      Round number is 1, so UnluckyRound should not kill a character
+        //    * 
+        //    * Validation:
+        //    *      First character in character list is alive
+        //    *  
+        //    */
 
-            //Arrange
+        //    //Arrange
 
-            // Set Character Conditions
+        //    // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 6;
+        //    BattleEngine.MaxNumberCharacters = 6;
 
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = 1,
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Name = "Yoshi"
-            };
+        //    var CharacterPlayerYoshi = new CharacterModel
+        //    {
+        //        Speed = 1,
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Name = "Yoshi"
+        //    };
 
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
 
-            // Set Monster Conditions
-            BattleEngine.MaxNumberMonsters = 6;
-            BattleEngine.MonsterList.Clear();
+        //    // Set Monster Conditions
+        //    BattleEngine.MaxNumberMonsters = 6;
+        //    BattleEngine.MonsterList.Clear();
 
-            // Battle will add the monsters
+        //    // Battle will add the monsters
 
-            // Don't need any items for test
-            BattleEngine.ItemPool.Clear();
+        //    // Don't need any items for test
+        //    BattleEngine.ItemPool.Clear();
 
-            // Update Round Count for test
-            BattleEngine.Score.RoundCount = 0;
+        //    // Update Round Count for test
+        //    BattleEngine.Score.RoundCount = 0;
 
-            //Act
-            BattleEngine.NewRound();
-            // get the first Entity in list
-            var result = BattleEngine.CharacterList.ElementAt(0);
+        //    //Act
+        //    BattleEngine.NewRound();
+        //    // get the first Entity in list
+        //    var result = BattleEngine.CharacterList.ElementAt(0);
 
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
-            DiceHelper.EnableRandomValues();
+        //    //Reset
+        //    BattleEngine.Score.RoundCount = 0;
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.MonsterList.Clear();
+        //    BattleEngine.ItemPool.Clear();
+        //    DiceHelper.EnableRandomValues();
 
-            //Assert
-            Assert.AreEqual(true, result.Alive);
-        }
+        //    //Assert
+        //    Assert.AreEqual(true, result.Alive);
+        //}
 
-        [Test]
-        public async Task HackathonScenario_Scenario_33_Round13_Should_Fail()
-        {
-            /* 
-            * Scenario Number:  
-            *      33
-            *      
-            * Description: 
-            *      On 13th round, a random character dies at the beginning of the round.
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      RoundEngine class: added UnluckyRound() method to randomly choose a character to die.
-            * 
-            * Test Algorithm:
-            *      Create Characters - six
-            *      Set forced dice roll to 1 to kill first character
-            *      Set Round number to 12
-            *      Start New Round
-            * 
-            * Test Conditions:
-            *      Round number is 13, so UnluckyRound should kill a character
-            * 
-            * Validation:
-            *      First character (named "Yoshi") is dead
-            *  
-            */
+        //[Test]
+        //public async Task HackathonScenario_Scenario_33_Round13_Should_Fail()
+        //{
+        //    /* 
+        //    * Scenario Number:  
+        //    *      33
+        //    *      
+        //    * Description: 
+        //    *      On 13th round, a random character dies at the beginning of the round.
+        //    * 
+        //    * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+        //    *      RoundEngine class: added UnluckyRound() method to randomly choose a character to die.
+        //    * 
+        //    * Test Algorithm:
+        //    *      Create Characters - six
+        //    *      Set forced dice roll to 1 to kill first character
+        //    *      Set Round number to 12
+        //    *      Start New Round
+        //    * 
+        //    * Test Conditions:
+        //    *      Round number is 13, so UnluckyRound should kill a character
+        //    * 
+        //    * Validation:
+        //    *      First character (named "Yoshi") is dead
+        //    *  
+        //    */
 
-            //Arrange
+        //    //Arrange
 
-            // Set Character Conditions
+        //    // Set Character Conditions
 
-            BattleEngine.MaxNumberCharacters = 6;
+        //    BattleEngine.MaxNumberCharacters = 6;
 
-            var CharacterPlayerYoshi = new CharacterModel
-            {
-                Speed = 1,
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Name = "Yoshi"
-            };
+        //    var CharacterPlayerYoshi = new CharacterModel
+        //    {
+        //        Speed = 1,
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Name = "Yoshi"
+        //    };
 
-            var CharacterPlayerMarble = new CharacterModel
-            {
-                Speed = 1,
-                Level = 1,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-                Name = "Marble"
-            };
+        //    var CharacterPlayerMarble = new CharacterModel
+        //    {
+        //        Speed = 1,
+        //        Level = 1,
+        //        CurrentHealth = 1,
+        //        TotalExperience = 1,
+        //        Name = "Marble"
+        //    };
 
 
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
-            BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.CharacterList.Add(CharacterPlayerYoshi);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
+        //    BattleEngine.CharacterList.Add(CharacterPlayerMarble);
 
-            // Set Monster Conditions
-            BattleEngine.MaxNumberMonsters = 6;
-            BattleEngine.MonsterList.Clear();
+        //    // Set Monster Conditions
+        //    BattleEngine.MaxNumberMonsters = 6;
+        //    BattleEngine.MonsterList.Clear();
 
-            // Battle will add the monsters
+        //    // Battle will add the monsters
 
-            // Don't need any items for test
-            BattleEngine.ItemPool.Clear();
+        //    // Don't need any items for test
+        //    BattleEngine.ItemPool.Clear();
 
-            // Update Round Count for test (12 rounds have been completed already)
-            BattleEngine.Score.RoundCount = 12;
-            DiceHelper.DisableRandomValues();
-            DiceHelper.SetForcedDiceRollValue(1);
-            //Act
-            BattleEngine.NewRound();
-            // get the first Entity in list
-            var result = BattleEngine.CharacterList.Any(a => a.Name == "Yoshi");
-            var result2 = BattleEngine.CharacterList.Any(a => a.Name == "Marble");
+        //    // Update Round Count for test (12 rounds have been completed already)
+        //    BattleEngine.Score.RoundCount = 12;
+        //    DiceHelper.DisableRandomValues();
+        //    DiceHelper.SetForcedDiceRollValue(1);
+        //    //Act
+        //    BattleEngine.NewRound();
+        //    // get the first Entity in list
+        //    var result = BattleEngine.CharacterList.Any(a => a.Name == "Yoshi");
+        //    var result2 = BattleEngine.CharacterList.Any(a => a.Name == "Marble");
 
-            //Reset
-            BattleEngine.Score.RoundCount = 0;
-            BattleEngine.CharacterList.Clear();
-            BattleEngine.MonsterList.Clear();
-            BattleEngine.ItemPool.Clear();
-            DiceHelper.EnableRandomValues();
+        //    //Reset
+        //    BattleEngine.Score.RoundCount = 0;
+        //    BattleEngine.CharacterList.Clear();
+        //    BattleEngine.MonsterList.Clear();
+        //    BattleEngine.ItemPool.Clear();
+        //    DiceHelper.EnableRandomValues();
 
-            //Assert
-            Assert.AreEqual(false, result);
-            Assert.AreEqual(true, result2);
-        }
+        //    //Assert
+        //    Assert.AreEqual(false, result);
+        //    Assert.AreEqual(true, result2);
+        //}
 
         [Test]
         public async Task HackathonScenario_Scenario_5_CriticalHits_Disabled_Should_Pass()
