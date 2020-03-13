@@ -114,7 +114,7 @@ namespace UnitTests.Models.Enum
             // Reset
 
             // Assert
-            Assert.AreEqual(" hits ", result);
+            Assert.AreEqual(" strikes ", result);
         }
 
         // Confirm message for CriticalHit is correct
