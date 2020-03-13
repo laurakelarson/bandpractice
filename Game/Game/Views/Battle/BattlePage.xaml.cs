@@ -962,8 +962,8 @@ namespace Game.Views
             switch (EngineViewModel.Engine.BattleStateEnum)
             {
                 case BattleStateEnum.Starting:
-                    //GameUIDisplay.IsVisible = false;
                     StartBattleButton.IsVisible = true;
+                    //GameUIDisplay.IsVisible = false;
                     break;
 
                 case BattleStateEnum.NewRound:
