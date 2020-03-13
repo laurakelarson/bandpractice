@@ -65,7 +65,7 @@ namespace Game.Views
                 CharacterInfoBox.Children.Add(CharacterInfo(data));
             }
 
-
+            ShowModalNewRoundPage();
             // Set the Battle Mode
             ShowBattleMode();
         }
@@ -613,6 +613,18 @@ namespace Game.Views
             NextAttackExample();
         }
 
+        /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AutoAttackButton_Clicked(object sender, EventArgs e)
+        {
+            for(int i = 0; i<10; i++)
+            {
+                AttackButton_Clicked(sender, e);
+            }
+        }
 
         /// <summary>
         /// Next Attack Example
@@ -659,9 +671,11 @@ namespace Game.Views
                 Task.Delay(WaitTime);
 
                 Debug.WriteLine("New Round");
+                EngineViewModel.Engine.NewRound();
 
                 // Show the Round Over, after that is cleared, it will show the New Round Dialog
                 ShowModalRoundOverPage();
+                //ShowModalNewRoundPage();
                 return;
             }
 
@@ -807,7 +821,7 @@ namespace Game.Views
         }
         #endregion BasicBattleMode
 
-        #region MessageHandelers
+        #region MessageHandlers
 
         /// <summary>
         /// Builds up the output message
@@ -841,7 +855,7 @@ namespace Game.Views
 
         #endregion MessageHandelers
 
-        #region PageHandelers
+        #region PageHandlers
 
         /// <summary>
         /// Battle Over, so Exit Button
@@ -863,6 +877,7 @@ namespace Game.Views
         public async void NextRoundButton_Clicked(object sender, EventArgs e)
         {
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
+            DrawGameAttackerDefenderBoard();
             ShowBattleMode();
             await Navigation.PushModalAsync(new NewRoundPage());
         }
@@ -877,7 +892,7 @@ namespace Game.Views
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
 
             ShowBattleMode();
-            await Navigation.PushModalAsync(new NewRoundPage());
+            //await Navigation.PushModalAsync(new NewRoundPage());
         }
 
         /// <summary>
@@ -906,7 +921,17 @@ namespace Game.Views
             await Navigation.PushModalAsync(new RoundOverPage());
         }
 
-
+        /// <summary>
+        /// Show the New Round page
+        /// 
+        /// Round Over is where characters get items
+        /// 
+        /// </summary>
+        public async void ShowModalNewRoundPage()
+        {
+            await Navigation.PushModalAsync(new NewRoundPage());
+            ShowBattleMode();
+        }
         #endregion PageHandlers
 
         protected override void OnAppearing()
@@ -928,6 +953,7 @@ namespace Game.Views
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             AttackButton.IsVisible = false;
+            AutoAttackButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
             BattlePlayerInfomationBox.IsVisible = false;
         }
@@ -989,6 +1015,7 @@ namespace Game.Views
                     BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
                     AttackButton.IsVisible = true;
+                    AutoAttackButton.IsVisible = true;
                     break;
 
                 // Based on the State disable buttons
