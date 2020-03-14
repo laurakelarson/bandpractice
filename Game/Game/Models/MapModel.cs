@@ -411,5 +411,35 @@ namespace Game.Models
         {
             return ((int)Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2)));
         }
+
+        /// <summary>
+        /// Verifies that the given coordinate is a valid location on this Map
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public bool IsValidCoordinate(MapModelLocation target)
+        {
+            if (target.Column < 0)
+            {
+                return false;
+            }
+
+            if (target.Row < 0)
+            {
+                return false;
+            }
+
+            if (target.Column >= MapXAxesCount)
+            {
+                return false;
+            }
+
+            if (target.Row >= MapYAxesCount)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
