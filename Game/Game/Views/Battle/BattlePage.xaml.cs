@@ -513,6 +513,28 @@ namespace Game.Views
 
             return true;
         }
+
+        /// <summary>
+        /// If the user clicks a battle square when it's a Character's turn, call the battle engine to
+        /// perform an action on that square
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool CharacterManualTurn(MapModelLocation data)
+        {
+            // only take a turn if we're waiting on a character
+            if (EngineViewModel.Engine.CurrentEntity.EntityType != EntityTypeEnum.Character)
+            {
+                return false;
+            }
+
+            var result = EngineViewModel.Engine.CharacterManualTurn(EngineViewModel.Engine.CurrentEntity, data);
+
+            DisplayTurnResult();
+
+            return result;
+        }
+
         #endregion MapEvents
 
         #endregion BattleMapMode
