@@ -91,6 +91,10 @@ namespace Game.Engine
         /// <returns></returns>
         public bool CharacterManualTurn(BattleEntityModel Attacker, MapModelLocation Location)
         {
+            Score.TurnCount++;
+
+            //TODO add battle messages
+
             // only characters are allowed to do manual attacks
             if (Attacker.EntityType == EntityTypeEnum.Monster)
             {
