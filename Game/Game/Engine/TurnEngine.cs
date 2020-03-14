@@ -80,6 +80,57 @@ namespace Game.Engine
         }
 
         /// <summary>
+        /// Character takes a turn by performing an action on the specified MapModelLocation.
+        /// Possible actions are:
+        ///     Attack: if location has a monster in range
+        ///     Move: if location has a monster out of range, or location is empty
+        ///     Swap: if location has a character, the characters swap places
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public bool CharacterManualTurn(BattleEntityModel Attacker, MapModelLocation Location)
+        {
+            // only characters are allowed to do manual attacks
+            if (Attacker.EntityType == EntityTypeEnum.Monster)
+            {
+                return false;
+            }
+
+            // is there a monster at the location?
+            if (Location.Player.EntityType == EntityTypeEnum.Monster)
+            {
+                // is it in range? attack...
+                if (MapModel.IsTargetInRange(Attacker, Location.Player))
+                {
+                    return TurnAsAttack(Attacker, Location.Player);
+                }
+
+                // otherwise move to the closest found space
+                var openSquare = MapModel.ReturnClosestEmptyLocation(Location);
+                var current = MapModel.GetLocationForPlayer(Attacker);
+                return MapModel.MovePlayerOnMap(current, openSquare);
+            }
+
+            // is the location empty?
+            if (Location.Player.EntityType == EntityTypeEnum.Unknown)
+            {
+                // move to empty space
+                var current = MapModel.GetLocationForPlayer(Attacker);
+                return MapModel.MovePlayerOnMap(current, Location);
+            }
+
+            // is there a character at the location?
+            if (Location.Player.EntityType == EntityTypeEnum.Character)
+            {
+                //TODO characters swap locations
+            }
+
+            // did not perform action
+            return false;
+        }
+
+        /// <summary>
         /// Find a Desired Target
         /// Move close to them
         /// Get to move the number of Speed
