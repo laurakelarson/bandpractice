@@ -405,23 +405,31 @@ namespace Game.Views
                     AutomationId = MapModel.Player.Guid
                 };
             }
-            
-            //TODO add a click event to handle character manual turn
-            switch (MapModel.Player.EntityType)
-            {
-                case EntityTypeEnum.Character:
-                    data.Clicked += (sender, args) => SetSelectedCharacter(MapModel);
-                    break;
-                case EntityTypeEnum.Monster:
-                    data.Clicked += (sender, args) => SetSelectedMonster(MapModel);
-                    break;
-                case EntityTypeEnum.Unknown:
-                default:
-                    data.Clicked += (sender, args) => SetSelectedEmpty(MapModel);
 
-                    // Use the blank cell
-                    data.Source = "mapcell.png";
-                    break;
+            // add a click event to handle character manual turn
+            data.Clicked += (sender, args) => SetSelectedCharacter(MapModel);
+
+            //switch (MapModel.Player.EntityType)
+            //{
+            //    case EntityTypeEnum.Character:
+            //        data.Clicked += (sender, args) => SetSelectedCharacter(MapModel);
+            //        break;
+            //    case EntityTypeEnum.Monster:
+            //        data.Clicked += (sender, args) => SetSelectedMonster(MapModel);
+            //        break;
+            //    case EntityTypeEnum.Unknown:
+            //    default:
+            //        data.Clicked += (sender, args) => SetSelectedEmpty(MapModel);
+
+            //        // Use the blank cell
+            //        data.Source = "mapcell.png";
+            //        break;
+            //}
+
+            if (MapModel.Player.EntityType == EntityTypeEnum.Unknown)
+            {
+                // Use the blank cell
+                data.Source = "mapcell.png";
             }
 
             return data;
