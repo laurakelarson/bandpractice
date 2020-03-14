@@ -293,6 +293,9 @@
   <ItemGroup>
     <Content Include="Assets\PixelSplitter-Bold.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="mapcell.png" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
