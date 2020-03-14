@@ -649,30 +649,24 @@ namespace Game.Views
             // Hold the current state
             var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
 
-            //TODO breaking out actions for manual battle - for character, need to be able to manually select action
-            var Player = EngineViewModel.Engine.CurrentEntity;
-            if (Player.EntityType == EntityTypeEnum.Monster)
+            // It's a Character or Monster's turn
+            if (RoundCondition == RoundEnum.NextTurn)
             {
-                EngineViewModel.Engine.TakeTurn(Player);
+                //TODO breaking out actions for manual battle - for character, need to be able to manually select action
+                var Player = EngineViewModel.Engine.CurrentEntity;
+                if (Player.EntityType == EntityTypeEnum.Monster)
+                {
+                    EngineViewModel.Engine.TakeTurn(Player);
+                }
+                else if (Player.EntityType == EntityTypeEnum.Character)
+                {
+                    EngineViewModel.Engine.TakeTurn(Player);
+                }
+
+                DisplayTurnResult();
+
+                return;
             }
-            else if (Player.EntityType == EntityTypeEnum.Character)
-            {
-                EngineViewModel.Engine.TakeTurn(Player);
-            }
-
-            // Output the Message of what happened.
-            GameMessage();
-
-            // Show the outcome on the Board
-            DrawGameAttackerDefenderBoard();
-
-            // Update current HP for entities, update battle grid with only alive entities
-            CharacterInfoBox.Children.Clear();
-            foreach (var data in EngineViewModel.Engine.CharacterList)
-            {
-                CharacterInfoBox.Children.Add(CharacterInfo(data));
-            }
-
 
             if (RoundCondition == RoundEnum.NewRound)
             {
@@ -705,6 +699,25 @@ namespace Game.Views
 
                 GameOver();
                 return;
+            }
+        }
+
+        /// <summary>
+        /// Display the result of the Turn by updating UX messages, board, and character profiles
+        /// </summary>
+        public void DisplayTurnResult()
+        {
+            // Output the Message of what happened.
+            GameMessage();
+
+            // Show the outcome on the Board
+            DrawGameAttackerDefenderBoard();
+
+            // Update current HP for entities, update battle grid with only alive entities
+            CharacterInfoBox.Children.Clear();
+            foreach (var data in EngineViewModel.Engine.CharacterList)
+            {
+                CharacterInfoBox.Children.Add(CharacterInfo(data));
             }
         }
 
