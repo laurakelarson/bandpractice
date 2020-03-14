@@ -123,7 +123,9 @@ namespace Game.Engine
             // is there a character at the location?
             if (Location.Player.EntityType == EntityTypeEnum.Character)
             {
-                //TODO characters swap locations
+                // characters swap locations
+                var current = MapModel.GetLocationForPlayer(Attacker);
+                return MapModel.SwapPlayersOnMap(current, Location);
             }
 
             // did not perform action
