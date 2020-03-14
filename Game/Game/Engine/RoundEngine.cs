@@ -270,9 +270,12 @@ namespace Game.Engine
             // Remember who just went...
             CurrentEntity = GetNextPlayerTurn();
 
-            // Do the turn....
-            TakeTurn(CurrentEntity);
-
+            // For auto battle, do the turn....
+            if (Score.AutoBattle)
+            {   
+                TakeTurn(CurrentEntity);
+            }
+            
             RoundState = RoundEnum.NextTurn;
 
             return RoundState;

@@ -644,10 +644,21 @@ namespace Game.Views
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
 
             // Get the turn, set the current player and attacker to match
-            SetAttackerAndDefender();
+            //SetAttackerAndDefender(); //TODO this method might not be needed...?
 
             // Hold the current state
             var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
+
+            //TODO breaking out actions for manual battle - for character, need to be able to manually select action
+            var Player = EngineViewModel.Engine.CurrentEntity;
+            if (Player.EntityType == EntityTypeEnum.Monster)
+            {
+                EngineViewModel.Engine.TakeTurn(Player);
+            }
+            else if (Player.EntityType == EntityTypeEnum.Character)
+            {
+                EngineViewModel.Engine.TakeTurn(Player);
+            }
 
             // Output the Message of what happened.
             GameMessage();
