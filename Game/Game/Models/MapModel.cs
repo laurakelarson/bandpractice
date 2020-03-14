@@ -132,6 +132,61 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Swap the players on the map in the given squares
+        /// </summary>
+        /// <param name="data1"></param>
+        /// <param name="data2"></param>
+        /// <returns></returns>
+        public bool SwapPlayersOnMap(MapModelLocation data1, MapModelLocation data2)
+        {
+            if (data1.Column < 0)
+            {
+                return false;
+            }
+
+            if (data1.Row < 0)
+            {
+                return false;
+            }
+
+            if (data1.Column >= MapXAxesCount)
+            {
+                return false;
+            }
+
+            if (data1.Row >= MapYAxesCount)
+            {
+                return false;
+            }
+
+            if (data2.Column < 0)
+            {
+                return false;
+            }
+
+            if (data2.Row < 0)
+            {
+                return false;
+            }
+
+            if (data2.Column >= MapXAxesCount)
+            {
+                return false;
+            }
+
+            if (data2.Row >= MapYAxesCount)
+            {
+                return false;
+            }
+
+            // swap the players
+            var temp = data2.Player;
+            MapGridLocation[data2.Column, data2.Row].Player = data1.Player;
+            MapGridLocation[data1.Column, data1.Row].Player = temp;
+            return true;
+        }
+
+        /// <summary>
         /// Remove the Player from the Map
         /// Replaces with Empty Square
         /// </summary>
