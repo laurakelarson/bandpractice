@@ -406,7 +406,7 @@ namespace Game.Views
                 };
             }
             
-
+            //TODO add a click event to handle character manual turn
             switch (MapModel.Player.EntityType)
             {
                 case EntityTypeEnum.Character:
