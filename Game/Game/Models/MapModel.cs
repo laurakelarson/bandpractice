@@ -103,22 +103,7 @@ namespace Game.Models
         /// <returns></returns>
         public bool MovePlayerOnMap(MapModelLocation data, MapModelLocation target)
         {
-            if (target.Column < 0)
-            {
-                return false;
-            }
-
-            if (target.Row < 0)
-            {
-                return false;
-            }
-
-            if (target.Column >= MapXAxesCount)
-            {
-                return false;
-            }
-
-            if (target.Row >= MapYAxesCount)
+            if (!IsValidCoordinate(target))
             {
                 return false;
             }
