@@ -92,8 +92,7 @@ namespace Game.Engine
         public bool CharacterManualTurn(BattleEntityModel Attacker, MapModelLocation Location)
         {
             Score.TurnCount++;
-
-            //TODO add battle messages
+            CurrentAttacker = Attacker;
 
             // only characters are allowed to do manual attacks
             if (Attacker.EntityType == EntityTypeEnum.Monster)
@@ -104,6 +103,8 @@ namespace Game.Engine
             // is there a monster at the location?
             if (Location.Player.EntityType == EntityTypeEnum.Monster)
             {
+                CurrentDefender = Location.Player;
+
                 // is it in range? attack...
                 if (MapModel.IsTargetInRange(Attacker, Location.Player))
                 {
@@ -113,6 +114,12 @@ namespace Game.Engine
                 // otherwise move to the closest found space
                 var openSquare = MapModel.ReturnClosestEmptyLocation(Location);
                 var current = MapModel.GetLocationForPlayer(Attacker);
+
+                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", Attacker.Name,
+                    current.Column, current.Row, openSquare.Column, openSquare.Row));
+
+                BattleMessages.TurnMessage = Attacker.Name + " moves closer to " + CurrentDefender.Name;
+
                 return MapModel.MovePlayerOnMap(current, openSquare);
             }
 
@@ -121,6 +128,12 @@ namespace Game.Engine
             {
                 // move to empty space
                 var current = MapModel.GetLocationForPlayer(Attacker);
+
+                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", Attacker.Name,
+                    current.Column, current.Row, Location.Column, Location.Row));
+
+                BattleMessages.TurnMessage = Attacker.Name + " moves to an empty space";
+
                 return MapModel.MovePlayerOnMap(current, Location);
             }
 
@@ -129,6 +142,12 @@ namespace Game.Engine
             {
                 // characters swap locations
                 var current = MapModel.GetLocationForPlayer(Attacker);
+
+                Debug.WriteLine(string.Format("{0} moves and swaps places with {1} ", Attacker.Name,
+                    Location.Player.Name));
+
+                BattleMessages.TurnMessage = Attacker.Name + " moves and swaps places with " + Location.Player.Name;
+
                 return MapModel.SwapPlayersOnMap(current, Location);
             }
 
