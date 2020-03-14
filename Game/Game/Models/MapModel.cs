@@ -139,42 +139,12 @@ namespace Game.Models
         /// <returns></returns>
         public bool SwapPlayersOnMap(MapModelLocation data1, MapModelLocation data2)
         {
-            if (data1.Column < 0)
+            if (!IsValidCoordinate(data1))
             {
                 return false;
             }
 
-            if (data1.Row < 0)
-            {
-                return false;
-            }
-
-            if (data1.Column >= MapXAxesCount)
-            {
-                return false;
-            }
-
-            if (data1.Row >= MapYAxesCount)
-            {
-                return false;
-            }
-
-            if (data2.Column < 0)
-            {
-                return false;
-            }
-
-            if (data2.Row < 0)
-            {
-                return false;
-            }
-
-            if (data2.Column >= MapXAxesCount)
-            {
-                return false;
-            }
-
-            if (data2.Row >= MapYAxesCount)
+            if (!IsValidCoordinate(data2))
             {
                 return false;
             }
