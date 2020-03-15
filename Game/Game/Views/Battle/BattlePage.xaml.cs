@@ -535,6 +535,8 @@ namespace Game.Views
                 }
                 else if (Player.EntityType == EntityTypeEnum.Character)
                 {
+                    CharacterTurnLabel.Text = Player.Name;
+                    CharacterTurnMessage.IsVisible = true;
                     AttackButton.IsVisible = false;
                     IsCharacterTurn = true;
                 }
@@ -605,6 +607,7 @@ namespace Game.Views
             DisplayTurnResult();
 
             AttackButton.IsVisible = true;
+            CharacterTurnMessage.IsVisible = false;
 
             return result;
         }
