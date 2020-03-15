@@ -535,6 +535,7 @@ namespace Game.Views
                 }
                 else if (Player.EntityType == EntityTypeEnum.Character)
                 {
+                    AttackButton.IsVisible = false;
                     IsCharacterTurn = true;
                 }
 
@@ -602,6 +603,8 @@ namespace Game.Views
             var result = EngineViewModel.Engine.CharacterManualTurn(EngineViewModel.Engine.CurrentEntity, data);
 
             DisplayTurnResult();
+
+            AttackButton.IsVisible = true;
 
             return result;
         }
