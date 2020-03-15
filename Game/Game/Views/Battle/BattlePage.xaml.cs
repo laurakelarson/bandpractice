@@ -215,8 +215,13 @@ namespace Game.Views
                     // Remove the ImageButton
                     stackObject.Children.RemoveAt(0);
 
-                    // Add correct ImageButton and Background Color
-                    stackObject.Children.Add(DetermineMapImageButton(data));
+                    var PlayerImageButton = DetermineMapImageButton(data);
+
+                    stackObject.Children.Add(PlayerImageButton);
+
+                    // Update the Image in the Datastructure
+                    MapGridObjectAddImage(PlayerImageButton, data);
+
                     stackObject.BackgroundColor = DetermineMapBackgroundColor(data);
                 }
             }
