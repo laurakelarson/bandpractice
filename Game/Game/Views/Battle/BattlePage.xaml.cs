@@ -217,7 +217,7 @@ namespace Game.Views
 
                     // Add correct ImageButton and Background Color
                     stackObject.Children.Add(DetermineMapImageButton(data));
-                    //stackObject.BackgroundColor = DetermineMapBackgroundColor(data);
+                    stackObject.BackgroundColor = DetermineMapBackgroundColor(data);
                 }
             }
 
@@ -308,7 +308,7 @@ namespace Game.Views
                 Style = (Style)Application.Current.Resources["BattleMapImageBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                //BackgroundColor = DetermineMapBackgroundColor(MapModel),
+                BackgroundColor = DetermineMapBackgroundColor(MapModel),
                 Children = {
                     PlayerImageButton
                 },
@@ -438,33 +438,40 @@ namespace Game.Views
             return data;
         }
 
-        ///// <summary>
-        ///// Set the Background color for the tile.
-        ///// Monsters and Characters have different colors
-        ///// Empty cells are transparent
-        ///// </summary>
-        ///// <param name="MapModel"></param>
-        ///// <returns></returns>
-        //public Color DetermineMapBackgroundColor(MapModelLocation MapModel)
-        //{
-        //    string BattleMapBackgroundColor;
-        //    switch (MapModel.Player.PlayerType)
-        //    {
-        //        case PlayerTypeEnum.Character:
-        //            BattleMapBackgroundColor = "BattleMapCharacterColor";
-        //            break;
-        //        case PlayerTypeEnum.Monster:
-        //            BattleMapBackgroundColor = "BattleMapMonsterColor";
-        //            break;
-        //        case PlayerTypeEnum.Unknown:
-        //        default:
-        //            BattleMapBackgroundColor = "BattleMapTransparentColor";
-        //            break;
-        //    }
+        /// <summary>
+        /// Set the Background color for the tile.
+        /// Monsters and Characters have different colors
+        /// Empty cells are transparent
+        /// </summary>
+        /// <param name="MapModel"></param>
+        /// <returns></returns>
+        public Color DetermineMapBackgroundColor(MapModelLocation MapModel)
+        {
+            if (EngineViewModel.Engine.CurrentEntity != MapModel.Player)
+            {
+                return Color.Transparent;
+            }
 
-        //    var result = (Color)Application.Current.Resources[BattleMapBackgroundColor];
-        //    return result;
-        //}
+            return (Color)Application.Current.Resources["TriciaryBackgroundColor"];
+
+            //string BattleMapBackgroundColor;
+            //switch (MapModel.Player.PlayerType)
+            //{
+            //    case PlayerTypeEnum.Character:
+            //        BattleMapBackgroundColor = "BattleMapCharacterColor";
+            //        break;
+            //    case PlayerTypeEnum.Monster:
+            //        BattleMapBackgroundColor = "BattleMapMonsterColor";
+            //        break;
+            //    case PlayerTypeEnum.Unknown:
+            //    default:
+            //        BattleMapBackgroundColor = "BattleMapTransparentColor";
+            //        break;
+            //}
+
+            //var result = (Color)Application.Current.Resources[BattleMapBackgroundColor];
+            //return result;
+        }
 
         #region MapEvents
         ///// <summary>
