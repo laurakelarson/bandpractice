@@ -158,7 +158,9 @@ namespace Game.Engine
 
             /*
              * Move Logic
-             *      Find the desired target based on MoveChoice (lowest current health, then highest level)
+             *      Find the desired target based on MoveChoice:
+             *          Character goes for lowest current health, then highest level
+             *          Monster goes for highest current health, then highest level
              *      Find an empty square near the target that is reachable based on Attacker's range
              *      Jump/teleport to the empty square
              *
@@ -229,6 +231,7 @@ namespace Game.Engine
 
         /// <summary>
         /// Pick the Character to Move toward
+        /// Decide by highest current health, then highest level
         /// </summary>
         /// <returns></returns>
         public BattleEntityModel SelectCharacterToMoveToward()
@@ -243,10 +246,10 @@ namespace Game.Engine
                 return null;
             }
 
-            // Select character to move to based on lowest current health, then highest level
+            // Select character to move to based on highest current health, then highest level
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Character)
-                   .OrderBy(m => m.CurrentHealth)
+                   .OrderByDescending(m => m.CurrentHealth)
                    .ThenByDescending(m => m.Level)
                    .FirstOrDefault();
 
@@ -255,6 +258,7 @@ namespace Game.Engine
 
         /// <summary>
         /// Pick the Monster to Move toward
+        /// Decide by lowest current health, then highest level
         /// </summary>
         /// <returns></returns>
         public BattleEntityModel SelectMonsterToMoveToward()
@@ -345,11 +349,11 @@ namespace Game.Engine
             }
 
             // Select closest character to attack
-            // Break ties on lowest current health, then highest level
+            // Break ties on highest current health, then highest level
             var Defender = EntityList
                    .Where(m => m.Alive && m.EntityType == EntityTypeEnum.Character)
                    .OrderBy(m => MapModel.CalculateDistance(MapModel.GetLocationForPlayer(CurrentAttacker), MapModel.GetLocationForPlayer(m)))
-                   .ThenBy(m => m.CurrentHealth)
+                   .ThenByDescending(m => m.CurrentHealth)
                    .ThenByDescending(m => m.Level)
                    .FirstOrDefault();
 
