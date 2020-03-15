@@ -407,7 +407,7 @@ namespace Game.Views
             }
 
             // add a click event to handle character manual turn
-            data.Clicked += (sender, args) => SetSelectedCharacter(MapModel);
+            data.Clicked += (sender, args) => CharacterManualTurn(MapModel);
 
             //switch (MapModel.Player.EntityType)
             //{
