@@ -38,6 +38,10 @@
 
             <Color x:Key="TransparentColor">Transparent</Color>
 
+            <!-- BattleMap Square Colors -->
+            <Color x:Key="BattleMapCurrentEntity">#CBE56B</Color>
+            <Color x:Key="BattleMapCurrentAttacker">#F7FFE1</Color>
+            <Color x:Key="BattleMapCurrentDefender">#EEC256</Color>
 
             <!-- Pages -->
             <Style TargetType="NavigationPage">
