@@ -936,8 +936,6 @@ namespace Game.Views
 
             // Display the items equipped during the round
             ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
-
-            ShowBattleMode();
         }
 
         #endregion BasicBattleMode
