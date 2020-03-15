@@ -57,9 +57,8 @@ namespace Game.ViewModels
         // Have the Database Character List point to the Character View Model List
         public ObservableCollection<CharacterModel> DatabaseCharacterList { get; set; } = CharacterIndexViewModel.Instance.Dataset;
 
-        //TODO: update Beats to follow game rules
-
         //  Hold the number of Beats the player has
+        // Start with zero - user can trade in their default band members to get more
         public int Beats { get; set; } = 0;    
 
         #region Constructor
