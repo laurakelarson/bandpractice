@@ -400,33 +400,33 @@ namespace Game.Views
         /// </summary>
         /// <param name="MapModel"></param>
         /// <returns></returns>
-        public ImageButton DetermineMapImageButton(MapModelLocation MapModel)
+        public ImageButton DetermineMapImageButton(MapModelLocation MapLocationModel)
         {
             ImageButton data;
-            if (MapModel.Player.EntityType == EntityTypeEnum.Character)
+            if (MapLocationModel.Player.EntityType == EntityTypeEnum.Character)
             {
                 data = new ImageButton
                 {
                     Style = (Style)Application.Current.Resources["ImageBattleSmallSpriteStyle"],
-                    Source = MapModel.Player.ImageURI,
+                    Source = MapLocationModel.Player.ImageURI,
 
                     // Store the guid to identify this button
-                    AutomationId = MapModel.Player.Guid
+                    AutomationId = MapLocationModel.Player.Guid
                 };
             } else
             {
                 data = new ImageButton
                 {
                     Style = (Style)Application.Current.Resources["ImageBattleSmallIconStyle"],
-                    Source = MapModel.Player.ImageURI,
+                    Source = MapLocationModel.Player.ImageURI,
 
                     // Store the guid to identify this button
-                    AutomationId = MapModel.Player.Guid
+                    AutomationId = MapLocationModel.Player.Guid
                 };
             }
 
             // add a click event to handle character manual turn
-            data.Clicked += (sender, args) => CharacterManualTurn(MapModel);
+            data.Clicked += (sender, args) => CharacterManualTurn(MapLocationModel);
 
             //switch (MapModel.Player.EntityType)
             //{
@@ -444,12 +444,6 @@ namespace Game.Views
             //        data.Source = "mapcell.png";
             //        break;
             //}
-
-            if (MapModel.Player.EntityType == EntityTypeEnum.Unknown)
-            {
-                // Use the blank cell
-                data.Source = "mapcell.png";
-            }
 
             return data;
         }
