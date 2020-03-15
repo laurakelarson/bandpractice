@@ -530,6 +530,12 @@ namespace Game.Views
         /// <returns></returns>
         public bool CharacterManualTurn(MapModelLocation data)
         {
+            // no one is taking a turn - do nothing
+            if (EngineViewModel.Engine.CurrentEntity == null)
+            {
+                return false;
+            }
+
             // only take a turn if we're waiting on a character
             if (EngineViewModel.Engine.CurrentEntity.EntityType != EntityTypeEnum.Character)
             {
