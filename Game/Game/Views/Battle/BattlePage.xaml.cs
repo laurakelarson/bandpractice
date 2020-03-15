@@ -1043,18 +1043,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Show the Round Over page
-        /// 
-        /// Round Over is where characters get items
-        /// 
-        /// </summary>
-        public async void ShowModalRoundOverPage()
-        {
-            ShowBattleMode();
-            await Navigation.PushModalAsync(new RoundOverPage());
-        }
-
-        /// <summary>
         /// Show the New Round page
         /// 
         /// Round Over is where characters get items
