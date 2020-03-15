@@ -470,23 +470,6 @@ namespace Game.Views
             // add a click event to handle character manual turn
             data.Clicked += (sender, args) => CharacterManualTurn(MapLocationModel);
 
-            //switch (MapModel.Player.EntityType)
-            //{
-            //    case EntityTypeEnum.Character:
-            //        data.Clicked += (sender, args) => SetSelectedCharacter(MapModel);
-            //        break;
-            //    case EntityTypeEnum.Monster:
-            //        data.Clicked += (sender, args) => SetSelectedMonster(MapModel);
-            //        break;
-            //    case EntityTypeEnum.Unknown:
-            //    default:
-            //        data.Clicked += (sender, args) => SetSelectedEmpty(MapModel);
-
-            //        // Use the blank cell
-            //        data.Source = "mapcell.png";
-            //        break;
-            //}
-
             return data;
         }
 
@@ -516,67 +499,6 @@ namespace Game.Views
 
             return Color.Transparent;
         }
-
-        #region MapEvents
-        ///// <summary>
-        ///// Event when an empty location is clicked on
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <returns></returns>
-        //public bool SetSelectedEmpty(MapModelLocation data)
-        //{
-        //    // TODO: Info
-
-        //    /*
-        //     * This gets called when the characters is clicked on
-        //     * Usefull if you want to select the location to move to etc.
-        //     * 
-        //     * For Mike's simple battle grammar there is no selection of action so I just return true
-        //     */
-
-        //    return true;
-        //}
-
-        ///// <summary>
-        ///// Event when a Monster is clicked on
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <returns></returns>
-        //public bool SetSelectedMonster(MapModelLocation data)
-        //{
-        //    // TODO: Info
-
-        //    /*
-        //     * This gets called when the Monster is clicked on
-        //     * Usefull if you want to select the monster to attack etc.
-        //     * 
-        //     * For Mike's simple battle grammar there is no selection of action so I just return true
-        //     */
-
-        //    data.IsSelectedTarget = true;
-        //    return true;
-        //}
-
-        ///// <summary>
-        ///// Event when a Character is clicked on
-        ///// </summary>
-        ///// <param name="data"></param>
-        ///// <returns></returns>
-        //public bool SetSelectedCharacter(MapModelLocation data)
-        //{
-        //    // TODO: Info
-
-        //    /*
-        //     * This gets called when the characters is clicked on
-        //     * Usefull if you want to select the character and then set state or do something
-        //     * 
-        //     * For Mike's simple battle grammar there is no selection of action so I just return true
-        //     */
-
-        //    return true;
-        //}
-
-        #endregion MapEvents
 
         #endregion BattleMapMode
 
