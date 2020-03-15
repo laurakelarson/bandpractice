@@ -919,13 +919,7 @@ namespace Game.Views
 
 
         /// <summary>
-        /// Round is over
-        ///
-        /// Show the Round Over display
-        ///
-        /// Start a new round
-        ///
-        /// Pop the New Round page
+        /// Round is over - show the round over screen that includes items equipped
         /// </summary>
         public void RoundOver()
         {
@@ -936,6 +930,8 @@ namespace Game.Views
 
             // Display the items equipped during the round
             ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
+
+            ShowBattleMode();
         }
 
         #endregion BasicBattleMode
@@ -1001,18 +997,31 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void NextRoundButton_Clicked(object sender, EventArgs e)
+        public void NextRoundButton_Clicked(object sender, EventArgs e)
         {
             Debug.WriteLine("New Round");
 
             EngineViewModel.Engine.NewRound();
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
 
-            RoundOverDisplay.IsVisible = false;
+            // Clear and Re-draw the Map
+            InitializeMapGrid();
+            DrawMapGridInitialState();
 
+            // Ask the Game engine to select who goes first
+            EngineViewModel.Engine.CurrentAttacker = null;
+
+            // Add Players to Display
             DrawGameAttackerDefenderBoard();
-            ShowBattleMode();
-            await Navigation.PushModalAsync(new NewRoundPage());
+
+            // draw Character info box at top of Battle Page
+            foreach (var data in EngineViewModel.Engine.CharacterList)
+            {
+                CharacterInfoBox.Children.Add(CharacterInfo(data));
+            }
+
+            RoundOverDisplay.IsVisible = false;
+            ShowModalNewRoundPage();            
         }
 
         /// <summary>
