@@ -447,12 +447,22 @@ namespace Game.Views
         /// <returns></returns>
         public Color DetermineMapBackgroundColor(MapModelLocation MapModel)
         {
-            if (EngineViewModel.Engine.CurrentEntity != MapModel.Player)
+            if (EngineViewModel.Engine.CurrentEntity == MapModel.Player)
             {
-                return Color.Transparent;
+                return (Color)Application.Current.Resources["BattleMapCurrentEntity"];
             }
 
-            return (Color)Application.Current.Resources["TriciaryBackgroundColor"];
+            if (EngineViewModel.Engine.CurrentAttacker == MapModel.Player)
+            {
+                return (Color)Application.Current.Resources["BattleMapCurrentAttacker"];
+            }
+
+            if (EngineViewModel.Engine.CurrentDefender == MapModel.Player)
+            {
+                return (Color)Application.Current.Resources["BattleMapCurrentDefender"];
+            }
+
+            return Color.Transparent;
 
             //string BattleMapBackgroundColor;
             //switch (MapModel.Player.PlayerType)
