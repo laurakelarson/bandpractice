@@ -126,6 +126,8 @@ namespace Game.Engine
             // is the location empty?
             if (Location.Player.EntityType == EntityTypeEnum.Unknown)
             {
+                CurrentDefender = null;
+
                 // move to empty space
                 var current = MapModel.GetLocationForPlayer(Attacker);
 
@@ -140,6 +142,8 @@ namespace Game.Engine
             // is there a character at the location?
             if (Location.Player.EntityType == EntityTypeEnum.Character)
             {
+                CurrentDefender = null;
+
                 // characters swap locations
                 var current = MapModel.GetLocationForPlayer(Attacker);
 
