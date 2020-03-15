@@ -5,6 +5,8 @@
 
     <ContentPage.Content>
 
+
+
         <AbsoluteLayout
                 IsVisible="True"
                 HorizontalOptions="FillAndExpand"
@@ -151,7 +153,44 @@
 
                 </StackLayout>
             </StackLayout>
-        </AbsoluteLayout>
-        
+
+
+            <!-- The Round Over Screen -->
+                <StackLayout Style="{StaticResource VerticalStack}"
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    AbsoluteLayout.LayoutFlags="All"
+                    HorizontalOptions="FillAndExpand"
+                    x:Name="RoundOverDisplay" 
+                    IsVisible="false"
+                    Spacing="10" >
+
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="rock_on.png"/>
+                        <Image Source="rock_on_text.png"/>
+                    </StackLayout>
+
+
+                    <StackLayout Style="{StaticResource VerticalStack}" Margin="10" >
+                        <Label Text="Item Swap Summary" />
+
+                        <ScrollView
+                            Orientation="Vertical"
+                            VerticalOptions="Fill">
+
+                            <Label x:Name="ItemsLabel"
+                        Style="{StaticResource ScrollableLabel}" />
+                        </ScrollView>
+                    </StackLayout>
+
+                    <ImageButton 
+                        Source="nextround.png" 
+                        Clicked="NextRoundButton_Clicked" 
+                        HeightRequest="100"
+                        Style="{StaticResource ImageButtonHome}"></ImageButton>
+                </StackLayout>
+
+            </AbsoluteLayout>
+
+
     </ContentPage.Content>
 </ContentPage>
