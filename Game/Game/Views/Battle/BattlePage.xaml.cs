@@ -464,63 +464,63 @@ namespace Game.Views
         //}
 
         #region MapEvents
-        /// <summary>
-        /// Event when an empty location is clicked on
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool SetSelectedEmpty(MapModelLocation data)
-        {
-            // TODO: Info
+        ///// <summary>
+        ///// Event when an empty location is clicked on
+        ///// </summary>
+        ///// <param name="data"></param>
+        ///// <returns></returns>
+        //public bool SetSelectedEmpty(MapModelLocation data)
+        //{
+        //    // TODO: Info
 
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the location to move to etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
+        //    /*
+        //     * This gets called when the characters is clicked on
+        //     * Usefull if you want to select the location to move to etc.
+        //     * 
+        //     * For Mike's simple battle grammar there is no selection of action so I just return true
+        //     */
 
-            return true;
-        }
+        //    return true;
+        //}
 
-        /// <summary>
-        /// Event when a Monster is clicked on
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool SetSelectedMonster(MapModelLocation data)
-        {
-            // TODO: Info
+        ///// <summary>
+        ///// Event when a Monster is clicked on
+        ///// </summary>
+        ///// <param name="data"></param>
+        ///// <returns></returns>
+        //public bool SetSelectedMonster(MapModelLocation data)
+        //{
+        //    // TODO: Info
 
-            /*
-             * This gets called when the Monster is clicked on
-             * Usefull if you want to select the monster to attack etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
+        //    /*
+        //     * This gets called when the Monster is clicked on
+        //     * Usefull if you want to select the monster to attack etc.
+        //     * 
+        //     * For Mike's simple battle grammar there is no selection of action so I just return true
+        //     */
 
-            data.IsSelectedTarget = true;
-            return true;
-        }
+        //    data.IsSelectedTarget = true;
+        //    return true;
+        //}
 
-        /// <summary>
-        /// Event when a Character is clicked on
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool SetSelectedCharacter(MapModelLocation data)
-        {
-            // TODO: Info
+        ///// <summary>
+        ///// Event when a Character is clicked on
+        ///// </summary>
+        ///// <param name="data"></param>
+        ///// <returns></returns>
+        //public bool SetSelectedCharacter(MapModelLocation data)
+        //{
+        //    // TODO: Info
 
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the character and then set state or do something
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
+        //    /*
+        //     * This gets called when the characters is clicked on
+        //     * Usefull if you want to select the character and then set state or do something
+        //     * 
+        //     * For Mike's simple battle grammar there is no selection of action so I just return true
+        //     */
 
-            return true;
-        }
+        //    return true;
+        //}
 
         /// <summary>
         /// If the user clicks a battle square when it's a Character's turn, call the battle engine to
@@ -831,30 +831,30 @@ namespace Game.Views
         }
 
 
-        /// <summary>
-        /// Decide The Turn and who to Attack
-        /// </summary>
-        public void SetAttackerAndDefender()
-        {
-            EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
+        ///// <summary>
+        ///// Decide The Turn and who to Attack
+        ///// </summary>
+        //public void SetAttackerAndDefender()
+        //{
+        //    EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
 
-            switch (EngineViewModel.Engine.CurrentAttacker.EntityType)
-            {
-                case EntityTypeEnum.Character:
-                    // User would select who to attack
+        //    switch (EngineViewModel.Engine.CurrentAttacker.EntityType)
+        //    {
+        //        case EntityTypeEnum.Character:
+        //            // User would select who to attack
 
-                    // for now just auto selecting
-                    EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
-                    break;
+        //            // for now just auto selecting
+        //            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+        //            break;
 
-                case EntityTypeEnum.Monster:
-                default:
+        //        case EntityTypeEnum.Monster:
+        //        default:
 
-                    // Monsters turn, so auto pick a Character to Attack
-                    EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
-                    break;
-            }
-        }
+        //            // Monsters turn, so auto pick a Character to Attack
+        //            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
+        //            break;
+        //    }
+        //}
 
 
         /// <summary>
