@@ -361,6 +361,16 @@ namespace Game.Models
         /// <returns></returns>
         public int CalculateDistance(MapModelLocation start, MapModelLocation end)
         {
+            if (start == null)
+            {
+                return int.MaxValue;
+            }
+
+            if (end == null)
+            {
+                return int.MaxValue;
+            }
+
             return Distance(start.Column, start.Row, end.Column, end.Row);
         }
 
