@@ -56,9 +56,7 @@ namespace Game.Engine
 
             // Prepare for Battle
 
-            // Picks 6 Characters, for now one of each type
-            // TODO - implement better character picking method when we get Beats figured out
-
+            // Default band
             AddBandMember(DataHelper.DefaultDrummer());
             AddBandMember(DataHelper.DefaultBassist());
             AddBandMember(DataHelper.DefaultGuitarist());
