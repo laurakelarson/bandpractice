@@ -229,6 +229,16 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        public string GetDictionaryFrameName(MapModelLocation data)
+        {
+            return string.Format("MapR{0}C{1}Frame", data.Row, data.Column);
+        }
+
+        /// <summary>
+        /// Convert the Stack to a name for the dictionary to lookup
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public string GetDictionaryStackName(MapModelLocation data)
         {
             return string.Format("MapR{0}C{1}Stack", data.Row, data.Column);
