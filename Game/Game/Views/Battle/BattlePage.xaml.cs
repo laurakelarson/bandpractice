@@ -31,6 +31,9 @@ namespace Game.Views
         // Hold the Map Objects, for easy access to update them
         public Dictionary<string, object> MapLocationObject = new Dictionary<string, object>();
 
+        // Flag to track whether page is waiting for user input for a character manual turn
+        public bool IsCharacterTurn = false;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -530,6 +533,11 @@ namespace Game.Views
         /// <returns></returns>
         public bool CharacterManualTurn(MapModelLocation data)
         {
+            if (!IsCharacterTurn)
+            {
+                return false;
+            }
+
             // no one is taking a turn - do nothing
             if (EngineViewModel.Engine.CurrentEntity == null)
             {
@@ -541,6 +549,9 @@ namespace Game.Views
             {
                 return false;
             }
+
+            // toggle flag to prevent this character from performing multiple actions if user keeps clicking
+            IsCharacterTurn = false;
 
             var result = EngineViewModel.Engine.CharacterManualTurn(EngineViewModel.Engine.CurrentEntity, data);
 
@@ -721,10 +732,11 @@ namespace Game.Views
                     //EngineViewModel.Engine.TakeTurn(Player);
                     MonsterAutoTurn();
                 }
-                //else if (Player.EntityType == EntityTypeEnum.Character)
-                //{
-                //    EngineViewModel.Engine.TakeTurn(Player);
-                //}
+                else if (Player.EntityType == EntityTypeEnum.Character)
+                {
+                    //EngineViewModel.Engine.TakeTurn(Player);
+                    IsCharacterTurn = true;
+                }
 
                 //DisplayTurnResult();
 
