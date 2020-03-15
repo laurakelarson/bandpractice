@@ -921,9 +921,16 @@ namespace Game.Views
 
             Debug.WriteLine(BattleMessages.Text);
 
+            // Level up message
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessages.LevelUpMessage, BattleMessages.Text);
+            }
+
+            // Item Drop message
+            if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.ItemDropMessage))
+            {
+                BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessages.ItemDropMessage, BattleMessages.Text);
             }
 
             //htmlSource.Html = EngineViewModel.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
