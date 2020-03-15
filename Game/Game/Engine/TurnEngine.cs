@@ -39,24 +39,11 @@ namespace Game.Engine
         /// </summary>
         /// <param name="attacker"></param>
         /// <returns></returns>
-        public bool TakeTurn(BattleEntityModel attacker)
-        {
-            //TODO TurnEngine: add logic to handle manual battle for characters
-            var result = AutoTurn(attacker);
-
-            Score.TurnCount++;
-
-            return result;
-        }
-
-        /// <summary>
-        /// Have an entity automatically take a turn
-        /// </summary>
-        /// <param name="attacker"></param>
-        /// <returns></returns>
-        public bool AutoTurn(BattleEntityModel Attacker)
+        public bool TakeTurn(BattleEntityModel Attacker)
         {
             CurrentAttacker = Attacker;
+
+            Score.TurnCount++;
 
             // Assume Move if nothing else happens
             CurrentAction = ActionEnum.Move;
