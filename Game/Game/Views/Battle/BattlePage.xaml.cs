@@ -499,14 +499,14 @@ namespace Game.Views
         /// <returns></returns>
         public Color DetermineMapBackgroundColor(MapModelLocation MapModel)
         {
-            if (EngineViewModel.Engine.CurrentEntity == MapModel.Player)
-            {
-                return (Color)Application.Current.Resources["BattleMapCurrentEntity"];
-            }
-
             if (EngineViewModel.Engine.CurrentAttacker == MapModel.Player)
             {
                 return (Color)Application.Current.Resources["BattleMapCurrentAttacker"];
+            }
+
+            if (EngineViewModel.Engine.CurrentEntity == MapModel.Player)
+            {
+                return (Color)Application.Current.Resources["BattleMapCurrentEntity"];
             }
 
             if (EngineViewModel.Engine.CurrentDefender == MapModel.Player)
@@ -515,24 +515,6 @@ namespace Game.Views
             }
 
             return Color.Transparent;
-
-            //string BattleMapBackgroundColor;
-            //switch (MapModel.Player.PlayerType)
-            //{
-            //    case PlayerTypeEnum.Character:
-            //        BattleMapBackgroundColor = "BattleMapCharacterColor";
-            //        break;
-            //    case PlayerTypeEnum.Monster:
-            //        BattleMapBackgroundColor = "BattleMapMonsterColor";
-            //        break;
-            //    case PlayerTypeEnum.Unknown:
-            //    default:
-            //        BattleMapBackgroundColor = "BattleMapTransparentColor";
-            //        break;
-            //}
-
-            //var result = (Color)Application.Current.Resources[BattleMapBackgroundColor];
-            //return result;
         }
 
         #region MapEvents
