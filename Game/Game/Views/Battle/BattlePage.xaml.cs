@@ -718,14 +718,15 @@ namespace Game.Views
                 var Player = EngineViewModel.Engine.CurrentEntity;
                 if (Player.EntityType == EntityTypeEnum.Monster)
                 {
-                    EngineViewModel.Engine.TakeTurn(Player);
+                    //EngineViewModel.Engine.TakeTurn(Player);
+                    MonsterAutoTurn();
                 }
-                else if (Player.EntityType == EntityTypeEnum.Character)
-                {
-                    EngineViewModel.Engine.TakeTurn(Player);
-                }
+                //else if (Player.EntityType == EntityTypeEnum.Character)
+                //{
+                //    EngineViewModel.Engine.TakeTurn(Player);
+                //}
 
-                DisplayTurnResult();
+                //DisplayTurnResult();
 
                 return;
             }
