@@ -329,6 +329,16 @@ namespace Game.Models
             var locationAttacker = GetLocationForPlayer(Attacker);
             var locationDefender = GetLocationForPlayer(Defender);
 
+            if (locationAttacker == null)
+            {
+                return false;
+            }
+
+            if (locationDefender == null)
+            {
+                return false;
+            }
+
             // Get X distance in absolute value
             var distance = Math.Abs(CalculateDistance(locationAttacker, locationDefender));
 
