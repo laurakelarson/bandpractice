@@ -575,15 +575,6 @@ namespace Game.Views
 
                 RoundOver();
 
-                //Debug.WriteLine("New Round");
-                //EngineViewModel.Engine.NewRound();
-
-                //// Show the Round Over, after that is cleared, it will show the New Round Dialog
-                ////ShowModalRoundOverPage();
-                ////ShowModalNewRoundPage();  //TODO figure out how to display new round page
-
-
-
                 return;
             }
 
