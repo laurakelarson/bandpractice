@@ -573,12 +573,17 @@ namespace Game.Views
                 // Pause
                 Task.Delay(WaitTime);
 
-                Debug.WriteLine("New Round");
-                EngineViewModel.Engine.NewRound();
+                RoundOver();
 
-                // Show the Round Over, after that is cleared, it will show the New Round Dialog
-                ShowModalRoundOverPage();
-                //ShowModalNewRoundPage();  //TODO figure out how to display new round page
+                //Debug.WriteLine("New Round");
+                //EngineViewModel.Engine.NewRound();
+
+                //// Show the Round Over, after that is cleared, it will show the New Round Dialog
+                ////ShowModalRoundOverPage();
+                ////ShowModalNewRoundPage();  //TODO figure out how to display new round page
+
+
+
                 return;
             }
 
@@ -911,6 +916,30 @@ namespace Game.Views
 
             ShowBattleMode();
         }
+
+
+        /// <summary>
+        /// Round is over
+        ///
+        /// Show the Round Over display
+        ///
+        /// Start a new round
+        ///
+        /// Pop the New Round page
+        /// </summary>
+        public void RoundOver()
+        {
+            Debug.WriteLine("Round Over");
+
+            // end the round - characters distribute item pool
+            BattleEngineViewModel.Instance.Engine.EndRound();
+
+            // Display the items equipped during the round
+            ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
+
+            ShowBattleMode();
+        }
+
         #endregion BasicBattleMode
 
         #region MessageHandlers
@@ -970,12 +999,19 @@ namespace Game.Views
 
         /// <summary>
         /// The Next Round Button
+        /// Start a new round in the engine, then pop the NewRoundPage
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public async void NextRoundButton_Clicked(object sender, EventArgs e)
         {
+            Debug.WriteLine("New Round");
+
+            EngineViewModel.Engine.NewRound();
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
+
+            RoundOverDisplay.IsVisible = false;
+
             DrawGameAttackerDefenderBoard();
             ShowBattleMode();
             await Navigation.PushModalAsync(new NewRoundPage());
@@ -1097,7 +1133,14 @@ namespace Game.Views
                     break;
 
                 case BattleStateEnum.NewRound:
-                    NextRoundButton.IsVisible = true;
+                    //NextRoundButton.IsVisible = true;
+
+                    // Hide the Game Board
+                    GameUIDisplay.IsVisible = false;
+
+                    // Show the Game Over Display
+                    RoundOverDisplay.IsVisible = true;
+
                     break;
 
                 case BattleStateEnum.GameOver:
