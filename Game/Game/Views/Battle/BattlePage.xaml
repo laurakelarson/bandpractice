@@ -4,9 +4,7 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-
-
-
+        
         <AbsoluteLayout
                 IsVisible="True"
                 HorizontalOptions="FillAndExpand"
@@ -87,6 +85,12 @@
                     </Frame>
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
+
+                        <StackLayout x:Name="CharacterTurnMessage"
+                                Orientation="Horizontal" IsVisible="False">
+                            <Label Text="Next turn:" Style="{StaticResource LabelStyle}" />
+                            <Label x:Name="CharacterTurnLabel" Style="{StaticResource ValueStyle}" />
+                        </StackLayout>
 
                         <Button x:Name="AttackButton" Clicked="AttackButton_Clicked" Text="Next Attack" IsVisible="False"/>
                         <Button x:Name="AutoAttackButton" Clicked="AutoAttackButton_Clicked" Text="Next 10 Attacks" IsVisible="False"/>
@@ -190,7 +194,6 @@
                 </StackLayout>
 
             </AbsoluteLayout>
-
 
     </ContentPage.Content>
 </ContentPage>
