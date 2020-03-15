@@ -25,7 +25,9 @@ namespace Game.Models
         // The Map Locations
         public MapModelLocation[,] MapGridLocation;
 
-        public BattleEntityModel EmptySquare = new BattleEntityModel { EntityType = EntityTypeEnum.Unknown };
+        public BattleEntityModel EmptySquare = new BattleEntityModel {
+            EntityType = EntityTypeEnum.Unknown,
+            ImageURI = "mapcell.png" };
 
         public MapModel()
         {
