@@ -525,6 +525,81 @@ namespace Game.Views
         //    return true;
         //}
 
+        #endregion MapEvents
+
+        #endregion BattleMapMode
+
+        #region BasicBattleMode
+
+        #region BattleEngineManagement
+
+        /// <summary>
+        /// Get the next turn from the battle engine.
+        /// 
+        /// If the turn is an action, perform the action automatically for monsters,
+        /// for characters wait for the user to click a battle grid square.
+        ///
+        /// If the round is over, show the appropriate page.
+        ///
+        /// If the game is over, show the game over screen.
+        /// </summary>
+        public void EngineNextTurn()
+        {
+            EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
+
+            // Hold the current state
+            var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
+
+            // It's a Character or Monster's turn
+            if (RoundCondition == RoundEnum.NextTurn)
+            {
+                var Player = EngineViewModel.Engine.CurrentEntity;
+                if (Player.EntityType == EntityTypeEnum.Monster)
+                {
+                    MonsterAutoTurn();
+                }
+                else if (Player.EntityType == EntityTypeEnum.Character)
+                {
+                    IsCharacterTurn = true;
+                }
+
+                return;
+            }
+
+            if (RoundCondition == RoundEnum.NewRound)
+            {
+                EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.NewRound;
+
+                // Pause
+                Task.Delay(WaitTime);
+
+                Debug.WriteLine("New Round");
+                EngineViewModel.Engine.NewRound();
+
+                // Show the Round Over, after that is cleared, it will show the New Round Dialog
+                ShowModalRoundOverPage();
+                //ShowModalNewRoundPage();  //TODO figure out how to display new round page
+                return;
+            }
+
+            // Check for Game Over
+            if (RoundCondition == RoundEnum.GameOver)
+            {
+                EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.GameOver;
+
+                // Wrap up
+                EngineViewModel.Engine.EndBattle();
+
+                // Pause
+                Task.Delay(WaitTime);
+
+                Debug.WriteLine("Game Over");
+
+                GameOver();
+                return;
+            }
+        }
+
         /// <summary>
         /// If the user clicks a battle square when it's a Character's turn, call the battle engine to
         /// perform an action on that square
@@ -586,11 +661,7 @@ namespace Game.Views
             return result;
         }
 
-        #endregion MapEvents
-
-        #endregion BattleMapMode
-
-        #region BasicBattleMode
+        #endregion BattleEngineManagement
 
         /// <summary>
         /// Draw the UI for
@@ -683,7 +754,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
-            NextAttackExample();
+            EngineNextTurn();
         }
 
         /// <summary>
@@ -696,84 +767,6 @@ namespace Game.Views
             for(int i = 0; i<10; i++)
             {
                 AttackButton_Clicked(sender, e);
-            }
-        }
-
-        /// <summary>
-        /// Next Attack Example
-        /// 
-        /// This code example follows the rule of
-        /// 
-        /// Auto Select Attacker
-        /// Auto Select Defender
-        /// 
-        /// Do the Attack and show the result
-        /// 
-        /// So the pattern is Click Next, Next, Next until game is over
-        /// 
-        /// </summary>
-        public void NextAttackExample()
-        {
-            EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
-
-            // Get the turn, set the current player and attacker to match
-            //SetAttackerAndDefender(); //TODO this method might not be needed...?
-
-            // Hold the current state
-            var RoundCondition = EngineViewModel.Engine.RoundNextTurn();
-
-            // It's a Character or Monster's turn
-            if (RoundCondition == RoundEnum.NextTurn)
-            {
-                //TODO breaking out actions for manual battle - for character, need to be able to manually select action
-                var Player = EngineViewModel.Engine.CurrentEntity;
-                if (Player.EntityType == EntityTypeEnum.Monster)
-                {
-                    //EngineViewModel.Engine.TakeTurn(Player);
-                    MonsterAutoTurn();
-                }
-                else if (Player.EntityType == EntityTypeEnum.Character)
-                {
-                    //EngineViewModel.Engine.TakeTurn(Player);
-                    IsCharacterTurn = true;
-                }
-
-                //DisplayTurnResult();
-
-                return;
-            }
-
-            if (RoundCondition == RoundEnum.NewRound)
-            {
-                EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.NewRound;
-
-                // Pause
-                Task.Delay(WaitTime);
-
-                Debug.WriteLine("New Round");
-                EngineViewModel.Engine.NewRound();
-
-                // Show the Round Over, after that is cleared, it will show the New Round Dialog
-                ShowModalRoundOverPage();
-                //ShowModalNewRoundPage();
-                return;
-            }
-
-            // Check for Game Over
-            if (RoundCondition == RoundEnum.GameOver)
-            {
-                EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.GameOver;
-
-                // Wrap up
-                EngineViewModel.Engine.EndBattle();
-
-                // Pause
-                Task.Delay(WaitTime);
-
-                Debug.WriteLine("Game Over");
-
-                GameOver();
-                return;
             }
         }
 
