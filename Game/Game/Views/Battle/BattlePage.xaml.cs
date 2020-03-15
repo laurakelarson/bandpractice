@@ -549,6 +549,32 @@ namespace Game.Views
             return result;
         }
 
+        /// <summary>
+        /// When it's a monster's turn, take the turn automatically
+        /// </summary>
+        /// <returns></returns>
+        public bool MonsterAutoTurn()
+        {
+            // no one is taking a turn - do nothing
+            if (EngineViewModel.Engine.CurrentEntity == null)
+            {
+                return false;
+            }
+
+            // only take an auto-turn if current turn is a monster
+            if (EngineViewModel.Engine.CurrentEntity.EntityType != EntityTypeEnum.Monster)
+            {
+                return false;
+            }
+
+            // engine manages the turn
+            var result = EngineViewModel.Engine.TakeTurn(EngineViewModel.Engine.CurrentEntity);
+
+            DisplayTurnResult();
+
+            return result;
+        }
+
         #endregion MapEvents
 
         #endregion BattleMapMode
