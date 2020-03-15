@@ -747,6 +747,7 @@ namespace Game.Views
 
             if (EngineViewModel.Engine.CurrentDefender.Alive == false)
             {
+                UpdateMapGrid();
                 DefenderImage.BackgroundColor = Color.Red;
             }
 
