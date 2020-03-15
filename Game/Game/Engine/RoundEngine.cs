@@ -159,6 +159,7 @@ namespace Game.Engine
                         level = range.ElementAt(dice);
                     }
                 }
+
                 data.ChangeLevel(level);
                 if (level == 1)
                 {
@@ -269,6 +270,10 @@ namespace Game.Engine
             // Decide Who gets next turn
             // Remember who just went...
             CurrentEntity = GetNextPlayerTurn();
+
+            // Reset attacker and defender
+            CurrentAttacker = null;
+            CurrentDefender = null;
 
             // For auto battle, do the turn....
             if (Score.AutoBattle)
