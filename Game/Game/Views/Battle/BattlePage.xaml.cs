@@ -308,14 +308,14 @@ namespace Game.Views
         /// </summary>
         /// <param name="MapModel"></param>
         /// <returns></returns>
-        public Frame MakeMapGridBox(MapModelLocation MapModel)
+        public Frame MakeMapGridBox(MapModelLocation mapLocationModel)
         {
-            if (MapModel.Player == null)
+            if (mapLocationModel.Player == null)
             {
-                MapModel.Player = new BattleEntityModel { ImageURI = "mapbackground.png" };
+                mapLocationModel.Player = EngineViewModel.Engine.MapModel.EmptySquare;
             }
 
-            var PlayerImageButton = DetermineMapImageButton(MapModel);
+            var PlayerImageButton = DetermineMapImageButton(mapLocationModel);
 
             var PlayerStack = new StackLayout
             {
@@ -323,19 +323,20 @@ namespace Game.Views
                 Style = (Style)Application.Current.Resources["BattleMapImageBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                BackgroundColor = DetermineMapBackgroundColor(MapModel),
+                BackgroundColor = DetermineMapBackgroundColor(mapLocationModel),
                 Children = {
                     PlayerImageButton
                 },
             };
 
-            MapGridObjectAddImage(PlayerImageButton, MapModel);
-            MapGridObjectAddStack(PlayerStack, MapModel);
+            MapGridObjectAddImage(PlayerImageButton, mapLocationModel);
+            MapGridObjectAddStack(PlayerStack, mapLocationModel);
 
             var MapFrame = new Frame
             {
                 Style = (Style)Application.Current.Resources["BattleMapFrame"],
                 Content = PlayerStack,
+                AutomationId = GetDictionaryFrameName(mapLocationModel)
             };
 
             return MapFrame;
