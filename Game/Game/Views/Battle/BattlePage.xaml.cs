@@ -230,6 +230,48 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Traverse the battle grid and update the background color of each square.
+        /// Used to highlight current entity, attacker, and defender on the grid.
+        /// </summary>
+        /// <returns></returns>
+        public bool UpdateMapGridBackgroundColors()
+        {
+            foreach (var data in EngineViewModel.Engine.MapModel.MapGridLocation)
+            {
+                // Use the ImageButton from the dictionary because that represents the player object
+                object MapObject = GetMapGridObject(GetDictionaryImageButtonName(data));
+                if (MapObject == null)
+                {
+                    return false;
+                }
+
+                var imageObject = (ImageButton)MapObject;
+
+                MapObject = GetMapGridObject(GetDictionaryStackName(data));
+                if (MapObject == null)
+                {
+                    return false;
+                }
+
+                var stackObject = (StackLayout)MapObject;
+
+                // Remove the ImageButton
+                stackObject.Children.RemoveAt(0);
+
+                var PlayerImageButton = DetermineMapImageButton(data);
+
+                stackObject.Children.Add(PlayerImageButton);
+
+                // Update the Image in the Datastructure
+                MapGridObjectAddImage(PlayerImageButton, data);
+
+                stackObject.BackgroundColor = DetermineMapBackgroundColor(data);
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Convert the Stack to a name for the dictionary to lookup
         /// </summary>
         /// <param name="data"></param>
@@ -580,6 +622,8 @@ namespace Game.Views
             // It's a Character or Monster's turn
             if (RoundCondition == RoundEnum.NextTurn)
             {
+                UpdateMapGridBackgroundColors();
+
                 var Player = EngineViewModel.Engine.CurrentEntity;
                 if (Player.EntityType == EntityTypeEnum.Monster)
                 {
