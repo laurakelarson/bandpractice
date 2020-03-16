@@ -918,24 +918,29 @@ namespace Game.Views
         public void GameMessage()
         {
             // Output The Message that happened.
-            BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessages.TurnMessage, BattleMessages.Text);
+            string message = EngineViewModel.Engine.BattleMessages.TurnMessage;
 
-            Debug.WriteLine(BattleMessages.Text);
-
-            // Level up message
-            if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
+            // Special message
+            if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.TurnMessageSpecial))
             {
-                BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessages.LevelUpMessage, BattleMessages.Text);
+                message += "\n" + EngineViewModel.Engine.BattleMessages.TurnMessageSpecial;
+            }
+
+                // Level up message
+                if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
+            {
+                message += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
             }
 
             // Item Drop message
             if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.ItemDropMessage))
             {
-                BattleMessages.Text = string.Format("{0} \n{1}", EngineViewModel.Engine.BattleMessages.ItemDropMessage, BattleMessages.Text);
+                message += EngineViewModel.Engine.BattleMessages.ItemDropMessage;
             }
 
-            //htmlSource.Html = EngineViewModel.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
-            //HtmlBox.Source = HtmlBox.Source = htmlSource;
+            // Output the complete message
+            Debug.WriteLine(message);
+            BattleMessages.Text = string.Format("{0} \n{1}", message, BattleMessages.Text);
         }
 
         /// <summary>
