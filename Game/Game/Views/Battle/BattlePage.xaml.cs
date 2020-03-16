@@ -926,8 +926,8 @@ namespace Game.Views
                 message += "\n" + EngineViewModel.Engine.BattleMessages.TurnMessageSpecial;
             }
 
-                // Level up message
-                if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
+            // Level up message
+            if (!string.IsNullOrEmpty(EngineViewModel.Engine.BattleMessages.LevelUpMessage))
             {
                 message += "\n" + EngineViewModel.Engine.BattleMessages.LevelUpMessage;
             }
