@@ -72,6 +72,7 @@ namespace Game.Engine
         ///     Attack: if location has a monster in range
         ///     Move: if location has a monster out of range, or location is empty
         ///     Swap: if location has a character, the characters swap places
+        ///     Wait: if character's own square was clicked, do nothing
         /// </summary>
         /// <param name="Attacker"></param>
         /// <param name="location"></param>
