@@ -131,6 +131,16 @@ namespace Game.Engine
             {
                 CurrentDefender = null;
 
+                // is this my own space?
+                if (Location.Player.Id.Equals(Attacker.Id))
+                {
+                    Debug.WriteLine(string.Format("{0} hums a song and does nothing", Attacker.Name));
+
+                    BattleMessages.TurnMessage = Attacker.Name + " hums a song and does nothing";
+
+                    return true;
+                }
+
                 // characters swap locations
                 var current = MapModel.GetLocationForPlayer(Attacker);
 
