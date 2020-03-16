@@ -61,6 +61,9 @@ namespace Game.Engine
             // (note: this needs to be done after RoundCount is incremented to implement hackathon rule)
             OrderEntityListByTurnOrder();
 
+            // Clear CurrentEntity so the first turn will be start of entity list
+            CurrentEntity = null;
+
             // Populate MapModel with Characters and Monsters
             MapModel.PopulateMapModel(EntityList);
 
