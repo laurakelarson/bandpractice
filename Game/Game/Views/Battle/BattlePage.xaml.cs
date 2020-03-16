@@ -987,12 +987,6 @@ namespace Game.Views
             // Add Players to Display
             DrawGameAttackerDefenderBoard();
 
-            // draw Character info box at top of Battle Page
-            foreach (var data in EngineViewModel.Engine.CharacterList)
-            {
-                CharacterInfoBox.Children.Add(CharacterInfo(data));
-            }
-
             RoundOverDisplay.IsVisible = false;
             ShowModalNewRoundPage();            
         }
