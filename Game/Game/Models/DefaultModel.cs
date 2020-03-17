@@ -13,13 +13,16 @@ namespace Game.Models
     {
         // The ID for the item
         [PrimaryKey]
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; } = System.Guid.NewGuid().ToString();
 
         // The Name of the Item 
         public string Name { get; set; } = "Name";
 
         // The Descirption of the Item
         public string Description { get; set; } = "Description";
+
+        // Guid, passed from the server
+        public string Guid { get; set; } = "";
 
     }
 }
