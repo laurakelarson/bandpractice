@@ -43,5 +43,41 @@ namespace Game.Helpers
                 return null;
             }
         }
+
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static bool GetJsonBool(JObject json, string field)
+        {
+            if (string.IsNullOrEmpty(field))
+            {
+                return false;
+            }
+
+            // Get Field
+            try
+            {
+                var tempJsonObject = json[field].ToString();
+                if (string.IsNullOrEmpty(tempJsonObject))
+                {
+                    return false;
+                }
+
+                if (tempJsonObject == "True")
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return false;
+            }
+        }
     }
 }
