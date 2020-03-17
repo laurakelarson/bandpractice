@@ -70,5 +70,19 @@ namespace UnitTests.Views.Scores
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ScoreReadPage_Delete_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.Delete_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
