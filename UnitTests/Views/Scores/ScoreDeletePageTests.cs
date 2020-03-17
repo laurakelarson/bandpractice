@@ -56,5 +56,21 @@ namespace UnitTests.Views.Scores
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void ScoreDeletePage_Cancel_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.Cancel_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
     }
 }
