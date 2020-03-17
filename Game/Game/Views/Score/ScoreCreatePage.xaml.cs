@@ -13,7 +13,7 @@ namespace Game.Views
     public partial class ScoreCreatePage : ContentPage
     {
         // The item to create
-        GenericViewModel<ScoreModel> ViewModel { get; set; }
+        public GenericViewModel<ScoreModel> ViewModel { get; set; }
 
         // Constructor for Unit Testing
         public ScoreCreatePage(bool UnitTest) { }
