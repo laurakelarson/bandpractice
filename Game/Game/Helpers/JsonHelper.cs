@@ -9,7 +9,7 @@ namespace Game.Helpers
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0034:Simplify 'default' expression", Justification = "<Pending>")]
 #pragma warning disable CA1031 // Do not catch general exception types
-    class JsonHelper
+    public static class JsonHelper
     {
     }
 }
