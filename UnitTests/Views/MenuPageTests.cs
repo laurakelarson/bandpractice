@@ -68,5 +68,23 @@ namespace UnitTests.Views
             Assert.IsTrue(true);
         }
 
+        [Test]
+        public void MenuPage_ListViewMenu_Valid_MyBand_Should_Pass()
+        {
+            // Arrange
+
+            var data = new HomeMenuItemModel { Id = MenuItemEnum.MyBand, Title = "My Band" };
+
+            var content = (StackLayout)page.Content;
+            var listview = (ListView)content.Children.FirstOrDefault();
+
+            // Act
+            listview.SelectedItem = data;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true);
+        }
     }
 }
