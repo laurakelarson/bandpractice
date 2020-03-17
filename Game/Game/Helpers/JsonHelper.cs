@@ -143,5 +143,37 @@ namespace Game.Helpers
                 return -1;
             }
         }
+
+        /// <summary>
+        /// Get Json Long
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static long GetJsonLong(JObject json, string field)
+        {
+            if (string.IsNullOrEmpty(field))
+            {
+                return -1;
+            }
+
+            // Get Field
+            try
+            {
+                var tempJsonObject = json[field].ToString();
+                if (string.IsNullOrEmpty(tempJsonObject))
+                {
+                    return -1;
+                }
+
+                var myReturn = long.Parse(tempJsonObject);
+                return myReturn;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return -1;
+            }
+        }
     }
 }
