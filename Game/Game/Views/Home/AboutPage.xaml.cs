@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Game.Helpers;
 using Game.ViewModels;
 using Xamarin.Forms;
@@ -119,6 +120,44 @@ namespace Game.Views
             {
                 BattleEngineViewModel.Instance.Engine.CriticalMissEnabled = false;
             }
+        }
+
+        /// <summary>
+        /// Call the server call for Get Items using HTTP Get
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> GetItemsGet()
+        {
+            // Call to the ItemModel Service and have it Get the Items
+            // The ServerItemValue Code stands for the batch of items to get
+            // as the group to request.  1, 2, 3, 100 (All), or if not specified All
+
+            var result = "No Results";
+
+            var value = Convert.ToInt32(ServerItemValue.Text);
+            var dataList = await Services.ItemService.GetItemsFromServerGetAsync(value);
+
+            if (dataList == null)
+            {
+                return result;
+            }
+
+            if (dataList.Count == 0)
+            {
+                return result;
+            }
+
+            // Reset the output
+            result = "";
+
+            foreach (var ItemModel in dataList)
+            {
+                // Add them line by one, use \n to force new line for output display.
+                // Build up the output string by adding formatted ItemModel Output
+                result += ItemModel.FormatOutput() + "\n";
+            }
+
+            return result;
         }
     }
 }
