@@ -113,5 +113,22 @@ namespace UnitTests.Views.Scores
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ScoreIndexPage_OnAppearing_Valid_Should_Pass()
+        {
+            // Arrange
+
+            ScoreIndexViewModel ViewModel = ScoreIndexViewModel.Instance;
+
+            // Act
+            OnAppearing();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.IsNotNull(ViewModel);
+        }
     }
 }
