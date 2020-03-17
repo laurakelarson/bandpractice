@@ -98,6 +98,20 @@ namespace UnitTests.Views.Scores
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void ScoreIndexPage_OnItemSelected_Clicked_Invalid_Null_Should_Fail()
+        {
+            // Arrange
 
+            var SelectedItemChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+
+            // Act
+            page.OnItemSelected(null, SelectedItemChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
