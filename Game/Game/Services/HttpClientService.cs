@@ -42,5 +42,19 @@ namespace Game.Services
                 return _instance;
             }
         }
+
+        /// <summary>
+        /// Set the client
+        /// 
+        /// Used by UT to swap out clients for testing
+        /// 
+        /// </summary>
+        /// <param name="httpClient"></param>
+        /// <returns></returns>
+        public HttpClient SetHttpClient(HttpClient httpClient)
+        {
+            _httpClientInstance = httpClient;
+            return _httpClientInstance;
+        }
     }
 }
