@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Models
 {
-    class WebGlobalsModel
+    public static class WebGlobalsModel
     {
     }
 }
