@@ -15,6 +15,8 @@ namespace Game.Views
         // View Model for Score
         readonly GenericViewModel<ScoreModel> ViewModel;
 
+        public ScoreReadPage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor called with a view model
         /// This is the primary way to open the page
@@ -33,7 +35,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Update_Clicked(object sender, EventArgs e)
+        public async void Update_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ScoreUpdatePage(new GenericViewModel<ScoreModel>(ViewModel.Data))));
             await Navigation.PopAsync();
@@ -44,7 +46,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Delete_Clicked(object sender, EventArgs e)
+        public async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ScoreDeletePage(new GenericViewModel<ScoreModel>(ViewModel.Data))));
             await Navigation.PopAsync();
