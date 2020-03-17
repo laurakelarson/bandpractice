@@ -175,6 +175,17 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Example of how to call for Items using Http Post
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void GetItemsPost_Command(object sender, EventArgs e)
+        {
+            var result = await GetItemsPost();
+            await DisplayAlert("Returned List", result, "OK");
+        }
+
+        /// <summary>
         /// Get Items using the HTTP Post command
         /// </summary>
         /// <returns></returns>
