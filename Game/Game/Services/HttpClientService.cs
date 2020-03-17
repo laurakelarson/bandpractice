@@ -194,5 +194,39 @@ namespace Game.Services
             var data = await JsonParseResult(response);
             return data;
         }
+
+        /// <summary>
+        /// Do the Get call to the server
+        /// </summary>
+        /// <param name="RestUrl"></param>
+        /// <returns></returns>
+        public async Task<string> GetJsonGetAsync(string RestUrl)
+        {
+            // Take the post paramaters, and add the Version and Device to it
+
+            if (string.IsNullOrEmpty(RestUrl))
+            {
+                return null;
+            }
+
+            HttpResponseMessage response;
+
+            try
+            {
+                response = await _httpClient.GetAsync(RestUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await JsonParseResult(response);
+                    return data;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return null;
+            }
+        }
     }
 }
