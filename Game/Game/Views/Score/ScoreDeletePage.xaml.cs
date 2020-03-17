@@ -13,7 +13,7 @@ namespace Game.Views
     public partial class ScoreDeletePage : ContentPage
     {
         // View Model for Item
-        readonly GenericViewModel<ScoreModel> viewModel;
+        public readonly GenericViewModel<ScoreModel> viewModel;
 
         // Constructor for Unit Testing
         public ScoreDeletePage(bool UnitTest) { }
