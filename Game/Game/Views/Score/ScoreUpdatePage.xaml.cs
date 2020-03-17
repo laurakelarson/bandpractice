@@ -13,7 +13,7 @@ namespace Game.Views
     public partial class ScoreUpdatePage : ContentPage
     {
         // View Model for Score
-        readonly GenericViewModel<ScoreModel> ViewModel;
+        public readonly GenericViewModel<ScoreModel> ViewModel;
 
         // Constructor for Unit Testing
         public ScoreUpdatePage(bool UnitTest) { }
