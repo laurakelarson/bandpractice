@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -205,6 +206,47 @@ namespace Game.Helpers
             {
                 Debug.WriteLine(ex.ToString());
                 return 0;
+            }
+        }
+
+        /// <summary>
+        /// Takes a json object, and retrieves a string from it matching the field
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static List<string> GetJsonStringList(JObject json, string field)
+        {
+            var myStringList = new List<string>();
+
+            if (string.IsNullOrEmpty(field))
+            {
+                return myStringList;
+            }
+
+            if (json == null)
+            {
+                return myStringList;
+            }
+
+            // Get Field
+            try
+            {
+                var tempJsonObject = json[field];
+                if (tempJsonObject == null)
+                {
+                    return myStringList;
+                }
+
+                var myJsonString = tempJsonObject.ToString();
+
+                myStringList = JsonConvert.DeserializeObject<List<string>>(myJsonString);
+                return myStringList;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return myStringList;
             }
         }
     }
