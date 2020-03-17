@@ -14,7 +14,10 @@ namespace Game.Views
     public partial class ScoreIndexPage : ContentPage
     {
         // The view model, used for data binding
-        readonly ScoreIndexViewModel ViewModel;
+        public readonly ScoreIndexViewModel ViewModel;
+
+        // Constructor for Unit Testing
+        public ScoreIndexPage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Index Page
@@ -53,7 +56,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddItem_Clicked(object sender, EventArgs e)
+        public async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new ScoreCreatePage(new GenericViewModel<ScoreModel>())));
         }
