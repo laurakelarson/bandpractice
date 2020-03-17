@@ -22,7 +22,7 @@ namespace UnitTests.Views.Scores
         App app;
         ScoreDeletePage page;
 
-        public ScoreDeletePageTests() : base(new GenericViewModel<ScoreModel>(new ScoreModel())) { }
+        public ScoreDeletePageTests() : base(true) { }
 
         [SetUp]
         public void Setup()
@@ -41,6 +41,20 @@ namespace UnitTests.Views.Scores
         public void TearDown()
         {
             Application.Current = null;
+        }
+
+        [Test]
+        public void ScoreDeletePage_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = page;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
         }
     }
 }
