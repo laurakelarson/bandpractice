@@ -79,5 +79,25 @@ namespace UnitTests.Views.Scores
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ScoreIndexPage_OnItemSelected_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            var selectedScore = new ScoreModel();
+
+            var SelectedItemChangedEventArgs = new SelectedItemChangedEventArgs(selectedScore, 0);
+
+            // Act
+            page.OnItemSelected(null, SelectedItemChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
     }
 }

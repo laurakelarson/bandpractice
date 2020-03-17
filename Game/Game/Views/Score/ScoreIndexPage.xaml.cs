@@ -36,7 +36,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             ScoreModel data = args.SelectedItem as ScoreModel;
             if (data == null)
