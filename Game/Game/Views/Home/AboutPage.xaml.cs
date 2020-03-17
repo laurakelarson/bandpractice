@@ -123,6 +123,17 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Example of how to call for Items using HttpGet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void GetItemsGet_Command(object sender, EventArgs e)
+        {
+            var result = await GetItemsGet();
+            await DisplayAlert("Returned List", result, "OK");
+        }
+
+        /// <summary>
         /// Call the server call for Get Items using HTTP Get
         /// </summary>
         /// <returns></returns>
