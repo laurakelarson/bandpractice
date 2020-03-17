@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -131,6 +132,66 @@ namespace Game.Services
                 data = tempJsonObject;
             }
 
+            return data;
+        }
+
+        /// <summary>
+        /// Do the Post Call to the Server
+        /// </summary>
+        /// <param name="RestUrl"></param>
+        /// <param name="jsonString"></param>
+        /// <returns></returns>
+        public async Task<string> GetJsonPostAsync(string RestUrl, JObject jsonString)
+        {
+            // Take the post paramaters, and add the Version and Device to it
+
+            if (string.IsNullOrEmpty(RestUrl))
+            {
+                return null;
+            }
+
+            //// Add the Account Authorization Information to it
+            var dict = new Dictionary<string, string>
+            {
+                { "Version", "1,1" },
+            };
+
+            JObject finalContentJson = (JObject)JToken.FromObject(dict);
+
+            var finalJson = new JObject();
+            if (jsonString != null)
+            {
+                finalJson = jsonString;
+            }
+
+            // Merge Two json objects into a unified one...
+            finalJson.Merge(finalContentJson, new JsonMergeSettings
+            {
+                MergeArrayHandling = MergeArrayHandling.Union
+            });
+
+            var finalPostString = finalJson.ToString();
+
+            // Set the header context to say it will use json
+            var HeaderContent = new StringContent(finalPostString, Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response;
+
+            try
+            {
+                response = await _httpClient.PostAsync(RestUrl, HeaderContent);
+                if (!response.IsSuccessStatusCode)
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return null;
+            }
+
+            var data = await JsonParseResult(response);
             return data;
         }
     }
