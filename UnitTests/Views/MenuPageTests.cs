@@ -37,6 +37,19 @@ namespace UnitTests.Views
             Application.Current = null;
         }
 
+        [Test]
+        public void MenuPage_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = page;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
     }
 }
