@@ -15,6 +15,9 @@ namespace Game.Views
         // View Model for Score
         readonly GenericViewModel<ScoreModel> ViewModel;
 
+        // Constructor for Unit Testing
+        public ScoreUpdatePage(bool UnitTest) { }
+
         /// <summary>
         /// Constructor that takes and existing data Score
         /// </summary>
@@ -32,7 +35,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             // Check input of Name (cannot be empty)
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
@@ -50,7 +53,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
