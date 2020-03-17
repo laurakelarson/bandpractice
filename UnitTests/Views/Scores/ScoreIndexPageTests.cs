@@ -66,6 +66,18 @@ namespace UnitTests.Views.Scores
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void ScoreIndexPage_OnBackButtonPressed_Valid_Should_Pass()
+        {
+            // Arrange
 
+            // Act
+            OnBackButtonPressed();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
