@@ -125,8 +125,43 @@
                     <StackLayout Style="{StaticResource HorizontalStack}"
                                         Padding="50,0,0,0">
 
-                        <Label Text="More Debug Settings to come..." 
-                               TextColor="{StaticResource PrimaryBackgroundColor}"/>
+                        
+
+                        <StackLayout Style="{StaticResource VerticalStack}">
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="FillAndExpand">
+                                <Label
+                                Text="Number of Items "
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="Start"
+                                TextColor="{StaticResource PrimaryBackgroundColor}"
+                                />
+
+                                <Entry
+                                x:Name="ServerItemValue"
+                                Text="1" 
+                                FontSize="Micro"
+                                MaxLength="5"
+                                CursorPosition="0"
+                                SelectionLength = "5"
+                                Keyboard="Numeric"
+                                WidthRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                Style="{DynamicResource EntryStyle}"
+                                />
+                            </StackLayout>
+
+                            <StackLayout Style="{StaticResource HorizontalStack}">
+                                <Button
+                                Text="Get"
+                                />
+
+                                <Button
+                                Text="Post"
+                                />
+                            </StackLayout>
+
+                        </StackLayout>
 
                     </StackLayout>
                 
