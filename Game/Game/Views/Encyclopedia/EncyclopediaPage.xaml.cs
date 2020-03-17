@@ -25,7 +25,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void MonstersButton_Clicked(object sender, EventArgs e)
+		public async void MonstersButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new MonsterIndexPage());
 		}
@@ -35,7 +35,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void CharactersButton_Clicked(object sender, EventArgs e)
+		public async void CharactersButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new CharacterIndexPage());
 		}
@@ -45,7 +45,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void ItemsButton_Clicked(object sender, EventArgs e)
+		public async void ItemsButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new ItemIndexPage());
 		}
@@ -55,7 +55,7 @@ namespace Game.Views
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		async void ScoresButton_Clicked(object sender, EventArgs e)
+		public async void ScoresButton_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new ScoreIndexPage());
 		}
