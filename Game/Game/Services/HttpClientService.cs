@@ -4,7 +4,22 @@ using System.Text;
 
 namespace Game.Services
 {
-    class HttpClientService
+    public class HttpClientService
     {
+        // Make this a singleton so it only exist one time because holds all the data records in memory
+        private static HttpClientService _instance;
+
+        // this instance
+        public static HttpClientService Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new HttpClientService();
+                }
+                return _instance;
+            }
+        }
     }
 }
