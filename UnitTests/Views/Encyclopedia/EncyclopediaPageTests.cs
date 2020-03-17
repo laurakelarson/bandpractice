@@ -91,5 +91,18 @@ namespace UnitTests.Views.Encyclopedia
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void EncyclopediaPage_ScoresButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.ScoresButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
