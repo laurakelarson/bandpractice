@@ -43,83 +43,83 @@
                         x:Name="DatabaseSettingsFrame"
                         IsVisible="False">
 
-                <!--Database Settings-->
-                <StackLayout Style="{StaticResource HorizontalStack}"
-                                    Padding="50,0,0,0">
+                    <!--Database Settings-->
+                    <StackLayout Style="{StaticResource HorizontalStack}"
+                                        Padding="50,0,0,0">
 
-                    <Label Text="SQL Data Source" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+                        <Label Text="SQL Data Source" TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
-                    <Switch
-                        HorizontalOptions="Start" 
-                        VerticalOptions="Center"
-                        x:Name="DataSourceValue"
-                        IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
-                        Toggled="DataSource_Toggled" 
-                        />
+                        <Switch
+                            HorizontalOptions="Start" 
+                            VerticalOptions="Center"
+                            x:Name="DataSourceValue"
+                            IsToggled="{Binding ItemIndexViewModel.Instance.CurrentDataSource}"
+                            Toggled="DataSource_Toggled" 
+                            />
 
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource HorizontalStack}"
+                                        Padding="50,0,0,0">
+
+                        <Label Text="Wipe Data List" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+
+                        <Button
+                            Text="Wipe"
+                            Clicked="WipeDataList_Clicked"
+                            />
+
+                    </StackLayout>
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource HorizontalStack}"
-                                    Padding="50,0,0,0">
-
-                    <Label Text="Wipe Data List" TextColor="{StaticResource PrimaryBackgroundColor}"/>
-
-                    <Button
-                        Text="Wipe"
-                        Clicked="WipeDataList_Clicked"
-                        />
-
-                </StackLayout>
-            </StackLayout>
-
-            <!--Debug Settings Frame-->
+                <!--Debug Settings Frame-->
                 <StackLayout Style="{StaticResource HorizontalStack}">
 
-                <Label
-                    Text="Debug Settings"
-                    TextColor="{StaticResource PrimaryBackgroundColor}"
-                    Style="{DynamicResource DebugSwitchLabel}"/>
+                    <Label
+                        Text="Debug Settings"
+                        TextColor="{StaticResource PrimaryBackgroundColor}"
+                        Style="{DynamicResource DebugSwitchLabel}"/>
 
-                <Switch
-                    x:Name="DebugSettingsSwitch"
-                    HorizontalOptions="EndAndExpand"
-                    Toggled="DebugSettingsSwitch_OnToggled"
-                    IsToggled="False"/>
-            </StackLayout>
+                    <Switch
+                        x:Name="DebugSettingsSwitch"
+                        HorizontalOptions="EndAndExpand"
+                        Toggled="DebugSettingsSwitch_OnToggled"
+                        IsToggled="False"/>
+                </StackLayout>
 
                 <StackLayout Style="{StaticResource VerticalStack}"
                         x:Name="DebugSettingsFrame"
                         IsVisible="False">
 
-                    <StackLayout Style="{StaticResource HorizontalStack}"
-                                    Padding="50,0,0,0">
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                                Padding="50,0,0,0">
 
-                        <Label Text="Enable Critical Hits" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+                    <Label Text="Enable Critical Hits" TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
-                        <Switch
-                            HorizontalOptions="Start" 
-                            VerticalOptions="Center"
-                            x:Name="CriticalHitsValue"
-                            IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled}"
-                            Toggled="CriticalHits_Toggled" 
-                        />
+                    <Switch
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Center"
+                        x:Name="CriticalHitsValue"
+                        IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CriticalHitsEnabled}"
+                        Toggled="CriticalHits_Toggled" 
+                    />
 
-                    </StackLayout>
+                </StackLayout>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}"
-                                    Padding="50,0,0,0">
+                <StackLayout Style="{StaticResource HorizontalStack}"
+                                Padding="50,0,0,0">
 
-                        <Label Text="Enable Critical Miss" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+                    <Label Text="Enable Critical Miss" TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
-                        <Switch
-                            HorizontalOptions="Start" 
-                            VerticalOptions="Center"
-                            x:Name="CriticalMissValue"
-                            IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CriticalMissEnabled}"
-                            Toggled="CriticalMiss_Toggled" 
-                        />
+                    <Switch
+                        HorizontalOptions="Start" 
+                        VerticalOptions="Center"
+                        x:Name="CriticalMissValue"
+                        IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CriticalMissEnabled}"
+                        Toggled="CriticalMiss_Toggled" 
+                    />
 
-                    </StackLayout>
+                </StackLayout>
 
 
                 <StackLayout Style="{StaticResource HorizontalStack}"
@@ -129,6 +129,7 @@
                            TextColor="{StaticResource PrimaryBackgroundColor}"/>
 
                 </StackLayout>
+                
             </StackLayout>
             </StackLayout>
         </StackLayout>
