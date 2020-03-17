@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Game.Helpers
 {
-    class ItemModelJsonHelper
+    public static class ItemModelJsonHelper
     {
     }
 }
