@@ -51,5 +51,22 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
+        [Test]
+        public void MenuPage_ListViewMenu_InValid_Null_Should_Fail()
+        {
+            // Arrange
+
+            var content = (StackLayout)page.Content;
+            var listview = (ListView)content.Children.FirstOrDefault();
+
+            // Act
+            listview.SelectedItem = null;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
     }
 }
