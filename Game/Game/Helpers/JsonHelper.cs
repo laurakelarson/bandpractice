@@ -175,5 +175,37 @@ namespace Game.Helpers
                 return -1;
             }
         }
+
+        /// <summary>
+        /// Get Json Ulong
+        /// </summary>
+        /// <param name="json"></param>
+        /// <param name="field"></param>
+        /// <returns></returns>
+        public static ulong GetJsonuLong(JObject json, string field)
+        {
+            if (string.IsNullOrEmpty(field))
+            {
+                return 0;
+            }
+
+            // Get Field
+            try
+            {
+                var tempJsonObject = json[field].ToString();
+                if (string.IsNullOrEmpty(tempJsonObject))
+                {
+                    return 0;
+                }
+
+                var myReturn = ulong.Parse(tempJsonObject);
+                return myReturn;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return 0;
+            }
+        }
     }
 }
