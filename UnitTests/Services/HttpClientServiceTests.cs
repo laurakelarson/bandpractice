@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 
 namespace UnitTests.Services
@@ -26,6 +27,23 @@ namespace UnitTests.Services
 
             // Act
             var result = Service;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        // Test set 
+        [Test]
+        public void HttpClientService_SetHttpClient_Default_Should_Pass()
+        {
+            // Arrange
+
+            HttpClient httpClient = new HttpClient();
+
+            // Act
+            var result = Service.SetHttpClient(httpClient);
 
             // Reset
 
