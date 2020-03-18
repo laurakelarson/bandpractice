@@ -1,5 +1,7 @@
 ﻿using Game.Helpers;
+using Game.Models;
 using Game.Services;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -146,6 +148,42 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual(null, resultList);
+        }
+
+        // Test sending json object to empty url 
+        [Test]
+        public async Task HttpClientService_GetJsonPostAsync_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var RestUrl = "";
+
+            int number = 0;
+            int level = 0;
+            AttributeEnum attribute = AttributeEnum.Attack;
+            ItemLocationEnum location = ItemLocationEnum.Feet;
+            int category = 0;
+            bool random = false;
+
+            var dict = new Dictionary<string, string>
+            {
+                { "Number", number.ToString()},
+                { "Level", level.ToString()},
+                { "Attribute", ((int)attribute).ToString()},
+                { "Location", ((int)location).ToString()},
+                { "Random", random.ToString()},
+                { "Category", category.ToString()},
+            };
+
+            // Convert parameters to a key value pairs to a json object
+            JObject finalContentJson = (JObject)JToken.FromObject(dict);
+
+            // Act
+            var result = await Service.GetJsonPostAsync(RestUrl, finalContentJson);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
         }
 
         // ResponseMessage class used for sending mock responses 
