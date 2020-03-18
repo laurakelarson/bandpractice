@@ -113,5 +113,29 @@ namespace UnitTests.Views.Items
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ItemUpdatePage_Value_OnStepperValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel();
+            var ViewModel = new GenericViewModel<ItemModel>(data);
+
+            page = new ItemUpdatePage(ViewModel);
+            double oldValue = 0.0;
+            double newValue = 1.0;
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.Value_OnStepperValueChanged(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
     }
 }
