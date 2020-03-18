@@ -229,7 +229,6 @@ namespace UnitTests.ScenarioTests
 
             Engine.MaxNumberCharacters = 1;
 
-            // To See Level UP happening, a character needs to be close to the next level
             var Character = new CharacterModel
             {
                 Level = 10,
