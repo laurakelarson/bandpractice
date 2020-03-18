@@ -100,6 +100,14 @@ namespace UnitTests.ScenarioTests
 
             // Set Monster Conditions
             AutoBattleEngine.MaxNumberMonsters = 20;
+            var StrongMonster = new MonsterModel
+            {
+                Speed = 10000,
+                Level = 20,
+                Attack = 1000
+            };
+
+            AutoBattleEngine.MonsterList.Add(StrongMonster);
 
             // Auto Battle will add the monsters
 
