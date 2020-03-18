@@ -62,12 +62,6 @@ namespace Game.Engine
         // The Current Action 
         public ActionEnum CurrentAction;
 
-        // Hold the current coordinate on the map
-        public CoordinateModel CurrentMapLocation;
-
-        // Hold the coordinate to move to on the map
-        public CoordinateModel MoveMapLocation;
-
         // The battle Map
         public MapModel MapModel = new MapModel();
 
