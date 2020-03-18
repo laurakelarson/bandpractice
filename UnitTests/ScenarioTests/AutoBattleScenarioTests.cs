@@ -77,6 +77,9 @@ namespace UnitTests.ScenarioTests
             var result = await Engine.RunAutoBattle();
 
             //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
 
             //Assert
             Assert.AreEqual(true, result);
@@ -125,6 +128,10 @@ namespace UnitTests.ScenarioTests
             var result = await Engine.RunAutoBattle();
 
             //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.BattleMessages.ClearMessages();
 
             //Assert
             Assert.AreEqual(true, result);
@@ -360,6 +367,10 @@ namespace UnitTests.ScenarioTests
             bool result = Engine.Score.ItemsDroppedList.Count() > 0;
 
             //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(true, result);
@@ -409,6 +420,10 @@ namespace UnitTests.ScenarioTests
             bool result = Engine.Score.ItemsDroppedList.Contains(Item.Name);
 
             //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.ItemPool.Clear();
 
             //Assert
             Assert.AreEqual(true, result);
