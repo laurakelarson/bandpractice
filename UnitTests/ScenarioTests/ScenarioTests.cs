@@ -236,6 +236,9 @@ namespace UnitTests.ScenarioTests
             var result = await Engine.RunAutoBattle();
 
             //Reset
+            Engine.CharacterList.Clear();
+            Engine.MonsterList.Clear();
+            Engine.EntityList.Clear();
 
             //Assert
             Assert.AreEqual(false, result);
@@ -298,6 +301,9 @@ namespace UnitTests.ScenarioTests
 
             //Reset
             DiceHelper.EnableRandomValues();
+            Engine.CharacterList.Clear();
+            Engine.MonsterList.Clear();
+            Engine.EntityList.Clear();
 
             //Assert
             Assert.AreEqual(false, result);
