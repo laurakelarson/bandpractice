@@ -99,5 +99,39 @@ namespace UnitTests.Views.Monsters
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void MonsterIndexPage_OnMonsterSelected_Clicked_Invalid_Null_Should_Fail()
+        {
+            // Arrange
+
+            var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+
+            // Act
+            page.OnMonsterSelected(null, selectedMonsterChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterIndexPage_OnAppearing_Valid_Should_Pass()
+        {
+            // Arrange
+            MonsterIndexViewModel ViewModel = MonsterIndexViewModel.Instance;
+
+            // Act
+            OnAppearing();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.IsNotNull(ViewModel);
+        }
+
+
     }
 }
