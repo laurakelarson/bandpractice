@@ -541,5 +541,20 @@ namespace UnitTests.Services
             Assert.AreEqual(true, result.Contains("MessageList"));
             Assert.AreEqual(true, result.Contains("Error"));
         }
+
+        // Test null json message 
+        [Test]
+        public async Task HttpClientService_ParseJsonResult_InValid_Responce_Null_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = await Service.JsonParseResult(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
