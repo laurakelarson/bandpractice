@@ -151,6 +151,47 @@ namespace UnitTests.Views.Monsters
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void MonsterCreatePage_ClosePopup1_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ClosePopup_Clicked1(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterCreatePage_ClosePopup2_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ClosePopup_Clicked2(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterCreatePage_ClosePopup3_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ClosePopup_Clicked3(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
     }
 }
