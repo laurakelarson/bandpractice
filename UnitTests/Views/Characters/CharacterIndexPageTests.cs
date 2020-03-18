@@ -99,6 +99,20 @@ namespace UnitTests.Views.Characters
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void CharacterIndexPage_OnCharacterSelected_Clicked_Invalid_Null_Should_Fail()
+        {
+            // Arrange
 
+            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+
+            // Act
+            page.OnCharacterSelected(null, selectedCharacterChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
