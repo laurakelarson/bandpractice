@@ -1,6 +1,7 @@
 ﻿using Game.Engine;
 using Game.Models;
 using Game.Models.Enum;
+using Game.ViewModels;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -267,7 +268,7 @@ namespace UnitTests.ScenarioTests
         public void BattleEngine_Monster_Dies_Item_Drop_Should_Pass()
         {
             /* 
-             * Test to have character win the first round
+             * Test to have monster drop its items
              * 
              * 1 Character
              * 
@@ -319,6 +320,72 @@ namespace UnitTests.ScenarioTests
 
             //Assert
             Assert.AreEqual(true, result > 0);
+        }
+
+        [Test]
+        public void BattleEngine_Character_Dies_Item_Drop_Should_Pass()
+        {
+            /* 
+             * Test to have character drop its items
+             * 
+             * 1 Character
+             * 
+             * 1 Monster
+             * 
+             * Monster continually attacks Character until it dies
+             * Character should drop its equipped item
+             * 
+             */
+
+            //Arrange
+
+            // Add Character
+
+            Engine.MaxNumberCharacters = 1;
+
+            var Character = new CharacterModel
+            {
+                Level = 10,
+                CurrentHealth = 200,
+                MaxHealth = 200
+            };
+
+            // Add Item
+            var Item = ItemIndexViewModel.Instance.GetRandomItem();
+            Item.Name = "Bogus";
+            Character.AddItem(Item.Location, Item);
+
+            Engine.CharacterList.Add(Character);
+
+            Engine.MaxNumberMonsters = 1;
+
+            // ensure item pool is clear
+            Engine.ItemPool.Clear();
+
+            Engine.StartBattle(false);
+
+            var Monster = Engine.EntityList.Where(a => a.EntityType == EntityTypeEnum.Monster).FirstOrDefault();
+            var Player = Engine.EntityList.Where(a => a.Id == Character.Id).FirstOrDefault();
+
+            //Act
+            while (Player.Alive)
+            {
+                Engine.TurnAsAttack(Monster, Player);
+            }
+
+            var count = Engine.ItemPool.Count;
+            var name = Engine.ItemPool.First().Name;
+
+            //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.ItemPool.Clear();
+            Engine.MaxNumberMonsters = 6;
+
+            //Assert
+            Assert.AreEqual(true, count > 0);
+            Assert.AreEqual("Bogus", name);
         }
     }
 }
