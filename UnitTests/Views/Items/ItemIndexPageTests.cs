@@ -131,6 +131,22 @@ namespace UnitTests.Views.Items
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void ItemIndexPage_OnAppearing_Valid_Empty_Should_Pass()
+        {
+            // Arrange
 
+            // Add each model here to warm up and load it.
+            ItemIndexViewModel ViewModel = ItemIndexViewModel.Instance;
+            ViewModel.Dataset.Clear();
+
+            // Act
+            OnAppearing();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
