@@ -21,7 +21,6 @@
     <Folder Include="Helpers\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
-    <Folder Include="Views\Characters\" />
   </ItemGroup>
 
   <ItemGroup>
