@@ -45,6 +45,10 @@ namespace UnitTests.ScenarioTests
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_Monsters_1_Should_Pass()
         {
+            /**
+             * Test running auto battle 1 character vs. 1 monster
+             */
+
             //Arrange
 
             // Add Characters
@@ -81,7 +85,6 @@ namespace UnitTests.ScenarioTests
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_Character_Level_Up_Should_Pass()
         {
-
             /* 
              * Test to force leveling up of a character during the battle
              * 
