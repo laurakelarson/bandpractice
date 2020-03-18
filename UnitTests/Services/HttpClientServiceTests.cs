@@ -18,7 +18,20 @@ namespace UnitTests.Services
             Service = HttpClientService.Instance;
         }
 
+        // Test constructor 
+        [Test]
+        public void HttpClientService_Constructor_Default_Should_Pass()
+        {
+            // Arrange
 
+            // Act
+            var result = Service;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
     }
 }
