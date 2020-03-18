@@ -556,5 +556,26 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(null, result);
         }
+
+        // Test null http response 
+        [Test]
+        public async Task HttpClientService_ParseJsonResult_InValid_Responce_Content_Null_Should_Fail()
+        {
+            // Arrange
+
+            var responseMessage = new HttpResponseMessage(ResponseMessage.HttpStatusCode)
+            {
+                Content = null
+            };
+
+            // Act
+            var result = await Service.JsonParseResult(responseMessage);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
     }
 }
