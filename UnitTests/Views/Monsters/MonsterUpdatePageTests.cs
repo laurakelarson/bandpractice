@@ -39,5 +39,20 @@ namespace UnitTests.Views.Monsters
             Application.Current = null;
         }
 
+        [Test]
+        public void MonsterUpdatePage_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = page;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+
     }
 }
