@@ -1207,7 +1207,7 @@ namespace UnitTests.ScenarioTests
             //Act
             BattleEngine.NewRound();
             var Player = BattleEngine.GetNextPlayerTurn();
-            BattleEngine.TakeTurn(Player);
+            BattleEngine.Attack(Player);
             var result = BattleEngine.BattleMessages.TurnMessage.Contains("Critical");
 
             //Resets
