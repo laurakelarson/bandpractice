@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace UnitTests.Services
 {
@@ -51,5 +52,20 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
+        // Test invalid url 
+        [Test]
+        public async Task HttpClientService_GetJsonGetAsync_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var RestUrl = "";
+
+            // Act
+            var result = await Service.GetJsonGetAsync(RestUrl);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
