@@ -85,6 +85,7 @@ namespace UnitTests.ScenarioTests
             // Set Character Conditions
 
             AutoBattleEngine.MaxNumberCharacters = 1;
+            AutoBattleEngine.CharacterList.Clear();
 
             var CharacterPlayerMike = new CharacterModel
             {
@@ -98,6 +99,7 @@ namespace UnitTests.ScenarioTests
             AutoBattleEngine.CharacterList.Add(CharacterPlayerMike);
 
             // Set Monster Conditions
+            AutoBattleEngine.MaxNumberMonsters = 20;
 
             // Auto Battle will add the monsters
 
@@ -106,6 +108,7 @@ namespace UnitTests.ScenarioTests
             var result = await AutoBattleEngine.RunAutoBattle();
 
             //Reset
+            AutoBattleEngine.MaxNumberMonsters = 6;
 
             //Assert
             Assert.AreEqual(true, result);
