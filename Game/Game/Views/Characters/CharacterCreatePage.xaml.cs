@@ -15,8 +15,11 @@ namespace Game.Views.Characters
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterCreatePage : ContentPage
     {
-        // View Model for Character
-        GenericViewModel<CharacterModel> ViewModel;
+        // The Character to create
+        public GenericViewModel<CharacterModel> ViewModel { get; set; }
+
+        // Empty Constructor for UTs
+        public CharacterCreatePage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor called with a view model
@@ -42,7 +45,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             // Check input of Name (cannot be empty)
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
@@ -66,7 +69,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
@@ -76,7 +79,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Changed_CharacterTypePicker(object sender, EventArgs e)
+        public void Changed_CharacterTypePicker(object sender, EventArgs e)
         {
             // Update default character type
             var currName = ViewModel.Data.Name;
