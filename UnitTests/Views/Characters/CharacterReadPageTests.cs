@@ -40,5 +40,21 @@ namespace UnitTests.Views.Characters
             Application.Current = null;
         }
 
+        [Test]
+        public void CharacterReadPage_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = page;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+
+
     }
 }
