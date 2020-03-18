@@ -262,5 +262,63 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(RoundEnum.NewRound, result);
         }
+
+        [Test]
+        public void BattleEngine_Monster_Dies_Item_Drop_Should_Pass()
+        {
+            /* 
+             * Test to have character win the first round
+             * 
+             * 1 Character
+             * 
+             * 1 Monster
+             * 
+             * Character continually attacks Monster until it dies
+             * Monster should drop at least one item
+             * 
+             */
+
+            //Arrange
+
+            // Add Character
+
+            Engine.MaxNumberCharacters = 1;
+
+            var Character = new CharacterModel
+            {
+                Level = 10,
+                CurrentHealth = 200,
+                MaxHealth = 200
+            };
+
+            Engine.CharacterList.Add(Character);
+
+            Engine.MaxNumberMonsters = 1;
+
+            // ensure item pool is clear
+            Engine.ItemPool.Clear();
+
+            Engine.StartBattle(false);
+
+            var Monster = Engine.EntityList.Where(a => a.EntityType == EntityTypeEnum.Monster).FirstOrDefault();
+            var Player = Engine.EntityList.Where(a => a.Id == Character.Id).FirstOrDefault();
+
+            //Act
+            while (Monster.Alive)
+            {
+                Engine.TurnAsAttack(Player, Monster);
+            }
+
+            var result = Engine.ItemPool.Count;
+
+            //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.MaxNumberMonsters = 6;
+
+            //Assert
+            Assert.AreEqual(true, result > 0);
+        }
     }
 }
