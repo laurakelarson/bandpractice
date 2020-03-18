@@ -58,6 +58,20 @@ namespace UnitTests.Views.Items
             Assert.IsNotNull(result);
         }
 
+        [Test]
+        public void ItemCreatePage_Cancel_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.Cancel_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
     }
 }
