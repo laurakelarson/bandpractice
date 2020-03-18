@@ -19,10 +19,13 @@ namespace Game.Views
     public partial class MonsterCreatePage : ContentPage
     {
         // The Monster to create
-        GenericViewModel<MonsterModel> ViewModel;
+        public GenericViewModel<MonsterModel> ViewModel;
 
         // Hold the current location selected
         public ItemLocationEnum PopupLocationEnum = ItemLocationEnum.Unknown;
+
+        // Empty Constructor for UTs
+        public MonsterCreatePage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Create makes a new model
@@ -54,7 +57,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             // Check input of Name (cannot be empty)
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
@@ -79,7 +82,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }

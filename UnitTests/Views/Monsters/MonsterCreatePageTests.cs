@@ -1,10 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NUnit.Framework;
+
+using Game;
+using Game.Views;
+using Game.ViewModels;
+using Game.Models;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Mocks;
+using System.Linq;
 
 namespace UnitTests.Views.Monsters
 {
-    class MonsterCreatePageTests
+    [TestFixture]
+    public class MonsterCreatePageTests : MonsterCreatePage
     {
+        App app;
+        MonsterCreatePage page;
+
+        public MonsterCreatePageTests() : base(true) { }
+
+        [SetUp]
+        public void Setup()
+        {
+            // Initilize Xamarin Forms
+            MockForms.Init();
+
+            //This is your App.xaml and App.xaml.cs, which can have resources, etc.
+            app = new App();
+            Application.Current = app;
+
+            page = new MonsterCreatePage(new GenericViewModel<MonsterModel>(new MonsterModel()));
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Application.Current = null;
+        }
+
     }
 }
