@@ -54,7 +54,19 @@ namespace UnitTests.Views.Characters
             Assert.IsNotNull(result);
         }
 
+        [Test]
+        public void CharacterReadPage_Update_Clicked_Default_Should_Pass()
+        {
+            // Arrange
 
+            // Act
+            page.Update_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
     }
 }
