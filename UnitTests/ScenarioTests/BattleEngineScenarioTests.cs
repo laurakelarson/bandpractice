@@ -316,6 +316,7 @@ namespace UnitTests.ScenarioTests
             Engine.MonsterList.Clear();
             Engine.CharacterList.Clear();
             Engine.EntityList.Clear();
+            Engine.ItemPool.Clear();
             Engine.MaxNumberMonsters = 6;
 
             //Assert
