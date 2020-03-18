@@ -1,4 +1,5 @@
 ﻿using Game.Engine;
+using Game.Models;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -59,6 +60,32 @@ namespace UnitTests.ScenarioTests
             // Reset
             Engine.MonsterList.Clear();
             Engine.EntityList.Clear();
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void BattleEngine_Battle_No_Monsters_Should_Fail()
+        {
+            /*
+             * Try running a battle with no monsters.
+             */
+
+            // Arrange
+            Engine.CharacterList.Add(new CharacterModel());
+
+            Engine.MaxNumberMonsters = 0;
+
+            // Act
+            Engine.StartBattle(false);
+            var Player = Engine.GetNextPlayerTurn();
+            var result = Engine.TakeTurn(Player);
+
+            // Reset
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.MaxNumberMonsters = 6;
 
             // Assert
             Assert.AreEqual(false, result);
