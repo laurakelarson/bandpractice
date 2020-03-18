@@ -1,4 +1,5 @@
-﻿using Game.Services;
+﻿using Game.Helpers;
+using Game.Services;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,35 @@ namespace UnitTests.Services
 
             // Assert
             Assert.AreEqual(null, result);
+        }
+
+        // Test httpclient service using mock message handler
+        [Test]
+        public async Task HttpClientService_GetJsonGetAsync_Valid_Moq_Should_Pass()
+        {
+            // Arrange
+
+            var MockHttpClient = new HttpClient(new MockHttpMessageHandler());
+
+            var RestUrl = "http://some.fake.url";
+
+            var OldHttpClient = Service.GetHttpClient();
+            Service.SetHttpClient(MockHttpClient);
+
+            ResponseMessage.SetResponseMessageStringContent(ResponseMessage.GetStringContent);
+
+            // Act
+            var result = await Service.GetJsonGetAsync(RestUrl);
+
+            // Parse them into ItemModels
+            var resultList = ItemModelJsonHelper.ParseJson(result);
+
+            // Reset
+            Service.SetHttpClient(OldHttpClient);
+            ResponseMessage.ResetResponseMessageStringContent();
+
+            // Assert
+            Assert.AreEqual(2, resultList.Count);
         }
 
         // ResponseMessage class used for sending mock responses 
