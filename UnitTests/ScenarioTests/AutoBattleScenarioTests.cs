@@ -114,15 +114,15 @@ namespace UnitTests.ScenarioTests
                 Name = "Level Up",
                 Level = 1,
                 Attack = 100,
-                Speed = 1000    // Go first
+                Speed = 1000,    // Go first
+                CurrentHealth = 1000,
+                MaxHealth = 1000
             };
-
-            // Remember Start Level
-            var StartLevel = Character.Level;
 
             Engine.CharacterList.Add(Character);
 
             // Add Monsters
+            Engine.MaxNumberMonsters = 1;
 
             //Act
             var result = await Engine.RunAutoBattle();
