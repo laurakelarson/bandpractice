@@ -10,7 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Game.Views.Monsters
-{
+{   
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterDeletePage : ContentPage
     {
