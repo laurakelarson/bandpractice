@@ -170,10 +170,6 @@ namespace Game.Engine
                     data.ExperienceGiven = 100;
                 }
 
-                // Update monster's grid position
-                data.RowPos = GridPositionHelper.MonsterPositions[i].X;
-                data.ColPos = GridPositionHelper.MonsterPositions[i].Y;
-
                 MonsterList.Add(data);
             }
 
