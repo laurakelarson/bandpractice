@@ -320,6 +320,7 @@ namespace UnitTests.Engine
             Engine.CharacterList.Clear();
             Engine.CharacterList.Add(Character);
             Engine.MakeEntityList();
+            Engine.MapModel.PopulateMapModel(Engine.EntityList);
 
             // Act
             var result = Engine.TakeTurn(Engine.EntityList
@@ -327,6 +328,7 @@ namespace UnitTests.Engine
 
             // Reset
             Engine.StartBattle(false);
+            Engine.MapModel.ClearMapGrid();
 
             // Assert
             Assert.AreEqual(true, result);
