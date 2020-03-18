@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Game.Engine;
+using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,19 @@ namespace UnitTests.ScenarioTests
     [TestFixture]
     public class BattleEngineScenarioTests
     {
+        BattleEngine Engine;
+
+        [SetUp]
+        public void Setup()
+        {
+            Engine = new AutoBattleEngine();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+        }
+
         [Test]
         public void TestMethod()
         {
