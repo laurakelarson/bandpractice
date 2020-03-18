@@ -115,6 +115,28 @@ namespace UnitTests.Views.Characters
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void CharacterCreatePage_TypePicker_Changed_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            var ViewModel = new GenericViewModel<CharacterModel>(data);
+
+            page = new CharacterCreatePage(ViewModel);
+            double oldType = 1;
+            double newType = 2;
+
+            var args = new ValueChangedEventArgs(oldType, newType);
+
+            // Act
+            page.Changed_CharacterTypePicker(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
     }
 }
