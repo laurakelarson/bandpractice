@@ -40,23 +40,6 @@ namespace Game.Views
             AttributePicker.SelectedIndex = 0;
         }
 
-        /// <summary>
-        /// Constructor for Create makes a new model
-        /// </summary>
-        public ItemCreatePage()
-        {
-            InitializeComponent();
-
-            this.ViewModel.Data = new ItemModel();
-
-            BindingContext = this.ViewModel;
-
-            this.ViewModel.Title = "Create";
-
-            //Need to make the SelectedItem a string, so it can select the correct item.
-            LocationPicker.SelectedItem = ViewModel.Data.Location.ToString();
-            AttributePicker.SelectedItem = ViewModel.Data.Attribute.ToString();
-        }
 
         /// <summary>
         /// Save by calling for Create
