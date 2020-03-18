@@ -82,6 +82,22 @@ namespace UnitTests.Views.Monsters
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void MonsterIndexPage_OnMonsterSelected_Clicked_Default_Should_Pass()
+        {
+            // Arrange
 
+            var selectedMonster = new MonsterModel();
+
+            var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(selectedMonster, 0);
+
+            // Act
+            page.OnMonsterSelected(null, selectedMonsterChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
