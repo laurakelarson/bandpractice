@@ -186,5 +186,8 @@ namespace UnitTests.Services
                 'version':'1.1.1.1',
                 'data':{}
             }";
+
+        // Example bad json string 
+        readonly string ExampleJsonBadJson = @"Bougus";
     }
 }
