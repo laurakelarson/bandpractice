@@ -150,5 +150,62 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(true, Player.Level != 1);
         }
+
+        [Test]
+        public void BattleEngine_GameOver_Round_1_Should_Pass()
+        {
+            /* 
+             * Test to have character lose battle in first round
+             * 
+             * 1 Character
+             *      1 HP
+             * 
+             * 1 Monster
+             * 
+             * Monster continually attacks Character until it dies
+             * Game state should be game over
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var Character = new CharacterModel
+            {
+                Level = 20,
+                CurrentHealth = 1,
+                MaxHealth = 0
+            };
+
+            Engine.CharacterList.Add(Character);
+
+            Engine.MaxNumberMonsters = 1;
+
+            Engine.StartBattle(false);
+
+            var Monster = Engine.EntityList.Where(a => a.EntityType == EntityTypeEnum.Monster).FirstOrDefault();
+            var Player = Engine.EntityList.Where(a => a.Id == Character.Id).FirstOrDefault();
+
+            //Act
+            while (Player.Alive)
+            {
+                Engine.TurnAsAttack(Monster, Player);
+            }
+
+            var result = Engine.RoundNextTurn();
+
+            //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.MaxNumberMonsters = 6;
+
+            //Assert
+            Assert.AreEqual(RoundEnum.GameOver, result);
+        }
     }
 }
