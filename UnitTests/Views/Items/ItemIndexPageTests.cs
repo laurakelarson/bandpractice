@@ -80,6 +80,24 @@ namespace UnitTests.Views.Items
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void ItemIndexPage_OnItemSelected_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            var selectedItem = new ItemModel();
+
+            var selectedItemChangedEventArgs = new SelectedItemChangedEventArgs(selectedItem, 0);
+
+            // Act
+            page.OnItemSelected(null, selectedItemChangedEventArgs);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
     }
 }
