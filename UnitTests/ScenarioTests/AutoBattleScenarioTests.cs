@@ -102,7 +102,7 @@ namespace UnitTests.ScenarioTests
 
             Engine.MaxNumberCharacters = 1;
 
-            CharacterIndexViewModel.Instance.Dataset.Clear();
+            Engine.CharacterList.Clear();
 
             // To See Level UP happening, a character needs to be close to the next level
             var Character = new CharacterModel
