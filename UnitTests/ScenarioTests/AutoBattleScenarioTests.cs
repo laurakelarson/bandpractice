@@ -166,10 +166,18 @@ namespace UnitTests.ScenarioTests
 
             Engine.MaxNumberMonsters = 6;
 
+            // set dice to always hit
+            DiceHelper.DisableRandomValues();
+            DiceHelper.SetForcedDiceRollValue(20);
+
             //Act
             var result = await Engine.RunAutoBattle();
 
             //Reset
+            DiceHelper.DisableRandomValues();
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
 
             //Assert
             Assert.AreEqual(true, result);
