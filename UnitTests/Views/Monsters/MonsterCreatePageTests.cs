@@ -193,5 +193,27 @@ namespace UnitTests.Views.Monsters
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void MonsterCreatePage_LevelChanged_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel();
+            var ViewModel = new GenericViewModel<MonsterModel>(data);
+
+            page = new MonsterCreatePage(ViewModel);
+            int oldLevel = 1;
+            int newLevel = 10;
+
+            var args = new ValueChangedEventArgs(oldLevel, newLevel);
+
+            // Act
+            page.Changed_MonsterLevelPicker(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
     }
 }
