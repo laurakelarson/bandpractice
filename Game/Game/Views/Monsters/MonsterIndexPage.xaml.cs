@@ -14,7 +14,10 @@ namespace Game.Views.Monsters
     public partial class MonsterIndexPage : ContentPage
     {
         // The view model, used for data binding
-        readonly MonsterIndexViewModel ViewModel;
+        public readonly MonsterIndexViewModel ViewModel;
+
+        // Empty Constructor for UTs
+        public MonsterIndexPage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Index Page
@@ -33,7 +36,7 @@ namespace Game.Views.Monsters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             MonsterModel data = args.SelectedItem as MonsterModel;
             if (data == null)
@@ -53,7 +56,7 @@ namespace Game.Views.Monsters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddMonster_Clicked(object sender, EventArgs e)
+        public async void AddMonster_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage(new GenericViewModel<MonsterModel>())));
 
