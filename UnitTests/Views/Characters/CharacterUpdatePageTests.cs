@@ -97,6 +97,40 @@ namespace UnitTests.Views.Characters
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void CharacterUpdatePage_OnBackButtonPressed_Valid_Should_Pass()
+        {
+            // Arrange
 
+            // Act
+            OnBackButtonPressed();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterUpdatePage_Level_OnStepperValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel();
+            var ViewModel = new GenericViewModel<CharacterModel>(data);
+
+            page = new CharacterUpdatePage(ViewModel);
+            double oldValue = 2.0;
+            double newValue = 1.0;
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.Level_OnStepperValueChanged(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
