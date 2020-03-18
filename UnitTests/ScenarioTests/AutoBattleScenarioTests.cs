@@ -13,7 +13,7 @@ namespace UnitTests.ScenarioTests
     [TestFixture]
 
 
-    class ScenarioTests
+    class AutoBattleScenarioTests
     {
         AutoBattleEngine Engine;
 
