@@ -71,6 +71,18 @@ namespace UnitTests.Views.Items
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Default_Should_Pass()
+        {
+            // Arrange
 
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
