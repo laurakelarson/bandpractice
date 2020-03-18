@@ -14,7 +14,7 @@ namespace Game.Views
     public partial class ItemIndexPage : ContentPage
     {
         // The view model, used for data binding
-        public readonly ItemIndexViewModel ViewModel;
+        public readonly ItemIndexViewModel ViewModel = ItemIndexViewModel.Instance;
 
         // Empty Constructor for UTs
         public ItemIndexPage(bool UnitTest) { }
@@ -28,7 +28,7 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            BindingContext = ViewModel = ItemIndexViewModel.Instance;
+            BindingContext = ViewModel;
         }
 
         /// <summary>
