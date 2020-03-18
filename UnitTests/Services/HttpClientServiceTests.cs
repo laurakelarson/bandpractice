@@ -124,5 +124,22 @@ namespace UnitTests.Services
                 HttpStatusCode = HttpStatusCodeSuccess;
             }
         }
+
+        // Mock Http message handler class 
+        public class MockHttpMessageHandler : HttpMessageHandler
+        {
+
+            protected override async Task<HttpResponseMessage> SendAsync(
+                HttpRequestMessage request,
+                CancellationToken cancellationToken)
+            {
+                var responseMessage = new HttpResponseMessage(ResponseMessage.HttpStatusCode)
+                {
+                    Content = ResponseMessage.ResponseMessageStringContent
+                };
+
+                return await Task.FromResult(responseMessage);
+            }
+        }
     }
 }
