@@ -43,6 +43,22 @@ namespace UnitTests.Views.Items
             Application.Current = null;
         }
 
+        [Test]
+        public void ItemDeletePage_Constructor_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = page;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        
+
 
     }
 }
