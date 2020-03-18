@@ -52,12 +52,28 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
-        // Test invalid url 
+        // Test empty url 
         [Test]
         public async Task HttpClientService_GetJsonGetAsync_InValid_Null_Should_Fail()
         {
             // Arrange
             var RestUrl = "";
+
+            // Act
+            var result = await Service.GetJsonGetAsync(RestUrl);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        // Test bogus url 
+        [Test]
+        public async Task HttpClientService_GetJsonGetAsync_InValid_Bogus_Should_Fail()
+        {
+            // Arrange
+            var RestUrl = "bogus";
 
             // Act
             var result = await Service.GetJsonGetAsync(RestUrl);
