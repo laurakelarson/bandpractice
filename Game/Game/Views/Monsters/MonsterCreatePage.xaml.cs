@@ -92,7 +92,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Changed_MonsterLevelPicker(object sender, EventArgs e)
+        public void Changed_MonsterLevelPicker(object sender, EventArgs e)
         {
             // Update default character type
             var currName = ViewModel.Data.Name;
@@ -119,7 +119,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Changed_MonsterTypePicker(object sender, EventArgs e)
+        public void Changed_MonsterTypePicker(object sender, EventArgs e)
         {
             // Update default monster type
             var currName = ViewModel.Data.Name;
