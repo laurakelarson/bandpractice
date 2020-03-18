@@ -95,7 +95,7 @@ namespace UnitTests.ScenarioTests
              * 
              * 6 Monsters
              * 
-             * Character Should Level UP 1 level
+             * Character Should Level UP at least 1 level
              * 
              */
 
@@ -136,7 +136,7 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(true, Engine.Score.CharacterAtDeathList.Contains("Level Up"));
-            Assert.AreEqual(true, Engine.Score.CharacterAtDeathList.Contains("Level: 2"));
+            Assert.AreEqual(false, Engine.Score.CharacterAtDeathList.Contains("Level: 1"));
         }
 
         [Test]
