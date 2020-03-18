@@ -39,6 +39,20 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
+        // Test getting group 1 items from service 
+        [Test]
+        public async Task ItemService_GetItemsFromServerGetAsync_Valid_1_Should_Pass()
+        {
+            // Arrange
 
+            // Act
+            var result = await ItemService.GetItemsFromServerGetAsync(1);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result.Count == 2);
+            Assert.AreEqual("Strong Shield", result[0].Name);
+        }
     }
 }
