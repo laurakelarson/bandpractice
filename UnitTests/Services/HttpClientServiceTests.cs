@@ -116,6 +116,38 @@ namespace UnitTests.Services
             Assert.AreEqual(2, resultList.Count);
         }
 
+        // Test 
+        [Test]
+        public async Task HttpClientService_GetJsonGetAsync_InValid_Moq_Bad_Response_Should_Fail()
+        {
+            // Arrange
+
+            var MockHttpClient = new HttpClient(new MockHttpMessageHandler());
+
+            var RestUrl = "http://some.fake.url";
+
+            var OldHttpClient = Service.GetHttpClient();
+            Service.SetHttpClient(MockHttpClient);
+
+            ResponseMessage.SetResponseMessageStringContent(ResponseMessage.NullStringContent);
+            ResponseMessage.SetHttpStatusCode(ResponseMessage.HttpStatusCodeBadRequest);
+
+            // Act
+            var result = await Service.GetJsonGetAsync(RestUrl);
+
+
+            // Parse them
+            var resultList = ItemModelJsonHelper.ParseJson(result);
+
+            // Reset
+            Service.SetHttpClient(OldHttpClient);
+            ResponseMessage.ResetResponseMessageStringContent();
+            ResponseMessage.ResetHttpStatusCode();
+
+            // Assert
+            Assert.AreEqual(null, resultList);
+        }
+
         // ResponseMessage class used for sending mock responses 
         public static class ResponseMessage
         {
