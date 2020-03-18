@@ -424,5 +424,32 @@ namespace UnitTests.Services
 
         // Example bad json string 
         readonly string ExampleJsonBadJson = @"Bougus";
+
+        // Test json parsing for http service
+        [Test]
+        public async Task HttpClientService_ParseJsonResult_Valid_Should_Pass()
+        {
+            // Arrange
+
+            var messageContent = ExampleJson;
+
+            var responseMessage = new HttpResponseMessage(ResponseMessage.HttpStatusCode)
+            {
+                Content = new StringContent(messageContent)
+            };
+
+            // Act
+            var result = await Service.JsonParseResult(responseMessage);
+
+            // Parse them into ItemModels
+            var resultList = ItemModelJsonHelper.ParseJson(result);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(4, resultList.Count);
+        }
+
+
     }
 }
