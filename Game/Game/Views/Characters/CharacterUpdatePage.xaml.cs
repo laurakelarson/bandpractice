@@ -16,8 +16,11 @@ namespace Game.Views.Characters
     public partial class CharacterUpdatePage : ContentPage
     {
 
-        // View Model for Character
-        readonly GenericViewModel<CharacterModel> ViewModel;
+        // The Character to create
+        public GenericViewModel<CharacterModel> ViewModel { get; set; }
+
+        // Empty Constructor for UTs
+        public CharacterUpdatePage(bool UnitTest) { }
 
         // CharacterModel to hold starting state of Character
         // Use to restore CharacterModel in the event user cancels the update
@@ -45,7 +48,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             // Check input of Name (cannot be empty)
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
@@ -63,7 +66,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
 
@@ -78,7 +81,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelLabel.Text = String.Format("{0}", e.NewValue);
 
