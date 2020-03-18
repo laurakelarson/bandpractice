@@ -388,5 +388,60 @@ namespace UnitTests.ScenarioTests
             Assert.AreEqual(true, count > 0);
             Assert.AreEqual("Bogus", name);
         }
+
+        [Test]
+        public void BattleEngine_Battle_Character_Move_Should_Pass()
+        {
+            /* 
+             * Test to have monster move toward character
+             * 
+             * 1 Character
+             *      Low Range
+             * 
+             * 1 Monster
+             * 
+             * Since the character has low Range, won't be able to attack monster from across grid
+             * Character's turn should be a move
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var Character = new CharacterModel
+            {
+                Range = 1,  // low range, so character will not be able to attack from across grid
+                Level = 1,
+                CurrentHealth = 10,
+                MaxHealth = 10
+            };
+
+            Engine.CharacterList.Add(Character);
+
+            Engine.MaxNumberMonsters = 1;
+
+            Engine.StartBattle(false);
+
+            var Monster = Engine.EntityList.Where(a => a.EntityType == EntityTypeEnum.Monster).FirstOrDefault();
+            var Player = Engine.EntityList.Where(a => a.Id == Character.Id).FirstOrDefault();
+
+            //Act
+            Engine.TakeTurn(Player);
+
+            var result = Engine.BattleMessages.TurnMessage.Contains("moves closer to");
+
+            //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.MaxNumberMonsters = 6;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
