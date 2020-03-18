@@ -474,5 +474,26 @@ namespace UnitTests.Services
             Assert.AreEqual(true, result.Contains("Error"));
         }
 
+        // Test parsing of bad json string by http service
+        [Test]
+        public async Task HttpClientService_ParseJsonResult_InValid_Bad_Json_Should_Fail()
+        {
+            // Arrange
+
+            var messageContent = ExampleJsonBadJson;
+
+            var responseMessage = new HttpResponseMessage(ResponseMessage.HttpStatusCode)
+            {
+                Content = new StringContent(messageContent)
+            };
+
+            // Act
+            var result = await Service.JsonParseResult(responseMessage);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
