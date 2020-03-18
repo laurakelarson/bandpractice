@@ -312,50 +312,6 @@ namespace UnitTests.ScenarioTests
         }
 
         [Test]
-        public async Task AutoBattleEngine_RunAutoBattle_GameOver_Round_2_Should_Pass()
-        {
-            /*
-             * 2 Characters:
-             *      highest speed
-             *      1 HP each
-             * 
-             * 1 Monster
-             * 
-             * Characters should win first Round,
-             * Monsters win later Round.
-             */
-            //Arrange
-
-            // Add Characters
-
-            Engine.MaxNumberCharacters = 2;
-
-            var CharacterPlayer = new CharacterModel
-            {
-                Speed = 1000, // Will go first....
-                Level = 10,
-                CurrentHealth = 1,
-                TotalExperience = 1,
-            };
-
-            Engine.CharacterList.Add(CharacterPlayer);
-            Engine.CharacterList.Add(new CharacterModel(CharacterPlayer));
-
-
-            // Add Monsters
-
-            Engine.MaxNumberMonsters = 1;
-
-            //Act
-            var result = await Engine.RunAutoBattle();
-
-            //Reset
-
-            //Assert
-            Assert.AreEqual(true, result);
-        }
-
-        [Test]
         public async Task AutoBattleEngine_RunAutoBattle_Monster_Dies_Item_Drop_Should_Pass()
         {
             /*
