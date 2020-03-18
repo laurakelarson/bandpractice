@@ -114,5 +114,20 @@ namespace UnitTests.Views.Characters
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void CharacterIndexPage_OnAppearing_Valid_Should_Pass()
+        {
+            // Arrange
+            CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+
+            // Act
+            OnAppearing();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
