@@ -393,7 +393,7 @@ namespace UnitTests.ScenarioTests
         public void BattleEngine_Battle_Character_Move_Should_Pass()
         {
             /* 
-             * Test to have monster move toward character
+             * Test to have character move toward monster
              * 
              * 1 Character
              *      Low Range
@@ -443,5 +443,60 @@ namespace UnitTests.ScenarioTests
             //Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void BattleEngine_Battle_Monster_Move_Should_Pass()
+        {
+            /* 
+             * Test to have monster move toward character
+             * 
+             * 1 Character
+             * 
+             * 1 Monster
+             * 
+             * Since the character is low level, the monster should be too, so it will have low Range
+             * Monster won't be in Range of attack, so its turn should be a move
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var Character = new CharacterModel
+            {
+                Level = 1,
+                CurrentHealth = 10,
+                MaxHealth = 10
+            };
+
+            Engine.CharacterList.Add(Character);
+
+            Engine.MaxNumberMonsters = 1;
+
+            Engine.StartBattle(false);
+
+            var Monster = Engine.EntityList.Where(a => a.EntityType == EntityTypeEnum.Monster).FirstOrDefault();
+            var Player = Engine.EntityList.Where(a => a.Id == Character.Id).FirstOrDefault();
+
+            //Act
+            Engine.TakeTurn(Monster);
+
+            var result = Engine.BattleMessages.TurnMessage.Contains("moves closer to");
+
+            //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.MaxNumberMonsters = 6;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+
     }
 }
