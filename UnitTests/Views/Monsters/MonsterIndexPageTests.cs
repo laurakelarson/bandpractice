@@ -132,6 +132,21 @@ namespace UnitTests.Views.Monsters
             Assert.IsNotNull(ViewModel);
         }
 
+        [Test]
+        public void MonsterIndexPage_OnAppearing_Valid_Empty_Should_Pass()
+        {
+            // Arrange
 
+            MonsterIndexViewModel ViewModel = MonsterIndexViewModel.Instance;
+            ViewModel.Dataset.Clear();
+
+            // Act
+            OnAppearing();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
