@@ -1,5 +1,6 @@
 ﻿using Game.Engine;
 using Game.Models;
+using Game.Models.Enum;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -89,6 +90,65 @@ namespace UnitTests.ScenarioTests
 
             // Assert
             Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void BattleEngine_Battle_Character_Level_Up_Should_Pass()
+        {
+            /* 
+             * Test to force leveling up of a character during the battle
+             * 
+             * 1 Character
+             * 
+             * 1 Monster
+             * 
+             * Character continually attacks Monster until it dies
+             * Character Should Level UP 1 level
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            Engine.MaxNumberCharacters = 1;
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var Character = new CharacterModel
+            {
+                TotalExperience = 300,    // Enough for next level
+                Name = "Level Up",
+                Level = 1,
+                Attack = 100,
+                Speed = 1000,    // Go first
+                Range = 100,      // Can attack anywhere on grid
+                CurrentHealth = 100,
+                MaxHealth = 100
+            };
+
+            Engine.CharacterList.Add(Character);
+
+            Engine.MaxNumberMonsters = 1;
+
+            Engine.StartBattle(false);
+
+            var Monster = Engine.EntityList.Where(a => a.EntityType == EntityTypeEnum.Monster).FirstOrDefault();
+            var Player = Engine.EntityList.Where(a => a.Id == Character.Id).FirstOrDefault();
+
+            //Act
+            while (Monster.Alive)
+            {
+                Engine.TurnAsAttack(Player, Monster);
+            }
+
+            //Reset
+            Engine.MonsterList.Clear();
+            Engine.CharacterList.Clear();
+            Engine.EntityList.Clear();
+            Engine.MaxNumberMonsters = 6;
+
+            //Assert
+            Assert.AreEqual(true, Player.Level != 1);
         }
     }
 }
