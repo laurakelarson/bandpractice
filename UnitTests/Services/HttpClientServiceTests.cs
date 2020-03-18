@@ -495,5 +495,27 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(null, result);
         }
+
+        // Test parsing of json string w/o version
+        [Test]
+        public async Task HttpClientService_ParseJsonResult_InValid_Version_Missing_Should_Fail()
+        {
+            // Arrange
+
+            var messageContent = ExampleJsonNoVersion;
+
+            var responseMessage = new HttpResponseMessage(ResponseMessage.HttpStatusCode)
+            {
+                Content = new StringContent(messageContent)
+            };
+
+            // Act
+            var result = await Service.JsonParseResult(responseMessage);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
