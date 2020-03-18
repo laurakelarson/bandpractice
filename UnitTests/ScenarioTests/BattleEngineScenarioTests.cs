@@ -39,5 +39,29 @@ namespace UnitTests.ScenarioTests
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BattleEngine_Battle_No_Characters_Should_Fail()
+        {
+            /*
+             * Try running a battle with no characters.
+             */
+
+            // Arrange
+
+            // monsters will be added by engine
+
+            // Act
+            Engine.StartBattle(false);
+            var Player = Engine.GetNextPlayerTurn();
+            var result = Engine.TakeTurn(Player);
+
+            // Reset
+            Engine.MonsterList.Clear();
+            Engine.EntityList.Clear();
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
