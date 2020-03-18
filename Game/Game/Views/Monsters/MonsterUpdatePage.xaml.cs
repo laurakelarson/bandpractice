@@ -19,6 +19,9 @@ namespace Game.Views.Monsters
         // View Model for Monster
         readonly GenericViewModel<MonsterModel> ViewModel;
 
+        // Empty Constructor for UTs
+        public MonsterUpdatePage(bool UnitTest) { }
+
         // Hold the current location selected
         public ItemLocationEnum PopupLocationEnum = ItemLocationEnum.Unknown;
 
@@ -62,7 +65,7 @@ namespace Game.Views.Monsters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Save_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
             // Check input of Name (cannot be empty)
             if (string.IsNullOrEmpty(ViewModel.Data.Name))
@@ -80,7 +83,7 @@ namespace Game.Views.Monsters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Cancel_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
 
@@ -93,7 +96,7 @@ namespace Game.Views.Monsters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Changed_MonsterLevelPicker(object sender, EventArgs e)
+        public void Changed_MonsterLevelPicker(object sender, EventArgs e)
         {
 
             // Scale character to new level
