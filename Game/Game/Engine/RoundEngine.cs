@@ -220,11 +220,12 @@ namespace Game.Engine
         /// </summary>
         public void UpdateCharacterPositions()
         {
-            for (int i = 0; i < CharacterList.Count; i++)
-            {
-                CharacterList[i].RowPos = GridPositionHelper.CharacterPositions[i].X;
-                CharacterList[i].ColPos = GridPositionHelper.CharacterPositions[i].Y;
-            }
+            //TODO check whether we are using grid helper elsewhere
+            //for (int i = 0; i < CharacterList.Count; i++)
+            //{
+            //    CharacterList[i].RowPos = GridPositionHelper.CharacterPositions[i].X;
+            //    CharacterList[i].ColPos = GridPositionHelper.CharacterPositions[i].Y;
+            //}
         }
 
         /// <summary>
