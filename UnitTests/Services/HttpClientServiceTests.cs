@@ -177,5 +177,14 @@ namespace UnitTests.Services
                         ]
                 }
             }";
+
+        // Example json error message
+        readonly string ExampleJsonMessageError = @"
+            {
+                'msg':'Ok',
+                'errorCode':1,
+                'version':'1.1.1.1',
+                'data':{}
+            }";
     }
 }
