@@ -14,7 +14,7 @@ namespace Game.Views.Monsters
     public partial class MonsterIndexPage : ContentPage
     {
         // The view model, used for data binding
-        public readonly MonsterIndexViewModel ViewModel;
+        public readonly MonsterIndexViewModel ViewModel = MonsterIndexViewModel.Instance;
 
         // Empty Constructor for UTs
         public MonsterIndexPage(bool UnitTest) { }
@@ -28,7 +28,7 @@ namespace Game.Views.Monsters
         {
             InitializeComponent();
 
-            BindingContext = ViewModel = MonsterIndexViewModel.Instance;
+            BindingContext = ViewModel;
         }
 
         /// <summary>
