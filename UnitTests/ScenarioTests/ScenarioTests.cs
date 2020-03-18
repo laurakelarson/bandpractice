@@ -187,9 +187,6 @@ namespace UnitTests.ScenarioTests
              *      High health
              * 
              * 1 Monsters
-             *      Slow
-             *      Weak Hit
-             *      Weak health
              * 
              * Should never end
              * 
@@ -232,15 +229,16 @@ namespace UnitTests.ScenarioTests
 
             Engine.MaxNumberMonsters = 1;
 
-            // Controll Rolls,  Hit is always a 3
-            DiceHelper.DisableRandomValues();
-            DiceHelper.SetForcedDiceRollValue(3);
+            // Turn count can be infinite
+            Engine.MaxTurnCount = int.MaxValue;
 
             //Act
             var result = await Engine.RunAutoBattle();
 
             //Reset
-            DiceHelper.EnableRandomValues();
+            Engine.CharacterList.Clear();
+            Engine.MonsterList.Clear();
+            Engine.EntityList.Clear();
 
             //Assert
             Assert.AreEqual(false, result);
@@ -303,6 +301,9 @@ namespace UnitTests.ScenarioTests
 
             //Reset
             DiceHelper.EnableRandomValues();
+            Engine.CharacterList.Clear();
+            Engine.MonsterList.Clear();
+            Engine.EntityList.Clear();
 
             //Assert
             Assert.AreEqual(false, result);

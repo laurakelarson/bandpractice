@@ -14,7 +14,10 @@ namespace Game.Views.Characters
     public partial class CharacterIndexPage : ContentPage
     {
         // The view model, used for data binding
-        readonly CharacterIndexViewModel ViewModel;
+        readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+
+        // Empty Constructor for UTs
+        public CharacterIndexPage(bool UnitTest) { }
 
         /// <summary>
         /// Constructor for Index Page
@@ -25,7 +28,7 @@ namespace Game.Views.Characters
         {
             InitializeComponent();
 
-            BindingContext = ViewModel = CharacterIndexViewModel.Instance;
+            BindingContext = ViewModel;
         }
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        public async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             CharacterModel data = args.SelectedItem as CharacterModel;
             if (data == null)
@@ -53,7 +56,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void AddCharacter_Clicked(object sender, EventArgs e)
+        public async void AddCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage(new GenericViewModel<CharacterModel>())));
 
