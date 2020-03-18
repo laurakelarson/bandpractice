@@ -109,5 +109,49 @@ namespace UnitTests.Views.Monsters
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void MonsterUpdatePage_ShowPopup1_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ShowPopup1(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterUpdatePage_ShowPopup2_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ShowPopup2(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterUpdatePage_ShowPopup3_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ShowPopup3(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
     }
 }
