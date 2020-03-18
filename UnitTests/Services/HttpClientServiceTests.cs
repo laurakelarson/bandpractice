@@ -186,6 +186,41 @@ namespace UnitTests.Services
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public async Task HttpClientService_GetJsonPostAsync_InValid_Bogus_Should_Fail()
+        {
+            // Arrange
+            var RestUrl = "bogus";
+
+            int number = 0;
+            int level = 0;
+            AttributeEnum attribute = AttributeEnum.Attack;
+            ItemLocationEnum location = ItemLocationEnum.Feet;
+            int category = 0;
+            bool random = false;
+
+            var dict = new Dictionary<string, string>
+            {
+                { "Number", number.ToString()},
+                { "Level", level.ToString()},
+                { "Attribute", ((int)attribute).ToString()},
+                { "Location", ((int)location).ToString()},
+                { "Random", random.ToString()},
+                { "Category", category.ToString()},
+            };
+
+            // Convert parameters to a key value pairs to a json object
+            JObject finalContentJson = (JObject)JToken.FromObject(dict);
+
+            // Act
+            var result = await Service.GetJsonPostAsync(RestUrl, finalContentJson);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
         // ResponseMessage class used for sending mock responses 
         public static class ResponseMessage
         {
