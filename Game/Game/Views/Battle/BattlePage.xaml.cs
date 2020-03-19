@@ -1060,19 +1060,14 @@ namespace Game.Views
 
             DrawPlayerBoxes();
 
-            // Update the Mode
-            //BattleModeValue.Text = EngineViewModel.Engine.BattleSettingsModel.BattleModeEnum.ToMessage();
-
             switch (EngineViewModel.Engine.BattleSettingsModel.BattleModeEnum)
             {
-                case BattleModeEnum.MapAbility:
                 case BattleModeEnum.MapFull:
                 case BattleModeEnum.MapNext:
                     GamePlayersTopDisplay.IsVisible = false;
                     BattleMapDisplay.IsVisible = true;
                     break;
 
-                case BattleModeEnum.SimpleAbility:
                 case BattleModeEnum.SimpleNext:
                 case BattleModeEnum.Unknown:
                 default:
@@ -1085,12 +1080,9 @@ namespace Game.Views
             {
                 case BattleStateEnum.Starting:
                     StartBattleButton.IsVisible = true;
-                    //GameUIDisplay.IsVisible = false;
                     break;
 
                 case BattleStateEnum.NewRound:
-                    //NextRoundButton.IsVisible = true;
-
                     // Hide the Game Board
                     GameUIDisplay.IsVisible = false;
 
