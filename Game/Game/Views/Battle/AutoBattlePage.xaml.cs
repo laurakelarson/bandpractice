@@ -40,6 +40,9 @@ namespace Game.Views.Battle
             // Check whether user has enabled Critical Miss (hackathon rule)
             Engine.CriticalMissEnabled = BattleEngineViewModel.Instance.Engine.CriticalMissEnabled;
 
+            // Check whether user has enabled cloud item drops in battle
+            Engine.CloudItemDropEnabled = BattleEngineViewModel.Instance.Engine.CloudItemDropEnabled;
+
             await Engine.RunAutoBattle();
 
 			var Score = Engine.GetScoreObject();
