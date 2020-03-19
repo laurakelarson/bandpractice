@@ -195,7 +195,8 @@ namespace Game.Views
 
                 var imageObject = (ImageButton)MapObject;
 
-                // Check automation ID on the Image, That should match the Player, if not a match, the cell is now different need to update
+                // Check automation ID on the Image, That should match the Player, if not a match,
+                // the cell is now different and needs to be updated
                 if (!imageObject.AutomationId.Equals(data.Player.Guid))
                 {
                     // The Image is different, so need to re-create the Image Object and add it to the Stack
@@ -382,7 +383,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// This add the ImageButton to the stack to kep track of
+        /// This add the ImageButton to the stack to keep track of
         /// </summary>
         /// <param name="data"></param>
         /// <param name="MapModel"></param>
@@ -430,7 +431,7 @@ namespace Game.Views
         /// Set the Image onto the map
         /// The Image represents the player
         /// 
-        /// So a charcter is the character Image for that character
+        /// So a character is the character Image for that character
         /// 
         /// The Automation ID equals the guid for the player
         /// This makes it easier to identify when checking the map to update thigns
@@ -679,20 +680,24 @@ namespace Game.Views
             {
                 AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.IconURI;
                 AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
-                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
+                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
 
                 DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.ImageURI;
                 DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
-                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
             } else
             {
                 AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.ImageURI;
                 AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
-                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
+                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
 
                 DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.IconURI;
                 DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
-                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
             }
             
 
@@ -1002,7 +1007,7 @@ namespace Game.Views
 
         /// <summary>
         /// 
-        /// Hide the differnt button states
+        /// Hide the different button states
         /// 
         /// Hide the message display box
         /// 
