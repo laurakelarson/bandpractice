@@ -4,7 +4,7 @@
              x:Class="Game.Views.BattlePage">
 
     <ContentPage.Content>
-        
+        <ScrollView>
         <AbsoluteLayout
                 IsVisible="True"
                 HorizontalOptions="FillAndExpand"
@@ -56,7 +56,7 @@
                 </StackLayout>
 
                 <!--The Bottom of the Battle UI  Holds the Player to Player boxes, Buttons, and the Messages-->
-                <StackLayout x:Name="BattleBottomBox" Style="{StaticResource BattleUIBottomBox}">
+                <StackLayout x:Name="BattleBottomBox" Style="{StaticResource BattleUIBottomBox}" VerticalOptions="Start">
 
                     <Frame x:Name="BattlePlayerInfomationBox"
                                 Style="{StaticResource PlayerBattleOuterFrame}"
@@ -181,6 +181,6 @@
                 </StackLayout>
 
             </AbsoluteLayout>
-    
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
