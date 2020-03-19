@@ -99,5 +99,22 @@ namespace UnitTests.Engine
             //Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_DetectInfiniteLoop_Round_Should_Pass()
+        {
+            //Arrange
+            var count = Engine.MaxRoundCount;
+            Engine.MaxRoundCount = 0;
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+            Engine.MaxRoundCount = count;
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
