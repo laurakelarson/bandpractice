@@ -740,11 +740,14 @@ namespace Game.Engine
             {
                 myItemList.AddRange(GetRandomMonsterItemDrops(myItemList));
 
-                var cloudItem = Task.Run(async () => await GetExternalItem(target.Level)).Result;
-
-                if (cloudItem != null)
+                if (CloudItemDropEnabled)
                 {
-                    myItemList.Add(cloudItem);
+                    var cloudItem = Task.Run(async () => await GetExternalItem(target.Level)).Result;
+
+                    if (cloudItem != null)
+                    {
+                        myItemList.Add(cloudItem);
+                    }
                 }
 
                 //// Hackathon Scenario 10
