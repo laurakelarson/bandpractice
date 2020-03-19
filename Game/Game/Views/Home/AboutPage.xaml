@@ -121,6 +121,21 @@
 
                     </StackLayout>
 
+                    <StackLayout Style="{StaticResource HorizontalStack}"
+                                    Padding="50,0,0,0">
+
+                        <Label Text="Enable Cloud Item Drop in Battle" TextColor="{StaticResource PrimaryBackgroundColor}"/>
+
+                        <Switch
+                            HorizontalOptions="Start" 
+                            VerticalOptions="Center"
+                            x:Name="CloudItemDropValue"
+                            IsToggled="{Binding BattleEngineViewModel.Instance.Engine.CloudItemDropEnabled}"
+                            Toggled="CloudItemDropValue_Toggled" 
+                        />
+
+                    </StackLayout>
+
 
                     <StackLayout Style="{StaticResource HorizontalStack}"
                                         Padding="50,0,0,0">

@@ -126,6 +126,24 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Event handler to enable monster cloud item drop in battle engine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CloudItemDropValue_Toggled(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (CloudItemDropValue.IsToggled == true)
+            {
+                BattleEngineViewModel.Instance.Engine.CloudItemDropEnabled = true;
+            }
+            else
+            {
+                BattleEngineViewModel.Instance.Engine.CloudItemDropEnabled = false;
+            }
+        }
+
+        /// <summary>
         /// Example of how to call for Items using HttpGet
         /// </summary>
         /// <param name="sender"></param>
