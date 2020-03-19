@@ -72,7 +72,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <!--Debug Settings Frame-->
+                <!--Game Settings Frame-->
                 <StackLayout Style="{StaticResource HorizontalStack}">
 
                     <Label
