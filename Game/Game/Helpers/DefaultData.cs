@@ -79,12 +79,12 @@ namespace Game.Services
             scoreTest.AddToList(DefaultMonsterHelper.DefaultShrillBabe());
             scoreTest.AddToList(DefaultMonsterHelper.DefaultYowlingFeline());
 
-            scoreTest.AddToList(DataHelper.DefaultTambourine());
-            scoreTest.AddToList(DataHelper.DefaultBassist());
-            scoreTest.AddToList(DataHelper.DefaultKeyboardist());
-            scoreTest.AddToList(DataHelper.DefaultDrummer());
-            scoreTest.AddToList(DataHelper.DefaultGuitarist());
-            scoreTest.AddToList(DataHelper.DefaultLeadVocalist());
+            scoreTest.AddToList(DefaultCharacterHelper.DefaultTambourine());
+            scoreTest.AddToList(DefaultCharacterHelper.DefaultBassist());
+            scoreTest.AddToList(DefaultCharacterHelper.DefaultKeyboardist());
+            scoreTest.AddToList(DefaultCharacterHelper.DefaultDrummer());
+            scoreTest.AddToList(DefaultCharacterHelper.DefaultGuitarist());
+            scoreTest.AddToList(DefaultCharacterHelper.DefaultLeadVocalist());
                 
             scoreTest.AddToList(DefaultItemHelper.DefaultTriangle());
             scoreTest.AddToList(DefaultItemHelper.DefaultBunnySlippers());
@@ -120,12 +120,12 @@ namespace Game.Services
         {
             var datalist = new List<CharacterModel>()
             {
-                DataHelper.DefaultTambourine(),
-                DataHelper.DefaultBassist(),
-                DataHelper.DefaultKeyboardist(),
-                DataHelper.DefaultDrummer(),
-                DataHelper.DefaultGuitarist(),
-                DataHelper.DefaultLeadVocalist()
+                DefaultCharacterHelper.DefaultTambourine(),
+                DefaultCharacterHelper.DefaultBassist(),
+                DefaultCharacterHelper.DefaultKeyboardist(),
+                DefaultCharacterHelper.DefaultDrummer(),
+                DefaultCharacterHelper.DefaultGuitarist(),
+                DefaultCharacterHelper.DefaultLeadVocalist()
             };
 
             return datalist;

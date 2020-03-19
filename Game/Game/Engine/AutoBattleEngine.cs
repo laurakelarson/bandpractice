@@ -57,12 +57,12 @@ namespace Game.Engine
             // Prepare for Battle
 
             // Default band
-            AddBandMember(DataHelper.DefaultDrummer());
-            AddBandMember(DataHelper.DefaultBassist());
-            AddBandMember(DataHelper.DefaultGuitarist());
-            AddBandMember(DataHelper.DefaultTambourine());
-            AddBandMember(DataHelper.DefaultLeadVocalist());
-            AddBandMember(DataHelper.DefaultKeyboardist());
+            AddBandMember(DefaultCharacterHelper.DefaultDrummer());
+            AddBandMember(DefaultCharacterHelper.DefaultBassist());
+            AddBandMember(DefaultCharacterHelper.DefaultGuitarist());
+            AddBandMember(DefaultCharacterHelper.DefaultTambourine());
+            AddBandMember(DefaultCharacterHelper.DefaultLeadVocalist());
+            AddBandMember(DefaultCharacterHelper.DefaultKeyboardist());
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
