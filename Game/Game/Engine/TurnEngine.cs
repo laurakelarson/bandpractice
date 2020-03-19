@@ -589,6 +589,7 @@ namespace Game.Engine
                         character.CurrentHealth = character.MaxHealth;
                         character.MiracleMax = false;
                         EntityList.First(a => a.Id == Target.Id).Alive = true;
+                        EntityList.First(a => a.Id == Target.Id).CurrentHealth = character.MaxHealth;
                         character.Alive = true;
                         BattleMessages.TurnMessageSpecial = character.Name + " has been miraculously revived by Miracle Max!\nSee Miracle Max for all of your miraculous needs~";
                         Debug.WriteLine(BattleMessages.TurnMessageSpecial);
