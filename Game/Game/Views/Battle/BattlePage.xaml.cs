@@ -964,12 +964,11 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void StartButton_Clicked(object sender, EventArgs e)
+        public void StartButton_Clicked(object sender, EventArgs e)
         {
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
 
             ShowBattleMode();
-            //await Navigation.PushModalAsync(new NewRoundPage());
         }
 
         /// <summary>
