@@ -65,6 +65,9 @@ namespace Game.Engine
         // The battle Map
         public MapModel MapModel = new MapModel();
 
+        // Flag to enable a cloud item being added to monster item drop
+        public bool CloudItemDropEnabled = false;
+
         // Flag to enable Critical Hits (hackathon rule)
         public bool CriticalHitsEnabled = false;
 
