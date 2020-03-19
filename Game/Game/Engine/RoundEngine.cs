@@ -187,10 +187,6 @@ namespace Game.Engine
             {
                 var data = monsters[i];
 
-                // Update monster's grid position
-                data.RowPos = GridPositionHelper.MonsterPositions[i].X;
-                data.ColPos = GridPositionHelper.MonsterPositions[i].Y;
-
                 MonsterList.Add(data);
             }
 
