@@ -97,7 +97,6 @@ namespace Game.ViewModels
             var myList = Dataset.Where(a =>
                                         a.Name == data.Name &&
                                         a.Type == data.Type &&
-                                        a.Unlocked == data.Unlocked &&
                                         a.Alive == data.Alive &&
                                         a.Level == data.Level &&
                                         a.TotalExperience == data.TotalExperience &&

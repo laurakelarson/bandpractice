@@ -16,9 +16,6 @@ namespace Game.Models
         // The type of the character
         public CharacterTypeEnum Type { get; set; }
 
-        // Indicates whether the character is unlocked for the player to use or not
-        public bool Unlocked { get; set; } = false;
-
         // Amount of total experience the character has accumulated
         public int TotalExperience { get; set; } = 0;
 
@@ -94,7 +91,6 @@ namespace Game.Models
             ImageURI = newData.ImageURI;
             IconURI = newData.IconURI;
             Type = newData.Type;
-            Unlocked = newData.Unlocked;
             Alive = newData.Alive;
             Level = newData.Level;
             TotalExperience = newData.TotalExperience;
