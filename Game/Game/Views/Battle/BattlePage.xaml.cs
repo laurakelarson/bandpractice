@@ -827,33 +827,6 @@ namespace Game.Views
             return CharacterStack;
         }
 
-
-        ///// <summary>
-        ///// Decide The Turn and who to Attack
-        ///// </summary>
-        //public void SetAttackerAndDefender()
-        //{
-        //    EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
-
-        //    switch (EngineViewModel.Engine.CurrentAttacker.EntityType)
-        //    {
-        //        case EntityTypeEnum.Character:
-        //            // User would select who to attack
-
-        //            // for now just auto selecting
-        //            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
-        //            break;
-
-        //        case EntityTypeEnum.Monster:
-        //        default:
-
-        //            // Monsters turn, so auto pick a Character to Attack
-        //            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
-        //            break;
-        //    }
-        //}
-
-
         /// <summary>
         /// Game is over
         /// 
