@@ -172,7 +172,7 @@ namespace Game.Models
         /// 
         /// Mike does not use this in the example battle grammar
         /// 
-        /// TODO: INFO  Could be helpfull to track what is selected for actions etc
+        /// TODO: INFO  Could be helpful to track what is selected for actions etc
         /// 
         /// </summary>
         /// <returns></returns>
