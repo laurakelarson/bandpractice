@@ -1,4 +1,5 @@
 ﻿using Game.Engine;
+using Game.Helpers;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -52,5 +53,20 @@ namespace UnitTests.Engine
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Default_Should_Pass()
+        {
+            //Arrange
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
     }
 }
