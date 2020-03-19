@@ -68,5 +68,19 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
         }
 
+        [Test]
+        public void AutoBattleEngine_CreateBand_Characters_Should_Assign_6()
+        {
+            //Arrange
+
+            //Act
+            var result = Engine.CreateBand();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(6, Engine.CharacterList.Count());
+        }
     }
 }
