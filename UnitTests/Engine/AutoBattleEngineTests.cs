@@ -82,5 +82,22 @@ namespace UnitTests.Engine
             Assert.AreEqual(true, result);
             Assert.AreEqual(6, Engine.CharacterList.Count());
         }
+
+        [Test]
+        public async Task AutoBattleEngine_DetectInfiniteLoop_Turn_Should_PassAsync()
+        {
+            //Arrange
+            var count = Engine.MaxTurnCount;
+            Engine.MaxTurnCount = 1;
+
+            //Act
+            var result = await Engine.RunAutoBattle();
+
+            //Reset
+            Engine.MaxTurnCount = count;
+
+            //Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
