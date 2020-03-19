@@ -1014,7 +1014,6 @@ namespace Game.Views
         /// </summary>
         public void HideUIElements()
         {
-            NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             AttackButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
