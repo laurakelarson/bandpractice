@@ -888,6 +888,9 @@ namespace Game.Views
             // end the round - characters distribute item pool
             BattleEngineViewModel.Instance.Engine.EndRound();
 
+            // Display round #
+            RoundNumberLabel.Text = EngineViewModel.Engine.Score.RoundCount.ToString();
+
             // Display the items equipped during the round
             ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
 
