@@ -102,13 +102,13 @@
                                 <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="250"/>
                             </Grid.ColumnDefinitions>
                             <ScrollView Grid.Row="0" Grid.Column="0"
                                 Orientation="Vertical"
-                                VerticalOptions="Fill">
+                                VerticalOptions="Start">
                                 <Label x:Name="BattleMessages"
-                                Style="{StaticResource ScrollableLabel}"/>
+                                    Style="{StaticResource ScrollableLabel}" />
                             </ScrollView>
                         </Grid>
 
