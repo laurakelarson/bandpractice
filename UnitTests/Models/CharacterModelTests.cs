@@ -55,7 +55,6 @@ namespace UnitTests.Models
 
             // Assert 
             Assert.IsNotNull(result.TotalExperience);
-            Assert.IsNotNull(result.Unlocked);
             Assert.IsNotNull(result.Type);
             Assert.IsNotNull(result.Level);
         }
@@ -68,7 +67,6 @@ namespace UnitTests.Models
             // Act
             var result = new CharacterModel();
             result.TotalExperience = 600;
-            result.Unlocked = false;
             result.HeadItem = "head";
             result.FeetItem = "feet";
             result.NecklassItem = "body";
@@ -81,7 +79,6 @@ namespace UnitTests.Models
 
             // Assert 
             Assert.AreEqual(600, result.TotalExperience);
-            Assert.AreEqual(false, result.Unlocked);
             Assert.AreEqual("head", result.HeadItem);
             Assert.AreEqual("body", result.NecklassItem);
             Assert.AreEqual("feet", result.FeetItem);
