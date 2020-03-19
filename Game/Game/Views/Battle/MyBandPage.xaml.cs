@@ -34,12 +34,12 @@ namespace Game.Views
 
 			// Set up default band
 			EngineViewModel.PartyCharacterList.Clear();
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultLeadVocalist());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultGuitarist());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultDrummer());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultKeyboardist());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultBassist());
-			EngineViewModel.PartyCharacterList.Add(DataHelper.DefaultTambourine());
+			EngineViewModel.PartyCharacterList.Add(DefaultCharacterHelper.DefaultLeadVocalist());
+			EngineViewModel.PartyCharacterList.Add(DefaultCharacterHelper.DefaultGuitarist());
+			EngineViewModel.PartyCharacterList.Add(DefaultCharacterHelper.DefaultDrummer());
+			EngineViewModel.PartyCharacterList.Add(DefaultCharacterHelper.DefaultKeyboardist());
+			EngineViewModel.PartyCharacterList.Add(DefaultCharacterHelper.DefaultBassist());
+			EngineViewModel.PartyCharacterList.Add(DefaultCharacterHelper.DefaultTambourine());
 		}
 
 		/// <summary>

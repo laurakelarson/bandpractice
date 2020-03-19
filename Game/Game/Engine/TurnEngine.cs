@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Game.Helpers;
 using Game.Models;
 using Game.Models.Enum;
+using Game.Services;
 using Game.ViewModels;
 
 namespace Game.Engine
@@ -738,6 +740,13 @@ namespace Game.Engine
             {
                 myItemList.AddRange(GetRandomMonsterItemDrops(myItemList));
 
+                var cloudItem = Task.Run(async () => await GetExternalItem(target.Level)).Result;
+
+                if (cloudItem != null)
+                {
+                    myItemList.Add(cloudItem);
+                }
+
                 //// Hackathon Scenario 10
                 //if (myItemList.Count == 1)
                 //{
@@ -801,6 +810,29 @@ namespace Game.Engine
                 default:
                     return MonsterList.Where(a => a.Id == target.Id).FirstOrDefault().DropItems();
             }
+        }
+
+        /// <summary>
+        /// Sends a post request to the item cloud server for use in monster item drop.
+        /// Request value based on the level of the monster.
+        /// </summary>
+        /// <param name="MonsterLevel"></param>
+        /// <returns></returns>
+        public async System.Threading.Tasks.Task<ItemModel> GetExternalItem(int MonsterLevel)
+        {
+            var number = 1;
+            var level = Math.Min(6, MonsterLevel);  // Max Value of 6
+            var attribute = AttributeEnum.Unknown;  // Any Attribute
+            var location = ItemLocationEnum.Unknown;    // Any Location
+            var random = true;  // Random between 1 and Level
+            var updateDataBase = true;  // Add them to the DB
+            var category = 0;   // What category to filter down to, 0 is all
+
+            // send post request to server
+            var dataList = await ItemService.GetItemsFromServerPostAsync(number, level, attribute, location,
+                category, random, updateDataBase);
+
+            return dataList.ElementAtOrDefault(0);
         }
 
         /// <summary>

@@ -56,13 +56,8 @@ namespace Game.Engine
 
             // Prepare for Battle
 
-            // Default band
-            AddBandMember(DataHelper.DefaultDrummer());
-            AddBandMember(DataHelper.DefaultBassist());
-            AddBandMember(DataHelper.DefaultGuitarist());
-            AddBandMember(DataHelper.DefaultTambourine());
-            AddBandMember(DataHelper.DefaultLeadVocalist());
-            AddBandMember(DataHelper.DefaultKeyboardist());
+            // Set up the default band
+            CreateBand();
 
             // Start Battle in AutoBattle mode
             StartBattle(true);
@@ -99,6 +94,22 @@ namespace Game.Engine
 
             // Set Score Name
             Score.Name = "Auto-Battle " + Score.GameDate.ToShortDateString();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Create the default band of characters for the game
+        /// </summary>
+        /// <returns></returns>
+        public bool CreateBand()
+        {
+            AddBandMember(DefaultCharacterHelper.DefaultDrummer());
+            AddBandMember(DefaultCharacterHelper.DefaultBassist());
+            AddBandMember(DefaultCharacterHelper.DefaultGuitarist());
+            AddBandMember(DefaultCharacterHelper.DefaultTambourine());
+            AddBandMember(DefaultCharacterHelper.DefaultLeadVocalist());
+            AddBandMember(DefaultCharacterHelper.DefaultKeyboardist());
 
             return true;
         }

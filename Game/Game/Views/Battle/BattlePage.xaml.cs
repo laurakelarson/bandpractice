@@ -22,9 +22,6 @@ namespace Game.Views
         // This uses the Instance so it can be shared with other Battle Pages as needed
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
-        // HTML Formatting for message output box
-        public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
-
         // Wait time before proceeding
         public int WaitTime = 1500;
 
@@ -198,7 +195,8 @@ namespace Game.Views
 
                 var imageObject = (ImageButton)MapObject;
 
-                // Check automation ID on the Image, That should match the Player, if not a match, the cell is now different need to update
+                // Check automation ID on the Image, That should match the Player, if not a match,
+                // the cell is now different and needs to be updated
                 if (!imageObject.AutomationId.Equals(data.Player.Guid))
                 {
                     // The Image is different, so need to re-create the Image Object and add it to the Stack
@@ -385,7 +383,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// This add the ImageButton to the stack to kep track of
+        /// This add the ImageButton to the stack to keep track of
         /// </summary>
         /// <param name="data"></param>
         /// <param name="MapModel"></param>
@@ -433,7 +431,7 @@ namespace Game.Views
         /// Set the Image onto the map
         /// The Image represents the player
         /// 
-        /// So a charcter is the character Image for that character
+        /// So a character is the character Image for that character
         /// 
         /// The Automation ID equals the guid for the player
         /// This makes it easier to identify when checking the map to update thigns
@@ -682,20 +680,24 @@ namespace Game.Views
             {
                 AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.IconURI;
                 AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
-                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
+                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
 
                 DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.ImageURI;
                 DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
-                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
             } else
             {
                 AttackerImage.Source = EngineViewModel.Engine.CurrentAttacker.ImageURI;
                 AttackerName.Text = EngineViewModel.Engine.CurrentAttacker.Name;
-                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
+                AttackerHealth.Text = EngineViewModel.Engine.CurrentAttacker.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentAttacker.MaxHealth.ToString();
 
                 DefenderImage.Source = EngineViewModel.Engine.CurrentDefender.IconURI;
                 DefenderName.Text = EngineViewModel.Engine.CurrentDefender.Name;
-                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / " + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
+                DefenderHealth.Text = EngineViewModel.Engine.CurrentDefender.CurrentHealth.ToString() + " / "
+                    + EngineViewModel.Engine.CurrentDefender.MaxHealth.ToString();
             }
             
 
@@ -733,19 +735,6 @@ namespace Game.Views
         public void AttackButton_Clicked(object sender, EventArgs e)
         {
             EngineNextTurn();
-        }
-
-        /// <summary>
-        /// Attack Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void AutoAttackButton_Clicked(object sender, EventArgs e)
-        {
-            for(int i = 0; i<10; i++)
-            {
-                AttackButton_Clicked(sender, e);
-            }
         }
 
         /// <summary>
@@ -840,33 +829,6 @@ namespace Game.Views
             return CharacterStack;
         }
 
-
-        ///// <summary>
-        ///// Decide The Turn and who to Attack
-        ///// </summary>
-        //public void SetAttackerAndDefender()
-        //{
-        //    EngineViewModel.Engine.CurrentAttacker = EngineViewModel.Engine.GetNextPlayerTurn();
-
-        //    switch (EngineViewModel.Engine.CurrentAttacker.EntityType)
-        //    {
-        //        case EntityTypeEnum.Character:
-        //            // User would select who to attack
-
-        //            // for now just auto selecting
-        //            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
-        //            break;
-
-        //        case EntityTypeEnum.Monster:
-        //        default:
-
-        //            // Monsters turn, so auto pick a Character to Attack
-        //            EngineViewModel.Engine.CurrentDefender = EngineViewModel.Engine.AttackChoice(EngineViewModel.Engine.CurrentAttacker);
-        //            break;
-        //    }
-        //}
-
-
         /// <summary>
         /// Game is over
         /// 
@@ -900,6 +862,9 @@ namespace Game.Views
 
             // end the round - characters distribute item pool
             BattleEngineViewModel.Instance.Engine.EndRound();
+
+            // Display round #
+            RoundNumberLabel.Text = EngineViewModel.Engine.Score.RoundCount.ToString();
 
             // Display the items equipped during the round
             ItemsLabel.Text = EngineViewModel.Engine.BattleMessages.GetItemsEquippedMessage();
@@ -949,8 +914,6 @@ namespace Game.Views
         public void ClearMessages()
         {
             BattleMessages.Text = "";
-            htmlSource.Html = EngineViewModel.Engine.BattleMessages.GetHTMLBlankMessage();
-            //HtmlBox.Source = htmlSource;
         }
 
         #endregion MessageHandelers
@@ -1001,12 +964,11 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void StartButton_Clicked(object sender, EventArgs e)
+        public void StartButton_Clicked(object sender, EventArgs e)
         {
             EngineViewModel.Engine.BattleStateEnum = BattleStateEnum.Battling;
 
             ShowBattleMode();
-            //await Navigation.PushModalAsync(new NewRoundPage());
         }
 
         /// <summary>
@@ -1045,17 +1007,15 @@ namespace Game.Views
 
         /// <summary>
         /// 
-        /// Hide the differnt button states
+        /// Hide the different button states
         /// 
         /// Hide the message display box
         /// 
         /// </summary>
         public void HideUIElements()
         {
-            NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             AttackButton.IsVisible = false;
-            AutoAttackButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
             BattlePlayerInfomationBox.IsVisible = false;
         }
@@ -1071,19 +1031,14 @@ namespace Game.Views
 
             DrawPlayerBoxes();
 
-            // Update the Mode
-            //BattleModeValue.Text = EngineViewModel.Engine.BattleSettingsModel.BattleModeEnum.ToMessage();
-
             switch (EngineViewModel.Engine.BattleSettingsModel.BattleModeEnum)
             {
-                case BattleModeEnum.MapAbility:
                 case BattleModeEnum.MapFull:
                 case BattleModeEnum.MapNext:
                     GamePlayersTopDisplay.IsVisible = false;
                     BattleMapDisplay.IsVisible = true;
                     break;
 
-                case BattleModeEnum.SimpleAbility:
                 case BattleModeEnum.SimpleNext:
                 case BattleModeEnum.Unknown:
                 default:
@@ -1096,12 +1051,9 @@ namespace Game.Views
             {
                 case BattleStateEnum.Starting:
                     StartBattleButton.IsVisible = true;
-                    //GameUIDisplay.IsVisible = false;
                     break;
 
                 case BattleStateEnum.NewRound:
-                    //NextRoundButton.IsVisible = true;
-
                     // Hide the Game Board
                     GameUIDisplay.IsVisible = false;
 
@@ -1124,7 +1076,6 @@ namespace Game.Views
                     BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
                     AttackButton.IsVisible = true;
-                    AutoAttackButton.IsVisible = true;
                     break;
 
                 // Based on the State disable buttons

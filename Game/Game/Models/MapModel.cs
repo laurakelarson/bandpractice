@@ -168,25 +168,6 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Clear all Locations of the Selected Bool
-        /// 
-        /// Mike does not use this in the example battle grammar
-        /// 
-        /// TODO: INFO  Could be helpful to track what is selected for actions etc
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public bool ClearSelection()
-        {
-            foreach (var data in MapGridLocation)
-            {
-                data.IsSelectedTarget = false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
         /// Find the Player on the map
         /// Return their information
         /// 
