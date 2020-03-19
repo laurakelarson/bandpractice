@@ -736,19 +736,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Attack Action
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void AutoAttackButton_Clicked(object sender, EventArgs e)
-        {
-            for(int i = 0; i<10; i++)
-            {
-                AttackButton_Clicked(sender, e);
-            }
-        }
-
-        /// <summary>
         /// Display the result of the Turn by updating UX messages, board, and character profiles
         /// </summary>
         public void DisplayTurnResult()
@@ -1055,7 +1042,6 @@ namespace Game.Views
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
             AttackButton.IsVisible = false;
-            AutoAttackButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
             BattlePlayerInfomationBox.IsVisible = false;
         }
@@ -1124,7 +1110,6 @@ namespace Game.Views
                     BattlePlayerInfomationBox.IsVisible = true;
                     MessageDisplayBox.IsVisible = true;
                     AttackButton.IsVisible = true;
-                    AutoAttackButton.IsVisible = true;
                     break;
 
                 // Based on the State disable buttons
