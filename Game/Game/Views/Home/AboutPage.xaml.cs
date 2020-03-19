@@ -23,11 +23,11 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // Hide the Debug Settings
+            // Hide the Game Settings
             DatabaseSettingsFrame.IsVisible = false;
 
             // Turn off the Settings Frame
-            DebugSettingsFrame.IsVisible = false;
+            GameSettingsFrame.IsVisible = false;
 
             // Set to the curent date and time
             CurrentDateTime.Text = DateTime.Now.ToString("MM/dd/yy hh:mm:ss");
@@ -45,14 +45,14 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Sow or hide the Debug Settings
+        /// Sow or hide the Game Settings
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DebugSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
+        private void GameSettingsSwitch_OnToggled(object sender, ToggledEventArgs e)
         {
-           // Show or hide the Debug Settings
-           DebugSettingsFrame.IsVisible = (e.Value);
+           // Show or hide the Game Settings
+           GameSettingsFrame.IsVisible = (e.Value);
         }
 
         /// <summary>

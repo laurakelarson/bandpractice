@@ -76,19 +76,19 @@
                 <StackLayout Style="{StaticResource HorizontalStack}">
 
                     <Label
-                        Text="Debug Settings"
+                        Text="Game Settings"
                         TextColor="{StaticResource PrimaryBackgroundColor}"
                         Style="{DynamicResource DebugSwitchLabel}"/>
 
                     <Switch
-                        x:Name="DebugSettingsSwitch"
+                        x:Name="GameSettingsSwitch"
                         HorizontalOptions="EndAndExpand"
-                        Toggled="DebugSettingsSwitch_OnToggled"
+                        Toggled="GameSettingsSwitch_OnToggled"
                         IsToggled="False"/>
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource VerticalStack}"
-                        x:Name="DebugSettingsFrame"
+                        x:Name="GameSettingsFrame"
                         IsVisible="False">
 
                     <StackLayout Style="{StaticResource HorizontalStack}"
