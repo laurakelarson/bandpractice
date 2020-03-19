@@ -97,28 +97,22 @@
 
                     </StackLayout>
 
-                    <StackLayout 
-                            Style="{StaticResource VerticalStack}" 
-                            HeightRequest="100"
-                            HorizontalOptions="CenterAndExpand">
+                    <Grid x:Name="MessageDisplayBox" IsVisible="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollView Grid.Row="0" Grid.Column="0"
+                                Orientation="Vertical"
+                                VerticalOptions="Fill">
+                            <Label x:Name="BattleMessages"
+                                Style="{StaticResource ScrollableLabel}"/>
+                        </ScrollView>
+                    </Grid>
 
-                        <StackLayout x:Name="MessageDisplayBox" 
-                            IsVisible="false"
-                            Style="{StaticResource VerticalStack}" 
-                                    VerticalOptions="StartAndExpand"
-                                    HorizontalOptions="CenterAndExpand">
 
-                            <Label x:Name="BattleMessages" 
-                                    HorizontalOptions="FillAndExpand" 
-                                    LineBreakMode="WordWrap" 
-                                    MaxLines="3"
-                                    LineHeight="1"
-                                    CharacterSpacing="1"
-                                    Style="{StaticResource LabelStyle}"
-                                    FontSize="Micro"/>
-
-                        </StackLayout>
-                    </StackLayout>
                 </StackLayout>
             </StackLayout>
 
